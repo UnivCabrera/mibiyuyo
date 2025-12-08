@@ -6,21 +6,21 @@ Parte 1: El Núcleo Tecnológico (La Herencia de Palantir y Cyber-Security)
 Para que tus aplicaciones destaquen, no deben ser simples "calculadoras", sino plataformas de inteligencia. Aquí aplicamos las filosofías de las empresas que mencionaste:
 
 1. La Ontología Financiera (Inspirado en Palantir Foundry)
-En lugar de ver "filas y columnas" de Excel, el software debe ver "Objetos y Relaciones".
+   En lugar de ver "filas y columnas" de Excel, el software debe ver "Objetos y Relaciones".
 
 Concepto: Una transacción no es solo un número. Es un objeto vinculado a una Ubicación, una Categoría, un Sentimiento (¿fue compra impulsiva?), y un Impacto Futuro.
 
 Aplicación: El sistema crea un "Gemelo Digital" de la economía del usuario o empresa. Si mueves una variable (ej. "Ahorrar 10% menos"), el sistema simula el impacto a 5 años (Capacidad de simulación de Foundry).
 
 2. Seguridad de "Confianza Cero" (Inspirado en Palo Alto Networks & CrowdStrike)
-Registro de Auditoría Inmutable: Tal como mencionaste sobre Gotham. Cada clic, cada vista de un saldo, cada edición de una factura queda registrada.
+   Registro de Auditoría Inmutable: Tal como mencionaste sobre Gotham. Cada clic, cada vista de un saldo, cada edición de una factura queda registrada.
 
 Para PyMES: Evita el fraude interno. Sabes exactamente qué empleado vio qué cuenta y cuándo.
 
 Detección de Anomalías (AI): Usar algoritmos similares a los antivirus. Si una cuenta personal gasta repentinamente el 50% de su saldo en una ubicación inusual a las 3 AM, el sistema alerta (preventivo) o bloquea (proactivo).
 
 3. Ecosistema Interconectado (Microsoft/Alphabet/Cisco)
-Integración Fluida: Tus apps no deben ser islas. Deben hablarse entre sí. Si el usuario tiene la App Personal y la App PyME, el sistema debe detectar si está "sangrando" dinero de la empresa para gastos personales (un error común que Whitepaper seguramente ha documentado en historias de fracasos empresariales).
+   Integración Fluida: Tus apps no deben ser islas. Deben hablarse entre sí. Si el usuario tiene la App Personal y la App PyME, el sistema debe detectar si está "sangrando" dinero de la empresa para gastos personales (un error común que Whitepaper seguramente ha documentado en historias de fracasos empresariales).
 
 Parte 2: Arquitectura de Funcionalidades por Proyecto (30 "Features" Integradas)
 Aquí integro las lecciones de los canales de YouTube (finanzas prácticas, contexto de negocios en México, y ciencia).

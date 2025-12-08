@@ -13,61 +13,74 @@ Esta sección integra las características identificadas en el mercado global de
 ### CARACTERÍSTICAS PRESENTES EN EL PROYECTO ✅
 
 **1. Registro de Ingresos** (RF-001 a RF-003)
+
 - Estado: ✅ IMPLEMENTADO
 - Prioridad: PMV (Mes 0-3)
 - Integración: Módulo de transacciones con soporte multi-atributo
 
 **2. Registro de Gastos** (RF-001 a RF-003)
+
 - Estado: ✅ IMPLEMENTADO
 - Prioridad: PMV (Mes 0-3)
 - Diferenciador: Incluye validación RFC y categorización inteligente
 
 **3. Clasificación por Categorías** (RF-041 a RF-048)
+
 - Estado: ✅ IMPLEMENTADO MEJORADO
 - Innovación México: Categorías predeterminadas adaptadas a fiscalidad mexicana
 - Feature único: Categorías con indicador de "deducible fiscalmente"
 
 **4. Subcategorías Detalladas** (RF-043)
+
 - Estado: ✅ IMPLEMENTADO
 - Capacidad: 3 niveles de profundidad (padre-hijo-nieto)
 
 **5. Etiquetas/Tags Personalizados** (RF-049 a RF-050)
+
 - Estado: ✅ IMPLEMENTADO
 - Límite: 100 etiquetas por usuario
 
 **6. Adición de Notas** (RF-051 a RF-058)
+
 - Estado: ✅ IMPLEMENTADO
 - Feature adicional: Notas privadas que no aparecen en reportes compartidos
 
 **7. Captura Digital de Recibos/Facturas** (RF-056 a RF-057)
+
 - Estado: ✅ IMPLEMENTADO CON OCR
 - Diferenciador México: Integración con XML CFDI (no solo foto)
 - Tecnología: OCR + validación SAT
 
 **8. Selección de Fecha y Hora** (RF-051 a RF-068)
+
 - Estado: ✅ IMPLEMENTADO
 - Validación: No permite fechas futuras (excepto transacciones programadas)
 
 **9. Ubicación Geográfica** (Parcialmente implementado)
+
 - Estado: ⚠️ FASE 2 (Mes 6-12)
 - Razón: No crítico para PMV, útil para análisis de patrones
 
 **10. Múltiples Cuentas** (RF-031 a RF-040)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos soportados: Efectivo, Banco, Inversión, Cripto, Tarjeta Crédito, Ahorro
 - Límite: 50 cuentas por usuario
 
 **11. Transacciones Recurrentes** (RF-059 a RF-061)
+
 - Estado: ✅ IMPLEMENTADO
 - Frecuencias: Diaria, Semanal, Quincenal, Mensual, Anual
 - Motor: pg-boss (job scheduler)
 
 **12. Divisas Múltiples** (RF-025, RF-152)
+
 - Estado: ✅ IMPLEMENTADO
 - Monedas: MXN (principal), USD, EUR
 - Feature: Actualización diaria de tipos de cambio (API)
 
 **13. Transferencias Internas** (RF-054 a RF-055)
+
 - Estado: ✅ IMPLEMENTADO
 - Validación: Cuenta origen ≠ cuenta destino
 - Contabilidad: No afecta balance total (neutral)
@@ -78,29 +91,34 @@ Esta sección integra las características identificadas en el mercado global de
 
 ### CARACTERÍSTICAS IMPLEMENTADAS/EN ROADMAP
 
-**14. Sincronización Bancaria Segura** 
+**14. Sincronización Bancaria Segura**
+
 - Estado: ⚠️ FASE 2 (Mes 3-6) - PoC Open Banking
 - Proveedor: Belvo/Finerio (evaluación en curso)
 - Target inicial: 3-5 bancos principales (BBVA, Santander, Banorte)
 - Nota: Esta es una de las mayores diferenciaciones competitivas para México
 
 **15. Clasificación Automática de Movimientos**
+
 - Estado: ✅ IMPLEMENTADO (Reglas) + 🔄 IA (Fase 2)
 - PMV: Motor de reglas definidas por usuario
 - V+: IA con sugerencias explicables (confidence score)
 - Feature único: Aprende de conciliaciones manuales del usuario
 
 **16. Actualización Automática de Saldos**
+
 - Estado: ✅ IMPLEMENTADO
 - Tecnología: Triggers PostgreSQL + caché Redis (TTL 5 min)
 - Performance: Balance recalculado en <50ms
 
 **17. Conciliación de Transacciones**
+
 - Estado: ✅ IMPLEMENTADO (Motor de reglas) + 🔄 IA (Fase 2)
 - Diferenciador crítico: Conciliación factura PPD vs movimiento bancario
 - Feature México: Generación automática de Complemento de Pagos (REP)
 
 **18. Detección de Transacciones Duplicadas**
+
 - Estado: ✅ IMPLEMENTADO
 - Algoritmo: Mismo monto + fecha ± 1 día + cuenta
 - Durante: Importación CSV y sincronización bancaria
@@ -112,28 +130,34 @@ Esta sección integra las características identificadas en el mercado global de
 ### TODAS LAS CARACTERÍSTICAS IMPLEMENTADAS ✅
 
 **19. Creación de Presupuestos Personalizados** (RF-081 a RF-082)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos: Por categoría (mensual, trimestral, anual) + global
 
 **20. Seguimiento del Progreso del Presupuesto** (RF-082 a RF-083)
+
 - Estado: ✅ IMPLEMENTADO
 - UI: Barra de progreso visual (verde <80%, amarillo 80-100%, rojo >100%)
 
 **21. Alertas de Presupuesto** (RF-084 a RF-085)
+
 - Estado: ✅ IMPLEMENTADO
 - Triggers: 80% (warning) y 100% (excedido)
 - Canales: Email + notificaciones in-app
 
 **22. Presupuestos Flexibles (Rolling Budgets)** (RF-086)
+
 - Estado: ✅ IMPLEMENTADO
 - Feature: Sobrante se "rueda" al siguiente periodo
 
 **23. Presupuesto Base Cero (Zero-Based Budgeting)**
+
 - Estado: ❌ NO IMPLEMENTADO
 - Razón: Complejidad vs beneficio en PMV
 - Consideración: Fase 3 (Mes 12+) si hay demanda
 
 **24. Análisis de Hábitos de Consumo** (RF-078 a RF-080)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Promedios por categoría, día semana, mes
@@ -141,11 +165,13 @@ Esta sección integra las características identificadas en el mercado global de
   - Tendencias mes vs mes anterior
 
 **25. Cálculo de Flujo de Efectivo (Cash Flow)** (RF-146)
+
 - Estado: ✅ IMPLEMENTADO
 - Reportes: Ingresos, egresos, balance neto por periodo
 - Feature empresarial: Proyección 3-6-12 meses (Fase 2)
 
 **26. Control de Gastos Variables/Fijos** (RF-059 a RF-061)
+
 - Estado: ✅ IMPLEMENTADO VÍA RECURRENTES
 - Identificación: Transacciones recurrentes = gastos fijos
 - Análisis: Dashboard muestra distribución fijos vs variables
@@ -157,11 +183,13 @@ Esta sección integra las características identificadas en el mercado global de
 ### TODAS IMPLEMENTADAS ✅
 
 **27. Interfaz Clara e Intuitiva**
+
 - Estado: ✅ DISEÑO DEFINIDO
 - Framework: Nuxt 3 + SCSS (metodología BEM)
 - Principio: Mobile-first, responsive
 
 **28. Pantalla Ilustrativa/Gráficos** (RF-127 a RF-130)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos:
   - Evolución de balance (línea temporal)
@@ -169,6 +197,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Ingresos vs egresos (barras agrupadas)
 
 **29. Informes Detallados** (RF-131 a RF-139)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos de reportes:
   - Mensual automático (resumen ejecutivo + gráficas)
@@ -178,20 +207,24 @@ Esta sección integra las características identificadas en el mercado global de
   - Fiscal simplificado (preparación SAT)
 
 **30. Exportación de Datos** (RF-133 a RF-135)
+
 - Estado: ✅ IMPLEMENTADO
 - Formatos: CSV, Excel, PDF
 - Feature: Marca de agua personalizable en PDFs
 
 **31. Resúmenes Mensuales/Semanales** (RF-148)
+
 - Estado: ✅ IMPLEMENTADO
 - Automatización: Email opt-in (configurable por usuario)
 
 **32. Dashboard Personalizable**
+
 - Estado: ⚠️ FASE 2 (Mes 3-6)
 - PMV: Dashboard predefinido con KPIs estándar
 - V+: Widgets arrastrables, selección de KPIs
 
 **33. Análisis de Tendencias a Largo Plazo** (RF-136 a RF-137)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Comparación mes actual vs mismo mes año anterior
@@ -204,28 +237,34 @@ Esta sección integra las características identificadas en el mercado global de
 ### TODAS IMPLEMENTADAS ✅
 
 **34. Establecimiento de Metas de Ahorro** (RF-091 a RF-092)
+
 - Estado: ✅ IMPLEMENTADO
 - Atributos: Nombre, monto objetivo, fecha límite, cuenta destino
 
 **35. Seguimiento del Progreso de Metas** (RF-093 a RF-094)
+
 - Estado: ✅ IMPLEMENTADO
 - UI: Barra visual + porcentaje + proyección de cumplimiento
 
 **36. Herramientas de Ahorro Automático** (RF-096 a RF-097)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Aportes manuales desde cualquier cuenta
   - Aportes automáticos (X% de ingresos)
 
 **37. Redondeo de Compras**
+
 - Estado: ❌ FASE 3 (Requiere integración bancaria avanzada)
 - Alternativa PMV: Regla manual "Si gasto <X, ahorrar Y"
 
 **38. Fondo de Emergencia** (RF-099)
+
 - Estado: ✅ IMPLEMENTADO
 - Feature: Sugerencia automática (6 meses de gastos promedio)
 
 **39. Cálculo del Patrimonio Neto** (RF-153 a RF-154)
+
 - Estado: ✅ IMPLEMENTADO
 - Fórmula: (Activos + Inversiones) - Deudas
 - Dashboard: Gráfica de evolución histórica
@@ -237,15 +276,18 @@ Esta sección integra las características identificadas en el mercado global de
 ### MAYORÍA IMPLEMENTADAS ✅
 
 **40. Programación de Pagos Futuros** (RF-059 a RF-061)
+
 - Estado: ✅ IMPLEMENTADO VÍA RECURRENTES
 
 **41. Recordatorios de Facturas y Pagos** (RF-146 a RF-147)
+
 - Estado: ✅ IMPLEMENTADO
 - Features específicas México:
   - Recordatorio CFDI pendientes aceptación/rechazo (Regla 2.7.1.21)
   - Recordatorio pagos deudas (7 días antes vencimiento)
 
 **42. Gestión de Deudas y Préstamos** (RF-101 a RF-110)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Registro deuda (acreedor, monto, tasa, plazo)
@@ -254,27 +296,33 @@ Esta sección integra las características identificadas en el mercado global de
   - Estrategias de pago (avalancha vs bola de nieve)
 
 **43. Planificador de Pago de Deuda** (RF-109)
+
 - Estado: ✅ IMPLEMENTADO
 - Estrategias: Mayor interés primero / Menor saldo primero
 
 **44. Seguimiento de Inversiones** (RF-111 a RF-120)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos: Stocks, Bonds, Crypto, Real Estate, Other
 - Cálculos: Valor actual, ganancia/pérdida, ROI
 
 **45. Simuladores Financieros** (RF-165 a RF-166)
+
 - Estado: ⚠️ FASE 2
 - Incluidos: Calculadora inversiones, calculadora retiro, emergency fund
 
 **46. Gestión de Viajes** (RF-169)
+
 - Estado: ⚠️ FASE 2 (Mes 6-12)
 - Feature: Modo viajes con gastos en moneda extranjera
 
 **47. Seguimiento de Kilometraje**
+
 - Estado: ❌ FASE 3 (No prioritario para México)
 - Razón: Mayoría usuarios no requiere esto vs USA
 
 **48. Planificación de Impuestos** (RF-139, Módulo SAT completo)
+
 - Estado: ✅ IMPLEMENTADO - DIFERENCIADOR CRÍTICO MÉXICO
 - Features:
   - Reporte fiscal simplificado
@@ -290,6 +338,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### IMPLEMENTADAS ✅
 
 **49. Gastos Compartidos/División de Cuentas** (RF-155 a RF-159)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Registro gastos con división automática
@@ -297,6 +346,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Comentarios en transacciones (thread)
 
 **50. Sincronización Multiusuario** (RF-158 a RF-160)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Invitación co-administración cuenta
@@ -304,6 +354,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Audit log de cambios
 
 **51. Función de Chat/Comentarios** (RF-157)
+
 - Estado: ✅ IMPLEMENTADO
 - Feature: Thread de conversación por transacción
 
@@ -314,32 +365,39 @@ Esta sección integra las características identificadas en el mercado global de
 ### MAYORÍA IMPLEMENTADAS ✅
 
 **52. Compatibilidad Multiplataforma**
+
 - Estado: ✅ IMPLEMENTADO
 - Plataformas: Web (responsive), PWA (installable)
 - Futuro: Apps nativas (preparación arquitectónica)
 
 **53. Sincronización en la Nube** (Multi-dispositivo)
+
 - Estado: ✅ IMPLEMENTADO
 - Backend: PostgreSQL cloud + Redis
 
 **54. Modo Offline** (RF-146)
+
 - Estado: ✅ IMPLEMENTADO VÍA PWA
 - Capacidad: Registro transacciones, consulta datos cacheados
 - Sincronización diferida al reconectar
 
 **55. Personalización del Tema** (RF-100 a RF-102)
+
 - Estado: ✅ IMPLEMENTADO
 - Features: Modo oscuro/claro persistente
 
 **56. Widgets de Pantalla de Inicio**
+
 - Estado: ❌ NO APLICABLE (Web/PWA)
 - Alternativa: Quick actions en PWA installada
 
 **57. Integración con Asistentes de Voz**
+
 - Estado: ❌ FASE 3+ (Baja prioridad)
 - Razón: Requiere desarrollo significativo, beneficio limitado en PMV
 
 **58. Soporte y Ayuda Integrada** (RF-030, Onboarding)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Wizard onboarding 5 pasos
@@ -347,16 +405,19 @@ Esta sección integra las características identificadas en el mercado global de
   - Base conocimientos (50+ artículos Mes 3)
 
 **59. Notificaciones Push Personalizadas** (RF-111 a RF-125)
+
 - Estado: ✅ IMPLEMENTADO
 - Tipos: 15+ notificaciones configurables
 - Canales: Email + in-app (campana navbar)
 
 **60. Actualizaciones Frecuentes**
+
 - Estado: ✅ ESTRATEGIA DEFINIDA
 - Cadencia: Deploy diario (CI/CD), releases semanales
 - Feature flags para rollout gradual
 
 **61. Feedback y Sugerencias In-app**
+
 - Estado: ✅ IMPLEMENTADO
 - Canales: Formulario in-app, Slack/WhatsApp directo (primeros 50 usuarios)
 
@@ -367,16 +428,19 @@ Esta sección integra las características identificadas en el mercado global de
 ### TODAS IMPLEMENTADAS CON NIVEL BANCARIO ✅
 
 **62. Protección con Contraseña/PIN** (RF-076 a RF-082)
+
 - Estado: ✅ IMPLEMENTADO
 - Política: Min 12 caracteres, 1 mayúscula, 1 número, 1 símbolo
 - Almacenamiento: Bcrypt (cost factor 12)
 
 **63. Autenticación Biométrica** (RF-083 a RF-085)
+
 - Estado: ✅ IMPLEMENTADO (2FA con TOTP)
 - Proveedores: Google Authenticator compatible
 - Feature: 10 códigos backup
 
 **64. Cifrado de Datos** (RF-026, E2EE e.firma)
+
 - Estado: ✅ IMPLEMENTADO NIVEL BANCARIO
 - Capas:
   - TLS 1.3 en tránsito
@@ -384,11 +448,13 @@ Esta sección integra las características identificadas en el mercado global de
   - E2EE para e.firma (K_user_priv cifrado con password usuario)
 
 **65. Políticas de Privacidad Claras** (RF-106 a RF-107)
+
 - Estado: ✅ PREPARADO
 - Documentos: TOS, Privacy Policy, DPA (Plan Contador)
 - Compliance: LFPDPPP, preparación GDPR
 
 **66. Seguridad a Nivel Bancario**
+
 - Estado: ✅ ARQUITECTURA COMPLETA
 - Medidas:
   - Multi-tenant RLS forzado
@@ -406,10 +472,12 @@ Esta sección integra las características identificadas en el mercado global de
 ### PARCIALMENTE IMPLEMENTADAS
 
 **67. Contenido Educativo/Cursos**
+
 - Estado: ⚠️ FASE 2 (Mes 3-6)
 - Plan: Blog 20+ artículos Mes 3, webinars mensuales Mes 6
 
 **68. Recomendaciones Personalizadas** (RF-167 a RF-168)
+
 - Estado: ⚠️ FASE 2 (IA recomendaciones)
 - Features planeadas:
   - Score salud financiera (0-100)
@@ -417,10 +485,12 @@ Esta sección integra las características identificadas en el mercado global de
   - Alertas proactivas cumplimiento SAT
 
 **69. Alertas de Comisiones Bancarias**
+
 - Estado: ⚠️ FASE 2 (Requiere Open Banking)
 - Dependencia: Integración Belvo/Finerio
 
 **70. Integración con Servicios de Pago Móvil**
+
 - Estado: ❌ FASE 3+ (No prioritario)
 - Razón: Enfoque en gestión, no en procesamiento pagos
 
@@ -431,15 +501,18 @@ Esta sección integra las características identificadas en el mercado global de
 ### A. CARACTERÍSTICAS OPEN BANKING (ALTA PRIORIDAD FASE 2)
 
 **71. Agregación de Cuentas de Terceros**
+
 - Estado: ⚠️ PoC (Mes 3-6)
 - Proveedor: Belvo/Finerio
 - Target: Vista unificada todos productos financieros usuario
 
 **72. Integración Productos Deuda/Crédito**
+
 - Estado: ❌ FASE 3
 - Feature: Visualización score crédito, alertas tasas interés
 
 **73. API Pública para Desarrolladores** (RF-161 a RF-162)
+
 - Estado: ⚠️ FASE 2
 - Plan: API versionada (v1), webhooks, rate limited
 
@@ -448,6 +521,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### B. CARACTERÍSTICAS ESPECÍFICAS CONTABILIDAD MÉXICO (CRÍTICAS)
 
 **74. Descarga Masiva SAT Automatizada**
+
 - Estado: ✅ IMPLEMENTADO - DIFERENCIADOR #1
 - Features:
   - Web Service oficial SAT (no scraping)
@@ -456,6 +530,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Notificación nuevas facturas
 
 **75. Validación RFC contra Padrón SAT** (Validación RFC Fase 1)
+
 - Estado: ✅ IMPLEMENTADO
 - Features:
   - Consulta en tiempo real
@@ -463,6 +538,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Estados: ACTIVO, INACTIVO, LISTA_NEGRA_69B
 
 **76. Workflow Aceptación/Rechazo CFDI Recibidos** (Regla 2.7.1.21)
+
 - Estado: ✅ IMPLEMENTADO (Fase V+, Mes 3-6)
 - Features:
   - Notificaciones timeline (0h, 24h, 48h, 72h)
@@ -470,11 +546,13 @@ Esta sección integra las características identificadas en el mercado global de
   - Motivos rechazo (catálogo SAT)
 
 **77. Generación Complemento de Pagos (REP) Automático**
+
 - Estado: ⚠️ FASE 2 (Mes 6-12)
 - Trigger: Conciliación pago con factura PPD
 - Validaciones: Saldo insoluto, fecha pago, forma pago
 
 **78. Validación vs Listas Negras (EFOS, EDOS, 69-B)**
+
 - Estado: ✅ IMPLEMENTADO (Validación proactiva)
 - Features:
   - Consulta automática al registrar proveedor
@@ -482,6 +560,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Dashboard de proveedores riesgo
 
 **79. Integración Buzón Tributario SAT**
+
 - Estado: ⚠️ FASE 2 (Mes 6-12)
 - Features:
   - Scraping automatizado cada 6 horas
@@ -489,6 +568,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Clasificación automática (críticas vs informativas)
 
 **80. Reportes DIOT y Carga Batch**
+
 - Estado: ❌ FASE 3 (Empresarial)
 - Target: Plan Profesional/Contador
 
@@ -497,6 +577,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### C. CARACTERÍSTICAS IA/AUTOMATIZACIÓN AVANZADA (FASE 2+)
 
 **81. Motor Conciliación con IA (Sugerencias Explicables)**
+
 - Estado: ⚠️ FASE 2 (Mes 3-6)
 - Features:
   - Modelo embeddings (Sentence Transformers)
@@ -505,15 +586,18 @@ Esta sección integra las características identificadas en el mercado global de
   - Target: >80% precisión, >70% acceptance rate
 
 **82. Predicción de Saldo Futuro**
+
 - Estado: ⚠️ FASE 2
 - Base: Patrones históricos + transacciones recurrentes
 - Horizonte: 3-6 meses
 
 **83. Detección Gastos Anómalos** (RF-080)
+
 - Estado: ✅ IMPLEMENTADO
 - Algoritmo: Desviación estándar >2σ
 
 **84. Categorización Automática Aprendizaje**
+
 - Estado: ⚠️ FASE 2 (IA)
 - PMV: Reglas definidas por usuario
 - V+: IA aprende de categorizaciones manuales
@@ -523,14 +607,17 @@ Esta sección integra las características identificadas en el mercado global de
 ### D. CARACTERÍSTICAS GAMIFICACIÓN/ENGAGEMENT (FASE 2+)
 
 **85. Sistema de Badges/Logros** (RF-164)
+
 - Estado: ⚠️ FASE 2
 - Ejemplos: "First $10K saved", "30 días presupuesto cumplido"
 
 **86. Retos Financieros/Competencias**
+
 - Estado: ❌ FASE 3
 - Feature: Retos semanales/mensuales con amigos
 
 **87. Sistema de Sobres Digitales (Envelope Budgeting)** (RF-163)
+
 - Estado: ⚠️ FASE 2
 - Feature: Asignación fondos a sobres virtuales
 
@@ -539,6 +626,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### E. CARACTERÍSTICAS COLABORACIÓN AVANZADA (FASE 2)
 
 **88. Dashboard Contador Multi-Cliente**
+
 - Estado: ✅ CRÍTICO PARA NETWORK EFFECTS (Mes 3-6)
 - Features:
   - Vista consolidada 10+ RFCs
@@ -547,6 +635,7 @@ Esta sección integra las características identificadas en el mercado global de
   - Whitelabel básico
 
 **89. Metas Compartidas Entre Usuarios** (RF-073)
+
 - Estado: ❌ FASE 3
 - Ejemplo: Pareja ahorra para vacaciones
 
@@ -555,6 +644,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### F. CARACTERÍSTICAS FISCALES AVANZADAS MÉXICO (FASE 2-3)
 
 **90. Generación Declaración Anual Pre-llenada**
+
 - Estado: ⚠️ FASE 3 (Mes 12-18)
 - Features:
   - Resumen ingresos/deducciones
@@ -562,18 +652,22 @@ Esta sección integra las características identificadas en el mercado global de
   - Exportación formato SAT
 
 **91. Integración con PAC para Timbrado Propio**
+
 - Estado: ✅ IMPLEMENTADO (Facturapi adapter)
 - Circuit breaker + fallback
 
 **92. Gestión e.firma con E2EE**
+
 - Estado: ✅ IMPLEMENTADO
 - Seguridad: K_user_priv cifrado con password usuario
 
 **93. Validación CFDI contra Catálogos SAT**
+
 - Estado: ✅ IMPLEMENTADO
 - Feature flags para actualización catálogos
 
 **94. Soporte Multi-Versión CFDI (4.0 + preparación 5.0)**
+
 - Estado: ✅ ARQUITECTURA PREPARADA
 - Patrón: CFDIVersionManager con feature flags
 
@@ -582,26 +676,32 @@ Esta sección integra las características identificadas en el mercado global de
 ### G. CARACTERÍSTICAS EMPRESARIALES/CONTABILIDAD (FASE 2-3)
 
 **95. Contabilidad Doble Entrada**
+
 - Estado: ❌ FASE 3 (Requiere refactor significativo)
 - Alternativa PMV: Registro simplificado con categorización
 
 **96. Gestión Activos Fijos y Depreciación**
+
 - Estado: ⚠️ FASE 3 (Plan Profesional)
 - Target: PyMEs con activos
 
 **97. Flujo de Efectivo Proyectado Empresarial**
+
 - Estado: ⚠️ FASE 2 (extensión de personal)
 - Horizonte: 3-6-12 meses
 
 **98. Análisis Costos por Proyecto/Centro Costo**
+
 - Estado: ❌ FASE 3
 - Target: Freelancers/agencias
 
 **99. Nómina Simplificada** (Add-on $99 MXN/mes)
+
 - Estado: ⚠️ FASE 3 (Mes 12+)
 - Límite: Hasta 10 empleados
 
 **100. Gestión Inventarios Básica**
+
 - Estado: ❌ FASE 3+
 - Razón: Scope creep, competencia con ERPs
 
@@ -625,11 +725,13 @@ Esta sección integra las características identificadas en el mercado global de
 ### DIFERENCIADORES ÚNICOS MÉXICO (CRÍTICOS PARA ÉXITO):
 
 🔥 **Top 3 Diferenciadores:**
+
 1. **Descarga Masiva SAT Automatizada** - WS oficial, no scraping
 2. **Validación CFDI vs Listas Negras** - Proactiva, tiempo real
 3. **Workflow Aceptación/Rechazo CFDI** - Compliance Regla 2.7.1.21
 
 🚀 **Ventajas Competitivas Sostenibles:**
+
 - Motor conciliación híbrido (reglas + IA explicable)
 - Network effects vía Contador (Dashboard multi-cliente)
 - Compliance SAT nativo (no adaptación post-facto)
@@ -638,6 +740,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### CARACTERÍSTICAS FASE 2 (Mes 3-6): 15+
 
 ⚠️ **Prioridad Alta:**
+
 - Open Banking (PoC Belvo)
 - IA Conciliación con explicabilidad
 - Dashboard Contador multi-cliente
@@ -646,6 +749,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### CARACTERÍSTICAS FASE 3+ (Mes 6-18): 20+
 
 ❌ **Nice-to-Have / Específicas Nicho:**
+
 - Contabilidad doble entrada completa
 - Nómina integrada
 - Gestión inventarios
@@ -659,23 +763,28 @@ Esta sección integra las características identificadas en el mercado global de
 ### GAPS IDENTIFICADOS (NO EN PROYECTO ACTUAL):
 
 **1. Integración Dispositivos IoT / Wearables**
+
 - Estado: ❌ NO PLANEADO
 - Razón: ROI bajo, complejidad alta
 - Reconsideración: Si hay demanda específica en Mes 12+
 
 **2. Marketplace Servicios Financieros**
+
 - Estado: ❌ NO PLANEADO PMV
 - Oportunidad Fase 3: Afiliación productos (seguros, inversiones)
 
 **3. Blockchain / Contabilidad Triple Entrada**
+
 - Estado: ❌ NO PLANEADO
 - Razón: Over-engineering para target PyMEs/individuos
 
 **4. Realidad Aumentada Visualización Finanzas**
+
 - Estado: ❌ NO PLANEADO
 - Razón: Gimmick vs utilidad real, prioridad muy baja
 
 **5. Detección Suscripciones Olvidadas**
+
 - Estado: ⚠️ CONSIDERACIÓN FASE 2
 - Implementación: Análisis transacciones recurrentes con IA
 - Prioridad: Media (nice-to-have)
@@ -683,15 +792,18 @@ Esta sección integra las características identificadas en el mercado global de
 ### OPORTUNIDADES DIFERENCIACIÓN ADICIONALES:
 
 **Micro-Inversiones Automáticas** (Inspirado en Acorns)
+
 - Estado: ⚠️ CONSIDERACIÓN FASE 2-3
 - Feature: Redondeo compras → inversión ETF bajo riesgo
 - Requiere: Integración bancaria + broker
 
 **Carbon Footprint Financiero** (ESG)
+
 - Estado: ❌ FASE 3+ (Muy nicho)
 - Target: Usuarios conscientes medio ambiente
 
 **Modo Freelancer/Gig Economy** (Inspirado en Heru)
+
 - Estado: ⚠️ CONSIDERACIÓN FASE 2
 - Features:
   - Separación ingresos personal vs negocio
@@ -711,20 +823,28 @@ Esta sección integra las características identificadas en el mercado global de
 
 ### ROADMAP ACTUALIZADO CON CARACTERÍSTICAS GLOBALES:
 
-#### **PMV HARDENED (Mes 0-3):** 
+#### **PMV HARDENED (Mes 0-3):**
+
 ✅ 60+ características core implementadas
+
 - Enfoque: Estabilidad, seguridad, compliance SAT
 
 #### **Fase V+ (Mes 3-6):**
+
 ✅ 15 características adicionales
+
 - Prioridad: Open Banking PoC, IA Conciliación, Dashboard Contador
 
 #### **Fase 2 (Mes 6-12):**
+
 ✅ 20 características avanzadas
+
 - Prioridad: Complemento Pagos REP, Buzón Tributario, Features empresariales
 
 #### **Fase 3+ (Mes 12-18):**
+
 ✅ 25+ características expansión
+
 - Prioridad: CFDI 5.0, Nómina, Declaración anual, Micro-inversiones
 
 ---
@@ -734,6 +854,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### COBERTURA GLOBAL: 65 de 70 características originales (93%)
 
 **No implementadas (5):**
+
 1. Widgets pantalla inicio (no aplicable web)
 2. Integración asistentes voz (prioridad baja)
 3. Integración pagos móviles (fuera scope)
@@ -743,6 +864,7 @@ Esta sección integra las características identificadas en el mercado global de
 ### CARACTERÍSTICAS ADICIONALES ÚNICAS: 30+
 
 **Diferenciadores México:**
+
 - 10 características fiscales SAT
 - 5 características compliance específicas
 - 8 características IA/automatización
@@ -781,24 +903,29 @@ Esta sección integra las características identificadas en el mercado global de
 
 ### KPIs POR CATEGORÍA DE CARACTERÍSTICAS:
 
-**Transacciones:** 
+**Transacciones:**
+
 - Tiempo promedio registro: <60 segundos
 - % transacciones con categoría correcta: >85%
 
 **Automatización:**
+
 - % transacciones categorizadas automáticamente: >70% (Fase 2)
 - Tiempo ahorro vs manual: >80%
 
 **Reportes:**
+
 - Tiempo generación reporte: <5 segundos
 - % usuarios que descargan reportes mensualmente: >40%
 
 **SAT/Fiscalidad:**
+
 - % CFDI descargados exitosamente: >99%
 - Tiempo descarga masiva 1,000 facturas: <10 minutos
 - % validaciones RFC exitosas: >95%
 
 **Engagement:**
+
 - DAU/MAU ratio: >30%
 - % usuarios que completan onboarding: >70%
 - Churn Mes 1: <15%
@@ -818,6 +945,7 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 # PROYECTO: APLICACIÓN WEB DE FINANZAS PERSONALES PARA MÉXICO
 
 ## 📋 TABLA DE CONTENIDOS
+
 1. [Resumen Ejecutivo](#resumen-ejecutivo)
 2. [Objetivos y Metas](#objetivos-y-metas)
 3. [Herramientas Necesarias](#herramientas-necesarias)
@@ -835,6 +963,7 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 **Objetivo Principal**: Crear una solución web completa de gestión de finanzas personales diseñada específicamente para el usuario mexicano, aprovechando la ausencia de soluciones web robustas en el mercado.
 
 **Diferenciador**: Mientras existen apps móviles similares, el mercado web carece de soluciones integrales. Nuestro enfoque web permitirá:
+
 - Mayor facilidad de uso en computadoras/laptops
 - Mejor experiencia para análisis de datos
 - Integración más directa con sistemas bancarios mexicanos
@@ -845,6 +974,7 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 ## 🎯 OBJETIVOS Y METAS
 
 ### Objetivos Funcionales
+
 1. **Gestión de Ingresos y Gastos**
    - Registro automático y manual de transacciones
    - Categorización inteligente
@@ -874,6 +1004,7 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
    - Simulaciones de escenarios
 
 ### Objetivos No Funcionales
+
 - **Rendimiento**: < 2s carga inicial, < 500ms acciones de usuario
 - **Seguridad**: Cumplir estándares bancarios, encriptación E2E
 - **Disponibilidad**: 99.9% uptime
@@ -885,24 +1016,28 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 ## 🛠️ HERRAMIENTAS NECESARIAS
 
 ### Gestión de Proyecto
+
 - **Jira/Linear**: Seguimiento de sprints y tareas
 - **Figma**: Diseño y prototipado UI/UX
 - **Notion/Confluence**: Documentación y wikis técnicas
 - **GitHub/GitLab**: Control de versiones y CI/CD
 
 ### Desarrollo
+
 - **VS Code/JetBrains**: IDE principal
 - **Postman/Insomnia**: Testing de APIs
 - **Docker**: Containerización
 - **Git**: Versionado de código
 
 ### Testing
+
 - **Jest/Vitest**: Testing unitario
 - **Cypress/Playwright**: Testing E2E
 - **Lighthouse**: Auditoría de rendimiento
 - **OWASP ZAP**: Testing de seguridad
 
 ### DevOps & Infraestructura
+
 - **AWS/Google Cloud/Azure**: Cloud hosting
 - **GitHub Actions/Jenkins**: CI/CD pipelines
 - **Terraform**: Infrastructure as Code
@@ -910,6 +1045,7 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 - **ELK Stack**: Análisis de logs
 
 ### Seguridad
+
 - **1Password/Vault**: Gestión de secrets
 - **Snyk**: Análisis de vulnerabilidades
 - **Auth0/Okta**: Autenticación y SSO
@@ -918,16 +1054,18 @@ Agregare todo lo anteriro para que tu lo reestrucutres todo y lo pongas en orden
 ---
 
 ## 💻 STACK TECNOLÓGICO RECOMENDADO
- Vue 3 / Next.js estos si , para nada react , tailwind , next js .
- UI Component Library**: Material-UI / Shadcn / Ant Design
+
+Vue 3 / Next.js estos si , para nada react , tailwind , next js .
+UI Component Library\*\*: Material-UI / Shadcn / Ant Design
+
 - **State Management**: Zustand / Redux Toolkit / Pinia
 - **HTTP Client**: TanStack Query / SWR
 - **Visualización**: Chart.js / D3.js / Apache ECharts
 - **Formularios**: React Hook Form / Formik
 - **Styling**:CSS Modules y lo que tu ademas sugieras
 - **Build Tool**: Vite.
-fijate que me llama l aatencion , peor yo dije en mi documento que te di de referncia el de Claude_estudialo que bun es lo que quiero vale? , peor eso se analiza con esto mira:Standards & Compatibility
-Node.js Compatibility
+  fijate que me llama l aatencion , peor yo dije en mi documento que te di de referncia el de Claude_estudialo que bun es lo que quiero vale? , peor eso se analiza con esto mira:Standards & Compatibility
+  Node.js Compatibility
 
 Copy page
 
@@ -1021,7 +1159,7 @@ node:http2
 🟡 Client & server are implemented (95.25% of gRPC’s test suite passes). Missing options.allowHTTP1, options.enableConnectProtocol, ALTSVC extension, and http2stream.pushStream.
 ​
 node:module
-🟡 Missing syncBuiltinESMExports, Module#load(). Overriding require.cache is supported for ESM & CJS modules. module._extensions, module._pathCache, module._cache are no-ops. module.register is not implemented and we recommend using a Bun.plugin in the meantime.
+🟡 Missing syncBuiltinESMExports, Module#load(). Overriding require.cache is supported for ESM & CJS modules. module.\_extensions, module.\_pathCache, module.\_cache are no-ops. module.register is not implemented and we recommend using a Bun.plugin in the meantime.
 ​
 node:net
 🟢 Fully implemented.
@@ -1086,10 +1224,10 @@ Buffer
 ByteLengthQueuingStrategy
 🟢 Fully implemented.
 ​
-__dirname
+**dirname
 🟢 Fully implemented.
 ​
-__filename
+**filename
 🟢 Fully implemented.
 ​
 atob()
@@ -1153,7 +1291,7 @@ FormData
 🟢 Fully implemented.
 ​
 global
-🟢 Implemented. This is an object containing all objects in the global namespace. It’s rarely referenced directly, as its contents are available without an additional prefix, e.g. __dirname instead of global.__dirname.
+🟢 Implemented. This is an object containing all objects in the global namespace. It’s rarely referenced directly, as its contents are available without an additional prefix, e.g. **dirname instead of global.**dirname.
 ​
 globalThis
 🟢 Aliases to global.
@@ -1320,9 +1458,9 @@ Hot reload without restarts
 TypeScript & DX
 TypeScript & JSX
 No config required
-import "*.yaml"
+import "_.yaml"
 YAML & TOML imports
-import "*.css"
+import "_.css"
 CSS & asset imports
 Security
 Bun.password
@@ -1418,39 +1556,44 @@ Build for the browser, Bun, and Node.js
 Single-file executables
 ✓
 .html, .css, .ts, .tsx, .jsx & more esto es super importante , el nucelo de la pagain web es bun, de la mano con nuxt , vue.js , redis ,sql el que sea el mas adecuado y lo que sugieras compleemntar vale?
+
 ### Backend :pUES TODO se tiene que readaptar em temo bajo lo que te menicon runtime se modifica creo , framework:Bun con Elysia es una opción destacada. Elysia está diseñado específicamente para Bun, ofreciendo una experiencia de desarrollo excepcional con soporte nativo, tipado end-to-end y una integración fluida con herramientas como Swagger y ORMs. Es particularmente recomendado para desarrolladores que valoran el rendimiento y una configuración sencilla, aunque algunos prefieren Hono por su estabilidad en producción.Para proyectos empresariales, se sugiere:
 
 Hono si buscas alto rendimiento con estabilidad y compatibilidad multiplataforma tambien.
+
 - **Base de Datos**: PostgreSQL (relacional) + Redis (cache) y loq eu tu sugieras
 - **ORM**: Prisma / TypeORM / SQLAlchemy receurda compatibilidad full con bun y con nuxt y vue.js
 - **API**: REST + GraphQL (opcional) lo qeu se adapte al proyecto
 - **Autenticación**: JWT + OAuth 2.0, lo que sea lo ams adecuado encontre esot para complementar:OAuth Libraries for Bun
-Here you'll find the best Bun libraries for building OAuth clients and servers.
+  Here you'll find the best Bun libraries for building OAuth clients and servers.
 
 Client Libraries
 openid-client. OpenID Certified™ OAuth 2 / OpenID Connect Client API for JavaScript Runtimes
 oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API for JavaScript Runtimes
+
 - **Message Queue**: Bull / RabbitMQ
+
 ### Infraestructura
+
 - **Containerización**: Docker
 - **Orquestación**: Kubernetes / Docker Compose
 - **CDN**: CloudFront / Cloudflare creo seria esto , epro no tengo dinero hasta generar ingresos podre ofrecer o pagar esot vale?
 - **Almacenamiento**: S3 / GCS
 - **Base de Datos**: Managed PostgreSQL (RDS/Cloud SQL)
 
-
 ## 🔒 CONSIDERACIONES CRÍTICAS
 
 ### Seguridad
+
 1. **Cumplimiento Normativo**
    - Ley de Protección de Datos Personales (LFPDPPP)
    - PCI DSS si maneja datos de tarjetas
    - GDPR si tiene usuarios internacionales
-   - Revisar regulaciones de Banco de México  ene stos  4 puntos devemos ver al amanera para dar a entender que sus datos no entran a mi servidor su infapocin se queda en su pc en su dispositivo y , no se como hacerle para evitar yo tenga infroacion tan delicada o decir que la informacion esta encriptada y por tanto nosotors no tenemosacceso , entra encriptado slae encriptado que opinas , asi doy mas seguridad y estabilidad a usuarios y gobierno pero un nivel de seguridad muy alto devo de cumplir por arriba del estandar para todoa la plataforma a nivel integral vale?:2. **Encriptación**
+   - Revisar regulaciones de Banco de México ene stos 4 puntos devemos ver al amanera para dar a entender que sus datos no entran a mi servidor su infapocin se queda en su pc en su dispositivo y , no se como hacerle para evitar yo tenga infroacion tan delicada o decir que la informacion esta encriptada y por tanto nosotors no tenemosacceso , entra encriptado slae encriptado que opinas , asi doy mas seguridad y estabilidad a usuarios y gobierno pero un nivel de seguridad muy alto devo de cumplir por arriba del estandar para todoa la plataforma a nivel integral vale?:2. **Encriptación**
    - TLS 1.3 para transmisión de datos
    - Encriptación AES-256 en reposo
    - Campos sensibles ofuscados en logs
-   - Hashing seguro de contraseñas (bcrypt/argon2)  a esto emrefiero y quiza si es necesario mas pues mas por seguriadad y prevencion de nosotroos.
+   - Hashing seguro de contraseñas (bcrypt/argon2) a esto emrefiero y quiza si es necesario mas pues mas por seguriadad y prevencion de nosotroos.
 
    . **Autenticación & Autorización**
    - Multi-factor authentication (MFA)
@@ -1459,7 +1602,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
    - RBAC (Role-Based Access Control)
    - Auditoria de accesos
 
-4. **Integración Bancaria**
+2. **Integración Bancaria**
    - Usar APIs bancarias oficiales (no web scraping)
    - Tokenización de credenciales
    - No almacenar credenciales en BD
@@ -1467,6 +1610,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
    - Implementar webhook validation
 
 ### Rendimiento
+
 1. **Frontend**
    - Code splitting automático
    - Lazy loading de componentes/imágenes
@@ -1488,6 +1632,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
    - Alertas automáticas en degradación
 
 ### Integración
+
 1. **Bancos Mexicanos**
    - Banamex / Citibanamex
    - BBVA Bancomer
@@ -1499,10 +1644,9 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 
 2. **Servicios Terceros**
    - Pasarelas de pago (Stripe, po el mopmonto solo stripe no habra mas.)
-      - Email (SendGrid, AWS SES)
+     - Email (SendGrid, AWS SES)
    - SMS (Twilio)
    - Almacenamiento (AWS S3) no teneia pensado nada de amazon peor si es asi , se o ams estrategico porsible vale? aun em queda mi cuenta de github student pack y quiza se le pueda sacar provecho no los e si valga la pena pero lo tengo ahi vale? gracais.
-
    3. **Carga Fluida**
    - Progressive enhancement
    - Skeleton screens mientras carga
@@ -1511,6 +1655,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
    - Manejo graceful de errores
 
 ### Escalabilidad
+
 1. **Horizontal Scaling**
    - Stateless backend services
    - Load balancers
@@ -1575,6 +1720,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ```
 
 ### Separación por Dominios
+
 - **Auth Service**: Autenticación y autorización
 - **Finance Service**: Lógica de ingresos, gastos, presupuestos
 - **Bank Integration Service**: Conexión con APIs bancarias
@@ -1586,9 +1732,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ## 📅 PLAN DE DESARROLLO POR FASES
 
 ### FASE 0: PREPARACIÓN (2-3 semanas)
+
 **Objetivo**: Establecer la base sólida
 
 #### Tasks
+
 - [ ] Diseño de BD (ER diagram)
 - [ ] Setup de infraestructura (Docker, CI/CD)
 - [ ] Configuración de repositorios y branches
@@ -1597,7 +1745,8 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 - [ ] Diseño UI/UX en Figma (wireframes)
 - [ ] Análisis de seguridad inicial
 
-**Entregables**: 
+**Entregables**:
+
 - BD schema documentada
 - Docker compose con stack base
 - CI/CD pipeline funcional
@@ -1606,9 +1755,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 1: MVP CORE (4-6 semanas)
+
 **Objetivo**: Funcionalidad mínima viable de finanzas
 
 #### Frontend
+
 - [ ] Autenticación (login/registro)
 - [ ] Dashboard básico
 - [ ] Registro de transacciones (manual)
@@ -1616,6 +1767,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 - [ ] Categorización básica
 
 #### Backend
+
 - [ ] API de autenticación (JWT)
 - [ ] Modelos de usuario, transacciones, categorías
 - [ ] CRUD de transacciones
@@ -1623,17 +1775,21 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 - [ ] Rate limiting
 
 #### Infraestructura
+
 - [ ] Base de datos en PostgreSQL
 - [ ] Redis para sesiones
 - [ ] Logging centralizado
 - [ ] Monitoreo básico
 
 **Entregables**: Aplicación funcional con autenticación y CRUD de transacciones
- , sugiero para la parte del uxui devemos de ser muy MUY ESTRATEGAS Para saver acomodar y saver que biblioteca suaremos para las animaciones los efectos visuales lso emojis o cosas similares devemos de genera un apap de confianza que no de miedo vale?, por eso te pedire t ayuda estrategica emocional cultural claude para generar atracion del publico y rmper la barrera de que la aplataforma se me hace dificl, deve de ser muy intuitiva , deveoms ofrecer como rutas ya prehehcas para canalizarlso creo  todo con el objetivo de eficientar el procesopara cada quien, no se aun peor te pido seas el estratega en lo tecnico tactico psicologico y del proyecto una visooin integral panoramoca please, no quiero el proyecto tirene o caiga por algo que no suimos parneder de lso errorees de todas las empresas del mundo de lso rubros de finazas educacion financiera contabilidad etc y similares vale?
- ## FASE 2: ANÁLISIS Y REPORTES (3-4 semanas)
+, sugiero para la parte del uxui devemos de ser muy MUY ESTRATEGAS Para saver acomodar y saver que biblioteca suaremos para las animaciones los efectos visuales lso emojis o cosas similares devemos de genera un apap de confianza que no de miedo vale?, por eso te pedire t ayuda estrategica emocional cultural claude para generar atracion del publico y rmper la barrera de que la aplataforma se me hace dificl, deve de ser muy intuitiva , deveoms ofrecer como rutas ya prehehcas para canalizarlso creo todo con el objetivo de eficientar el procesopara cada quien, no se aun peor te pido seas el estratega en lo tecnico tactico psicologico y del proyecto una visooin integral panoramoca please, no quiero el proyecto tirene o caiga por algo que no suimos parneder de lso errorees de todas las empresas del mundo de lso rubros de finazas educacion financiera contabilidad etc y similares vale?
+
+## FASE 2: ANÁLISIS Y REPORTES (3-4 semanas)
+
 **Objetivo**: Insights y visualización de datos
 
 #### Frontend
+
 - [ ] Dashboard con gráficos
 - [ ] Reportes por período
 - [ ] Exportación PDF/Excel
@@ -1641,6 +1797,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 - [ ] Responsivo en móviles
 
 #### Backend
+
 - [ ] Agregaciones y analytics
 - [ ] Generación de reportes
 - [ ] Caching de datos agregados
@@ -1651,9 +1808,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 3: PRESUPUESTOS (2-3 semanas)
+
 **Objetivo**: Herramientas de planificación
 
 #### Features
+
 - [ ] Creación de presupuestos
 - [ ] Seguimiento vs. actual
 - [ ] Alertas de límites
@@ -1663,14 +1822,17 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 4: INTEGRACIÓN BANCARIA (4-6 semanas)
+
 **Objetivo**: Conexión segura con bancos mexicanos
 
 #### Análisis
+
 - [ ] Investigar APIs de bancos disponibles
 - [ ] Evaluación de plataformas (Plaid, Yapstone, etc.)
 - [ ] Definición de flujo seguro
 
 #### Implementación
+
 - [ ] OAuth 2.0 para bancos
 - [ ] Sincronización automática
 - [ ] Tokenización de credenciales
@@ -1682,9 +1844,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 5: METAS DE AHORRO (2-3 semanas)
+
 **Objetivo**: Planificación financiera personal
 
 #### Features
+
 - [ ] Creación de metas
 - [ ] Tracking de progreso
 - [ ] Calculadoras (créditos, inversiones)
@@ -1693,9 +1857,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 6: OPTIMIZACIÓN Y ESCALA (2-3 semanas)
+
 **Objetivo**: Performance y disponibilidad
 
 #### Tasks
+
 - [ ] Auditorías de rendimiento
 - [ ] Optimización de queries
 - [ ] Mejora de UX based on analytics
@@ -1705,9 +1871,11 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ---
 
 ### FASE 7: SEGURIDAD Y COMPLIANCE (Continuo)
+
 **Objetivo**: Cumplimiento normativo
 
 #### Tasks
+
 - [ ] Auditoría de seguridad externa
 - [ ] Penetration testing
 - [ ] Certificación de compliance
@@ -1719,6 +1887,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ## ✅ BUENAS PRÁCTICAS
 
 ### Código
+
 ```
 1. **Code Quality**
    - ESLint + Prettier (formateo automático)
@@ -1747,6 +1916,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ```
 
 ### DevOps
+
 ```
 1. **CI/CD**
    - Builds automáticos en cada push
@@ -1770,6 +1940,7 @@ oauth4webapi. OpenID Certified™ Low-Level OAuth 2 / OpenID Connect Client API 
 ```
 
 ### Seguridad
+
 ```
 1. **Secrets Management**
    - No commitear secrets a Git
@@ -1811,6 +1982,7 @@ Continuo:       Fase 7 (Seguridad)
 ```
 
 ### Hitos Clave
+
 1. **MVP Launch** (Semana 8): Autenticación + Transacciones + Dashboard básico
 2. **Analytics Ready** (Semana 12): Reportes e insights funcionales
 3. **Banking Integration** (Semana 20): Conexión con bancos
@@ -1822,6 +1994,7 @@ Continuo:       Fase 7 (Seguridad)
 ## 📊 EQUIPO NECESARIO
 
 ### Roles Recomendados
+
 - **1 Product Manager**: Visión y roadmap
 - **2-3 Full Stack Engineers**: Core development
 - **1 Frontend Engineer**: Especialista UX
@@ -2099,47 +2272,49 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
 ## 🏗️ ARQUITECTURA DEL SISTEMA
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                    CDN (Cloudflare)                  │
-└────────────────────┬────────────────────────────────┘
-                     │
-┌────────────────────┴────────────────────────────────┐
-│             Frontend (SPA/PWA)                       │
-│  - React/Vue + TypeScript                           │
-│  - Responsive design (Mobile-first)                 │
-│  - Service Workers (Offline support)                │
-└────────────────────┬────────────────────────────────┘
-                     │ (HTTPS/CORS)
-┌────────────────────┴────────────────────────────────┐
-│          API Gateway / Load Balancer                 │
-│  - Rate limiting                                     │
-│  - Request validation                               │
-│  - Authentication middleware                        │
-└────────────────────┬────────────────────────────────┘
-                     │
-     ┌───────────────┼───────────────┐
-     │               │               │
-┌────▼──────┐  ┌────▼──────┐  ┌────▼──────┐
-│  Service  │  │  Service  │  │  Service  │
-│ Auth (JWT)│  │ Finanzas  │  │Integraciones
-│           │  │           │  │(Bancos)
-└────┬──────┘  └────┬──────┘  └────┬──────┘
-     │              │              │
-     └──────────────┼──────────────┘
-                    │
-        ┌───────────┴──────────┐
-        │                      │
-   ┌────▼──────┐         ┌────▼──────┐
-   │PostgreSQL │         │   Redis   │
-   │(Primary)  │         │  (Cache)  │
-   └───────────┘         └───────────┘
 
-   ┌────────────────────────────────────────┐
-   │    Message Queue (Bull/RabbitMQ)       │
-   │  - Procesamiento async                 │
-   │  - Sincronización bancaria             │
-   │  - Generación de reportes              │
-   └────────────────────────────────────────┘
+┌─────────────────────────────────────────────────────┐
+│ CDN (Cloudflare) │
+└────────────────────┬────────────────────────────────┘
+│
+┌────────────────────┴────────────────────────────────┐
+│ Frontend (SPA/PWA) │
+│ - React/Vue + TypeScript │
+│ - Responsive design (Mobile-first) │
+│ - Service Workers (Offline support) │
+└────────────────────┬────────────────────────────────┘
+│ (HTTPS/CORS)
+┌────────────────────┴────────────────────────────────┐
+│ API Gateway / Load Balancer │
+│ - Rate limiting │
+│ - Request validation │
+│ - Authentication middleware │
+└────────────────────┬────────────────────────────────┘
+│
+┌───────────────┼───────────────┐
+│ │ │
+┌────▼──────┐ ┌────▼──────┐ ┌────▼──────┐
+│ Service │ │ Service │ │ Service │
+│ Auth (JWT)│ │ Finanzas │ │Integraciones
+│ │ │ │ │(Bancos)
+└────┬──────┘ └────┬──────┘ └────┬──────┘
+│ │ │
+└──────────────┼──────────────┘
+│
+┌───────────┴──────────┐
+│ │
+┌────▼──────┐ ┌────▼──────┐
+│PostgreSQL │ │ Redis │
+│(Primary) │ │ (Cache) │
+└───────────┘ └───────────┘
+
+┌────────────────────────────────────────┐
+│ Message Queue (Bull/RabbitMQ) │
+│ - Procesamiento async │
+│ - Sincronización bancaria │
+│ - Generación de reportes │
+└────────────────────────────────────────┘
+
 ```
 
 ### Separación por Dominios
@@ -2165,7 +2340,7 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
 - [ ] Diseño UI/UX en Figma (wireframes)
 - [ ] Análisis de seguridad inicial
 
-**Entregables**: 
+**Entregables**:
 - BD schema documentada
 - Docker compose con stack base
 - CI/CD pipeline funcional
@@ -2290,6 +2465,7 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
 
 ### Código
 ```
+
 1. **Code Quality**
    - ESLint + Prettier (formateo automático)
    - SonarQube para análisis estático
@@ -2314,10 +2490,12 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
    - Swagger/OpenAPI para APIs
    - Runbooks para operaciones
    - ADRs (Architecture Decision Records)
+
 ```
 
 ### DevOps
 ```
+
 1. **CI/CD**
    - Builds automáticos en cada push
    - Tests automáticos
@@ -2337,10 +2515,12 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
    - Docker para apps
    - Versionado de configs
    - Reproducible environments
+
 ```
 
 ### Seguridad
 ```
+
 1. **Secrets Management**
    - No commitear secrets a Git
    - Vault centralizado
@@ -2359,6 +2539,7 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
    - CSRF tokens
    - Input validation y sanitización
    - SQL injection prevention (prepared statements)
+
 ```
 
 ---
@@ -2368,16 +2549,18 @@ El documento está listo para que **fusiones tu análisis actual**. Solo dame un
 ### Timeline Estimado: 4-5 meses para MVP completo
 
 ```
-Semana 1-2:     Fase 0 (Preparación)
-Semana 3-8:     Fase 1 (MVP Core)
-Semana 9-12:    Fase 2 (Análisis)
-Semana 13-14:   Fase 3 (Presupuestos)
-Semana 15-20:   Fase 4 (Integración Bancaria)*
-Semana 21-23:   Fase 5 (Metas)
-Semana 24-26:   Fase 6 (Optimización)
-Continuo:       Fase 7 (Seguridad)
 
-* La fase de integración bancaria puede extenderse si requiere aprobaciones regulatorias
+Semana 1-2: Fase 0 (Preparación)
+Semana 3-8: Fase 1 (MVP Core)
+Semana 9-12: Fase 2 (Análisis)
+Semana 13-14: Fase 3 (Presupuestos)
+Semana 15-20: Fase 4 (Integración Bancaria)\*
+Semana 21-23: Fase 5 (Metas)
+Semana 24-26: Fase 6 (Optimización)
+Continuo: Fase 7 (Seguridad)
+
+- La fase de integración bancaria puede extenderse si requiere aprobaciones regulatorias
+
 ```
 
 ### Hitos Clave
@@ -2511,8 +2694,9 @@ Checklist de Pre-Lanzamiento
 Plantillas de Documentación
 Matriz de Decisiones Técnicas
 PARTE I: VISIÓN ESTRATÉGICA Y FUNDAMENTOS
+
 1. OBJETIVO GENERAL DEL PROYECTO
-Desarrollar una plataforma web robusta, segura y altamente escalable para la administración integral de finanzas personales, diseñada específicamente para el mercado mexicano, que permita a usuarios individuales, freelancers y pequeñas empresas:
+   Desarrollar una plataforma web robusta, segura y altamente escalable para la administración integral de finanzas personales, diseñada específicamente para el mercado mexicano, que permita a usuarios individuales, freelancers y pequeñas empresas:
 
 Gestionar todos sus ingresos, egresos y transacciones financieras de manera centralizada
 Analizar patrones de gasto y tendencias mediante dashboards inteligentes y visualizaciones dinámicas
@@ -2533,8 +2717,8 @@ Performance Obsesivo: Carga <3 segundos, interacciones <500ms, experiencia fluid
 Privacy by Design: Los datos del usuario le pertenecen, nunca se venden ni comparten sin consentimiento explícito.
 
 2. OBJETIVOS ESPECÍFICOS (150+ REQUISITOS INTEGRADOS)
-2.1 Gestión Financiera Core (30 Objetivos)
-OBJ-001 — Permitir registro manual de ingresos con múltiples atributos (monto, fecha, categoría, etiquetas, notas, recurrencia).
+   2.1 Gestión Financiera Core (30 Objetivos)
+   OBJ-001 — Permitir registro manual de ingresos con múltiples atributos (monto, fecha, categoría, etiquetas, notas, recurrencia).
 
 OBJ-002 — Permitir registro manual de egresos con todos los atributos de ingresos más método de pago.
 
@@ -2884,8 +3068,8 @@ OBJ-169 — Análisis de gastos hormiga (micro-gastos que suman mucho).
 OBJ-170 — Comparar gastos vs percentiles de población similar (edad, ingresos).
 
 3. ALCANCE DEL PROYECTO
-3.1 Dentro del Alcance (In-Scope)
-Plataforma 100% Web:
+   3.1 Dentro del Alcance (In-Scope)
+   Plataforma 100% Web:
 
 Aplicación web progresiva (PWA) accesible desde cualquier navegador moderno
 Sin necesidad de instalación en tiendas de apps
@@ -2973,8 +3157,7 @@ Multi-tenancy:
 Aunque inicialmente es B2C, la BD está diseñada para soportar organizaciones en el futuro
 Internacionalización:
 
-Preparación de i18n desde día 1 (aunque solo español México en MVP)
-4. ANÁLISIS DEL MERCADO MEXICANO Y PROPUESTA DE VALOR
+Preparación de i18n desde día 1 (aunque solo español México en MVP) 4. ANÁLISIS DEL MERCADO MEXICANO Y PROPUESTA DE VALOR
 4.1 Contexto del Mercado Financiero Personal en México (2025)
 Tamaño del Mercado:
 
@@ -3030,8 +3213,7 @@ Segmento Terciario (15%): Familias 35-50 años
 
 Ingresos: $25,000 - $50,000 MXN/mes
 Buscan: Controlar gastos familiares, enseñar finanzas a hijos
-Pain point: No tienen tiempo para apps complicadas
-5. MODELO DE NEGOCIO Y MONETIZACIÓN
+Pain point: No tienen tiempo para apps complicadas 5. MODELO DE NEGOCIO Y MONETIZACIÓN
 5.1 Estrategia Freemium
 Tier Gratuito (Forever Free):
 
@@ -3092,8 +3274,7 @@ Con 1,000 usuarios activos (150 premium)
 Ingresos: $14,850 MXN/mes
 Costos: ~$10,000 MXN/mes (servidor $2K + herramientas $3K + soporte $5K)
 Profit margin: ~30%
-PARTE II: REQUISITOS DEL SISTEMA
-6. REQUISITOS FUNCIONALES (RF-001 a RF-150+)
+PARTE II: REQUISITOS DEL SISTEMA 6. REQUISITOS FUNCIONALES (RF-001 a RF-150+)
 6.1 Módulo de Autenticación y Usuarios
 RF-001 — El sistema DEBE permitir registro de nuevos usuarios con email y contraseña.
 
@@ -3451,8 +3632,8 @@ RF-169 — El sistema DEBE soportar modo viajes con gastos en moneda extranjera.
 RF-170 — El sistema DEBE permitir registrar activos físicos (casa, carro) para net worth.
 
 7. REQUISITOS NO FUNCIONALES (RNF-001 a RNF-080+)
-7.1 Performance
-RNF-001 — El sistema DEBE cargar página principal en <3 segundos en conexión 3G (testear con Lighthouse throttling).
+   7.1 Performance
+   RNF-001 — El sistema DEBE cargar página principal en <3 segundos en conexión 3G (testear con Lighthouse throttling).
 
 RNF-002 — El sistema DEBE responder a interacciones del usuario en <500ms (clicks, inputs).
 
@@ -3678,8 +3859,7 @@ RNF-080 — El sistema DEBE tener modo de mantenimiento programado:
 Banner visible 48h antes
 Página de mantenimiento custom (no 503 genérico)
 Estimación de duración
-Status updates en tiempo real
-8. REQUISITOS DE COMPLIANCE Y REGULACIÓN (MÉXICO)
+Status updates en tiempo real 8. REQUISITOS DE COMPLIANCE Y REGULACIÓN (MÉXICO)
 8.1 Ley Federal de Protección de Datos Personales (LFPDPPP)
 COMP-001 — El sistema DEBE publicar Aviso de Privacidad accesible desde cualquier página con:
 
@@ -3783,50 +3963,45 @@ COMP-019 — El sistema DEBE usar feature flags para activar CFDI 5.0 gradualmen
 
 Beta cerrada con usuarios voluntarios
 Monitoreo intensivo de tasa de éxito
-Rollback inmediato si tasa de error >5%
-9. MATRIZ DE PRIORIZACIÓN DE FEATURES
+Rollback inmediato si tasa de error >5% 9. MATRIZ DE PRIORIZACIÓN DE FEATURES
 9.1 Framework MoSCoW (Must, Should, Could, Won't)
-Feature	Prioridad	Fase	Justificación	Impacto Usuario	Complejidad Técnica
-Autenticación segura	Must	PMV	Base de seguridad	CRITICAL	MEDIA
-Facturación CFDI 4.0	Must	PMV	Core del producto	CRITICAL	ALTA
-Descarga masiva SAT	Must	PMV	Diferenciador #1	HIGH	MUY ALTA
-Conciliación (Reglas)	Must	PMV	Ahorra 8-12h/mes	HIGH	ALTA
-Dashboard financiero	Must	PMV	Visibilidad básica	MEDIUM	MEDIA
-Multi-tenant (Contador)	Should	V+	Network effects	HIGH	ALTA
-Aceptación/Rechazo CFDI	Should	V+	Compliance obligatorio	MEDIUM	MEDIA
-Validación RFC EFOS	Should	V+	Prevención riesgos	HIGH	BAJA
-Conciliación (IA)	Could	Fase 2	Mejora, no crítico	MEDIUM	MUY ALTA
-Open Banking	Could	V+	Reduce fricción CSV	HIGH	ALTA
-Complemento de Pagos	Could	Fase 2	Compliance avanzado	MEDIUM	ALTA
-Nómina	Could	Fase 2	Mercado diferente	LOW	ALTA
-Buzón Tributario	Should	V+	Compliance 2026	MEDIUM	MEDIA
-CFDI 5.0	Won't	TBD	Esperando definición SAT	N/A	ALTA
-App Móvil Nativa	Won't	Fase 3+	PWA suficiente	LOW	MUY ALTA
+Feature Prioridad Fase Justificación Impacto Usuario Complejidad Técnica
+Autenticación segura Must PMV Base de seguridad CRITICAL MEDIA
+Facturación CFDI 4.0 Must PMV Core del producto CRITICAL ALTA
+Descarga masiva SAT Must PMV Diferenciador #1 HIGH MUY ALTA
+Conciliación (Reglas) Must PMV Ahorra 8-12h/mes HIGH ALTA
+Dashboard financiero Must PMV Visibilidad básica MEDIUM MEDIA
+Multi-tenant (Contador) Should V+ Network effects HIGH ALTA
+Aceptación/Rechazo CFDI Should V+ Compliance obligatorio MEDIUM MEDIA
+Validación RFC EFOS Should V+ Prevención riesgos HIGH BAJA
+Conciliación (IA) Could Fase 2 Mejora, no crítico MEDIUM MUY ALTA
+Open Banking Could V+ Reduce fricción CSV HIGH ALTA
+Complemento de Pagos Could Fase 2 Compliance avanzado MEDIUM ALTA
+Nómina Could Fase 2 Mercado diferente LOW ALTA
+Buzón Tributario Should V+ Compliance 2026 MEDIUM MEDIA
+CFDI 5.0 Won't TBD Esperando definición SAT N/A ALTA
+App Móvil Nativa Won't Fase 3+ PWA suficiente LOW MUY ALTA
 9.2 Matriz de Impacto vs Esfuerzo
-9.3 Roadmap Visual (Gantt Simplificado - 6 Meses)
-10. ARQUITECTURA DEL SISTEMA (CLEAN ARCHITECTURE + SOLID)
+9.3 Roadmap Visual (Gantt Simplificado - 6 Meses) 10. ARQUITECTURA DEL SISTEMA (CLEAN ARCHITECTURE + SOLID)
 10.1 Principios Arquitectónicos
+
 1. Separation of Concerns (SoC)
 
 2. Dependency Inversion (SOLID - D)
 
 Las capas superiores NO dependen de las inferiores directamente
 Dependencias apuntan hacia abstracciones (interfaces)
-Ejemplo: TimbradoUseCase depende de IPacService, no de FacturapiAdapter
-3. Single Responsibility (SOLID - S)
+Ejemplo: TimbradoUseCase depende de IPacService, no de FacturapiAdapter 3. Single Responsibility (SOLID - S)
 
 Cada clase/módulo tiene una única razón para cambiar
 FacturaController: Solo maneja HTTP requests/responses
 TimbradoService: Solo lógica de negocio de timbrado
-PacAdapter: Solo comunicación con PAC externo
-4. Open/Closed (SOLID - O)
+PacAdapter: Solo comunicación con PAC externo 4. Open/Closed (SOLID - O)
 
 Abierto para extensión (agregar nuevos PACs sin modificar código existente)
-Cerrado para modificación (no tocar código estable)
-5. Liskov Substitution (SOLID - L)
+Cerrado para modificación (no tocar código estable) 5. Liskov Substitution (SOLID - L)
 
-Cualquier implementación de IPacService debe ser intercambiable
-6. Interface Segregation (SOLID - I)
+Cualquier implementación de IPacService debe ser intercambiable 6. Interface Segregation (SOLID - I)
 
 Interfaces específicas, no "god interfaces"
 IPacService ≠ ISATService ≠ IStorageService
@@ -3914,7 +4089,7 @@ Id. de solicitud de Copilot: 80ee3b12-855d-4033-b0c5-aba4e9bd82f8
 
 Motivo: Prompt failed validation with the reason: No messages provided. Please file an issue.
 
-Claude Sonnet 4.5 • 1x RECUERDA POROFAVR CLAUDE TODO ESTO TIENE QUE ESTAR ACTUALIZADO para 2026 ya que necesito estar preparado si tienes mejoras que identifique sqeu se pueden realizar en basoa  lo que te doy estabien lo que no NO NO ES NEGOCIABEL es BUN SE QUEDA NEXTJS SE QUEDA NUXTJS SE QUEDA Y REDIS SE QUEDAN , todo deve girar enton a esto vale? gracais calude continuemos Claude:DOCUMENTO MAESTRO COMPLETO - PROYECTO FINANZAS PERSONALES MÉXICO 2026
+Claude Sonnet 4.5 • 1x RECUERDA POROFAVR CLAUDE TODO ESTO TIENE QUE ESTAR ACTUALIZADO para 2026 ya que necesito estar preparado si tienes mejoras que identifique sqeu se pueden realizar en basoa lo que te doy estabien lo que no NO NO ES NEGOCIABEL es BUN SE QUEDA NEXTJS SE QUEDA NUXTJS SE QUEDA Y REDIS SE QUEDAN , todo deve girar enton a esto vale? gracais calude continuemos Claude:DOCUMENTO MAESTRO COMPLETO - PROYECTO FINANZAS PERSONALES MÉXICO 2026
 CONTINUACIÓN DESDE "Feature 7: PoC Open Banking"
 PARTE IV: INTEGRACIONES CRÍTICAS (Continuación)
 4.4.1 Features de Negocio - Mes 30-90 (Continuación)
@@ -4456,7 +4631,7 @@ Request llega al endpoint. Check cache: if (redis.get(key)) return cached. Si no
 
 Invalidación de Cache:
 
-Cuando usuario crea factura: Invalidar cache de "balance_usuario_{id}" y "dashboard_kpis_usuario_{id}". Cuando usuario edita categoría: Invalidar cache de "categorias_usuario_{id}". Cuando se descarga SAT: Invalidar cache de "facturas_recibidas_usuario_{id}".
+Cuando usuario crea factura: Invalidar cache de "balance*usuario*{id}" y "dashboard*kpis_usuario*{id}". Cuando usuario edita categoría: Invalidar cache de "categorias*usuario*{id}". Cuando se descarga SAT: Invalidar cache de "facturas*recibidas_usuario*{id}".
 
 Métricas de Cache:
 

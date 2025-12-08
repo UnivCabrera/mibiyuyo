@@ -4,12 +4,12 @@ Public
 prometheus/prometheus
 Go to file
 t
-Name		
+Name
 NickAnge
 NickAnge
 rules: replace error strings with sentinel errors for duplicate label…
 b0649e0
- · 
+·
 13 hours ago
 .github
 Group more dependabot updates (#17563)
@@ -290,67 +290,68 @@ prometheus.io/
 Topics
 monitoring time-series metrics alerting prometheus graphing hacktoberfest
 Resources
- Readme
+Readme
 License
- Apache-2.0 license
+Apache-2.0 license
 Code of conduct
- Code of conduct
+Code of conduct
 Contributing
- Contributing
+Contributing
 Security policy
- Security policy
- Activity
- Custom properties
+Security policy
+Activity
+Custom properties
 Stars
- 61.5k stars
+61.5k stars
 Watchers
- 1.1k watching
+1.1k watching
 Forks
- 10k forks
+10k forks
 Report repository
 Releases 351
 3.7.3 / 2025-10-29
 Latest
 last month
-+ 350 releases
-Packages
-No packages published
-Contributors
-1,067
-@fabxc
-@juliusv
-@beorn7
-@bboreham
-@dependabot[bot]
-@brian-brazil
-@codesome
-@krajorama
-@matttproud
-@bwplotka
-@gouthamve
-@simonpasquier
-@SuperQ
-@krasi-georgiev
-+ 1,053 contributors
-Languages
-Go
-86.1%
- 
+
+- 350 releases
+  Packages
+  No packages published
+  Contributors
+  1,067
+  @fabxc
+  @juliusv
+  @beorn7
+  @bboreham
+  @dependabot[bot]
+  @brian-brazil
+  @codesome
+  @krajorama
+  @matttproud
+  @bwplotka
+  @gouthamve
+  @simonpasquier
+  @SuperQ
+  @krasi-georgiev
+- 1,053 contributors
+  Languages
+  Go
+  86.1%
+
 TypeScript
 12.5%
- 
+
 Yacc
 0.5%
- 
+
 Shell
 0.2%
- 
+
 CSS
 0.2%
- 
+
 SCSS
 0.2%
- 
+
 Other
 0.3%
 Footer
@@ -402,4 +403,3 @@ Prometheus is designed for reliability, to be the system you go to during an out
 
 When does it not fit?
 Prometheus values reliability. You can always view what statistics are available about your system, even under failure conditions. If you need 100% accuracy, such as for per-request billing, Prometheus is not a good choice as the collected data will likely not be detailed and complete enough. In such a case you would be best off using some other system to collect and analyze the data for billing, and Prometheus for the rest of your monitoring.
-

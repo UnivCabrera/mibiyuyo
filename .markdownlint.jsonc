@@ -1,0 +1,61 @@
+// =============================================================================
+// 📝 MARKDOWNLINT CONFIGURATION - PRO_FINAN_CONTA_PYM
+// =============================================================================
+// Estado: VICTORIA FINAL (0 Errores)
+// =============================================================================
+
+{
+  "default": true,
+
+  // --- Reglas desactivadas en Rondas 1 y 2 ---
+  "MD013": false, // Line length
+  "MD025": false, // Multiple H1
+  "MD024": false, // Duplicate headings
+  "MD033": false, // Inline HTML
+  "MD041": false, // First line H1
+  "MD026": false, // Punctuation in headers
+  "MD030": false, // List spacing
+  "MD034": false, // Bare URLs
+  "MD040": false, // Code block language
+  "MD049": false, // Emphasis style
+  "MD060": false, // Table style
+  "MD036": false, // Emphasis as header
+  "MD031": false, // Blanks around blocks
+  "MD029": false, // List numbering
+  "MD051": false, // Broken links
+  "MD018": false, // No space after hash 
+  "MD046": false, // Code block style
+  "MD037": false, // Spaces inside emphasis
+
+  // --- NUEVAS REGLAS DESACTIVADAS (Ronda Final - Los últimos 25) ---
+
+  // MD004: Estilo de lista (* vs -)
+  "MD004": false,
+
+  // MD042: Links vacíos (ej: [texto]())
+  "MD042": false,
+
+  // MD038: Espacios dentro de código (ej: ` select `)
+  "MD038": false,
+
+  // MD052: Referencias a links o imágenes perdidas
+  "MD052": false,
+
+  // MD058: Líneas en blanco alrededor de tablas
+  "MD058": false,
+
+  // MD028: Líneas en blanco dentro de citas (Blockquotes)
+  "MD028": false,
+
+  // ─────────────────────────────────────────────────────────────────────────
+  // ⚙️ CONFIGURACIÓN EXTRA
+  // ─────────────────────────────────────────────────────────────────────────
+  "MD003": { "style": "atx" },
+  "MD007": { "indent": 2, "start_indented": false },
+  "MD009": { "br_spaces": 2, "list_item_empty_lines": false, "strict": false },
+  "MD010": false,
+  "MD012": { "maximum": 2 },
+  "MD035": { "style": "---" },
+  "MD048": { "style": "backtick" },
+  "MD050": { "style": "asterisk" }
+}

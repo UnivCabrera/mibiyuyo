@@ -49,17 +49,20 @@ Selecciona un proveedor de VPS que se ajuste a tus necesidades. Algunas opciones
 ### Configuración de Seguridad
 
 1. **Actualiza el sistema**:
+
    ```bash
    apt update && apt upgrade -y
    ```
 
 2. **Crea un nuevo usuario**:
+
    ```bash
    adduser nombre_usuario
    usermod -aG sudo nombre_usuario
    ```
 
 3. **Configura el firewall**:
+
    ```bash
    ufw allow OpenSSH
    ufw enable
@@ -157,29 +160,29 @@ Para configurar webhooks, puedes usar un servicio como GitHub o GitLab. A contin
 3. **Ejemplo de código para el servidor**:
 
 ```javascript
-const express = require('express');
-const { exec } = require('child_process');
+const express = require("express");
+const { exec } = require("child_process");
 
 const app = express();
 app.use(express.json());
 
-app.post('/webhook', (req, res) => {
-    exec('bash /ruta/a/tu/deploy.sh', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error: ${error.message}`);
-            return res.status(500).send('Error en el despliegue');
-        }
-        if (stderr) {
-            console.error(`stderr: ${stderr}`);
-            return res.status(500).send('Error en el despliegue');
-        }
-        console.log(`stdout: ${stdout}`);
-        res.status(200).send('Despliegue exitoso');
-    });
+app.post("/webhook", (req, res) => {
+  exec("bash /ruta/a/tu/deploy.sh", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return res.status(500).send("Error en el despliegue");
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return res.status(500).send("Error en el despliegue");
+    }
+    console.log(`stdout: ${stdout}`);
+    res.status(200).send("Despliegue exitoso");
+  });
 });
 
 app.listen(3000, () => {
-    console.log('Servidor de webhooks escuchando en el puerto 3000');
+  console.log("Servidor de webhooks escuchando en el puerto 3000");
 });
 ```
 

@@ -8,76 +8,81 @@
 
 ## 🎯 Estado Actual
 
-| Métrica | Valor |
-|---------|-------|
-| **MCPs Configurados** | 22 servidores en `.vscode/mcp.json` |
-| **MCPs Activos** | 21 (1 disabled: dokploy) |
-| **llms.txt Verificados** | 9 URLs oficiales |
-| **Total Tecnologías Stack** | 61 |
-| **Cobertura MCP/llms.txt** | 49% (30/61) |
+| Métrica                     | Valor                               |
+| --------------------------- | ----------------------------------- |
+| **MCPs Configurados**       | 22 servidores en `.vscode/mcp.json` |
+| **MCPs Activos**            | 21 (1 disabled: dokploy)            |
+| **llms.txt Verificados**    | 9 URLs oficiales                    |
+| **Total Tecnologías Stack** | 61                                  |
+| **Cobertura MCP/llms.txt**  | 49% (30/61)                         |
 
 ---
 
 ## ✅ MCPs Instalados y Funcionando (22)
 
 ### Core Development (8)
-| MCP | Tipo | Estado |
-|-----|------|--------|
-| `svelte` | @sveltejs/mcp | ✅ Activo |
-| `vite` | http://localhost:5173/__mcp | ✅ Activo |
-| `shadcn` | shadcn@latest mcp | ✅ Activo |
-| `zod` | https://mcp.zod.dev/sse | ✅ Activo |
-| `css` | css-mcp | ✅ Activo |
-| `lucide-icons` | lucide-icons-mcp | ✅ Activo |
-| `playwright` | @playwright/mcp | ✅ Activo |
-| `github` | @modelcontextprotocol/server-github | ✅ Activo |
+
+| MCP            | Tipo                                | Estado    |
+| -------------- | ----------------------------------- | --------- |
+| `svelte`       | @sveltejs/mcp                       | ✅ Activo |
+| `vite`         | http://localhost:5173/\_\_mcp       | ✅ Activo |
+| `shadcn`       | shadcn@latest mcp                   | ✅ Activo |
+| `zod`          | https://mcp.zod.dev/sse             | ✅ Activo |
+| `css`          | css-mcp                             | ✅ Activo |
+| `lucide-icons` | lucide-icons-mcp                    | ✅ Activo |
+| `playwright`   | @playwright/mcp                     | ✅ Activo |
+| `github`       | @modelcontextprotocol/server-github | ✅ Activo |
 
 ### Databases (3)
-| MCP | Tipo | Estado |
-|-----|------|--------|
+
+| MCP        | Tipo                                  | Estado    |
+| ---------- | ------------------------------------- | --------- |
 | `postgres` | @modelcontextprotocol/server-postgres | ✅ Activo |
-| `redis` | @redis/mcp-redis | ✅ Activo |
-| `sqlite` | @modelcontextprotocol/server-sqlite | ✅ Activo |
+| `redis`    | @redis/mcp-redis                      | ✅ Activo |
+| `sqlite`   | @modelcontextprotocol/server-sqlite   | ✅ Activo |
 
 ### Cloud & Infra (6)
-| MCP | Tipo | Estado |
-|-----|------|--------|
-| `docker` | @docker/mcp-toolkit | ✅ Activo |
-| `firebase` | firebase-tools mcp | ✅ Activo |
-| `cloudflare-ai` | https://ai.cloudflare.com/mcp/sse | ✅ Activo |
-| `sentry` | @modelcontextprotocol/server-sentry | ✅ Activo |
-| `dokploy` | @ahdev/dokploy-mcp | ⏸️ Disabled* |
-| `linear` | https://mcp.linear.app/mcp | ✅ Activo |
+
+| MCP             | Tipo                                | Estado        |
+| --------------- | ----------------------------------- | ------------- |
+| `docker`        | @docker/mcp-toolkit                 | ✅ Activo     |
+| `firebase`      | firebase-tools mcp                  | ✅ Activo     |
+| `cloudflare-ai` | https://ai.cloudflare.com/mcp/sse   | ✅ Activo     |
+| `sentry`        | @modelcontextprotocol/server-sentry | ✅ Activo     |
+| `dokploy`       | @ahdev/dokploy-mcp                  | ⏸️ Disabled\* |
+| `linear`        | https://mcp.linear.app/mcp          | ✅ Activo     |
 
 ### AI & Communication (3)
-| MCP | Tipo | Estado |
-|-----|------|--------|
+
+| MCP      | Tipo                     | Estado    |
+| -------- | ------------------------ | --------- |
 | `openai` | @anthropic-ai/mcp-openai | ✅ Activo |
 | `resend` | @anthropic-ai/mcp-resend | ✅ Activo |
-| `fetch` | @anthropic-ai/mcp-fetch | ✅ Activo |
+| `fetch`  | @anthropic-ai/mcp-fetch  | ✅ Activo |
 
 ### Utilities (2)
-| MCP | Tipo | Estado |
-|-----|------|--------|
+
+| MCP          | Tipo                         | Estado    |
+| ------------ | ---------------------------- | --------- |
 | `filesystem` | @anthropic-ai/mcp-filesystem | ✅ Activo |
 
-*Dokploy: Requiere configurar DOKPLOY_URL y DOKPLOY_API_KEY del VPS
+\*Dokploy: Requiere configurar DOKPLOY_URL y DOKPLOY_API_KEY del VPS
 
 ---
 
 ## 📚 llms.txt Verificados (9)
 
-| Tecnología | URL | Contenido |
-|------------|-----|-----------|
-| **Svelte 5** | https://svelte.dev/llms.txt | Runes, Snippets, SvelteKit |
-| **Vite** | https://vite.dev/llms.txt | Config, Plugins, SSR |
-| **shadcn-svelte** | https://shadcn-svelte.com/llms.txt | Componentes UI |
-| **Redis** | https://redis.io/docs/latest/llms.txt | Commands, Pub/Sub |
-| **Zod** | https://zod.dev/llms.txt | Schemas, Validation |
-| **Bun** | https://bun.sh/llms.txt | Runtime, APIs |
-| **ElysiaJS** | https://elysiajs.com/llms.txt | Routes, Plugins |
-| **Bits UI** | https://bits-ui.com/llms.txt | Headless components |
-| **Better Auth** | https://better-auth.com/llms.txt | Auth framework ✨ |
+| Tecnología        | URL                                   | Contenido                  |
+| ----------------- | ------------------------------------- | -------------------------- |
+| **Svelte 5**      | https://svelte.dev/llms.txt           | Runes, Snippets, SvelteKit |
+| **Vite**          | https://vite.dev/llms.txt             | Config, Plugins, SSR       |
+| **shadcn-svelte** | https://shadcn-svelte.com/llms.txt    | Componentes UI             |
+| **Redis**         | https://redis.io/docs/latest/llms.txt | Commands, Pub/Sub          |
+| **Zod**           | https://zod.dev/llms.txt              | Schemas, Validation        |
+| **Bun**           | https://bun.sh/llms.txt               | Runtime, APIs              |
+| **ElysiaJS**      | https://elysiajs.com/llms.txt         | Routes, Plugins            |
+| **Bits UI**       | https://bits-ui.com/llms.txt          | Headless components        |
+| **Better Auth**   | https://better-auth.com/llms.txt      | Auth framework ✨          |
 
 ---
 
@@ -85,12 +90,12 @@
 
 Estas tecnologías se configurarán cuando se implemente el módulo fiscal:
 
-| Tecnología | Razón | Acción Pendiente |
-|------------|-------|------------------|
-| SAT/CFDI | Core fiscal | Crear MCP propio |
-| Finkok PAC | Timbrado | Evaluar API |
-| RFC/CURP | ✅ Regex implementado | Completado |
-| Finerio Connect | Open Banking | Evaluar API |
+| Tecnología      | Razón                 | Acción Pendiente |
+| --------------- | --------------------- | ---------------- |
+| SAT/CFDI        | Core fiscal           | Crear MCP propio |
+| Finkok PAC      | Timbrado              | Evaluar API      |
+| RFC/CURP        | ✅ Regex implementado | Completado       |
+| Finerio Connect | Open Banking          | Evaluar API      |
 
 ---
 
@@ -137,5 +142,5 @@ POSTGRES_CONNECTION_STRING=postgresql://localhost:5432/fintech_db
 
 ---
 
-*Generado automáticamente - 5 Diciembre 2025*
+_Generado automáticamente - 5 Diciembre 2025_
 Bien continuamos ac`a con todos los que encuntre vale?

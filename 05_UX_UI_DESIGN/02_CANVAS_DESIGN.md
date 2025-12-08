@@ -1,4 +1,5 @@
 # 🖼️ CANVAS DESIGN - LAYOUTS Y WIREFRAMES
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Complemento de:** 01_COLORIMETRIA_PSICOLOGIA.md  
 **Versión:** 1.0  
@@ -80,11 +81,13 @@ DESKTOP (≥1024px)        TABLET (768-1023px)      MOBILE (<768px)
 
 /* Breakpoints */
 @media (max-width: 1024px) {
-  .container { gap: var(--space-4); }
+  .container {
+    gap: var(--space-4);
+  }
 }
 
 @media (max-width: 768px) {
-  .container { 
+  .container {
     grid-template-columns: repeat(4, 1fr);
     gap: var(--space-4);
     padding: 0 var(--space-4);
@@ -499,7 +502,7 @@ DESKTOP 12 COLUMNAS
   export let padding = 'md'; // sm, md, lg
 </script>
 
-<div 
+<div
   class="card card--{variant} card--padding-{padding}"
   {...$$restProps}
 >
@@ -512,19 +515,19 @@ DESKTOP 12 COLUMNAS
     border-radius: var(--radius-lg);
     transition: all 150ms ease;
   }
-  
+
   .card--default {
     border: 1px solid var(--border-subtle);
   }
-  
+
   .card--elevated {
     box-shadow: var(--shadow-md);
   }
-  
+
   .card--outlined {
     border: 2px solid var(--border-default);
   }
-  
+
   .card--padding-sm { padding: var(--space-3); }
   .card--padding-md { padding: var(--space-4); }
   .card--padding-lg { padding: var(--space-6); }
@@ -537,7 +540,7 @@ DESKTOP 12 COLUMNAS
 <!-- TransactionItem.svelte -->
 <script>
   export let transaction;
-  
+
   $: isIncome = transaction.type === 'income';
 </script>
 
@@ -545,12 +548,12 @@ DESKTOP 12 COLUMNAS
   <div class="transaction__icon">
     {transaction.icon}
   </div>
-  
+
   <div class="transaction__details">
     <span class="transaction__title">{transaction.title}</span>
     <span class="transaction__category">{transaction.category}</span>
   </div>
-  
+
   <div class="transaction__amount" class:positive={isIncome}>
     {isIncome ? '+' : '-'}${transaction.amount.toLocaleString()}
   </div>
@@ -565,24 +568,24 @@ DESKTOP 12 COLUMNAS
     border-radius: var(--radius-md);
     transition: background 150ms ease;
   }
-  
+
   .transaction:hover {
     background: var(--bg-tertiary);
   }
-  
+
   .transaction.income {
     border-left: 3px solid var(--success-500);
   }
-  
+
   .transaction.expense {
     border-left: 3px solid var(--error-400);
   }
-  
+
   .transaction__amount {
     font-family: var(--font-mono);
     font-weight: var(--font-semibold);
   }
-  
+
   .transaction__amount.positive {
     color: var(--success-600);
   }
@@ -598,13 +601,13 @@ DESKTOP 12 COLUMNAS
   export let max = 100;
   export let variant = 'primary'; // primary, success, warning, error
   export let showLabel = true;
-  
+
   $: percentage = Math.min((value / max) * 100, 100);
 </script>
 
 <div class="progress">
   <div class="progress__track">
-    <div 
+    <div
       class="progress__fill progress__fill--{variant}"
       style="width: {percentage}%"
     />
@@ -620,7 +623,7 @@ DESKTOP 12 COLUMNAS
     align-items: center;
     gap: var(--space-2);
   }
-  
+
   .progress__track {
     flex: 1;
     height: 8px;
@@ -628,18 +631,18 @@ DESKTOP 12 COLUMNAS
     border-radius: var(--radius-full);
     overflow: hidden;
   }
-  
+
   .progress__fill {
     height: 100%;
     border-radius: var(--radius-full);
     transition: width 300ms ease;
   }
-  
+
   .progress__fill--primary { background: var(--primary-500); }
   .progress__fill--success { background: var(--success-500); }
   .progress__fill--warning { background: var(--warning-500); }
   .progress__fill--error { background: var(--error-500); }
-  
+
   .progress__label {
     font-size: var(--text-sm);
     font-weight: var(--font-medium);
@@ -658,7 +661,9 @@ DESKTOP 12 COLUMNAS
 ```css
 /* Card hover - elevación sutil */
 .card {
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .card:hover {
@@ -673,13 +678,13 @@ DESKTOP 12 COLUMNAS
 }
 
 .btn-primary::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
     to right,
     transparent,
-    rgba(255,255,255,0.1),
+    rgba(255, 255, 255, 0.1),
     transparent
   );
   transform: translateX(-100%);
@@ -708,8 +713,12 @@ DESKTOP 12 COLUMNAS
 }
 
 @keyframes skeleton-loading {
-  0% { background-position: 200% 0; }
-  100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Spinner */
@@ -723,7 +732,9 @@ DESKTOP 12 COLUMNAS
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 ```
 
@@ -732,16 +743,31 @@ DESKTOP 12 COLUMNAS
 ```css
 /* Confetti burst */
 @keyframes confetti {
-  0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
 }
 
 /* Trophy bounce */
 @keyframes trophy-bounce {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-  50% { transform: scale(0.95); }
-  75% { transform: scale(1.05); }
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  75% {
+    transform: scale(1.05);
+  }
 }
 
 .goal-completed .trophy {
@@ -776,19 +802,27 @@ DESKTOP 12 COLUMNAS
 }
 
 @media (min-width: 640px) {
-  .container { max-width: 640px; }
+  .container {
+    max-width: 640px;
+  }
 }
 
 @media (min-width: 768px) {
-  .container { max-width: 768px; }
+  .container {
+    max-width: 768px;
+  }
 }
 
 @media (min-width: 1024px) {
-  .container { max-width: 1024px; }
+  .container {
+    max-width: 1024px;
+  }
 }
 
 @media (min-width: 1280px) {
-  .container { max-width: 1280px; }
+  .container {
+    max-width: 1280px;
+  }
 }
 ```
 
@@ -799,7 +833,8 @@ DESKTOP 12 COLUMNAS
 Estos patrones aprovechan las librerías especializadas (TanStack Table, IMask, PDF.js) para resolver fricciones comunes en aplicaciones financieras.
 
 ### 8.1 Tablas de Alta Densidad (Data Grids)
-*Implementación: TanStack Table v8*
+
+_Implementación: TanStack Table v8_
 
 - **Sticky Headers:** Los encabezados siempre visibles al hacer scroll vertical.
 - **Sticky Columns:** Primera columna (ej: "Folio Factura") fija al hacer scroll horizontal.
@@ -808,14 +843,16 @@ Estos patrones aprovechan las librerías especializadas (TanStack Table, IMask, 
 - **Acciones en Hover:** Botones de "Editar/Ver" aparecen solo al pasar el mouse sobre la fila para reducir ruido visual.
 
 ### 8.2 Inputs Financieros Inteligentes
-*Implementación: IMask*
+
+_Implementación: IMask_
 
 - **Moneda:** El usuario escribe `1234` -> Se ve `$1,234.00`. El cursor se mantiene en la posición lógica.
 - **RFC/CURP:** Auto-mayúsculas y validación de longitud visual.
 - **Tarjetas:** Espaciado automático cada 4 dígitos.
 
 ### 8.3 Visualización de Documentos In-App
-*Implementación: PDF.js Wrapper*
+
+_Implementación: PDF.js Wrapper_
 
 - **Modal de Previsualización:**
   - **Overlay:** Oscuro al 80% (`bg-black/80`).
@@ -825,7 +862,8 @@ Estos patrones aprovechan las librerías especializadas (TanStack Table, IMask, 
 - **Objetivo:** Evitar que el usuario pierda el contexto de su trabajo al revisar una factura.
 
 ### 8.4 Onboarding Contextual
-*Implementación: Driver.js*
+
+_Implementación: Driver.js_
 
 - **Highlight:** Oscurece toda la pantalla excepto el elemento a explicar.
 - **Popover:** Pequeña tarjeta con título, texto breve y botones "Anterior/Siguiente".

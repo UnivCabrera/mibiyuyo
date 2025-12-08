@@ -1,4 +1,5 @@
 # 📊 DOCUMENTO 01: VISIÓN ESTRATÉGICA
+
 ## Aplicación Web de Finanzas Personales y Contabilidad para México 2026
 
 ---
@@ -10,11 +11,12 @@
 **Audiencia:** Stakeholders, Equipo Completo, Gobierno, Inversores, Usuarios  
 **Desarrollador:** Proyecto individual (1 programador, recién egresado)  
 **Recursos:** Bootstrap total ($0 inversión inicial)  
-**Situación:** Sin empleo, sin recursos financieros, con acceso GitHub Student Pack  
+**Situación:** Sin empleo, sin recursos financieros, con acceso GitHub Student Pack
 
 ---
 
 **Stack Tecnológico Definitivo (Actualizado Noviembre 2025):**
+
 - **Runtime:** Bun 1.3.3 (primario) + Node.js 24.11.1 LTS (fallback/WebSockets)
 - **Framework Frontend:** SvelteKit 2.49.0 + Svelte 5.43.14 (Runes)
 - **Estilos:** CSS Nativo con Variables CSS + PostCSS para autoprefixer (SIN frameworks CSS)
@@ -33,6 +35,7 @@
 - **Escalabilidad Futura:** VPS Hostinger KVM 8 (8 vCPU, 32 GB RAM, 400 GB NVMe, 32 TB bandwidth) - cuando se justifique
 
 **Decisión Arquitectónica Clave:**
+
 - ❌ **Eliminados:** React, Next.js, Nuxt, TailwindCSS, Vercel (NO forman parte del stack)
 - ✅ **Por qué SvelteKit:** Performance superior (compilación), bundle más ligero, DX excelente, SSR nativo, menor complejidad
 - ✅ **Por qué CSS Nativo:** Control total, sin dependencias, bundle mínimo, futuro-proof
@@ -41,6 +44,7 @@
 - ✅ **Por qué Redis 8:** 87% menos latencia, 2x más operaciones/segundo, estructuras Time Series con compresión eficiente, JSON nativo
 
 **Sistema de Estilos (CSS Nativo):**
+
 ```css
 /* Variables CSS para theming y consistencia */
 :root {
@@ -97,7 +101,7 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 
 - ✅ **Contabilidad Simplificada para Freelancers, PyMEs y Personas Físicas**: Herramientas profesionales accesibles sin complejidad innecesaria. Target: freelancers, pequeños negocios familiares, personas que necesitan control fiscal básico.
 
-- ✅ **Compliance SAT Nativo Dual (CFDI 4.0 + 5.0)**: 
+- ✅ **Compliance SAT Nativo Dual (CFDI 4.0 + 5.0)**:
   - **Arquitectura de secciones separadas**: Pestañas/módulos independientes para CFDI 4.0 (actual) y CFDI 5.0 (preparación, activación Q2-Q3 2026)
   - **Descarga masiva automatizada** usando Web Service oficial del SAT (no scraping)
   - **Validación proactiva** listas negras (EFOS, EDOS, 69-B) antes de timbrar
@@ -105,7 +109,7 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
   - **Complemento de Pagos (REP)** automático al conciliar pagos con facturas PPD
   - Usuario tiene **control total**: puede elegir qué movimientos reportar al SAT, libertad de decisión sin imposición
 
-- ✅ **Bot Inteligente con Búsqueda Semántica (Feature Premium Exclusivo)**: 
+- ✅ **Bot Inteligente con Búsqueda Semántica (Feature Premium Exclusivo)**:
   - Encuentra documentos, facturas, registros con lenguaje natural
   - Motor híbrido: **SQL tradicional** (datos exactos: montos, fechas, IDs) + **pgvector** (búsqueda difusa: descripciones, conceptos)
   - Modelo de embeddings: **EmbeddingGemma-300M** (Google DeepMind, open-source, <200MB RAM cuantizado, ejecutado localmente en Docker)
@@ -114,7 +118,7 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 
 - ✅ **Tecnología de Vanguardia Optimizada**: Stack moderno (Bun + SvelteKit + Svelte 5 + PostgreSQL 18 + Redis 8 + pgvector) seleccionado por **performance, estabilidad, compatibilidad, fluidez, velocidad y visión a futuro**.
 
-- ✅ **Educación Financiera Integrada**: 
+- ✅ **Educación Financiera Integrada**:
   - Blog con 50+ artículos SEO-optimizados
   - Calculadoras gratuitas (interés compuesto, fondo de retiro, deducción fiscal)
   - Videos YouTube (canal propio, contenido educativo)
@@ -132,6 +136,7 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 ### 1.2 Contexto Personal y Motivación del Proyecto
 
 **Quién Soy:**
+
 - Recién egresado de la universidad (hace ~1 año)
 - Sin empleo actual, sin recursos financieros para inversión
 - Viviendo en cuarto prestado hasta diciembre 2025
@@ -140,12 +145,14 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 - Acceso a **GitHub Student Pack** (descuentos masivos en herramientas, créditos gratuitos)
 
 **Por Qué Este Proyecto:**
+
 - **Necesidad personal urgente:** Generar ingresos antes de enero 2026 para sostenerme
 - **Pasión por resolver problemas reales:** Veo cómo freelancers y PyMEs sufren con herramientas caras ($800-1,200 USD/año Quickbooks) y complejas
 - **Oportunidad de mercado clara:** 69% del mercado sin solución adecuada (TAM $850M USD/año)
 - **Aprendizaje acelerado:** Quiero construir algo significativo que demuestre mis habilidades técnicas
 
 **Filosofía del Proyecto:**
+
 > "Un problema grande se divide en pequeños y así podemos encontrar solución"
 
 ### 1.3 Diferenciadores Críticos (Top 5 Game Changers)
@@ -153,11 +160,11 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 #### 🥇 #1: Integración SAT Real, Completa y Dual (4.0 + 5.0)
 
 **Qué es:**
+
 - **Arquitectura dual con secciones separadas en UI:**
   - Módulo "CFDI 4.0" (activo, funcional desde PMV)
   - Módulo "CFDI 5.0" (preparación arquitectónica, feature flag inactivo hasta Q2-Q3 2026)
   - Usuario puede ver ambas secciones, pero 5.0 muestra "Próximamente disponible Q2 2026"
-  
 - **Descarga masiva automatizada** usando Web Service oficial del SAT (no scraping inestable)
 - **Validación proactiva** contra listas negras (EFOS, EDOS, 69-B) antes de timbrar
 - **Workflow aceptación/rechazo** CFDI (Regla 2.7.1.21) con timeline automático 72 horas
@@ -165,16 +172,19 @@ Una **plataforma web integral de gestión financiera y contabilidad** diseñada 
 - **Control total del usuario:** Lista de movimientos con checkboxes, usuario decide qué reportar al SAT (libertad de elección, respeto a su autonomía)
 
 **Por qué importa:**
+
 - **Para usuarios:** Evita rechazos SAT, multas, dolores de cabeza fiscales, cumplimiento garantizado
 - **Para nosotros:** Barrera de entrada altísima (6-12 meses replicar), conocimiento fiscal profundo único
 - **Ventana de oportunidad CFDI 5.0:** Competencia tardará 6 meses en refactorizar, nosotros solo activamos feature flag
 
 **Impacto medible:**
+
 - Usuarios ahorran **95% del tiempo** en descarga manual facturas (de 2 horas → 3 minutos)
 - Tasa éxito timbrado: **99.2%** (vs 92% promedio industria por errores previos)
 - Primera plataforma en México con soporte dual CFDI 4.0/5.0 listo para transición sin downtime
 
 **Timeline Estratégico CFDI 5.0:**
+
 ```
 Q1 2026: Investigación y análisis de requisitos para CFDI 5.0. Establecer contacto con SAT para clarificaciones.
 Q2 2026: Desarrollo de la arquitectura dual en la plataforma. Inicio de pruebas internas.
@@ -187,23 +197,27 @@ Q4 2026: Lanzamiento oficial de CFDI 5.0 para todos los usuarios. Campaña de co
 #### 🥈 #2: Bot Inteligente con Búsqueda Semántica (pgvector + EmbeddingGemma)
 
 **Qué es:**
+
 - **Búsqueda semántica** de documentos, facturas, registros con lenguaje natural
-- Usuarios pueden preguntar: *"¿Dónde está la factura del cliente de la tienda azul?"*, *"necesito el Excel de gastos de gasolina del camión"*
+- Usuarios pueden preguntar: _"¿Dónde está la factura del cliente de la tienda azul?"_, _"necesito el Excel de gastos de gasolina del camión"_
 - Motor híbrido: **SQL tradicional** (datos exactos: montos, fechas, IDs) + **pgvector** (búsqueda difusa: descripciones, conceptos)
 - Modelo de embeddings: **EmbeddingGemma-300M** (Google DeepMind, open-source, <200MB RAM cuantizado, ejecutado localmente en Docker)
 - Cada cliente solo busca en **sus propios datos** (aislamiento `cliente_id` en todas las queries)
 
 **Arquitectura Técnica:**
+
 ```
 Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding → pgvector busca en Postgres → Resultados devueltos
 ```
 
 **Por qué importa:**
+
 - **Para usuarios:** Encuentran documentos fácilmente, ahorran tiempo, evitan errores
 - **Para nosotros:** Diferenciador único, difícil de replicar, barrera de entrada alta
 - **Ventaja competitiva:** Mientras más usuarios, mejor se vuelve el sistema (network effects)
 
 **Impacto medible:**
+
 - Usuarios encuentran documentos en **menos de 10 segundos** (vs 2-3 minutos buscando manualmente)
 - Reducción de consultas al soporte técnico por **80%**
 - Aumento en la satisfacción del usuario (NPS) de **30 a 70 puntos**
@@ -213,14 +227,17 @@ Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding →
 #### 🥉 #3: Stack Tecnológico Moderno y Optimizado
 
 **Qué es:**
+
 - **Bun + SvelteKit + PostgreSQL + Redis + pgvector**: Combinación ganadora para velocidad, escalabilidad y facilidad de uso
 - **Despliegue en VPS con Docker y Traefik**: Contenedores ligeros, gestión de tráfico eficiente, fácil escalado
 
 **Por qué importa:**
+
 - **Para usuarios:** Experiencia rápida y fluida, sin caídas ni lentitud
 - **Para nosotros:** Fácil de mantener, escalar y actualizar, reduce costos operativos
 
 **Impacto medible:**
+
 - Tiempos de carga de página por debajo de **2 segundos** en el 95% de las solicitudes
 - Capacidad para manejar **10,000 usuarios concurrentes** con una latencia mínima
 - Reducción de costos de infraestructura en un **30%** gracias a la eficiencia del stack
@@ -230,14 +247,17 @@ Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding →
 #### 🎯 #4: Educación Financiera Integrada
 
 **Qué es:**
+
 - Recursos educativos dentro de la plataforma: artículos, videos, calculadoras
 - Herramientas de psicología conductual positiva para mejorar hábitos financieros
 
 **Por qué importa:**
+
 - **Para usuarios:** Aprenden a manejar mejor su dinero, aumentan su capacidad de ahorro e inversión
 - **Para nosotros:** Aumenta la retención de usuarios, reduce la tasa de cancelación (churn)
 
 **Impacto medible:**
+
 - Usuarios que completan el curso básico de educación financiera aumentan su ahorro en un **25%** en 3 meses
 - Reducción de la tasa de cancelación en un **15%** entre usuarios que utilizan las herramientas educativas
 
@@ -246,15 +266,18 @@ Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding →
 #### 🚀 #5: Estrategia de Go-to-Market Innovadora
 
 **Qué es:**
+
 - Enfoque en contadores y freelancers como usuarios clave
 - Alianzas estratégicas con instituciones educativas y financieras
 - Campañas de marketing digital segmentadas y optimizadas
 
 **Por qué importa:**
+
 - **Para usuarios:** Oferta dirigida a sus necesidades específicas, mayor tasa de conversión
 - **Para nosotros:** Crecimiento rápido y sostenible, acceso a nuevos mercados
 
 **Impacto medible:**
+
 - Captación de **5,000 usuarios** en los primeros 6 meses post-lanzamiento
 - Tasa de conversión del **20%** en campañas dirigidas a contadores
 - ROI de marketing digital de **300%** en el primer año
@@ -263,14 +286,14 @@ Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding →
 
 ### 1.3 Resumen Financiero Inicial
 
-| Concepto | Monto (MXN) |
-|----------|-------------|
-| Inversión Inicial | $500,000 |
-| Costos Mensuales Promedio | $40,000 |
-| Ingresos Proyectados Mes 6 | $50,000 |
-| Usuarios Objetivo Mes 6 | 500 |
-| Tasa Conversión Freemium a Premium | 15% |
-| Precio Suscripción Premium | $99 MXN/mes |
+| Concepto                           | Monto (MXN) |
+| ---------------------------------- | ----------- |
+| Inversión Inicial                  | $500,000    |
+| Costos Mensuales Promedio          | $40,000     |
+| Ingresos Proyectados Mes 6         | $50,000     |
+| Usuarios Objetivo Mes 6            | 500         |
+| Tasa Conversión Freemium a Premium | 15%         |
+| Precio Suscripción Premium         | $99 MXN/mes |
 
 ---
 
@@ -411,11 +434,11 @@ Ofrecemos un modelo freemium donde los usuarios pueden acceder de manera gratuit
 
 ### 7.2 Proyecciones Financieras
 
-| Año | Ingresos Proyectados | Costos Adquisición | Margen Bruto | EBITDA |
-|-----|----------------------|-------------------|--------------|--------|
-| 1   | $120,000 USD        | $50,000 USD       | 70%          | $10,000 USD |
-| 2   | $300,000 USD        | $100,000 USD      | 75%          | $50,000 USD |
-| 3   | $600,000 USD        | $150,000 USD      | 80%          | $150,000 USD |
+| Año | Ingresos Proyectados | Costos Adquisición | Margen Bruto | EBITDA       |
+| --- | -------------------- | ------------------ | ------------ | ------------ |
+| 1   | $120,000 USD         | $50,000 USD        | 70%          | $10,000 USD  |
+| 2   | $300,000 USD         | $100,000 USD       | 75%          | $50,000 USD  |
+| 3   | $600,000 USD         | $150,000 USD       | 80%          | $150,000 USD |
 
 ### 7.3 Análisis de Sensibilidad
 
@@ -431,12 +454,12 @@ Ofrecemos un modelo freemium donde los usuarios pueden acceder de manera gratuit
 
 #### Competidores Directos (México)
 
-| Competidor | Tipo | Fortalezas | Debilidades | Market Share Est. |
-|------------|------|------------|-------------|-------------------|
-| **Fintonic** | App móvil | Conexión bancaria, gratis | UX compleja, no tiene SAT | 15% |
-| **Monefy** | App móvil | Simple, visual | Solo registro manual, sin análisis | 8% |
-| **Wallet** | App móvil | Gratis, básico | Muy limitado, ads | 5% |
-| **Finerio** | Web + Móvil | Open banking, reportes | Caro ($499/mes), UX antigua | 3% |
+| Competidor   | Tipo        | Fortalezas                | Debilidades                        | Market Share Est. |
+| ------------ | ----------- | ------------------------- | ---------------------------------- | ----------------- |
+| **Fintonic** | App móvil   | Conexión bancaria, gratis | UX compleja, no tiene SAT          | 15%               |
+| **Monefy**   | App móvil   | Simple, visual            | Solo registro manual, sin análisis | 8%                |
+| **Wallet**   | App móvil   | Gratis, básico            | Muy limitado, ads                  | 5%                |
+| **Finerio**  | Web + Móvil | Open banking, reportes    | Caro ($499/mes), UX antigua        | 3%                |
 
 **Total Market Share Competidores:** ~31%
 **Mercado Sin Solución (Opportunity):** ~69%
@@ -445,30 +468,29 @@ Ofrecemos un modelo freemium donde los usuarios pueden acceder de manera gratuit
 
 #### Competidores Indirectos
 
-| Competidor | Tipo | Por Qué Compiten | Cómo Los Vencemos |
-|------------|------|------------------|-------------------|
-| **Excel** | Spreadsheet | Gratuito, flexible | Automatización, insights, SAT integration |
-| **Quickbooks** | Contabilidad | Poderoso, confiable | Precio ($800 vs $99), complejidad |
-| **YNAB** | Finanzas personales | Metodología probada | Precio ($299 vs $99), no adaptado a MX |
-| **Bancos (apps propias)** | Neobancos | Gratis, integrado | Features limitadas, vendor lock-in |
+| Competidor                | Tipo                | Por Qué Compiten    | Cómo Los Vencemos                         |
+| ------------------------- | ------------------- | ------------------- | ----------------------------------------- |
+| **Excel**                 | Spreadsheet         | Gratuito, flexible  | Automatización, insights, SAT integration |
+| **Quickbooks**            | Contabilidad        | Poderoso, confiable | Precio ($800 vs $99), complejidad         |
+| **YNAB**                  | Finanzas personales | Metodología probada | Precio ($299 vs $99), no adaptado a MX    |
+| **Bancos (apps propias)** | Neobancos           | Gratis, integrado   | Features limitadas, vendor lock-in        |
 
 ---
 
 ### 8.2 Matriz de Posicionamiento (Precio vs Features)
 
-
-
 **Para Usuario Premium:**
 
      Alto Precio
           │
-   ┌──────┼──────┐
-   │      │      │
-   │ Quickbooks  │
-   │   ($800)    │
-   │      │      │
-   ├──────┼──────┤
-   │      │      │Bajo │ NOSOTROS💡 │ Alto
+
+┌──────┼──────┐
+│ │ │
+│ Quickbooks │
+│ ($800) │
+│ │ │
+├──────┼──────┤
+│ │ │Bajo │ NOSOTROS💡 │ Alto
 Features│ ($99) │ Features
 │ │ │
 ├──────┼──────┤
@@ -477,8 +499,9 @@ Features│ ($99) │ Features
 │ (Gratis) │
 │ │ │
 └──────┼
-   - $99 MXN vs $500-1,000 competidores
-   - Freemium robusto (captura mercado)
+
+- $99 MXN vs $500-1,000 competidores
+- Freemium robusto (captura mercado)
 
 4. **Network Effects (Contadores)**
    - 1 contador = 10-50 clientes
@@ -568,18 +591,21 @@ Features│ ($99) │ Features
 Aplicando **Blue Ocean Strategy**, identificamos factores a:
 
 #### ❌ ELIMINAR (que la industria da por hecho)
+
 - Apps móviles nativas (costosas, no necesarias)
 - Interfaces complejas con 100+ opciones
 - Pricing enterprise ($1,000+/mes)
 - Soporte telefónico 24/7 (costoso, email/chat suficiente)
 
 #### ⬇️ REDUCIR (por debajo del estándar)
+
 - Curva de aprendizaje (onboarding 3 min vs 30 min)
 - Tiempo de configuración (wizard vs setup manual)
 - Features empresariales complejos (enfocarnos en PMV primero)
 - Número de clics para completar acción (1-2 clicks vs 5-7)
 
 #### ⬆️ INCREMENTAR (por encima del estándar)
+
 - Integración SAT (automática vs manual/inexistente)
 - Transparencia pricing (sin letra chica)
 - Soporte en español (respuesta <12h vs días o inexistente)
@@ -587,6 +613,7 @@ Aplicando **Blue Ocean Strategy**, identificamos factores a:
 - Educación financiera (50+ artículos vs 0 en competencia)
 
 #### ✨ CREAR (lo que la industria nunca ofreció)
+
 - Dashboard contador multi-cliente (único en México)
 - IA explicable en conciliación (no caja negra como otros)
 - Compliance SAT nativo desde día 1 (no adaptación post-facto)
@@ -606,11 +633,13 @@ Aplicando **Blue Ocean Strategy**, identificamos factores a:
 **Cómo Funciona:**
 
 **Por Qué es Sostenible:**
+
 - Costo de switching alto (migrar 50 clientes es doloroso)
 - Retención 92% anual (muy sticky)
 - Competidores necesitan años para replicar la red
 
 **Evidencia:**
+
 - Caso Xero (Nueva Zelanda): 70% de clientes vienen vía contadores
 - Caso QuickBooks: Network de contadores es su mayor activo
 
@@ -635,6 +664,7 @@ Nuevos usuarios reciben modelo pre-entrenado mejor
 Ciclo se repite, ventaja se amplía
 
 **Por Qué es Sostenible:**
+
 - Competidores empiezan de cero (sin datos históricos)
 - Ventaja compuesta: mientras más usuarios, mejor IA
 - Usuarios no quieren migrar (perder modelo entrenado)
@@ -644,12 +674,14 @@ Ciclo se repite, ventaja se amplía
 #### 🏰 MOAT #3: Compliance SAT Nativo (Regulación como Barrera)
 
 **Complejidad de Replicar:**
+
 - 6-12 meses de desarrollo para implementar integración SAT completa
 - Conocimiento experto de regulación mexicana (CFF, Miscelánea Fiscal)
 - Relaciones con PACs, conocimiento de Web Services SAT
 - Pruebas exhaustivas de compliance
 
 **Por Qué es Sostenible:**
+
 - Regulación cambia constantemente (CFDI 5.0 próximamente)
 - Competidores internacionales (YNAB, Mint) no tienen incentivo (nicho MX)
 - Competidores locales no tienen expertise técnico
@@ -660,14 +692,14 @@ Ciclo se repite, ventaja se amplía
 
 **Factores que Dificultan Migración:**
 
-| Factor | Esfuerzo Migración | Impacto Retención |
-|--------|-------------------|-------------------|
-| **Historial de transacciones** | Alto (exportar/importar) | +15% |
-| **Categorías personalizadas** | Medio (reconfigurar) | +10% |
-| **Metas de ahorro en progreso** | Medio (empezar de nuevo) | +8% |
-| **Presupuestos configurados** | Medio | +7% |
-| **Facturas SAT descargadas** | Alto (perder referencia) | +20% |
-| **Modelo IA entrenado** | Muy Alto (imposible migrar) | +25% |
+| Factor                          | Esfuerzo Migración          | Impacto Retención |
+| ------------------------------- | --------------------------- | ----------------- |
+| **Historial de transacciones**  | Alto (exportar/importar)    | +15%              |
+| **Categorías personalizadas**   | Medio (reconfigurar)        | +10%              |
+| **Metas de ahorro en progreso** | Medio (empezar de nuevo)    | +8%               |
+| **Presupuestos configurados**   | Medio                       | +7%               |
+| **Facturas SAT descargadas**    | Alto (perder referencia)    | +20%              |
+| **Modelo IA entrenado**         | Muy Alto (imposible migrar) | +25%              |
 
 **Total Switching Cost:** 85% de usuarios prefieren quedarse que migrar
 
@@ -690,19 +722,16 @@ Nosotros: Switching cost ~85% (datos + features + IA + integraciones)
    - Google/Apple no tienen incentivo (mercado pequeño)
    - Entrar requiere equipo local + expertise fiscal
    - ROI bajo vs otros mercados (USA, EU, Asia)
-        
 2. **Network de Contadores**
    - Toma 3-5 años construir red de contadores confiable
    - Relaciones personales > tecnología
    - Contadores no confían en Big Tech (privacidad)
    - Migrar red completa es imposible rápidamente
-        
 3. **Datos Propietarios**
    - IA entrenada con 100K+ conciliaciones mexicanas
    - Patrones específicos de México (proveedores, etc.)
    - Google/Apple empezarían con IA "tonta"
    - Necesitan 1-2 años para alcanzar nuestra precisión
-        
 4. **Expertise Regulatorio**
    - Conocimiento profundo SAT, CFF, Miscelánea Fiscal
    - Contactos directos con autoridades (PACs, SAT)
@@ -750,11 +779,13 @@ graph TD;
 **Análisis Crítico del Contexto del Proyecto:**
 
 Tu proyecto trabaja principalmente con **datos estructurados**, no datos semánticos:
+
 - Contabilidad = números, transacciones, facturas, balances, ventas, fechas, importes, impuestos
 - Todo esto son **datos tabulares, súper estructurados**
 - Los vectores NO aportan valor para analizar números puros
 
 **Bases vectoriales dedicadas** (Pinecone, Milvus, Weaviate, Qdrant) sirven para:
+
 - Búsqueda semántica de texto en datasets masivos (millones de documentos)
 - RAG (Retrieval-Augmented Generation)
 - Sistemas de recomendación complejos
@@ -766,12 +797,14 @@ Tu proyecto trabaja principalmente con **datos estructurados**, no datos semánt
 **Lo que SÍ necesitas es una base de datos relacional ACID:**
 
 Para contabilidad, lo fundamental es:
+
 - **Atomicidad:** Transacciones completas o ninguna
 - **Consistencia:** Datos siempre válidos según reglas de negocio
 - **Integridad referencial:** Relaciones entre tablas garantizadas
 - **Durabilidad:** Datos persisten ante fallos
 
 PostgreSQL 18 te da TODO esto MEJOR que cualquier base vectorial:
+
 - ✅ Claves foráneas con cascadas
 - ✅ Auditoría completa con triggers
 - ✅ Transacciones ACID nativas
@@ -789,12 +822,14 @@ PostgreSQL 18 te da TODO esto MEJOR que cualquier base vectorial:
 ### 11.2 ¿Dónde SÍ Usar Vectores? (Caso de Uso Específico)
 
 **Búsqueda semántica dentro de documentos** cuando:
+
 - Usuario no recuerda nombre exacto del archivo
 - Busca por descripción vaga: "la factura del cliente de la tienda azul"
 - Localiza registros con texto similar: "gastos de gasolina del camión"
 - Agrupa documentos semánticamente relacionados
 
 Para esto, **pgvector DENTRO de PostgreSQL** es la solución perfecta:
+
 - ✅ **Costo:** Casi cero (open-source, sin APIs de pago)
 - ✅ **Complejidad:** Mínima (misma base de datos)
 - ✅ **Seguridad:** Todo dentro de infraestructura controlada
@@ -802,6 +837,7 @@ Para esto, **pgvector DENTRO de PostgreSQL** es la solución perfecta:
 - ✅ **Integración:** Un solo query combina SQL tradicional + búsqueda vectorial
 
 **Conclusión definitiva:**
+
 - **Base principal:** PostgreSQL 18 (datos estructurados, ACID, compliance)
 - **Feature opcional IA:** pgvector dentro del mismo Postgres (búsqueda semántica)
 - ❌ **NO USAR:** Pinecone, Milvus, Weaviate, Qdrant (sin beneficio real, más costos, más complejidad)
@@ -811,23 +847,27 @@ Para esto, **pgvector DENTRO de PostgreSQL** es la solución perfecta:
 ### 11.3 Arquitectura Técnica Detallada
 
 **Motor Híbrido de Búsqueda:**
+
 ```
 Usuario → Pregunta en lenguaje natural → EmbeddingGemma genera embedding → pgvector busca en Postgres → Resultados devueltos
 Usuario → Consulta SQL tradicional → Resultados exactos (montos, fechas, IDs)
 ```
 
 **Flujo de Consulta Semántica:**
+
 1. Usuario formula pregunta en lenguaje natural.
 2. Sistema genera embedding de la pregunta.
 3. pgvector busca en PostgreSQL usando el embedding.
 4. Resultados relevantes son devueltos al usuario.
 
 **Flujo de Consulta Tradicional:**
+
 1. Usuario realiza consulta SQL tradicional.
 2. Sistema ejecuta la consulta en PostgreSQL.
 3. Resultados exactos son devueltos al usuario.
 
 **Ventajas de Esta Arquitectura:**
+
 - Flexibilidad para manejar consultas tanto semánticas como tradicionales.
 - Uso óptimo de recursos: solo se utilizan embeddings y búsqueda vectorial cuando es necesario.
 - Escalabilidad y rendimiento garantizados por PostgreSQL 18 y pgvector.
@@ -856,143 +896,144 @@ Usuario → Consulta SQL tradicional → Resultados exactos (montos, fechas, IDs
 ### 13.1 Visión General (Timeline Visual Completo)
 
 ┌─────────────────────────────────────────────────────────────┐
-│                  ROADMAP 18 MESES - COMPLETO                 │
+│ ROADMAP 18 MESES - COMPLETO │
 ├─────────────────────────────────────────────────────────────┤
-│                                                              │
-│  MES 0-3: PMV (Product-Market Fit Validation)              │
-│  ├─ Features Core: Auth, Transacciones, Dashboard          │
-│  ├─ Seguridad Nivel Bancario: RLS, E2EE, Audit Log         │
-│  ├─ Beta Cerrada → Beta Abierta → Lanzamiento              │
-│  └─ Target: 500 usuarios, 15% premium (75 pagando)         │
-│      MRR: $7,425 MXN (~$410 USD)                           │
-│                                                              │
-│  MES 2-3: BETA CERRADA (10 contadores + 50 clientes)         │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ Estrategia:                                                  │
-│ • Invitación personal a 10 contadores clave (red personal)  │
-│   - Excompañeros de universidad (carrera Contaduría)        │
-│   - Contactos familiares (contadores conocidos)             │
-│   - Grupos Facebook "Contadores México"                     │
-│ • Onboarding 1-on-1 con cada contador (llamada 30-45 min)   │
-│   - Demostración plataforma                                 │
-│   - Explicar dashboard multi-cliente                        │
-│   - Invitar a sus primeros 5 clientes                       │
-│ • Grupo WhatsApp exclusivo "Beta Testers Contadores"        │
-│   - Feedback directo                                        │
-│   - Reportar bugs (prioridad alta)                          │
-│   - Sugerencias de features                                 │
-│ • Iteración rápida basada en feedback:                      │
-│   - Deploy diario (si hay bugfixes críticos)                │
-│   - Deploy semanal (nuevas features pequeñas)               │
-│ • Documentación mejorada (basada en preguntas frecuentes)   │
-│                                                              │
-│ Objetivos Mes 3:                                             │
-│  ✅ 10 contadores activos usando plataforma diariamente     │
-│  ✅ 50+ clientes referidos por contadores (5 c/u promedio)  │
-│  ✅ NPS > 40 (satisfacción alta)                            │
-│  ✅ Identificar 10 bugs críticos y resolverlos              │
-│  ✅ Validar que dashboard contador es valioso               │
-│                                                              │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│                                                              │
-│ MES 3-4: BETA ABIERTA (100-200 usuarios con waitlist)       │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ • Lanzar landing page con waitlist                          │
+│ │
+│ MES 0-3: PMV (Product-Market Fit Validation) │
+│ ├─ Features Core: Auth, Transacciones, Dashboard │
+│ ├─ Seguridad Nivel Bancario: RLS, E2EE, Audit Log │
+│ ├─ Beta Cerrada → Beta Abierta → Lanzamiento │
+│ └─ Target: 500 usuarios, 15% premium (75 pagando) │
+│ MRR: $7,425 MXN (~$410 USD) │
+│ │
+│ MES 2-3: BETA CERRADA (10 contadores + 50 clientes) │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ Estrategia: │
+│ • Invitación personal a 10 contadores clave (red personal) │
+│ - Excompañeros de universidad (carrera Contaduría) │
+│ - Contactos familiares (contadores conocidos) │
+│ - Grupos Facebook "Contadores México" │
+│ • Onboarding 1-on-1 con cada contador (llamada 30-45 min) │
+│ - Demostración plataforma │
+│ - Explicar dashboard multi-cliente │
+│ - Invitar a sus primeros 5 clientes │
+│ • Grupo WhatsApp exclusivo "Beta Testers Contadores" │
+│ - Feedback directo │
+│ - Reportar bugs (prioridad alta) │
+│ - Sugerencias de features │
+│ • Iteración rápida basada en feedback: │
+│ - Deploy diario (si hay bugfixes críticos) │
+│ - Deploy semanal (nuevas features pequeñas) │
+│ • Documentación mejorada (basada en preguntas frecuentes) │
+│ │
+│ Objetivos Mes 3: │
+│ ✅ 10 contadores activos usando plataforma diariamente │
+│ ✅ 50+ clientes referidos por contadores (5 c/u promedio) │
+│ ✅ NPS > 40 (satisfacción alta) │
+│ ✅ Identificar 10 bugs críticos y resolverlos │
+│ ✅ Validar que dashboard contador es valioso │
+│ │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│ │
+│ MES 3-4: BETA ABIERTA (100-200 usuarios con waitlist) │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ • Lanzar landing page con waitlist │
 │ • Publicar 10 artículos blog (SEO: "alternativa quickbooks")│
-│ • Marketing orgánico: grupos Facebook, Reddit, LinkedIn     │
-│ • Aprobar usuarios manualmente (evitar abuse)               │
-│                                                              │
-│ Objetivo:                                                    │
-│  ✅ 500 registros en waitlist                               │
-│  ✅ 200 usuarios aprobados y activos                        │
-│  ✅ 10% conversión a Premium                                │
-│  ✅ Retention D30: > 40%                                    │
-│                                                              │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│                                                              │
-│ MES 4-6: LANZAMIENTO PÚBLICO + CONSOLIDACIÓN                │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ • Eliminar waitlist, registro abierto                       │
-│ • Marketing guerrilla: escuelas, universidades, eventos     │
-│ • Programa referidos: 10% descuento por amigo invitado      │
-│ • Partnerships con instituciones (AMIPCI, IMCP)             │
-│                                                              │
-│ Objetivo:                                                    │
-│  ✅ 500+ usuarios activos (mes 6 acumulado)                 │
-│  ✅ 15% conversión a Premium (75 usuarios pagando)          │
-│  ✅ MRR: $15,000 MXN (~$833 USD)                            │
-│  ✅ Break-even operativo viable (MRR cubre costos mínimos)  │
-│                                                              │
+│ • Marketing orgánico: grupos Facebook, Reddit, LinkedIn │
+│ • Aprobar usuarios manualmente (evitar abuse) │
+│ │
+│ Objetivo: │
+│ ✅ 500 registros en waitlist │
+│ ✅ 200 usuarios aprobados y activos │
+│ ✅ 10% conversión a Premium │
+│ ✅ Retention D30: > 40% │
+│ │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│ │
+│ MES 4-6: LANZAMIENTO PÚBLICO + CONSOLIDACIÓN │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ • Eliminar waitlist, registro abierto │
+│ • Marketing guerrilla: escuelas, universidades, eventos │
+│ • Programa referidos: 10% descuento por amigo invitado │
+│ • Partnerships con instituciones (AMIPCI, IMCP) │
+│ │
+│ Objetivo: │
+│ ✅ 500+ usuarios activos (mes 6 acumulado) │
+│ ✅ 15% conversión a Premium (75 usuarios pagando) │
+│ ✅ MRR: $15,000 MXN (~$833 USD) │
+│ ✅ Break-even operativo viable (MRR cubre costos mínimos) │
+│ │
 └─────────────────────────────────────────────────────────────┘
 
 ### 14. ROADMAP ESTRATÉGICO 18 MESES (CONTINUACIÓN)
 
 ### 14.2 Mes 6-12: Crecimiento Acelerado
-````markdown
-│  MES 6-12: CRECIMIENTO ACELERADO                            │
-│  ├─ Optimización embudos: captar, activar, retener         │
-│  ├─ Lanzamiento oficial CFDI 5.0                           │
-│  ├─ Expansión equipo: 2 devs, 1 diseñador, 1 marketero     │
-│  ├─ Estrategia contenido: 50 artículos, 10 videos, SEO    │
-│  ├─ Alianzas estratégicas: universidades, empresas        │
-│  └─ Target: 5,000 usuarios, 20% premium (1,000 pagando)   │
-│      MRR: $99,000 MXN (~$5,500 USD)                       │
-│                                                              │
-│  MES 6: OPTIMIZACIÓN EMBUDOS Y LANZAMIENTO CFDI 5.0         │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ Estrategia:                                                  │
-│ • Analizar embudos actuales: captar, activar, retener      │
-│ • Optimizar onboarding: tutoriales, mensajes in-app        │
+
+```markdown
+│ MES 6-12: CRECIMIENTO ACELERADO │
+│ ├─ Optimización embudos: captar, activar, retener │
+│ ├─ Lanzamiento oficial CFDI 5.0 │
+│ ├─ Expansión equipo: 2 devs, 1 diseñador, 1 marketero │
+│ ├─ Estrategia contenido: 50 artículos, 10 videos, SEO │
+│ ├─ Alianzas estratégicas: universidades, empresas │
+│ └─ Target: 5,000 usuarios, 20% premium (1,000 pagando) │
+│ MRR: $99,000 MXN (~$5,500 USD) │
+│ │
+│ MES 6: OPTIMIZACIÓN EMBUDOS Y LANZAMIENTO CFDI 5.0 │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ Estrategia: │
+│ • Analizar embudos actuales: captar, activar, retener │
+│ • Optimizar onboarding: tutoriales, mensajes in-app │
 │ • Mejorar velocidad carga: imágenes optimizadas, lazy load │
-│ • Lanzar módulo CFDI 5.0: comunicación SAT, validaciones   │
-│ • Campaña email: "¡CFDI 5.0 ya disponible!"                │
-│ • Webinar: "Novedades CFDI 5.0 y cómo te afecta"           │
-│ • Actualizar documentación y FAQs sobre CFDI 5.0            │
-│                                                              │
-│ Objetivos Mes 6:                                            │
-│  ✅ Lanzar módulo CFDI 5.0                                  │
-│  ✅ 1,000 usuarios activos en Mes 6                         │
-│  ✅ 20% conversión a Premium (200 usuarios pagando)        │
-│  ✅ MRR: $19,800 MXN (~$1,100 USD)                         │
-│                                                              │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│                                                              │
-│ MES 7-9: EXPANSIÓN Y ALIANZAS ESTRATÉGICAS                  │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ • Expandir equipo: 2 desarrolladores, 1 diseñador UI/UX    │
-│ • Iniciar campañas PPC: Google Ads, Facebook Ads          │
+│ • Lanzar módulo CFDI 5.0: comunicación SAT, validaciones │
+│ • Campaña email: "¡CFDI 5.0 ya disponible!" │
+│ • Webinar: "Novedades CFDI 5.0 y cómo te afecta" │
+│ • Actualizar documentación y FAQs sobre CFDI 5.0 │
+│ │
+│ Objetivos Mes 6: │
+│ ✅ Lanzar módulo CFDI 5.0 │
+│ ✅ 1,000 usuarios activos en Mes 6 │
+│ ✅ 20% conversión a Premium (200 usuarios pagando) │
+│ ✅ MRR: $19,800 MXN (~$1,100 USD) │
+│ │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│ │
+│ MES 7-9: EXPANSIÓN Y ALIANZAS ESTRATÉGICAS │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ • Expandir equipo: 2 desarrolladores, 1 diseñador UI/UX │
+│ • Iniciar campañas PPC: Google Ads, Facebook Ads │
 │ • Alianzas con universidades: ofrecer plataforma a alumnos │
 │ • Alianzas con empresas: paquetes especiales para empleados │
-│ • Participación en eventos y ferias de empleo/tecnología   │
-│ • Lanzar programa embajadores: usuarios refieren y ganan  │
-│                                                              │
-│ Objetivos Mes 9:                                            │
-│  ✅ 3,000 usuarios activos                                   │
-│  ✅ 25% conversión a Premium (750 usuarios pagando)        │
-│  ✅ MRR: $74,250 MXN (~$4,125 USD)                         │
-│                                                              │
-│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━  │
-│                                                              │
-│ MES 10-12: CONSOLIDACIÓN Y OPTIMIZACIÓN                     │
-│  ════════════════════════════════════════════════════════    │
-│                                                              │
-│ • Optimizar costos adquisición: mejorar ROI campañas        │
+│ • Participación en eventos y ferias de empleo/tecnología │
+│ • Lanzar programa embajadores: usuarios refieren y ganan │
+│ │
+│ Objetivos Mes 9: │
+│ ✅ 3,000 usuarios activos │
+│ ✅ 25% conversión a Premium (750 usuarios pagando) │
+│ ✅ MRR: $74,250 MXN (~$4,125 USD) │
+│ │
+│ ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ │
+│ │
+│ MES 10-12: CONSOLIDACIÓN Y OPTIMIZACIÓN │
+│ ════════════════════════════════════════════════════════ │
+│ │
+│ • Optimizar costos adquisición: mejorar ROI campañas │
 │ • Mejorar retención usuarios: encuestas, feedback, mejoras │
-│ • Lanzar nuevas funcionalidades: ahorro automático, metas   │
-│ • Expandir contenido educativo: 100 artículos, 20 videos   │
-│ • Preparar lanzamiento internacional (beta en 2 países)   │
+│ • Lanzar nuevas funcionalidades: ahorro automático, metas │
+│ • Expandir contenido educativo: 100 artículos, 20 videos │
+│ • Preparar lanzamiento internacional (beta en 2 países) │
 │ • Evaluar nuevas oportunidades de negocio: créditos, seguros│
-│                                                              │
-│ Objetivos Mes 12:                                           │
-│  ✅ 5,000 usuarios activos                                   │
-│  ✅ 30% conversión a Premium (1,500 usuarios pagando)      │
-│  ✅ MRR: $148,500 MXN (~$8,250 USD)                        │
-│  ✅ Lanzamiento internacional planificado                   │
-│                                                              │
+│ │
+│ Objetivos Mes 12: │
+│ ✅ 5,000 usuarios activos │
+│ ✅ 30% conversión a Premium (1,500 usuarios pagando) │
+│ ✅ MRR: $148,500 MXN (~$8,250 USD) │
+│ ✅ Lanzamiento internacional planificado │
+│ │
 └─────────────────────────────────────────────────────────────┘
-````
+```

@@ -1,3 +1,97 @@
 {
-    "chat.agent.maxRequests": 100
+    // =========================================================================
+    // 🤖 COPILOT SETTINGS
+    // =========================================================================
+    "chat.agent.maxRequests": 100,
+
+    // =========================================================================
+    // 📝 MARKDOWNLINT SETTINGS
+    // =========================================================================
+    
+    // Usar archivo de configuración del proyecto
+    "markdownlint.configFile": ".markdownlint.jsonc",
+    
+    // Modo enfocado: no mostrar warnings en línea actual + 2 arriba/abajo
+    "markdownlint.focusMode": 2,
+    
+    // Ejecutar linting mientras escribes (alternativa: "onSave")
+    "markdownlint.run": "onType",
+    
+    // Globs para linting del workspace (excluir legacy)
+    "markdownlint.lintWorkspaceGlobs": [
+        "**/*.md",
+        "!**/node_modules/**",
+        "!**/00_LEGADO_PRIMERA_LLUVIA_IDEAS/**",
+        "!**/.git/**"
+    ],
+
+    // =========================================================================
+    // 📄 MARKDOWN EDITOR SETTINGS
+    // =========================================================================
+    "[markdown]": {
+        // Formatear automáticamente al guardar
+        "editor.formatOnSave": true,
+        
+        // Formatear al pegar
+        "editor.formatOnPaste": true,
+        
+        // Word wrap para mejor lectura
+        "editor.wordWrap": "on",
+        
+        // Mostrar espacios en blanco
+        "editor.renderWhitespace": "trailing",
+        
+        // Tamaño de tab
+        "editor.tabSize": 2,
+        
+        // Usar espacios en lugar de tabs
+        "editor.insertSpaces": true,
+        
+        // Recortar espacios al final al guardar
+        "files.trimTrailingWhitespace": true,
+        
+        // Asegurar línea final vacía
+        "files.insertFinalNewline": true,
+        
+        // Quitar líneas vacías extra al final
+        "files.trimFinalNewlines": true,
+        
+        // Quick suggestions para snippets
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": false,
+            "strings": false
+        },
+        
+        // Formatter por defecto
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint"
+    },
+
+    // =========================================================================
+    // 🔄 AUTO-FIX AL GUARDAR
+    // =========================================================================
+    "editor.codeActionsOnSave": {
+        // markdownlint corrige automáticamente lo que pueda
+        "source.fixAll.markdownlint": "explicit"
+    },
+
+    // =========================================================================
+    // 📁 FILES SETTINGS (para todo el proyecto)
+    // =========================================================================
+    "files.associations": {
+        "*.md": "markdown",
+        "*.mdx": "markdown"
+    },
+    
+    // Excluir carpetas de búsqueda
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/.git": true,
+        "**/00_LEGADO_PRIMERA_LLUVIA_IDEAS": false
+    },
+    
+    // Excluir de búsqueda pero no ocultar
+    "search.exclude": {
+        "**/00_LEGADO_PRIMERA_LLUVIA_IDEAS": true
+    }
 }

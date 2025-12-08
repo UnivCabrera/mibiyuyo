@@ -1,4 +1,5 @@
 # 🎨 MÓDULO 06: EXPERIENCIA DE USUARIO (UX/UI)
+
 **Total:** 40 características  
 **Prioridad PMV:** 24  
 **Última actualización:** 8 Diciembre 2025  
@@ -8,18 +9,18 @@
 
 ## 🔗 DOCUMENTOS COMPLEMENTARIOS
 
-| Documento | Descripción |
-|:---|:---|
-| [04_NEUROFINANZAS_FRAMEWORK](../05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md) | **🆕 Framework completo de neurociencias** |
-| [15_MODULOS_INNOVADORES](15_MODULOS_INNOVADORES.md) | **🆕 18 módulos diferenciadores** |
-| [03_40_PERFILES_PROFESIONALES](../03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md) | **🆕 40 perfiles con neurociencia** |
+| Documento                                                                                 | Descripción                                |
+| :---------------------------------------------------------------------------------------- | :----------------------------------------- |
+| [04_NEUROFINANZAS_FRAMEWORK](../05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md)            | **🆕 Framework completo de neurociencias** |
+| [15_MODULOS_INNOVADORES](15_MODULOS_INNOVADORES.md)                                       | **🆕 18 módulos diferenciadores**          |
+| [03_40_PERFILES_PROFESIONALES](../03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md) | **🆕 40 perfiles con neurociencia**        |
 
 ---
 
 ## 🎯 DOCUMENTOS CLAVE
 
 > **MATRIZ MAESTRA:** `00_ARQUITECTURA_CENTRAL/00_MATRIZ_MAESTRA_SERVICIOS_POR_PERFIL.md`
-> 
+>
 > Consultar para: Core Universal, 70 Lifestyle Tools, Features GRATIS vs PAGO por perfil.
 >
 > **🧠 NEUROCIENCIAS:** `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md`
@@ -33,6 +34,7 @@
 > **DECISIÓN ESTRATÉGICA:** La personalización Tangram es nuestra Killer Feature visual. Disponible desde FREEMIUM, no es un feature de pago. Si el usuario se enamora de la personalización, no se va. Si oculta módulos, ahorramos recursos (Lazy Loading). **GANAR-GANAR.**
 
 ### UX-TANGRAM-001: Dashboard Modular Tangram
+
 - **Descripción:** Dashboard donde cada herramienta es un "widget" movible
 - **Acciones:** Drag & Drop, Resize, Show/Hide
 - **Técnica:** svelte-grid + svelte-dnd-action
@@ -43,6 +45,7 @@
 - **Plan:** ✅ **FREEMIUM** (para todos)
 
 ### UX-TANGRAM-002: Modo Edición vs Modo Uso
+
 - **Descripción:** Toggle entre personalizar y usar
 - **Modo Edición:** Bordes punteados, handles de resize, botón eliminar
 - **Modo Uso:** Interfaz limpia, widgets funcionales
@@ -52,6 +55,7 @@
 - **Plan:** ✅ **FREEMIUM**
 
 ### UX-TANGRAM-003: Catálogo de Widgets (+)
+
 - **Descripción:** Botón "+" para agregar widgets desde catálogo
 - **Catálogo:** Grid visual con preview de cada widget
 - **Búsqueda:** Filtrar por categoría o nombre
@@ -61,6 +65,7 @@
 - **Plan:** ✅ **FREEMIUM**
 
 ### UX-TANGRAM-004: Múltiples Dashboards Guardados
+
 - **Descripción:** Crear diferentes layouts para diferentes tareas
 - **Ejemplos:** "Día a día", "Cierre mensual", "Presentación"
 - **Límite FREEMIUM:** 2 dashboards
@@ -120,19 +125,21 @@
 ---
 
 ## 👤 6.1.2 PERFILES TÉCNICOS DETALLADOS (11)
-│   ════════════ USUARIOS BASE (7) ════════════                      │
-│   🎓 Estudiante    🏠 Hogar        💼 Empleado                     │
-│   🚀 Emprendedor   🏢 PyME         🔀 Híbrido    👥 Grupal         │
-│                                                                     │
-│   ═══════════ ACTORES DE PODER (2) ═══════════                     │
-│   🧮 CONTADOR/DESPACHO          👔 ADMINISTRADOR/GERENTE           │
-│   (God Mode Multi-Empresa)       (Permisos Granulares)              │
-│                                                                     │
-│   ═══════════ HIGH-TICKET (2) ════════════                         │
-│   📦 E-COMMERCE POWER SELLER    ⚕️ PROFESIONAL ALTA GAMA          │
-│   (Amazon/ML/Shopify)            (Médicos, Arquitectos, Abogados)  │
-│                                                                     │
+
+│ ════════════ USUARIOS BASE (7) ════════════ │
+│ 🎓 Estudiante 🏠 Hogar 💼 Empleado │
+│ 🚀 Emprendedor 🏢 PyME 🔀 Híbrido 👥 Grupal │
+│ │
+│ ═══════════ ACTORES DE PODER (2) ═══════════ │
+│ 🧮 CONTADOR/DESPACHO 👔 ADMINISTRADOR/GERENTE │
+│ (God Mode Multi-Empresa) (Permisos Granulares) │
+│ │
+│ ═══════════ HIGH-TICKET (2) ════════════ │
+│ 📦 E-COMMERCE POWER SELLER ⚕️ PROFESIONAL ALTA GAMA │
+│ (Amazon/ML/Shopify) (Médicos, Arquitectos, Abogados) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 ### UX-PROFILE-001: Selector de Perfil en Onboarding
@@ -254,25 +261,27 @@
 
 **MONETIZACIÓN ESPECIAL:**
 ```
+
 ┌─────────────────────────────────────────────────────────────────────┐
-│                 PROGRAMA "CONTADOR SOCIO"                          │
+│ PROGRAMA "CONTADOR SOCIO" │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│   🎁 CONTADOR USA GRATIS LA PLATAFORMA                             │
-│      (Si trae a sus clientes a PRO/BUSINESS)                       │
-│                                                                     │
-│   💰 COMISIÓN DEL 20% DE CADA CLIENTE                              │
-│      (Mientras el cliente pague)                                    │
-│                                                                     │
-│   📊 EJEMPLO:                                                       │
-│   • Contador con 30 clientes PRO ($149/mes c/u)                    │
-│   • Revenue mensual: $4,470                                         │
-│   • Comisión contador: $894/mes                                     │
-│   • Contador: Gratis + $894 de ingreso pasivo                      │
-│                                                                     │
-│   🎯 EL CONTADOR ES NUESTRO MEJOR VENDEDOR                         │
-│                                                                     │
+│ │
+│ 🎁 CONTADOR USA GRATIS LA PLATAFORMA │
+│ (Si trae a sus clientes a PRO/BUSINESS) │
+│ │
+│ 💰 COMISIÓN DEL 20% DE CADA CLIENTE │
+│ (Mientras el cliente pague) │
+│ │
+│ 📊 EJEMPLO: │
+│ • Contador con 30 clientes PRO ($149/mes c/u) │
+│ • Revenue mensual: $4,470 │
+│ • Comisión contador: $894/mes │
+│ • Contador: Gratis + $894 de ingreso pasivo │
+│ │
+│ 🎯 EL CONTADOR ES NUESTRO MEJOR VENDEDOR │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 **Features Exclusivos Contador:**
@@ -307,28 +316,30 @@
 
 **Sistema de Permisos Granulares:**
 ```
+
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    MATRIZ DE PERMISOS                              │
+│ MATRIZ DE PERMISOS │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│   MÓDULO              DUEÑO   GERENTE   EMPLEADO   CONTADOR        │
-│   ─────────────────────────────────────────────────────────────    │
-│   💰 Saldos Bancarios   ✅      ❌         ❌         ✅            │
-│   📊 Ventas             ✅      ✅         👁️         ✅            │
-│   📦 Inventario         ✅      ✅         👁️         ✅            │
-│   👥 Nómina             ✅      ⚠️         ❌         ✅            │
-│   📄 Facturación        ✅      ✅         ❌         ✅            │
-│   ✏️ Editar Gastos      ✅      ✅         ⚠️         ❌            │
-│   🗑️ Borrar Registros   ✅      ❌         ❌         ❌            │
-│   ⚙️ Configuración      ✅      ❌         ❌         ❌            │
-│                                                                     │
-│   Leyenda:                                                          │
-│   ✅ = Acceso completo                                              │
-│   👁️ = Solo lectura                                                 │
-│   ⚠️ = Requiere aprobación del dueño                                │
-│   ❌ = Sin acceso                                                    │
-│                                                                     │
+│ │
+│ MÓDULO DUEÑO GERENTE EMPLEADO CONTADOR │
+│ ───────────────────────────────────────────────────────────── │
+│ 💰 Saldos Bancarios ✅ ❌ ❌ ✅ │
+│ 📊 Ventas ✅ ✅ 👁️ ✅ │
+│ 📦 Inventario ✅ ✅ 👁️ ✅ │
+│ 👥 Nómina ✅ ⚠️ ❌ ✅ │
+│ 📄 Facturación ✅ ✅ ❌ ✅ │
+│ ✏️ Editar Gastos ✅ ✅ ⚠️ ❌ │
+│ 🗑️ Borrar Registros ✅ ❌ ❌ ❌ │
+│ ⚙️ Configuración ✅ ❌ ❌ ❌ │
+│ │
+│ Leyenda: │
+│ ✅ = Acceso completo │
+│ 👁️ = Solo lectura │
+│ ⚠️ = Requiere aprobación del dueño │
+│ ❌ = Sin acceso │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 **Bitácora de Auditoría (Compliance):**
@@ -368,31 +379,33 @@
 
 **Integraciones Críticas:**
 ```
+
 ┌─────────────────────────────────────────────────────────────────────┐
-│                  ECOSISTEMA E-COMMERCE                             │
+│ ECOSISTEMA E-COMMERCE │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│   ┌──────────────┐    ┌──────────────┐    ┌──────────────┐         │
-│   │ MERCADO      │    │   AMAZON     │    │  SHOPIFY     │         │
-│   │ LIBRE        │    │   SELLER     │    │  + WOO       │         │
-│   └──────┬───────┘    └──────┬───────┘    └──────┬───────┘         │
-│          │                   │                   │                  │
-│          └───────────────────┼───────────────────┘                  │
-│                              ▼                                      │
-│                    ┌─────────────────┐                             │
-│                    │   NUESTRA APP   │                             │
-│                    │  CONCILIACIÓN   │                             │
-│                    │   AUTOMÁTICA    │                             │
-│                    └────────┬────────┘                             │
-│                             │                                       │
-│          ┌──────────────────┼──────────────────┐                   │
-│          ▼                  ▼                  ▼                   │
-│   ┌──────────────┐  ┌──────────────┐  ┌──────────────┐            │
-│   │ FACTURACIÓN  │  │   MARGEN     │  │  INVENTARIO  │            │
-│   │ AUTOMÁTICA   │  │    REAL      │  │  UNIFICADO   │            │
-│   └──────────────┘  └──────────────┘  └──────────────┘            │
-│                                                                     │
+│ │
+│ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ │
+│ │ MERCADO │ │ AMAZON │ │ SHOPIFY │ │
+│ │ LIBRE │ │ SELLER │ │ + WOO │ │
+│ └──────┬───────┘ └──────┬───────┘ └──────┬───────┘ │
+│ │ │ │ │
+│ └───────────────────┼───────────────────┘ │
+│ ▼ │
+│ ┌─────────────────┐ │
+│ │ NUESTRA APP │ │
+│ │ CONCILIACIÓN │ │
+│ │ AUTOMÁTICA │ │
+│ └────────┬────────┘ │
+│ │ │
+│ ┌──────────────────┼──────────────────┐ │
+│ ▼ ▼ ▼ │
+│ ┌──────────────┐ ┌──────────────┐ ┌──────────────┐ │
+│ │ FACTURACIÓN │ │ MARGEN │ │ INVENTARIO │ │
+│ │ AUTOMÁTICA │ │ REAL │ │ UNIFICADO │ │
+│ └──────────────┘ └──────────────┘ └──────────────┘ │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 **Features Power Seller:**
@@ -434,50 +447,54 @@
 
 **Diseño Ultra-Minimalista:**
 ```
+
 ┌─────────────────────────────────────────────────────────────────────┐
-│                  PANEL PROFESIONAL ALTA GAMA                       │
+│ PANEL PROFESIONAL ALTA GAMA │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│   ┌───────────────────────────────────────────────────────────┐    │
-│   │                                                           │    │
-│   │        ESTE MES                                           │    │
-│   │                                                           │    │
-│   │        💰 INGRESOS           📊 GASTOS                    │    │
-│   │           $85,000               $12,500                   │    │
-│   │                                                           │    │
-│   │        ─────────────────────────────────────              │    │
-│   │                                                           │    │
-│   │        🏛️ DEBES AL SAT                                    │    │
-│   │              $3,400                                        │    │
-│   │         (Vence 17 dic)                                    │    │
-│   │                                                           │    │
-│   │        [💳 PAGAR AHORA]                                   │    │
-│   │                                                           │    │
-│   └───────────────────────────────────────────────────────────┘    │
-│                                                                     │
-│   ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────┐   │
-│   │   📄 FACTURAR   │  │   📅 CITAS HOY  │  │   💸 POR COBRAR │   │
-│   │   (3 clics)     │  │      4          │  │    $22,000      │   │
-│   └─────────────────┘  └─────────────────┘  └─────────────────┘   │
-│                                                                     │
-│   🔔 "Dr. García, tiene 2 pacientes que no han pagado de nov"      │
-│                                                                     │
+│ │
+│ ┌───────────────────────────────────────────────────────────┐ │
+│ │ │ │
+│ │ ESTE MES │ │
+│ │ │ │
+│ │ 💰 INGRESOS 📊 GASTOS │ │
+│ │ $85,000 $12,500 │ │
+│ │ │ │
+│ │ ───────────────────────────────────── │ │
+│ │ │ │
+│ │ 🏛️ DEBES AL SAT │ │
+│ │ $3,400 │ │
+│ │ (Vence 17 dic) │ │
+│ │ │ │
+│ │ [💳 PAGAR AHORA] │ │
+│ │ │ │
+│ └───────────────────────────────────────────────────────────┘ │
+│ │
+│ ┌─────────────────┐ ┌─────────────────┐ ┌─────────────────┐ │
+│ │ 📄 FACTURAR │ │ 📅 CITAS HOY │ │ 💸 POR COBRAR │ │
+│ │ (3 clics) │ │ 4 │ │ $22,000 │ │
+│ └─────────────────┘ └─────────────────┘ └─────────────────┘ │
+│ │
+│ 🔔 "Dr. García, tiene 2 pacientes que no han pagado de nov" │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 **Facturación en 3 Clics (Entre Paciente y Paciente):**
 ```
+
 PASO 1: Seleccionar cliente (autocompletado por nombre)
-        → "Gar..." → "García López María"
-        
+→ "Gar..." → "García López María"
+
 PASO 2: Confirmar monto
-        → $1,500 (último monto usado con este cliente)
-        → [Cambiar] o [Confirmar]
-        
+→ $1,500 (último monto usado con este cliente)
+→ [Cambiar] o [Confirmar]
+
 PASO 3: Enviar
-        → [📧 Email] [📱 WhatsApp] [Ambos]
-        
+→ [📧 Email] [📱 WhatsApp] [Ambos]
+
 ✅ Factura emitida y enviada. Volver a consulta.
+
 ```
 
 **Features Profesional Alta Gama:**
@@ -720,7 +737,7 @@ Leyenda: ✅ = Activo | 👁️ = Solo lectura | ❌ = No activo
 
 ### UX-VIRAL-001: Referral Program Agresivo
 - **Descripción:** Sistema de referidos con descuentos acumulables
-- **Mecánica:** 
+- **Mecánica:**
   - Invita 1 amigo → 30% descuento
   - Invita 2 amigos → 60% descuento
   - Invita 3 amigos → 90% descuento (o 100% primer año)
@@ -757,7 +774,7 @@ Leyenda: ✅ = Activo | 👁️ = Solo lectura | ❌ = No activo
 
 ### UX-VIRAL-004: Compartir Logros
 - **Descripción:** Compartir achievements en redes sociales
-- **Ejemplos:** 
+- **Ejemplos:**
   - "¡Ahorré $5,000 este mes! 🎉"
   - "¡100 facturas emitidas! 📄"
   - "¡3 meses sin gastos hormiga! ☕❌"
@@ -923,38 +940,40 @@ Leyenda: ✅ = Activo | 👁️ = Solo lectura | ❌ = No activo
 ## 🔄 FLUJO DE VIRALIDAD Y CAPTACIÓN
 
 ```
+
 ┌─────────────────────────────────────────────────────────────────────┐
-│                    GROWTH LOOP ENGINE V2                           │
+│ GROWTH LOOP ENGINE V2 │
 ├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│   LOOP 1: USUARIOS BASE (7 PERFILES)                               │
-│   ─────────────────────────────────────────                         │
-│   1. Usuario se registra → Elige perfil (1-7)                      │
-│   2. Tangram auto-configura → Usa 3 meses                          │
-│   3. Loyalty Unlocks → Feliz → Comparte logro                      │
-│   4. Refiere 3 amigos → 90-100% descuento                          │
-│   5. Amigos se registran → LOOP                                    │
-│                                                                     │
-│   LOOP 2: CONTADOR SOCIO (MULTIPLICADOR x50)                       │
-│   ─────────────────────────────────────────                         │
-│   1. Contador se registra (GRATIS si trae clientes)                │
-│   2. Invita a sus 30-50 clientes → Todos pagan PRO/BIZ            │
-│   3. Contador gana 20% comisión = $894-2,000/mes                   │
-│   4. Contador recomienda a otros contadores                        │
-│   5. Red de contadores → EXPLOSIÓN                                 │
-│                                                                     │
-│   LOOP 3: HIGH-TICKET (REFERIDOS ENTRE PARES)                      │
-│   ─────────────────────────────────────────                         │
-│   1. E-commerce seller o Profesional se registra                   │
-│   2. Resuelve su dolor → Feliz → Lo comenta en comunidad           │
-│   3. Otros sellers/profesionales preguntan                         │
-│   4. Referido → 15% descuento ambos                                │
-│   5. Comunidad de nicho crece                                      │
-│                                                                     │
-│   📊 Viral Coefficient Objetivo: K > 1.5                            │
-│   (Con contadores: cada usuario trae 1.5 usuarios nuevos)          │
-│                                                                     │
+│ │
+│ LOOP 1: USUARIOS BASE (7 PERFILES) │
+│ ───────────────────────────────────────── │
+│ 1. Usuario se registra → Elige perfil (1-7) │
+│ 2. Tangram auto-configura → Usa 3 meses │
+│ 3. Loyalty Unlocks → Feliz → Comparte logro │
+│ 4. Refiere 3 amigos → 90-100% descuento │
+│ 5. Amigos se registran → LOOP │
+│ │
+│ LOOP 2: CONTADOR SOCIO (MULTIPLICADOR x50) │
+│ ───────────────────────────────────────── │
+│ 1. Contador se registra (GRATIS si trae clientes) │
+│ 2. Invita a sus 30-50 clientes → Todos pagan PRO/BIZ │
+│ 3. Contador gana 20% comisión = $894-2,000/mes │
+│ 4. Contador recomienda a otros contadores │
+│ 5. Red de contadores → EXPLOSIÓN │
+│ │
+│ LOOP 3: HIGH-TICKET (REFERIDOS ENTRE PARES) │
+│ ───────────────────────────────────────── │
+│ 1. E-commerce seller o Profesional se registra │
+│ 2. Resuelve su dolor → Feliz → Lo comenta en comunidad │
+│ 3. Otros sellers/profesionales preguntan │
+│ 4. Referido → 15% descuento ambos │
+│ 5. Comunidad de nicho crece │
+│ │
+│ 📊 Viral Coefficient Objetivo: K > 1.5 │
+│ (Con contadores: cada usuario trae 1.5 usuarios nuevos) │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
+
 ```
 
 ---
@@ -980,3 +999,4 @@ Leyenda: ✅ = Activo | 👁️ = Solo lectura | ❌ = No activo
 ---
 
 **Próximo:** [07_INTEGRACIONES.md](./07_INTEGRACIONES.md)
+```

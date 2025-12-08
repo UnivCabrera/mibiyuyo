@@ -92,7 +92,7 @@ Testing:
 **CSS Nativo:** Control total, sin dependencias, futuro-proof  
 **Bun:** 10x startup más rápido, TypeScript nativo  
 **PostgreSQL 18:** ACID completo, pgvector nativo, RLS, io_uring  
-**Drizzle:** Queries SQL puras, bundle ligero, mejor soporte Bun  
+**Drizzle:** Queries SQL puras, bundle ligero, mejor soporte Bun
 
 ---
 

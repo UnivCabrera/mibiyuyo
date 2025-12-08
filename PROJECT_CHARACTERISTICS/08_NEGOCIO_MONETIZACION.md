@@ -1,4 +1,5 @@
 # 💼 MÓDULO 08: NEGOCIO Y MONETIZACIÓN
+
 **Total:** 15 características  
 **Prioridad PMV:** 4  
 **Última actualización:** 8 Diciembre 2025
@@ -31,8 +32,9 @@
 ## 8.1 PLANES Y SUSCRIPCIONES (7 características)
 
 ### BIZ-001: Plan Freemium (GRATIS)
+
 - **Descripción:** Acceso completo al core, sin límites frustrantes
-- **Incluye:** 
+- **Incluye:**
   - ✅ Wallet Mexicano Inteligente (transacciones ilimitadas)
   - ✅ Planificador Quincenal completo
   - ✅ Módulo "Tu Dinero Hoy" completo
@@ -48,9 +50,10 @@
 - **Plan:** FREEMIUM
 
 ### BIZ-002: Plan Personal Pro
+
 - **Descripción:** Todas las funciones para individuos
 - **Precio:** $149 MXN/mes o $1,490/año (2 meses gratis)
-- **Incluye:** 
+- **Incluye:**
   - ✅ Todo de GRATIS sin límites
   - ✅ Metas y deudas ilimitadas
   - ✅ Coach IA "Paco" personalizado
@@ -67,9 +70,10 @@
 - **Plan:** PRO
 
 ### BIZ-003: Plan Negocio Pro
+
 - **Descripción:** Para emprendedores y pequeños negocios
 - **Precio:** $299 MXN/mes o $2,990/año (2 meses gratis)
-- **Incluye:** 
+- **Incluye:**
   - ✅ Todo de Personal Pro
   - ✅ Vista dual Personal/Negocio
   - ✅ Facturación CFDI (50/mes)
@@ -84,9 +88,10 @@
 - **Plan:** NEGOCIO PRO
 
 ### BIZ-004: Plan Business
+
 - **Descripción:** Para PyMEs establecidas
 - **Precio:** $499 MXN/mes o $4,990/año (2 meses gratis)
-- **Incluye:** 
+- **Incluye:**
   - ✅ Todo de Negocio Pro
   - ✅ Multi-empresa (hasta 3)
   - ✅ Facturación CFDI ilimitada
@@ -102,9 +107,10 @@
 - **Plan:** BUSINESS
 
 ### BIZ-005: Plan Enterprise
+
 - **Descripción:** Para corporativos y empresas grandes
 - **Precio:** Personalizado (contactar ventas)
-- **Incluye:** 
+- **Incluye:**
   - ✅ Todo de Business
   - ✅ Multi-empresa ilimitada
   - ✅ Usuarios ilimitados
@@ -119,6 +125,7 @@
 - **Plan:** ENTERPRISE
 
 ### BIZ-006: Plan Familia (Add-on)
+
 - **Descripción:** Agregar perfiles familiares a cualquier plan
 - **Precio:** +$79 MXN/mes por plan PRO o superior
 - **Incluye:** Hasta 5 perfiles familiares, control parental, metas compartidas
@@ -128,6 +135,7 @@
 - **Plan:** ADD-ON
 
 ### BIZ-005: Sistema de Pagos
+
 - **Descripción:** Procesamiento de suscripciones
 - **Proveedor:** Stripe (tarjetas) + OXXO Pay + SPEI
 - **Recurrencia:** Cobro automático mensual/anual
@@ -137,6 +145,7 @@
 - **Plan:** TODOS
 
 ### BIZ-006: Trials y Promociones
+
 - **Descripción:** Períodos de prueba y descuentos
 - **Trial:** 14 días gratis de Pro
 - **Cupones:** Descuentos por código
@@ -150,6 +159,7 @@
 ## 8.2 REVENUE ADICIONAL (4 características)
 
 ### BIZ-007: Programa de Afiliados (Tarjetas)
+
 - **Descripción:** Recomendar productos financieros
 - **Productos:** Tarjetas de crédito, seguros, inversiones
 - **Comisión:** $500-2,000 MXN por producto aprobado
@@ -159,6 +169,7 @@
 - **Plan:** TODOS
 
 ### BIZ-008: Servicios Contables (Marketplace)
+
 - **Descripción:** Conectar usuarios con contadores
 - **Modelo:** Referral fee (5-10% del servicio)
 - **Servicios:** Declaración anual, asesoría fiscal, auditoría
@@ -167,6 +178,7 @@
 - **Plan:** PRO/BUSINESS
 
 ### BIZ-009: API para Desarrolladores
+
 - **Descripción:** Acceso programático a datos (con permiso)
 - **Modelo:** Freemium API (1000 calls/mes gratis, luego pago)
 - **Uso:** Integraciones con otros sistemas contables
@@ -175,6 +187,7 @@
 - **Plan:** BUSINESS
 
 ### BIZ-010: White Label (Futuro)
+
 - **Descripción:** Licenciar plataforma a otras empresas
 - **Target:** Bancos, fintechs, contadores
 - **Modelo:** Fee mensual + setup
@@ -187,6 +200,7 @@
 ## 8.3 MÉTRICAS Y ANALYTICS (2 características)
 
 ### BIZ-011: Dashboard de Admin
+
 - **Descripción:** Panel interno para el equipo
 - **Métricas:** MAU, DAU, churn, MRR, conversión
 - **Herramienta:** Grafana o Metabase
@@ -195,6 +209,7 @@
 - **Plan:** INTERNO
 
 ### BIZ-012: Product Analytics
+
 - **Descripción:** Tracking de uso de features
 - **Herramienta:** PostHog (self-hosted) o Mixpanel
 - **Eventos:** Clicks, flujos, abandono, conversión
@@ -207,22 +222,22 @@
 
 ## 💰 PROYECCIÓN DE PRICING
 
-| Plan | Precio/Mes | Precio/Año | Ahorro Anual |
-| :--- | :---: | :---: | :---: |
-| Freemium | $0 | $0 | - |
-| Personal Pro | $149 | $1,490 | 17% (2 meses) |
-| Business | $299 | $2,990 | 17% (2 meses) |
-| Familia | $199 | $1,990 | 17% (2 meses) |
+| Plan         | Precio/Mes | Precio/Año | Ahorro Anual  |
+| :----------- | :--------: | :--------: | :-----------: |
+| Freemium     |     $0     |     $0     |       -       |
+| Personal Pro |    $149    |   $1,490   | 17% (2 meses) |
+| Business     |    $299    |   $2,990   | 17% (2 meses) |
+| Familia      |    $199    |   $1,990   | 17% (2 meses) |
 
 ---
 
 ## 📊 RESUMEN MÓDULO NEGOCIO
 
-| Sección | Total | PMV | V1 | V2 | V3 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| Planes | 6 | 4 | 1 | 1 | 0 |
-| Revenue | 4 | 0 | 1 | 1 | 2 |
-| Analytics | 2 | 1 | 1 | 0 | 0 |
+| Sección   | Total  |  PMV  |  V1   |  V2   |  V3   |
+| :-------- | :----: | :---: | :---: | :---: | :---: |
+| Planes    |   6    |   4   |   1   |   1   |   0   |
+| Revenue   |   4    |   0   |   1   |   1   |   2   |
+| Analytics |   2    |   1   |   1   |   0   |   0   |
 | **TOTAL** | **12** | **5** | **3** | **2** | **2** |
 
 ---

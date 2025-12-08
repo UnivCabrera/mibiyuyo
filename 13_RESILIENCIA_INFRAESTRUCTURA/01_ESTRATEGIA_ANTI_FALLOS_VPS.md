@@ -1,4 +1,5 @@
 # 🛡️ ESTRATEGIA DE RESILIENCIA Y CONTINUIDAD DE NEGOCIO (BCP)
+
 ## MITIGACIÓN DE RIESGO: VPS COMO PUNTO ÚNICO DE FALLO (SPOF)
 
 **Fecha:** 1 Diciembre 2025  
@@ -12,17 +13,18 @@
 
 Actualmente, el sistema opera en un modelo **Dokploy Single Node** sobre un VPS (Hostinger). Aunque Dokploy simplifica la gestión, el VPS sigue siendo un **Single Point of Failure (SPOF)** hasta que activemos multi-server.
 
-| Amenaza | Probabilidad | Impacto | Mitigación Dokploy |
-|---------|--------------|---------|---------------------|
-| Fallo de Hardware | Baja | Crítico | Backups S3 automáticos + Export de config |
-| Corrupción de SO | Media | Alto | Reinstalar VPS + Importar Dokploy config |
-| Error Humano (rm -rf) | Media | Crítico | Backups incrementales en S3 |
-| Ataque DDoS | Alta | Medio | Cloudflare + Rate limiting Traefik |
-| Zona de Disponibilidad Caída | Baja | Alto | Multi-server Swarm (Fase 2) |
+| Amenaza                      | Probabilidad | Impacto | Mitigación Dokploy                        |
+| ---------------------------- | ------------ | ------- | ----------------------------------------- |
+| Fallo de Hardware            | Baja         | Crítico | Backups S3 automáticos + Export de config |
+| Corrupción de SO             | Media        | Alto    | Reinstalar VPS + Importar Dokploy config  |
+| Error Humano (rm -rf)        | Media        | Crítico | Backups incrementales en S3               |
+| Ataque DDoS                  | Alta         | Medio   | Cloudflare + Rate limiting Traefik        |
+| Zona de Disponibilidad Caída | Baja         | Alto    | Multi-server Swarm (Fase 2)               |
 
 ### 1.1 Definición de Objetivos de Recuperación
-*   **RPO (Recovery Point Objective):** Máximo 4 horas de pérdida de datos (frecuencia de backup PostgreSQL).
-*   **RTO (Recovery Time Objective):** Máximo 30 minutos para restablecer el servicio.
+
+- **RPO (Recovery Point Objective):** Máximo 4 horas de pérdida de datos (frecuencia de backup PostgreSQL).
+- **RTO (Recovery Time Objective):** Máximo 30 minutos para restablecer el servicio.
 
 ---
 
@@ -30,14 +32,15 @@ Actualmente, el sistema opera en un modelo **Dokploy Single Node** sobre un VPS 
 
 ### 2.1 Capa 1: Backups Automatizados (Nativo Dokploy)
 
-| Componente | Frecuencia | Destino | Retención |
-|------------|------------|---------|------------|
-| PostgreSQL (dump) | Cada 4 horas | S3 (Backblaze B2) | 30 días |
-| Redis (RDB) | Diario | S3 | 14 días |
-| Volúmenes (uploads, SAT) | Diario | S3 | 14 días |
-| Configuración Dokploy | Semanal (manual) | S3 | 4 copias |
+| Componente               | Frecuencia       | Destino           | Retención |
+| ------------------------ | ---------------- | ----------------- | --------- |
+| PostgreSQL (dump)        | Cada 4 horas     | S3 (Backblaze B2) | 30 días   |
+| Redis (RDB)              | Diario           | S3                | 14 días   |
+| Volúmenes (uploads, SAT) | Diario           | S3                | 14 días   |
+| Configuración Dokploy    | Semanal (manual) | S3                | 4 copias  |
 
 **Configuración en Dokploy:**
+
 ```
 Database → Settings → Backups → Enable
 Destination: S3 (previamente configurado)
@@ -76,20 +79,16 @@ Cuando activemos el segundo VPS:
             Cloudflare (LB)
 ```
 
-**Beneficio:** Si el Worker cae, el Manager sigue sirviendo. Si el Manager cae, los Workers continúan con la última configuración (aunque no se pueden hacer cambios hasta restaurar).
-    1.  Endurece la seguridad (UFW, SSH, Fail2Ban).
-    2.  Instala Docker y Docker Compose.
-    3.  Clona el repositorio (código).
-    4.  Descarga los últimos backups de S3.
-    5.  Restaura la DB y volúmenes.
-    6.  Levanta los contenedores.
-*   **Resultado:** Convertimos un servidor "Mascota" (Pet) en "Ganado" (Cattle). Si enferma, lo sacrificamos y levantamos otro idéntico.
+**Beneficio:** Si el Worker cae, el Manager sigue sirviendo. Si el Manager cae, los Workers continúan con la última configuración (aunque no se pueden hacer cambios hasta restaurar). 1. Endurece la seguridad (UFW, SSH, Fail2Ban). 2. Instala Docker y Docker Compose. 3. Clona el repositorio (código). 4. Descarga los últimos backups de S3. 5. Restaura la DB y volúmenes. 6. Levanta los contenedores.
+
+- **Resultado:** Convertimos un servidor "Mascota" (Pet) en "Ganado" (Cattle). Si enferma, lo sacrificamos y levantamos otro idéntico.
 
 ### 2.3 Capa 3: Failover de DNS (Cloudflare)
+
 Si la IP del VPS principal (A) muere, necesitamos apuntar el dominio a la IP del VPS de rescate (B) rápidamente.
 
-*   **TTL Bajo:** Configurar TTL de registros A en 60 segundos.
-*   **API Switch:** Script que actualiza el registro DNS en Cloudflare apuntando a la nueva IP tras el despliegue de emergencia.
+- **TTL Bajo:** Configurar TTL de registros A en 60 segundos.
+- **API Switch:** Script que actualiza el registro DNS en Cloudflare apuntando a la nueva IP tras el despliegue de emergencia.
 
 ---
 
@@ -98,14 +97,16 @@ Si la IP del VPS principal (A) muere, necesitamos apuntar el dominio a la IP del
 **Escenario:** El VPS principal ha sido destruido o es inaccesible permanentemente.
 
 ### FASE 1: ACTIVACIÓN (Minuto 0-5)
+
 1.  **Confirmación:** Verificar caída mediante ping externo y panel de Hostinger.
 2.  **Declaración de Desastre:** El CTO/Líder técnico declara "Código Rojo".
 3.  **Aprovisionamiento:**
-    *   Entrar a Hostinger.
-    *   Crear nuevo VPS (Ubuntu 24.04, 4vCPU, 16GB RAM).
-    *   Obtener nueva IP Pública.
+    - Entrar a Hostinger.
+    - Crear nuevo VPS (Ubuntu 24.04, 4vCPU, 16GB RAM).
+    - Obtener nueva IP Pública.
 
 ### FASE 2: REINSTALACIÓN DOKPLOY (Minuto 5-10)
+
 ```bash
 # SSH al nuevo VPS
 ssh root@NUEVA_IP
@@ -117,6 +118,7 @@ curl -sSL https://dokploy.com/install.sh | sh
 ```
 
 ### FASE 3: RESTAURAR CONFIGURACIÓN (Minuto 10-20)
+
 1.  Acceder al panel: `http://NUEVA_IP:3000`
 2.  Crear cuenta admin (temporal)
 3.  **Importar Configuración:**
@@ -126,6 +128,7 @@ curl -sSL https://dokploy.com/install.sh | sh
 4.  Esto recrea todos los proyectos, servicios y variables de entorno.
 
 ### FASE 4: RESTAURAR DATOS (Minuto 20-25)
+
 1.  **PostgreSQL:**
     ```
     Database → postgres-main → Backups → Restore from S3
@@ -137,11 +140,13 @@ curl -sSL https://dokploy.com/install.sh | sh
     ```
 
 ### FASE 5: SWITCH DNS (Minuto 25-30)
+
 1.  Entrar a Cloudflare.
 2.  Actualizar registro A de `app.profinanconta.mx` a `NUEVA_IP`.
 3.  TTL bajo (60s) permite propagación rápida.
 
 ### FASE 6: VERIFICACIÓN
+
 ```bash
 # Health check
 curl https://api.profinanconta.mx/health
@@ -157,7 +162,9 @@ Panel → Service → Logs
 ## 4. IMPLEMENTACIÓN TÉCNICA (SNIPPETS)
 
 ### 4.1 Configuración PostgreSQL para WAL Archiving
+
 `postgresql.conf`:
+
 ```ini
 wal_level = replica
 archive_mode = on
@@ -166,6 +173,7 @@ archive_timeout = 60  # Forzar archivo cada 60s si hay poca actividad
 ```
 
 ### 4.2 Script de Backup de Volúmenes (Restic)
+
 ```bash
 #!/bin/bash
 # backup-volumes.sh
@@ -180,6 +188,7 @@ restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
 ```
 
 ### 4.3 Playbook Ansible (Esqueleto)
+
 ```yaml
 - name: Recuperación de Desastre
   hosts: all
@@ -192,7 +201,7 @@ restic forget --keep-daily 7 --keep-weekly 4 --keep-monthly 6 --prune
       shell: |
         export AWS_ACCESS_KEY_ID=...
         wal-g backup-fetch /var/lib/postgresql/data LATEST
-      
+
     - name: Levantar Stack
       community.docker.docker_compose:
         project_src: /app
@@ -253,32 +262,32 @@ Requests: Muchos (desperdicio)            Requests: Solo cuando hay evento
 
 ### Canales Definidos
 
-| Canal | Propósito | Suscriptores |
-|:------|:----------|:-------------|
-| `facturas:{tenantId}` | Nueva factura, cancelación | Dashboard, notificaciones |
-| `alertas:sat` | Problemas con SAT | Admins, dashboard |
-| `dashboard:{tenantId}` | Métricas actualizadas | Dashboard en vivo |
-| `notificaciones:{userId}` | Notificaciones personales | Usuario específico |
-| `sync:{tenantId}` | Sincronización multi-dispositivo | Todos los dispositivos |
+| Canal                     | Propósito                        | Suscriptores              |
+| :------------------------ | :------------------------------- | :------------------------ |
+| `facturas:{tenantId}`     | Nueva factura, cancelación       | Dashboard, notificaciones |
+| `alertas:sat`             | Problemas con SAT                | Admins, dashboard         |
+| `dashboard:{tenantId}`    | Métricas actualizadas            | Dashboard en vivo         |
+| `notificaciones:{userId}` | Notificaciones personales        | Usuario específico        |
+| `sync:{tenantId}`         | Sincronización multi-dispositivo | Todos los dispositivos    |
 
 ### Implementación
 
 ```typescript
 // filepath: src/lib/server/pubsub/redis-pubsub.ts
-import Redis from 'ioredis';
-import { REDIS_URL } from '$env/static/private';
+import Redis from "ioredis";
+import { REDIS_URL } from "$env/static/private";
 
 // Conexiones separadas (Redis Pub/Sub lo requiere)
 export const publisher = new Redis(REDIS_URL);
 export const subscriber = new Redis(REDIS_URL);
 
 // Tipos de eventos
-export type EventType = 
-  | 'factura:creada'
-  | 'factura:cancelada'
-  | 'alerta:sat'
-  | 'dashboard:update'
-  | 'sync:transaccion';
+export type EventType =
+  | "factura:creada"
+  | "factura:cancelada"
+  | "alerta:sat"
+  | "dashboard:update"
+  | "sync:transaccion";
 
 interface PubSubEvent<T = unknown> {
   type: EventType;
@@ -290,18 +299,18 @@ interface PubSubEvent<T = unknown> {
  * Publicar evento a un canal
  */
 export async function publish<T>(
-  channel: string, 
+  channel: string,
   type: EventType,
-  data: T
+  data: T,
 ): Promise<void> {
   const event: PubSubEvent<T> = {
     type,
     timestamp: new Date().toISOString(),
-    data
+    data,
   };
-  
+
   await publisher.publish(channel, JSON.stringify(event));
-  
+
   console.log(`[PubSub] Published ${type} to ${channel}`);
 }
 
@@ -310,27 +319,27 @@ export async function publish<T>(
  */
 export function subscribe(
   channel: string,
-  callback: (event: PubSubEvent) => void
+  callback: (event: PubSubEvent) => void,
 ): () => void {
   subscriber.subscribe(channel);
-  
+
   const handler = (ch: string, message: string) => {
     if (ch === channel) {
       try {
         const event = JSON.parse(message) as PubSubEvent;
         callback(event);
       } catch (error) {
-        console.error('[PubSub] Failed to parse message:', error);
+        console.error("[PubSub] Failed to parse message:", error);
       }
     }
   };
-  
-  subscriber.on('message', handler);
-  
+
+  subscriber.on("message", handler);
+
   // Retorna función para desuscribirse
   return () => {
     subscriber.unsubscribe(channel);
-    subscriber.off('message', handler);
+    subscriber.off("message", handler);
   };
 }
 
@@ -339,26 +348,26 @@ export function subscribe(
  */
 export function psubscribe(
   pattern: string,
-  callback: (channel: string, event: PubSubEvent) => void
+  callback: (channel: string, event: PubSubEvent) => void,
 ): () => void {
   subscriber.psubscribe(pattern);
-  
+
   const handler = (pat: string, channel: string, message: string) => {
     if (pat === pattern) {
       try {
         const event = JSON.parse(message) as PubSubEvent;
         callback(channel, event);
       } catch (error) {
-        console.error('[PubSub] Failed to parse message:', error);
+        console.error("[PubSub] Failed to parse message:", error);
       }
     }
   };
-  
-  subscriber.on('pmessage', handler);
-  
+
+  subscriber.on("pmessage", handler);
+
   return () => {
     subscriber.punsubscribe(pattern);
-    subscriber.off('pmessage', handler);
+    subscriber.off("pmessage", handler);
   };
 }
 ```
@@ -367,28 +376,24 @@ export function psubscribe(
 
 ```typescript
 // filepath: src/routes/api/facturas/+server.ts
-import { publish } from '$lib/server/pubsub/redis-pubsub';
+import { publish } from "$lib/server/pubsub/redis-pubsub";
 
 export async function POST({ request, locals }) {
   const data = await request.json();
   const tenantId = locals.session.tenantId;
-  
+
   // 1. Crear factura en DB
   const factura = await facturaService.crear(data);
-  
+
   // 2. Publicar evento para clientes conectados
-  await publish(
-    `facturas:${tenantId}`,
-    'factura:creada',
-    {
-      id: factura.id,
-      numero: factura.numero,
-      cliente: factura.clienteNombre,
-      total: factura.total,
-      uuid: factura.uuidSAT
-    }
-  );
-  
+  await publish(`facturas:${tenantId}`, "factura:creada", {
+    id: factura.id,
+    numero: factura.numero,
+    cliente: factura.clienteNombre,
+    total: factura.total,
+    uuid: factura.uuidSAT,
+  });
+
   return json({ success: true, factura });
 }
 ```
@@ -397,8 +402,8 @@ export async function POST({ request, locals }) {
 
 ```typescript
 // filepath: src/lib/server/websocket/handler.ts
-import { psubscribe } from '$lib/server/pubsub/redis-pubsub';
-import type { WebSocketServer, WebSocket } from 'ws';
+import { psubscribe } from "$lib/server/pubsub/redis-pubsub";
+import type { WebSocketServer, WebSocket } from "ws";
 
 interface AuthenticatedWebSocket extends WebSocket {
   tenantId: string;
@@ -408,53 +413,55 @@ interface AuthenticatedWebSocket extends WebSocket {
 export function setupWebSocketPubSub(wss: WebSocketServer) {
   // Mapa de conexiones por tenant
   const connectionsByTenant = new Map<string, Set<AuthenticatedWebSocket>>();
-  
+
   // Suscribirse a todos los canales de facturas
-  psubscribe('facturas:*', (channel, event) => {
-    const tenantId = channel.split(':')[1];
+  psubscribe("facturas:*", (channel, event) => {
+    const tenantId = channel.split(":")[1];
     const connections = connectionsByTenant.get(tenantId);
-    
+
     if (connections) {
       const message = JSON.stringify({
-        channel: 'facturas',
-        ...event
+        channel: "facturas",
+        ...event,
       });
-      
-      connections.forEach(ws => {
+
+      connections.forEach((ws) => {
         if (ws.readyState === WebSocket.OPEN) {
           ws.send(message);
         }
       });
     }
   });
-  
+
   // Suscribirse a alertas SAT (broadcast a admins)
-  psubscribe('alertas:*', (channel, event) => {
+  psubscribe("alertas:*", (channel, event) => {
     // Broadcast a todos los admins conectados
     wss.clients.forEach((ws: AuthenticatedWebSocket) => {
       if (ws.readyState === WebSocket.OPEN) {
-        ws.send(JSON.stringify({
-          channel: 'alertas',
-          ...event
-        }));
+        ws.send(
+          JSON.stringify({
+            channel: "alertas",
+            ...event,
+          }),
+        );
       }
     });
   });
-  
+
   // Manejar nuevas conexiones
-  wss.on('connection', (ws: AuthenticatedWebSocket, request) => {
+  wss.on("connection", (ws: AuthenticatedWebSocket, request) => {
     const tenantId = ws.tenantId;
-    
+
     // Registrar conexión
     if (!connectionsByTenant.has(tenantId)) {
       connectionsByTenant.set(tenantId, new Set());
     }
     connectionsByTenant.get(tenantId)!.add(ws);
-    
+
     console.log(`[WS] Client connected: tenant=${tenantId}`);
-    
+
     // Limpiar al desconectar
-    ws.on('close', () => {
+    ws.on("close", () => {
       connectionsByTenant.get(tenantId)?.delete(ws);
       console.log(`[WS] Client disconnected: tenant=${tenantId}`);
     });
@@ -471,23 +478,23 @@ export function setupWebSocketPubSub(wss: WebSocketServer) {
   import { browser } from '$app/environment';
   import { notifications } from '$lib/stores/notifications';
   import { dashboardData } from '$lib/stores/dashboard';
-  
+
   let ws: WebSocket | null = null;
   let reconnectTimeout: number;
-  
+
   function connect() {
     if (!browser) return;
-    
+
     const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
     ws = new WebSocket(`${protocol}//${window.location.host}/ws`);
-    
+
     ws.onopen = () => {
       console.log('[WS] Connected');
     };
-    
+
     ws.onmessage = (event) => {
       const data = JSON.parse(event.data);
-      
+
       switch (data.channel) {
         case 'facturas':
           handleFacturaEvent(data);
@@ -500,13 +507,13 @@ export function setupWebSocketPubSub(wss: WebSocketServer) {
           break;
       }
     };
-    
+
     ws.onclose = () => {
       console.log('[WS] Disconnected, reconnecting in 3s...');
       reconnectTimeout = setTimeout(connect, 3000);
     };
   }
-  
+
   function handleFacturaEvent(data: any) {
     if (data.type === 'factura:creada') {
       notifications.add({
@@ -516,7 +523,7 @@ export function setupWebSocketPubSub(wss: WebSocketServer) {
       });
     }
   }
-  
+
   function handleAlertaEvent(data: any) {
     notifications.add({
       type: 'warning',
@@ -524,9 +531,9 @@ export function setupWebSocketPubSub(wss: WebSocketServer) {
       message: data.data.mensaje
     });
   }
-  
+
   onMount(() => connect());
-  
+
   onDestroy(() => {
     clearTimeout(reconnectTimeout);
     ws?.close();
@@ -538,12 +545,12 @@ export function setupWebSocketPubSub(wss: WebSocketServer) {
 
 ### ⚠️ Limitaciones de Pub/Sub
 
-| Característica | Redis Pub/Sub | Redis Streams |
-|:---------------|:--------------|:--------------|
-| Persistencia | ❌ Fire-and-forget | ✅ Guarda historial |
-| Reconexión | ❌ Pierde mensajes | ✅ Puede leer desde X |
-| Consumer groups | ❌ No | ✅ Sí |
-| Uso recomendado | Notificaciones en vivo | Event sourcing |
+| Característica  | Redis Pub/Sub          | Redis Streams         |
+| :-------------- | :--------------------- | :-------------------- |
+| Persistencia    | ❌ Fire-and-forget     | ✅ Guarda historial   |
+| Reconexión      | ❌ Pierde mensajes     | ✅ Puede leer desde X |
+| Consumer groups | ❌ No                  | ✅ Sí                 |
+| Uso recomendado | Notificaciones en vivo | Event sourcing        |
 
 **Recomendación:** Usar Pub/Sub para notificaciones UI. Para eventos críticos (auditoría, facturación), usar Redis Streams o PostgreSQL.
 
@@ -571,10 +578,10 @@ Cloudflare → Rules → Page Rules:
 1. *.profinanconta.mx/assets/*
    - Cache Level: Cache Everything
    - Edge TTL: 1 month
-   
+
 2. *.profinanconta.mx/api/*
    - Cache Level: Bypass
-   
+
 3. *.profinanconta.mx/_app/*
    - Cache Level: Cache Everything
    - Edge TTL: 1 year (SvelteKit hashes assets)
@@ -591,4 +598,4 @@ Aunque operamos en un solo VPS, esta estrategia eleva la disponibilidad del 99.0
 
 ---
 
-*Actualizado: 7 Diciembre 2025 - Agregadas secciones Redis Pub/Sub y CDN*
+_Actualizado: 7 Diciembre 2025 - Agregadas secciones Redis Pub/Sub y CDN_

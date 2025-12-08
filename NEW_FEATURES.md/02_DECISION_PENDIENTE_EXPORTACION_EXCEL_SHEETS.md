@@ -8,7 +8,7 @@
 
 ## 📋 Resumen del Problema
 
-Los usuarios del sistema necesitarán exportar datos (facturas, reportes, catálogos, etc.). 
+Los usuarios del sistema necesitarán exportar datos (facturas, reportes, catálogos, etc.).
 Debemos definir qué formatos ofrecer y qué librerías usar.
 
 ---
@@ -30,13 +30,13 @@ Debemos definir qué formatos ofrecer y qué librerías usar.
 
 ## 📊 Matriz de Decisión por Tipo de Usuario
 
-| Tipo de Usuario | Excel Clásico | Excel Moderno | Google Sheets | CSV |
-|-----------------|---------------|---------------|---------------|-----|
-| **Contador formal (despacho)** | ✅ Sí | ✅ Sí | ❌ No | ✅ Sí |
-| **Contador independiente** | ✅ Sí | ✅ Sí | ⚠️ Opcional | ✅ Sí |
-| **PyME pequeña** | ✅ Sí | ✅ Sí | ✅ Sí | ✅ Sí |
-| **Startup/Emprendedor** | ⚠️ Opcional | ✅ Sí | ✅ Sí | ✅ Sí |
-| **Administrativo** | ✅ Sí | ✅ Sí | ✅ Sí | ✅ Sí |
+| Tipo de Usuario                | Excel Clásico | Excel Moderno | Google Sheets | CSV   |
+| ------------------------------ | ------------- | ------------- | ------------- | ----- |
+| **Contador formal (despacho)** | ✅ Sí         | ✅ Sí         | ❌ No         | ✅ Sí |
+| **Contador independiente**     | ✅ Sí         | ✅ Sí         | ⚠️ Opcional   | ✅ Sí |
+| **PyME pequeña**               | ✅ Sí         | ✅ Sí         | ✅ Sí         | ✅ Sí |
+| **Startup/Emprendedor**        | ⚠️ Opcional   | ✅ Sí         | ✅ Sí         | ✅ Sí |
+| **Administrativo**             | ✅ Sí         | ✅ Sí         | ✅ Sí         | ✅ Sí |
 
 ---
 
@@ -44,16 +44,16 @@ Debemos definir qué formatos ofrecer y qué librerías usar.
 
 ### Para archivos Excel descargables:
 
-| Librería | Formato | Fortaleza | Debilidad |
-|----------|---------|-----------|-----------|
-| **xlsx (SheetJS)** | .xls, .xlsx, .csv, .ods | Máxima compatibilidad, más estable | Estilos limitados |
-| **ExcelJS** | .xlsx | Estilos avanzados (colores, fuentes) | Solo formato moderno |
-| **excel4node** | .xlsx | Simple | Menos features |
+| Librería           | Formato                 | Fortaleza                            | Debilidad            |
+| ------------------ | ----------------------- | ------------------------------------ | -------------------- |
+| **xlsx (SheetJS)** | .xls, .xlsx, .csv, .ods | Máxima compatibilidad, más estable   | Estilos limitados    |
+| **ExcelJS**        | .xlsx                   | Estilos avanzados (colores, fuentes) | Solo formato moderno |
+| **excel4node**     | .xlsx                   | Simple                               | Menos features       |
 
 ### Para Google Sheets (hoja viva en nube):
 
-| Herramienta | Uso | Ventaja | Desventaja |
-|-------------|-----|---------|------------|
+| Herramienta           | Uso                                      | Ventaja                   | Desventaja                              |
+| --------------------- | ---------------------------------------- | ------------------------- | --------------------------------------- |
 | **Google Sheets API** | Crear/editar hojas en cuenta del usuario | Colaborativo, tiempo real | Requiere OAuth, no para datos sensibles |
 
 ---
@@ -90,29 +90,33 @@ Debemos definir qué formatos ofrecer y qué librerías usar.
 ### Opción A: xlsx (SheetJS) - RECOMENDADA para máxima compatibilidad
 
 ```typescript
-import * as XLSX from 'xlsx';
+import * as XLSX from "xlsx";
 
 // Exportar a .xlsx (moderno)
 const workbook = XLSX.utils.book_new();
 const worksheet = XLSX.utils.json_to_sheet(data);
-XLSX.utils.book_append_sheet(workbook, worksheet, 'Facturas');
-const buffer = XLSX.write(workbook, { type: 'buffer', bookType: 'xlsx' });
+XLSX.utils.book_append_sheet(workbook, worksheet, "Facturas");
+const buffer = XLSX.write(workbook, { type: "buffer", bookType: "xlsx" });
 
 // Exportar a .xls (clásico/compatible)
-const bufferXls = XLSX.write(workbook, { type: 'buffer', bookType: 'xls' });
+const bufferXls = XLSX.write(workbook, { type: "buffer", bookType: "xls" });
 ```
 
 ### Opción B: ExcelJS - Para estilos avanzados
 
 ```typescript
-import ExcelJS from 'exceljs';
+import ExcelJS from "exceljs";
 
 const workbook = new ExcelJS.Workbook();
-const sheet = workbook.addWorksheet('Facturas');
+const sheet = workbook.addWorksheet("Facturas");
 
 // Estilos avanzados
-sheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFF' } };
-sheet.getRow(1).fill = { type: 'pattern', pattern: 'solid', fgColor: { argb: '366092' } };
+sheet.getRow(1).font = { bold: true, color: { argb: "FFFFFF" } };
+sheet.getRow(1).fill = {
+  type: "pattern",
+  pattern: "solid",
+  fgColor: { argb: "366092" },
+};
 
 const buffer = await workbook.xlsx.writeBuffer();
 ```
@@ -120,25 +124,25 @@ const buffer = await workbook.xlsx.writeBuffer();
 ### Opción C: Google Sheets API - Para hoja colaborativa
 
 ```typescript
-import { google } from 'googleapis';
+import { google } from "googleapis";
 
 // Requiere OAuth del usuario
-const sheets = google.sheets({ version: 'v4', auth: userOAuthToken });
+const sheets = google.sheets({ version: "v4", auth: userOAuthToken });
 
 // Crear nueva hoja en cuenta del usuario
 const spreadsheet = await sheets.spreadsheets.create({
   requestBody: {
-    properties: { title: 'Reporte Facturas - Mi Empresa' },
-    sheets: [{ properties: { title: 'Facturas' } }]
-  }
+    properties: { title: "Reporte Facturas - Mi Empresa" },
+    sheets: [{ properties: { title: "Facturas" } }],
+  },
 });
 
 // Escribir datos
 await sheets.spreadsheets.values.update({
   spreadsheetId: spreadsheet.data.spreadsheetId,
-  range: 'Facturas!A1',
-  valueInputOption: 'USER_ENTERED',
-  requestBody: { values: dataArray }
+  range: "Facturas!A1",
+  valueInputOption: "USER_ENTERED",
+  requestBody: { values: dataArray },
 });
 
 // Devolver URL al usuario
@@ -151,7 +155,7 @@ const sheetUrl = `https://docs.google.com/spreadsheets/d/${spreadsheet.data.spre
 
 ```
 Spreadsheet ID: extraer de URL → /d/SPREADSHEET_ID/edit
-Sheet ID: extraer de URL → gid=SHEET_ID  
+Sheet ID: extraer de URL → gid=SHEET_ID
 Notación A1: Sheet1!A1:B2 (más común)
 Notación R1C1: Sheet1!R1C1:R2C2 (menos común)
 Límite: ~10 millones de celdas por spreadsheet
@@ -217,4 +221,4 @@ Dashboards y resúmenes:
 
 **→ DEFINIR CUANDO LLEGUEMOS A DESARROLLO DE MÓDULO DE EXPORTACIONES**
 
-*Última actualización: 3 Diciembre 2025*
+_Última actualización: 3 Diciembre 2025_

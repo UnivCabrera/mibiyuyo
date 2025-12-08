@@ -83,6 +83,7 @@ features/subscriptions/
 ## 🎨 Características UI
 
 ### Material 3 Design
+
 - ✅ Cards con Surface containers
 - ✅ NavigationBar integration
 - ✅ Color scheme con FinancialColors extension
@@ -90,12 +91,14 @@ features/subscriptions/
 - ✅ Elevation y shadows apropiados
 
 ### Animaciones
+
 - ✅ `flutter_animate`: fadeIn, slideY, slideX
 - ✅ Delays escalonados (100ms entre items)
 - ✅ Durations: 400-600ms (fluidas)
 - ✅ Curves implícitas de Material
 
 ### Estados UX
+
 1. **Initial** → Muestra nada (transición rápida)
 2. **Loading** → CircularProgressIndicator centrado
 3. **Loaded** → Lista con cards animados
@@ -103,6 +106,7 @@ features/subscriptions/
 5. **Error** → Icono error + mensaje + botón "Reintentar"
 
 ### Interacciones
+
 - ✅ Pull-to-refresh
 - ✅ Tap en card → Modal con detalles completos
 - ✅ Tap en menú (⋮) → Editar/Pausar/Eliminar
@@ -145,6 +149,7 @@ SubscriptionCard widgets (UI)
 ## 🧪 Testing Manual
 
 ### Verificar en Dashboard:
+
 1. **Iniciar app** → Ir a Splash → Onboarding → Login → Dashboard
 2. **Tap en tab "Suscripciones"** (segundo icono)
 3. **Ver lista de 10 suscripciones** con animaciones
@@ -158,6 +163,7 @@ SubscriptionCard widgets (UI)
 ## 📈 Métricas
 
 ### Código
+
 - **25 archivos fuente** en `lib/` (sin .g.dart)
 - **~1,950 líneas** de código total (incluyendo nuevos archivos UI)
 - **4 nuevos archivos UI** (~675 líneas)
@@ -166,6 +172,7 @@ SubscriptionCard widgets (UI)
 - **5 warnings** (solo linting, no bloquean)
 
 ### Clean Architecture
+
 - ✅ Presentation layer completo
 - ✅ Domain layer completo
 - ✅ Data layer completo
@@ -174,6 +181,7 @@ SubscriptionCard widgets (UI)
 - ✅ Single Responsibility en cada widget
 
 ### UX
+
 - ✅ 5 estados manejados (Initial, Loading, Loaded, Empty, Error)
 - ✅ Animaciones en 8 puntos de interacción
 - ✅ Feedback inmediato en todas las acciones
@@ -182,6 +190,7 @@ SubscriptionCard widgets (UI)
 ## 🎯 Próximos Pasos
 
 ### Prioridad Alta
+
 1. **Formulario de Suscripción**
    - Create/Edit en modal o página completa
    - Validación con form_builder
@@ -193,6 +202,7 @@ SubscriptionCard widgets (UI)
    - Limpiar variables no usadas
 
 ### Prioridad Media
+
 3. **Filtros**
    - Filter chips por categoría
    - Filter por estado (Activas/Pausadas)
@@ -208,6 +218,7 @@ SubscriptionCard widgets (UI)
    - Comparativa mes a mes
 
 ### Prioridad Baja
+
 6. **Notificaciones**
    - Recordatorios antes del cobro
    - Firebase Cloud Messaging
@@ -223,9 +234,10 @@ SubscriptionCard widgets (UI)
 
 ## ✨ Resumen Ejecutivo
 
-**Se ha implementado la UI completa de Suscripciones** siguiendo Clean Architecture y Material 3 Design. 
+**Se ha implementado la UI completa de Suscripciones** siguiendo Clean Architecture y Material 3 Design.
 
 La aplicación ahora:
+
 - ✅ Carga automáticamente 10 suscripciones de ejemplo
 - ✅ Muestra una interfaz moderna con animaciones fluidas
 - ✅ Permite visualizar detalles completos
@@ -234,6 +246,7 @@ La aplicación ahora:
 - ✅ Maneja todos los estados UX (loading, error, empty)
 
 **Arquitectura 100% SOLID** con separación completa de capas, permitiendo:
+
 - 🔄 Fácil mantenimiento
 - 📦 Alta testabilidad
 - 🚀 Escalabilidad garantizada

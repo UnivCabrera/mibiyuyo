@@ -15,15 +15,15 @@ Basic file structure
 This is the basic file structure of the project. In the src/db directory, we have table definition in schema.ts. In drizzle folder there are sql migration file and snapshots.
 
 📦 <project root>
- ├ 📂 drizzle
- ├ 📂 src
- │   ├ 📂 db
- │   │  └ 📜 schema.ts
- │   └ 📜 index.ts
- ├ 📜 .env
- ├ 📜 drizzle.config.ts
- ├ 📜 package.json
- └ 📜 tsconfig.json
+├ 📂 drizzle
+├ 📂 src
+│ ├ 📂 db
+│ │ └ 📜 schema.ts
+│ └ 📜 index.ts
+├ 📜 .env
+├ 📜 drizzle.config.ts
+├ 📜 package.json
+└ 📜 tsconfig.json
 
 Step 1 - Install required packages
 npm i drizzle-orm
@@ -56,10 +56,10 @@ src/db/schema.ts
 
 import { integer, pgTable, varchar } from "drizzle-orm/pg-core";
 export const usersTable = pgTable("users", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
-  name: varchar({ length: 255 }).notNull(),
-  age: integer().notNull(),
-  email: varchar({ length: 255 }).notNull().unique(),
+id: integer().primaryKey().generatedAlwaysAsIdentity(),
+name: varchar({ length: 255 }).notNull(),
+age: integer().notNull(),
+email: varchar({ length: 255 }).notNull().unique(),
 });
 Step 5 - Setup Drizzle config file
 Drizzle config - a configuration file that is used by Drizzle Kit and contains all the information about your database connection, migration folder and schema files.
@@ -71,12 +71,12 @@ drizzle.config.ts
 import 'dotenv/config';
 import { defineConfig } from 'drizzle-kit';
 export default defineConfig({
-  out: './drizzle',
-  schema: './src/db/schema.ts',
-  dialect: 'postgresql',
-  dbCredentials: {
-    url: process.env.DATABASE_URL!,
-  },
+out: './drizzle',
+schema: './src/db/schema.ts',
+dialect: 'postgresql',
+dbCredentials: {
+url: process.env.DATABASE_URL!,
+},
 });
 Step 6 - Applying changes to the database
 You can directly apply changes to your database using the drizzle-kit push command. This is a convenient method for quickly testing new schema designs or modifications in a local development environment, allowing for rapid iterations without the need to manage migration files:
@@ -107,35 +107,35 @@ import 'dotenv/config';
 import { drizzle } from 'drizzle-orm/bun-sql';
 import { eq } from 'drizzle-orm';
 import { usersTable } from './db/schema';
-  
-const db = drizzle(process.env.DATABASE_URL!);
+
+const db = drizzle(process.env.DATABASE*URL!);
 async function main() {
-  const user: typeof usersTable.$inferInsert = {
-    name: 'John',
-    age: 30,
-    email: 'john@example.com',
-  };
-  await db.insert(usersTable).values(user);
-  console.log('New user created!')
-  const users = await db.select().from(usersTable);
-  console.log('Getting all users from the database: ', users)
-  /*
-  const users: {
-    id: number;
-    name: string;
-    age: number;
-    email: string;
-  }[]
-  */
-  await db
-    .update(usersTable)
-    .set({
-      age: 31,
-    })
-    .where(eq(usersTable.email, user.email));
-  console.log('User info updated!')
-  await db.delete(usersTable).where(eq(usersTable.email, user.email));
-  console.log('User deleted!')
+const user: typeof usersTable.$inferInsert = {
+name: 'John',
+age: 30,
+email: 'john@example.com',
+};
+await db.insert(usersTable).values(user);
+console.log('New user created!')
+const users = await db.select().from(usersTable);
+console.log('Getting all users from the database: ', users)
+/*
+const users: {
+id: number;
+name: string;
+age: number;
+email: string;
+}[]
+\_/
+await db
+.update(usersTable)
+.set({
+age: 31,
+})
+.where(eq(usersTable.email, user.email));
+console.log('User info updated!')
+await db.delete(usersTable).where(eq(usersTable.email, user.email));
+console.log('User deleted!')
 }
 main();
 Step 8 - Run index.ts file
@@ -177,10 +177,10 @@ We bring all the familiar SQL schema, queries, automatic migrations and one more
 
 // Access your data
 await db
-	.select()
-	.from(countries)
-	.leftJoin(cities, eq(cities.countryId, countries.id))
-	.where(eq(countries.id, 10))
+.select()
+.from(countries)
+.leftJoin(cities, eq(cities.countryId, countries.id))
+.where(eq(countries.id, 10))
 
 Why not SQL-like?
 We’re always striving for a perfectly balanced solution, and while SQL-like does cover 100% of the needs, there are certain common scenarios where you can query data in a better way.
@@ -190,9 +190,9 @@ We’ve built the Queries API for you, so you can fetch relational nested data f
 Drizzle always outputs exactly 1 SQL query. Feel free to use it with serverless databases and never worry about performance or roundtrip costs!
 
 const result = await db.query.users.findMany({
-	with: {
-		posts: true
-	},
+with: {
+posts: true
+},
 });
 
 Serverless?
@@ -213,7 +213,7 @@ We’re always there to help, so don’t hesitate to reach out. We’ll gladly a
 
 We have an outstanding Discord community and welcome all builders to our Twitter.
 
-Now go build something awesome with Drizzle and your PostgreSQL, MySQL or SQLite database. 
+Now go build something awesome with Drizzle and your PostgreSQL, MySQL or SQLite database.
 Database connection with Drizzle
 Drizzle ORM runs SQL queries on your database via database drivers.
 
@@ -224,21 +224,22 @@ const usersCount = await db.$count(users);
 
                         ┌──────────────────────┐
                         │   db.$count(users)   │ <--- drizzle query
-                        └──────────────────────┘     
+                        └──────────────────────┘
                             │               ʌ
-select count(*) from users -│               │
-                            │               │- [{ count: 0 }]
-                            v               │
-                         ┌─────────────────────┐
-                         │    node-postgres    │ <--- database driver
-                         └─────────────────────┘
-                            │               ʌ
-01101000 01100101 01111001 -│               │
-                            │               │- 01110011 01110101 01110000
-                            v               │
-                         ┌────────────────────┐
-                         │      Database      │ 
-                         └────────────────────┘
+
+select count(\*) from users -│ │
+│ │- [{ count: 0 }]
+v │
+┌─────────────────────┐
+│ node-postgres │ <--- database driver
+└─────────────────────┘
+│ ʌ
+01101000 01100101 01111001 -│ │
+│ │- 01110011 01110101 01110000
+v │
+┌────────────────────┐
+│ Database │
+└────────────────────┘
 
 Under the hood Drizzle will create a node-postgres driver instance which you can access via db.$client if necessary
 
@@ -250,7 +251,7 @@ const pool = db.$client;
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+connectionString: process.env.DATABASE_URL,
 });
 const db = drizzle({ client: pool });
 
@@ -274,11 +275,11 @@ Database connection URL
 Just in case if you’re not familiar with database connection URL concept
 
 postgresql://alex:AbC123dEf@ep-cool-darkness-123456.us-east-2.aws.neon.tech/dbname
-             └──┘ └───────┘ └─────────────────────────────────────────────┘ └────┘
-              ʌ    ʌ          ʌ                                              ʌ
-        role -│    │          │- hostname                                    │- database
-                   │
-                   │- password
+└──┘ └───────┘ └─────────────────────────────────────────────┘ └────┘
+ʌ ʌ ʌ ʌ
+role -│ │ │- hostname │- database
+│
+│- password
 
 Next
 Drizzle <> PostgreSQL
@@ -300,22 +301,22 @@ bun add drizzle-orm pg
 bun add -D drizzle-kit @types/pg
 
 Step 2 - Initialize the driver and make a query
-// Make sure to install the 'pg' package 
+// Make sure to install the 'pg' package
 import { drizzle } from 'drizzle-orm/node-postgres';
 const db = drizzle(process.env.DATABASE_URL);
- 
+
 const result = await db.execute('select 1');
 
 If you need to provide your existing driver:
 
-// Make sure to install the 'pg' package 
+// Make sure to install the 'pg' package
 import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
+connectionString: process.env.DATABASE_URL,
 });
 const db = drizzle({ client: pool });
- 
+
 const result = await db.execute('select 1');
 
 postgres.js
@@ -343,14 +344,14 @@ Public
 defrex/drizzle-mcp
 Go to file
 t
-Name		
+Name
 defrexclaude
 defrex
 and
 claude
 Update README with latest features and improvements
 0b9f1b4
- · 
+·
 4 months ago
 dist
 Fix module resolution to use target project's dependencies
@@ -400,10 +401,13 @@ Option 2: Run directly with npx/bunx (no installation required)
 npx github:defrex/drizzle-mcp --help
 bunx github:defrex/drizzle-mcp --help
 Option 3: Link for development (if working on the package)
+
 # In the drizzle-mcp directory
+
 bun link
 
 # In your project directory
+
 bun link drizzle-mcp
 Usage
 Basic Usage
@@ -417,35 +421,35 @@ Claude Desktop Integration
 Add to your Claude Desktop configuration:
 
 {
-  "mcpServers": {
-    "drizzle": {
-      "command": "npx",
-      "args": ["github:defrex/drizzle-mcp", "./drizzle.config.ts"]
-    }
-  }
+"mcpServers": {
+"drizzle": {
+"command": "npx",
+"args": ["github:defrex/drizzle-mcp", "./drizzle.config.ts"]
+}
+}
 }
 Or with bunx:
 
 {
-  "mcpServers": {
-    "drizzle": {
-      "command": "bunx",
-      "args": ["github:defrex/drizzle-mcp", "./drizzle.config.ts"]
-    }
-  }
+"mcpServers": {
+"drizzle": {
+"command": "bunx",
+"args": ["github:defrex/drizzle-mcp", "./drizzle.config.ts"]
+}
+}
 }
 Command Line Options
 drizzle-mcp [options] [config]
 
 Arguments:
-  config               Path to drizzle config file
+config Path to drizzle config file
 
 Options:
-  -V, --version        output the version number
-  -c, --config <path>  Path to drizzle config file
-  -d, --cwd <path>     Working directory (default: current directory)
-  -v, --verbose        Enable verbose logging
-  -h, --help           display help for command
+-V, --version output the version number
+-c, --config <path> Path to drizzle config file
+-d, --cwd <path> Working directory (default: current directory)
+-v, --verbose Enable verbose logging
+-h, --help display help for command
 Configuration
 The server automatically detects your Drizzle configuration from:
 
@@ -457,15 +461,16 @@ Environment Variables
 The server automatically loads environment variables from .env.local and .env files in your project directory. This is useful for database credentials:
 
 # .env.local
+
 DATABASE_URL=postgresql://username:password@localhost:5432/database
 The server will detect and use DATABASE_URL from your environment variables, so you can use it in your drizzle config:
 
 export default defineConfig({
-  dialect: 'postgresql',
-  dbCredentials: {
-    url: process.env.DATABASE_URL!,
-  },
-  // ...
+dialect: 'postgresql',
+dbCredentials: {
+url: process.env.DATABASE_URL!,
+},
+// ...
 });
 Available Tools
 drizzle_generate_migration - Generate new migration files
@@ -492,29 +497,29 @@ SQLite Configuration
 import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
-  out: "./migrations",
-  schema: "./src/schema.ts",
-  dialect: "sqlite",
-  dbCredentials: {
-    url: "./database.db",
-  },
+out: "./migrations",
+schema: "./src/schema.ts",
+dialect: "sqlite",
+dbCredentials: {
+url: "./database.db",
+},
 });
 PostgreSQL Configuration
 import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
-  out: "./migrations",
-  schema: "./src/schema.ts",
-  dialect: "postgresql",
-  dbCredentials: {
-    url: process.env.DATABASE_URL!,
-    // Or use individual credentials:
-    // host: "localhost",
-    // port: 5432,
-    // user: "username",
-    // password: "password",
-    // database: "database",
-  },
+out: "./migrations",
+schema: "./src/schema.ts",
+dialect: "postgresql",
+dbCredentials: {
+url: process.env.DATABASE_URL!,
+// Or use individual credentials:
+// host: "localhost",
+// port: 5432,
+// user: "username",
+// password: "password",
+// database: "database",
+},
 });
 Note: The server supports both pg (node-postgres) and postgres (postgres-js) drivers. It will automatically detect which one you have installed and use the appropriate one.
 

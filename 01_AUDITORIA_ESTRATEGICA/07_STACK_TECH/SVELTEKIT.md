@@ -31,7 +31,6 @@ Creating a project
 Editor setup
 The easiest way to start building a SvelteKit app is to run npx sv create:
 
-
 npx sv create my-app
 cd my-app
 npm run dev
@@ -123,7 +122,6 @@ Project files
 Other files
 A typical SvelteKit project looks like this:
 
-
 my-project/
 ├ src/
 │ ├ lib/
@@ -163,7 +161,7 @@ app.html is your page template — an HTML document containing the following pla
 %sveltekit.body% — the markup for a rendered page. This should live inside a <div> or other element, rather than directly inside <body>, to prevent bugs caused by browser extensions injecting elements that are then destroyed by the hydration process. SvelteKit will warn you in development if this is not the case
 %sveltekit.assets% — either paths.assets, if specified, or a relative path to paths.base
 %sveltekit.nonce% — a CSP nonce for manually included links and scripts, if used
-%sveltekit.env.[NAME]% - this will be replaced at render time with the [NAME] environment variable, which must begin with the publicPrefix (usually PUBLIC_). It will fallback to '' if not matched.
+%sveltekit.env.[NAME]% - this will be replaced at render time with the [NAME] environment variable, which must begin with the publicPrefix (usually PUBLIC\_). It will fallback to '' if not matched.
 %sveltekit.version% — the app version, which can be specified with the version configuration
 error.html is the page that is rendered when everything else fails. It can contain the following placeholders:
 %sveltekit.status% — the HTTP status
@@ -238,17 +236,18 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = ({ request }) => {
-	// log all headers
-	console.log(...request.headers);
+// log all headers
+console.log(...request.headers);
 
-	// create a JSON Response using a header we received
-	return json({
-		// retrieve a specific header
-		userAgent: request.headers.get('user-agent')
-	}, {
-		// set a header on the response
-		headers: { 'x-custom-header': 'potato' }
-	});
+    // create a JSON Response using a header we received
+    return json({
+    	// retrieve a specific header
+    	userAgent: request.headers.get('user-agent')
+    }, {
+    	// set a header on the response
+    	headers: { 'x-custom-header': 'potato' }
+    });
+
 };
 FormData
 When dealing with HTML native form submissions you’ll be working with FormData objects.
@@ -259,15 +258,16 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async (event) => {
-	const body = await event.request.formData();
+const body = await event.request.formData();
 
-	// log all fields
-	console.log([...body]);
+    // log all fields
+    console.log([...body]);
 
-	return json({
-		// get a specific field's value
-		name: body.get('name') ?? 'world'
-	});
+    return json({
+    	// get a specific field's value
+    	name: body.get('name') ?? 'world'
+    });
+
 };
 Stream APIs
 Most of the time, your endpoints will return complete data, as in the userAgent example above. Sometimes, you may need to return a response that’s too large to fit in memory in one go, or is delivered in chunks, and for this the platform provides streams — ReadableStream, WritableStream and TransformStream.
@@ -278,11 +278,9 @@ URLs are represented by the URL interface, which includes useful properties like
 URLSearchParams
 Wherever you encounter a URL, you can access query parameters via url.searchParams, which is an instance of URLSearchParams:
 
-
 const foo = url.searchParams.get('foo');
 Web Crypto
 The Web Crypto API is made available via the crypto global. It’s used internally for Content Security Policy headers, but you can also use it for things like generating UUIDs:
-
 
 const uuid = crypto.randomUUID();
 
@@ -351,14 +349,15 @@ import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = ({ params }) => {
-	if (params.slug === 'hello-world') {
-		return {
-			title: 'Hello world!',
-			content: 'Welcome to our blog. Lorem ipsum dolor sit amet...'
-		};
-	}
+if (params.slug === 'hello-world') {
+return {
+title: 'Hello world!',
+content: 'Welcome to our blog. Lorem ipsum dolor sit amet...'
+};
+}
 
-	error(404, 'Not found');
+    error(404, 'Not found');
+
 };
 This function runs alongside +page.svelte, which means it runs on the server during server-side rendering and in the browser during client-side navigation. See load for full details of the API.
 
@@ -378,13 +377,14 @@ import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	const post = await getPostFromDatabase(params.slug);
+const post = await getPostFromDatabase(params.slug);
 
-	if (post) {
-		return post;
-	}
+    if (post) {
+    	return post;
+    }
 
-	error(404, 'Not found');
+    error(404, 'Not found');
+
 };
 During client-side navigation, SvelteKit will load this data from the server, which means that the returned value must be serializable using devalue. See load for full details of the API.
 
@@ -421,7 +421,6 @@ But in many apps, there are elements that should be visible on every page, such 
 
 +layout.svelte
 To create a layout that applies to every page, make a file called src/routes/+layout.svelte. The default layout (the one that SvelteKit uses if you don’t bring your own) looks like this...
-
 
 <script>
 	let { children } = $props();
@@ -491,12 +490,12 @@ src/routes/settings/+layout
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = () => {
-	return {
-		sections: [
-			{ slug: 'profile', title: 'Profile' },
-			{ slug: 'notifications', title: 'Notifications' }
-		]
-	};
+return {
+sections: [
+{ slug: 'profile', title: 'Profile' },
+{ slug: 'notifications', title: 'Notifications' }
+]
+};
 };
 If a +layout.js exports page options — prerender, ssr and csr — they will be used as defaults for child pages.
 
@@ -511,6 +510,7 @@ src/routes/settings/profile/+page
 
 	console.log(data.sections); // [{ slug: 'profile', title: 'Profile' }, ...]
 </script>
+
 Often, layout data is unchanged when navigating between pages. SvelteKit will intelligently rerun load functions when necessary.
 
 +layout.server.js
@@ -529,18 +529,19 @@ import { error } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = ({ url }) => {
-	const min = Number(url.searchParams.get('min') ?? '0');
-	const max = Number(url.searchParams.get('max') ?? '1');
+const min = Number(url.searchParams.get('min') ?? '0');
+const max = Number(url.searchParams.get('max') ?? '1');
 
-	const d = max - min;
+    const d = max - min;
 
-	if (isNaN(d) || d < 0) {
-		error(400, 'min and max must be numbers, and min must be less than max');
-	}
+    if (isNaN(d) || d < 0) {
+    	error(400, 'min and max must be numbers, and min must be less than max');
+    }
 
-	const random = min + Math.random() * d;
+    const random = min + Math.random() * d;
 
-	return new Response(String(random));
+    return new Response(String(random));
+
 };
 The first argument to Response can be a ReadableStream, making it possible to stream large amounts of data or create server-sent events (unless deploying to platforms that buffer responses, like AWS Lambda).
 
@@ -586,8 +587,8 @@ import { json } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request }) => {
-	const { a, b } = await request.json();
-	return json(a + b);
+const { a, b } = await request.json();
+return json(a + b);
 };
 In general, form actions are a better way to submit data from the browser to the server.
 
@@ -602,14 +603,14 @@ import { json, text } from '@sveltejs/kit';
 import type { RequestHandler } from './$types';
 
 export const POST: RequestHandler = async ({ request }) => {
-	const { a, b } = await request.json();
-	return json(a + b);
+const { a, b } = await request.json();
+return json(a + b);
 };
 
 // This handler will respond to PUT, PATCH, DELETE, etc.
 
 export const fallback: RequestHandler = async ({ request }) => {
-	return text(`I caught your ${request.method} request!`);
+return text(`I caught your ${request.method} request!`);
 };
 For HEAD requests, the GET handler takes precedence over the fallback handler.
 
@@ -631,6 +632,7 @@ src/routes/blog/[slug]/+page
 
 	let { data }: PageProps = $props();
 </script>
+
 The PageProps and LayoutProps types, added in 2.16.0, are a shortcut for typing the data prop as PageData or LayoutData, as well as other props, such as form for pages, or children for layouts. In earlier versions, you had to type these properties manually. For example, for a page:
 
 +page
@@ -660,8 +662,8 @@ Further reading
 Tutorial: Routing
 Tutorial: API routes
 Docs: Advanced routing
- Edit this page on GitHub
- llms.txt
+Edit this page on GitHub
+llms.txt
 
 SvelteKitCore concepts
 Loading data
@@ -694,12 +696,12 @@ src/routes/blog/[slug]/+page
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = ({ params }) => {
-	return {
-		post: {
-			title: `Title for ${params.slug} goes here`,
-			content: `Content for ${params.slug} goes here`
-		}
-	};
+return {
+post: {
+title: `Title for ${params.slug} goes here`,
+content: `Content for ${params.slug} goes here`
+}
+};
 };
 src/routes/blog/[slug]/+page
 
@@ -728,13 +730,13 @@ A more realistic version of your blog post’s load function, that only runs on 
 
 src/routes/blog/[slug]/+page.server
 
-import * as db from '$lib/server/database';
+import \* as db from '$lib/server/database';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	return {
-		post: await db.getPost(params.slug)
-	};
+return {
+post: await db.getPost(params.slug)
+};
 };
 Notice that the type changed from PageLoad to PageServerLoad, because server load functions can access additional arguments. To understand when to use +page.js and when to use +page.server.js, see Universal vs server.
 
@@ -743,13 +745,13 @@ Your +layout.svelte files can also load data, via +layout.js or +layout.server.j
 
 src/routes/blog/[slug]/+layout.server
 
-import * as db from '$lib/server/database';
+import \* as db from '$lib/server/database';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async () => {
-	return {
-		posts: await db.getPostSummaries()
-	};
+return {
+posts: await db.getPostSummaries()
+};
 };
 src/routes/blog/[slug]/+layout
 
@@ -802,7 +804,8 @@ src/routes/blog/[slug]/+page
 <div>{@html data.post.content}</div>
 
 {#if next}
-	<p>Next post: <a href="/blog/{next.slug}">{next.title}</a></p>
+
+<p>Next post: <a href="/blog/{next.slug}">{next.title}</a></p>
 {/if}
 If multiple load functions return data with the same key, the last one ‘wins’ — the result of a layout load returning { a: 1, b: 2 } and a page load returning { b: 3, c: 4 } would be { a: 1, b: 3, c: 4 }.
 
@@ -818,7 +821,8 @@ src/routes/+layout
 </script>
 
 <svelte:head>
-	<title>{page.data.title}</title>
+
+<title>{page.data.title}</title>
 </svelte:head>
 Type information for page.data is provided by App.PageData.
 
@@ -864,18 +868,18 @@ src/routes/+page.server
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async () => {
-	return {
-		serverMessage: 'hello from server load function'
-	};
+return {
+serverMessage: 'hello from server load function'
+};
 };
 src/routes/+page
 
 import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ data }) => {
-	return {
-		serverMessage: data.serverMessage,
-		universalMessage: 'hello from universal load function'
-	};
+return {
+serverMessage: data.serverMessage,
+universalMessage: 'hello from universal load function'
+};
 };
 Using URL data
 Often the load function depends on the URL in one way or another. For this, the load function provides you with url, route and params.
@@ -893,17 +897,16 @@ src/routes/a/[b]/[...c]/+page
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = ({ route }) => {
-	console.log(route.id); // '/a/[b]/[...c]'
+console.log(route.id); // '/a/[b]/[...c]'
 };
 params
 params is derived from url.pathname and route.id.
 
 Given a route.id of /a/[b]/[...c] and a url.pathname of /a/x/y/z, the params object would look like this:
 
-
 {
-	"b": "x",
-	"c": "y/z"
+"b": "x",
+"c": "y/z"
 }
 Making fetch requests
 To get data from an external API or a +server.js handler, you can use the provided fetch function, which behaves identically to the native fetch web API with a few additional features:
@@ -918,25 +921,27 @@ src/routes/items/[id]/+page
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch, params }) => {
-	const res = await fetch(`/api/items/${params.id}`);
-	const item = await res.json();
+const res = await fetch(`/api/items/${params.id}`);
+const item = await res.json();
 
-	return { item };
+    return { item };
+
 };
 Cookies
 A server load function can get and set cookies.
 
 src/routes/+layout.server
 
-import * as db from '$lib/server/database';
+import \* as db from '$lib/server/database';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async ({ cookies }) => {
-	const sessionid = cookies.get('sessionid');
+const sessionid = cookies.get('sessionid');
 
-	return {
-		user: await db.getUser(sessionid)
-	};
+    return {
+    	user: await db.getUser(sessionid)
+    };
+
 };
 Cookies will only be passed through the provided fetch function if the target host is the same as the SvelteKit application or a more specific subdomain of it.
 
@@ -955,17 +960,18 @@ src/routes/products/+page
 
 import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ fetch, setHeaders }) => {
-	const url = `https://cms.example.com/products.json`;
-	const response = await fetch(url);
+const url = `https://cms.example.com/products.json`;
+const response = await fetch(url);
 
-	// Headers are only set during SSR, caching the page's HTML
-	// for the same length of time as the underlying data.
-	setHeaders({
-		age: response.headers.get('age'),
-		'cache-control': response.headers.get('cache-control')
-	});
+    // Headers are only set during SSR, caching the page's HTML
+    // for the same length of time as the underlying data.
+    setHeaders({
+    	age: response.headers.get('age'),
+    	'cache-control': response.headers.get('cache-control')
+    });
 
-	return response.json();
+    return response.json();
+
 };
 Setting the same header multiple times (even in separate load functions) is an error. You can only set a given header once using the setHeaders function. You cannot add a set-cookie header with setHeaders — use cookies.set(name, value, options) instead.
 
@@ -977,23 +983,23 @@ src/routes/+layout
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = () => {
-	return { a: 1 };
+return { a: 1 };
 };
 src/routes/abc/+layout
 
 import type { LayoutLoad } from './$types';
 
 export const load: LayoutLoad = async ({ parent }) => {
-	const { a } = await parent();
-	return { b: a + 1 };
+const { a } = await parent();
+return { b: a + 1 };
 };
 src/routes/abc/+page
 
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ parent }) => {
-	const { a, b } = await parent();
-	return { c: a + b };
+const { a, b } = await parent();
+return { c: a + b };
 };
 src/routes/abc/+page
 
@@ -1018,14 +1024,15 @@ Take care not to introduce waterfalls when using await parent(). Here, for examp
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ params, parent }) => {
-	const parentData = await parent();
-	const data = await getData(params);
-	const parentData = await parent();
+const parentData = await parent();
+const data = await getData(params);
+const parentData = await parent();
 
-	return {
-		...data,
-		meta: { ...parentData.meta, ...data.meta }
-	};
+    return {
+    	...data,
+    	meta: { ...parentData.meta, ...data.meta }
+    };
+
 };
 Errors
 If an error is thrown during load, the nearest +error.svelte will be rendered. For expected errors, use the error helper from @sveltejs/kit to specify the HTTP status code and an optional message:
@@ -1036,13 +1043,14 @@ import { error } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = ({ locals }) => {
-	if (!locals.user) {
-		error(401, 'not logged in');
-	}
+if (!locals.user) {
+error(401, 'not logged in');
+}
 
-	if (!locals.user.isAdmin) {
-		error(403, 'not an admin');
-	}
+    if (!locals.user.isAdmin) {
+    	error(403, 'not an admin');
+    }
+
 };
 Calling error(...) will throw an exception, making it easy to stop execution from inside helper functions.
 
@@ -1059,9 +1067,9 @@ import { redirect } from '@sveltejs/kit';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = ({ locals }) => {
-	if (!locals.user) {
-		redirect(307, '/login');
-	}
+if (!locals.user) {
+redirect(307, '/login');
+}
 };
 Don’t use redirect() inside a try {...} block, as the redirect will immediately trigger the catch statement.
 
@@ -1077,12 +1085,12 @@ src/routes/blog/[slug]/+page.server
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	return {
-		// make sure the `await` happens at the end, otherwise we
-		// can't start loading comments until we've loaded the post
-		comments: loadComments(params.slug),
-		post: await loadPost(params.slug)
-	};
+return {
+// make sure the `await` happens at the end, otherwise we
+// can't start loading comments until we've loaded the post
+comments: loadComments(params.slug),
+post: await loadPost(params.slug)
+};
 };
 This is useful for creating skeleton loading states, for example:
 
@@ -1098,13 +1106,14 @@ src/routes/blog/[slug]/+page
 <div>{@html data.post.content}</div>
 
 {#await data.comments}
-	Loading comments...
+Loading comments...
 {:then comments}
-	{#each comments as comment}
-		<p>{comment.content}</p>
-	{/each}
+{#each comments as comment}
+
+<p>{comment.content}</p>
+{/each}
 {:catch error}
-	<p>error loading comments: {error.message}</p>
+<p>error loading comments: {error.message}</p>
 {/await}
 When streaming data, be careful to handle promise rejections correctly. More specifically, the server could crash with an “unhandled promise rejection” error if a lazy-loaded promise fails before rendering starts (at which point it’s caught) and isn’t handling the error in some way. When using SvelteKit’s fetch directly in the load function, SvelteKit will handle this case for you. For other promises, it is enough to attach a noop-catch to the promise to mark it as handled.
 
@@ -1113,14 +1122,15 @@ src/routes/+page.server
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = ({ fetch }) => {
-	const ok_manual = Promise.reject();
-	ok_manual.catch(() => {});
+const ok_manual = Promise.reject();
+ok_manual.catch(() => {});
 
-	return {
-		ok_manual,
-		ok_fetch: fetch('/fetch/that/could/fail'),
-		dangerous_unhandled: Promise.reject()
-	};
+    return {
+    	ok_manual,
+    	ok_fetch: fetch('/fetch/that/could/fail'),
+    	dangerous_unhandled: Promise.reject()
+    };
+
 };
 On platforms that do not support streaming, such as AWS Lambda or Firebase, responses will be buffered. This means the page will only render once all promises resolve. If you are using a proxy (e.g. NGINX), make sure it does not buffer responses from the proxied server.
 
@@ -1140,23 +1150,23 @@ For example, given a pair of load functions like these...
 
 src/routes/blog/[slug]/+page.server
 
-import * as db from '$lib/server/database';
+import \* as db from '$lib/server/database';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({ params }) => {
-	return {
-		post: await db.getPost(params.slug)
-	};
+return {
+post: await db.getPost(params.slug)
+};
 };
 src/routes/blog/[slug]/+layout.server
 
-import * as db from '$lib/server/database';
+import \* as db from '$lib/server/database';
 import type { LayoutServerLoad } from './$types';
 
 export const load: LayoutServerLoad = async () => {
-	return {
-		posts: await db.getPostSummaries()
-	};
+return {
+posts: await db.getPostSummaries()
+};
 };
 ...the one in +page.server.js will rerun if we navigate from /blog/trying-the-raw-meat-diet to /blog/i-regret-my-choices because params.slug has changed. The one in +layout.server.js will not, because the data is still valid. In other words, we won’t call db.getPostSummaries() a second time.
 
@@ -1174,10 +1184,10 @@ src/routes/+page
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ untrack, url }) => {
-	// Untrack url.pathname so that path changes don't trigger a rerun
-	if (untrack(() => url.pathname === '/')) {
-		return { message: 'Welcome!' };
-	}
+// Untrack url.pathname so that path changes don't trigger a rerun
+if (untrack(() => url.pathname === '/')) {
+return { message: 'Welcome!' };
+}
 };
 Manual invalidation
 You can also rerun load functions that apply to the current page using invalidate(url), which reruns all load functions that depend on url, and invalidateAll(), which reruns every load function. Server load functions will never automatically depend on a fetched url to avoid leaking secrets to the client.
@@ -1189,15 +1199,16 @@ src/routes/random-number/+page
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async ({ fetch, depends }) => {
-	// load reruns when `invalidate('https://api.example.com/random-number')` is called...
-	const response = await fetch('https://api.example.com/random-number');
+// load reruns when `invalidate('https://api.example.com/random-number')` is called...
+const response = await fetch('https://api.example.com/random-number');
 
-	// ...or when `invalidate('app:random')` is called
-	depends('app:random');
+    // ...or when `invalidate('app:random')` is called
+    depends('app:random');
 
-	return {
-		number: await response.json()
-	};
+    return {
+    	number: await response.json()
+    };
+
 };
 src/routes/random-number/+page
 
@@ -1255,17 +1266,18 @@ import { redirect } from '@sveltejs/kit';
 import { getRequestEvent } from '$app/server';
 
 export function requireLogin() {
-	const { locals, url } = getRequestEvent();
+const { locals, url } = getRequestEvent();
 
-	// assume `locals.user` is populated in `handle`
-	if (!locals.user) {
-		const redirectTo = url.pathname + url.search;
-		const params = new URLSearchParams({ redirectTo });
+    // assume `locals.user` is populated in `handle`
+    if (!locals.user) {
+    	const redirectTo = url.pathname + url.search;
+    	const params = new URLSearchParams({ redirectTo });
 
-		redirect(307, `/login?${params}`);
-	}
+    	redirect(307, `/login?${params}`);
+    }
 
-	return locals.user;
+    return locals.user;
+
 }
 Now, you can call requireLogin in any load function (or form action, for example) to guarantee that the user is logged in:
 
@@ -1274,13 +1286,14 @@ Now, you can call requireLogin in any load function (or form action, for example
 import { requireLogin } from '$lib/server/auth';
 
 export function load() {
-	const user = requireLogin();
+const user = requireLogin();
 
-	// `user` is guaranteed to be a user object here, because otherwise
-	// `requireLogin` would throw a redirect and we wouldn't get here
-	return {
-		message: `hello ${user.name}!`
-	};
+    // `user` is guaranteed to be a user object here, because otherwise
+    // `requireLogin` would throw a redirect and we wouldn't get here
+    return {
+    	message: `hello ${user.name}!`
+    };
+
 }
 
 SvelteKitCore concepts
@@ -1307,9 +1320,9 @@ src/routes/login/+page.server
 import type { Actions } from './$types';
 
 export const actions = {
-	default: async (event) => {
-		// TODO log the user in
-	}
+default: async (event) => {
+// TODO log the user in
+}
 } satisfies Actions;
 To invoke this action from the /login page, just add a <form> — no JavaScript needed:
 
@@ -1345,13 +1358,13 @@ src/routes/login/+page.server
 import type { Actions } from './$types';
 
 export const actions = {
-	default: async (event) => {
-	login: async (event) => {
-		// TODO log the user in
-	},
-	register: async (event) => {
-		// TODO register the user
-	}
+default: async (event) => {
+login: async (event) => {
+// TODO log the user in
+},
+register: async (event) => {
+// TODO register the user
+}
 } satisfies Actions;
 To invoke a named action, add a query parameter with the name prefixed by a / character:
 
@@ -1384,28 +1397,29 @@ Each action receives a RequestEvent object, allowing you to read the data with r
 
 src/routes/login/+page.server
 
-import * as db from '$lib/server/db';
+import \* as db from '$lib/server/db';
 import type { PageServerLoad, Actions } from './$types';
 
 export const load: PageServerLoad = async ({ cookies }) => {
-	const user = await db.getUserFromSession(cookies.get('sessionid'));
-	return { user };
+const user = await db.getUserFromSession(cookies.get('sessionid'));
+return { user };
 };
 
 export const actions = {
-	login: async ({ cookies, request }) => {
-		const data = await request.formData();
-		const email = data.get('email');
-		const password = data.get('password');
+login: async ({ cookies, request }) => {
+const data = await request.formData();
+const email = data.get('email');
+const password = data.get('password');
 
-		const user = await db.getUser(email);
-		cookies.set('sessionid', await db.createSession(user), { path: '/' });
+    	const user = await db.getUser(email);
+    	cookies.set('sessionid', await db.createSession(user), { path: '/' });
 
-		return { success: true };
-	},
-	register: async (event) => {
-		// TODO register the user
-	}
+    	return { success: true };
+    },
+    register: async (event) => {
+    	// TODO register the user
+    }
+
 } satisfies Actions;
 src/routes/login/+page
 
@@ -1416,9 +1430,10 @@ src/routes/login/+page
 </script>
 
 {#if form?.success}
-	<!-- this message is ephemeral; it exists because the page was rendered in
+
+<!-- this message is ephemeral; it exists because the page was rendered in
 	       response to a form submission. it will vanish if the user reloads -->
-	<p>Successfully logged in! Welcome back, {data.user.name}</p>
+<p>Successfully logged in! Welcome back, {data.user.name}</p>
 {/if}
 PageProps was added in 2.16.0. In earlier versions, you had to type the data and form properties individually:
 
@@ -1435,32 +1450,33 @@ If the request couldn’t be processed because of invalid data, you can return v
 src/routes/login/+page.server
 
 import { fail } from '@sveltejs/kit';
-import * as db from '$lib/server/db';
+import \* as db from '$lib/server/db';
 import type { Actions } from './$types';
 
 export const actions = {
-	login: async ({ cookies, request }) => {
-		const data = await request.formData();
-		const email = data.get('email');
-		const password = data.get('password');
+login: async ({ cookies, request }) => {
+const data = await request.formData();
+const email = data.get('email');
+const password = data.get('password');
 
-		if (!email) {
-			return fail(400, { email, missing: true });
-		}
+    	if (!email) {
+    		return fail(400, { email, missing: true });
+    	}
 
-		const user = await db.getUser(email);
+    	const user = await db.getUser(email);
 
-		if (!user || user.password !== db.hash(password)) {
-			return fail(400, { email, incorrect: true });
-		}
+    	if (!user || user.password !== db.hash(password)) {
+    		return fail(400, { email, incorrect: true });
+    	}
 
-		cookies.set('sessionid', await db.createSession(user), { path: '/' });
+    	cookies.set('sessionid', await db.createSession(user), { path: '/' });
 
-		return { success: true };
-	},
-	register: async (event) => {
-		// TODO register the user
-	}
+    	return { success: true };
+    },
+    register: async (event) => {
+    	// TODO register the user
+    }
+
 } satisfies Actions;
 Note that as a precaution, we only return the email back to the page — not the password.
 
@@ -1488,35 +1504,36 @@ Redirects (and errors) work exactly the same as in load:
 src/routes/login/+page.server
 
 import { fail, redirect } from '@sveltejs/kit';
-import * as db from '$lib/server/db';
+import \* as db from '$lib/server/db';
 import type { Actions } from './$types';
 
 export const actions = {
-	login: async ({ cookies, request, url }) => {
-		const data = await request.formData();
-		const email = data.get('email');
-		const password = data.get('password');
+login: async ({ cookies, request, url }) => {
+const data = await request.formData();
+const email = data.get('email');
+const password = data.get('password');
 
-		const user = await db.getUser(email);
-		if (!user) {
-			return fail(400, { email, missing: true });
-		}
+    	const user = await db.getUser(email);
+    	if (!user) {
+    		return fail(400, { email, missing: true });
+    	}
 
-		if (user.password !== db.hash(password)) {
-			return fail(400, { email, incorrect: true });
-		}
+    	if (user.password !== db.hash(password)) {
+    		return fail(400, { email, incorrect: true });
+    	}
 
-		cookies.set('sessionid', await db.createSession(user), { path: '/' });
+    	cookies.set('sessionid', await db.createSession(user), { path: '/' });
 
-		if (url.searchParams.has('redirectTo')) {
-			redirect(303, url.searchParams.get('redirectTo'));
-		}
+    	if (url.searchParams.has('redirectTo')) {
+    		redirect(303, url.searchParams.get('redirectTo'));
+    	}
 
-		return { success: true };
-	},
-	register: async (event) => {
-		// TODO register the user
-	}
+    	return { success: true };
+    },
+    register: async (event) => {
+    	// TODO register the user
+    }
+
 } satisfies Actions;
 Loading data
 After an action runs, the page will be re-rendered (unless a redirect or an unexpected error occurs), with the action’s return value available to the page as the form prop. This means that your page’s load functions will run after the action completes.
@@ -1528,24 +1545,24 @@ src/hooks.server
 import type { Handle } from '@sveltejs/kit';
 
 export const handle: Handle = async ({ event, resolve }) => {
-	event.locals.user = await getUser(event.cookies.get('sessionid'));
-	return resolve(event);
+event.locals.user = await getUser(event.cookies.get('sessionid'));
+return resolve(event);
 };
 src/routes/account/+page.server
 
 import type { PageServerLoad, Actions } from './$types';
 
 export const load: PageServerLoad = (event) => {
-	return {
-		user: event.locals.user
-	};
+return {
+user: event.locals.user
+};
 };
 
 export const actions = {
-	logout: async (event) => {
-		event.cookies.delete('sessionid', { path: '/' });
-		event.locals.user = null;
-	}
+logout: async (event) => {
+event.cookies.delete('sessionid', { path: '/' });
+event.locals.user = null;
+}
 } satisfies Actions;
 Progressive enhancement
 In the preceding sections we built a /login action that works without client-side JavaScript — not a fetch in sight. That’s great, but when JavaScript is available we can progressively enhance our form interactions to provide a better user experience.
@@ -1577,7 +1594,6 @@ reset focus to the appropriate element
 Customising use:enhance
 To customise the behaviour, you can provide a SubmitFunction that runs immediately before the form is submitted, and (optionally) returns a callback that runs with the ActionResult.
 
-
 <form
 	method="POST"
 	use:enhance={({ formElement, formData, action, cancel, submitter }) => {
@@ -1587,13 +1603,13 @@ To customise the behaviour, you can provide a SubmitFunction that runs immediate
 		// calling `cancel()` will prevent the submission
 		// `submitter` is the `HTMLElement` that caused the form to be submitted
 
-		return async ({ result, update }) => {
-			// `result` is an `ActionResult` object
-			// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
-		};
-	}}
->
-You can use these functions to show and hide loading UI, and so on.
+    	return async ({ result, update }) => {
+    		// `result` is an `ActionResult` object
+    		// `update` is a function which triggers the default logic that would be triggered if this callback wasn't set
+    	};
+    }}
+
+> You can use these functions to show and hide loading UI, and so on.
 
 If you return a callback, you override the default post-submission behavior. To get it back, call update, which accepts invalidateAll and reset parameters, or use applyAction on the result:
 
@@ -1664,13 +1680,12 @@ Note that you need to deserialize the response before processing it further usin
 
 If you have a +server.js alongside your +page.server.js, fetch requests will be routed there by default. To POST to an action in +page.server.js instead, use the custom x-sveltekit-action header:
 
-
 const response = await fetch(this.action, {
-	method: 'POST',
-	body: data,
-	headers: {
-		'x-sveltekit-action': 'true'
-	}
+method: 'POST',
+body: data,
+headers: {
+'x-sveltekit-action': 'true'
+}
 });
 Alternatives
 Form actions are the preferred way to send data to the server, since they can be progressively enhanced, but you can also use +server.js files to expose (for example) a JSON API. Here’s how such an interaction could look like:
@@ -1690,13 +1705,12 @@ src/routes/api/ci/+server
 
 import type { RequestHandler } from './$types';
 export const POST: RequestHandler = () => {
-	// do something
+// do something
 };
 GET vs POST
 As we’ve seen, to invoke a form action you must use method="POST".
 
 Some forms don’t need to POST data to the server — search inputs, for example. For these you can use method="GET" (or, equivalently, no method at all), and SvelteKit will treat them like <a> elements, using the client-side router instead of a full page navigation:
-
 
 <form action="/search">
 	<label>
@@ -1753,8 +1767,8 @@ import type { PageLoad } from './$types';
 export const prerender = true;
 
 export const load: PageLoad = async ({ fetch }) => {
-	const res = await fetch('/my-server-route.json');
-	return await res.json();
+const res = await fetch('/my-server-route.json');
+return await res.json();
 };
 ...then src/routes/my-server-route.json/+server.js will be treated as prerenderable if it doesn’t contain its own export const prerender = false.
 
@@ -1787,10 +1801,9 @@ Change export const prerender = true to export const prerender = 'auto'. Routes 
 entries
 SvelteKit will discover pages to prerender automatically, by starting at entry points and crawling them. By default, all your non-dynamic routes are considered entry points — for example, if you have these routes...
 
-
-/    # non-dynamic
+/ # non-dynamic
 /blog# non-dynamic
-/blog/[slug]  # dynamic, because of `[slug]`
+/blog/[slug] # dynamic, because of `[slug]`
 ...SvelteKit will prerender / and /blog, and in the process discover links like <a href="/blog/hello-world"> which give it new pages to prerender.
 
 Most of the time, that’s enough. In some situations, links to pages like /blog/hello-world might not exist (or might not exist on prerendered pages), in which case we need to tell SvelteKit about their existence.
@@ -1802,10 +1815,10 @@ src/routes/blog/[slug]/+page.server
 import type { EntryGenerator } from './$types';
 
 export const entries: EntryGenerator = () => {
-	return [
-		{ slug: 'hello-world' },
-		{ slug: 'another-blog-post' }
-	];
+return [
+{ slug: 'hello-world' },
+{ slug: 'another-blog-post' }
+];
 };
 
 export const prerender = true;
@@ -1832,6 +1845,7 @@ export const csr = false;
 Disabling CSR does not ship any JavaScript to the client. This means:
 
 The webpage should work with HTML and CSS only.
+
 <script> tags inside all Svelte components are removed.
 <form> elements cannot be progressively enhanced.
 Links are handled by the browser with a full-page navigation.
@@ -1977,6 +1991,7 @@ src/routes/+layout
 	// to the context for child components to access
 	setContext('user', () => data.user);
 </script>
+
 src/routes/user/+page
 
 <script lang="ts">
@@ -2030,17 +2045,17 @@ src/routes/blog/[slug]/+page
 	let wordCount = $derived(data.content.split(' ').length);
 	let estimatedReadingTime = $derived(wordCount / 250);
 </script>
+
 If your code in onMount and onDestroy has to run again after navigation you can use afterNavigate and beforeNavigate respectively.
 
 Reusing components like this means that things like sidebar scroll state are preserved, and you can easily animate between changing values. In the case that you do need to completely destroy and remount a component on navigation, you can use this pattern:
-
 
 <script>
 	import { page } from '$app/state';
 </script>
 
 {#key page.url.pathname}
-	<BlogPost title={data.title} content={data.title} />
+<BlogPost title={data.title} content={data.title} />
 {/key}
 Storing state in the URL
 If you have state that should survive a reload and/or affect SSR, such as filters or sorting rules on a table, URL search parameters (like ?sort=price&order=ascending) are a good place to put them. You can put them in <a href="..."> or <form action="..."> attributes, or set them programmatically via goto('?key=value'). They can be accessed inside load functions via the url parameter, and inside components via page.url.searchParams.
@@ -2074,18 +2089,18 @@ This feature is currently experimental, meaning it is likely to contain bugs and
 
 svelte.config
 
-/** @type {import('@sveltejs/kit').Config} */
+/\*_ @type {import('@sveltejs/kit').Config} _/
 const config = {
-	kit: {
-		experimental: {
-			remoteFunctions: true
-		}
-	},
-	compilerOptions: {
-		experimental: {
-			async: true
-		}
-	}
+kit: {
+experimental: {
+remoteFunctions: true
+}
+},
+compilerOptions: {
+experimental: {
+async: true
+}
+}
 };
 
 export default config;
@@ -2101,14 +2116,15 @@ import { query } from '$app/server';
 import * as db from '$lib/server/database';
 
 export const getPosts = query(async () => {
-	const posts = await db.sql`
+const posts = await db.sql`
 		SELECT title, slug
 		FROM post
 		ORDER BY published_at
 		DESC
 	`;
 
-	return posts;
+    return posts;
+
 });
 Throughout this page, you’ll see imports from fictional modules like $lib/server/database and $lib/server/auth. These are purely for illustrative purposes — you can use whatever database client and auth setup you like.
 
@@ -2144,15 +2160,16 @@ src/routes/blog/+page
 <h1>Recent posts</h1>
 
 {#if query.error}
-	<p>oops!</p>
+
+<p>oops!</p>
 {:else if query.loading}
-	<p>loading...</p>
+<p>loading...</p>
 {:else}
-	<ul>
-		{#each query.current as { title, slug }}
-			<li><a href="/blog/{slug}">{title}</a></li>
-		{/each}
-	</ul>
+<ul>
+{#each query.current as { title, slug }}
+<li><a href="/blog/{slug}">{title}</a></li>
+{/each}
+</ul>
 {/if}
 For the rest of this document, we’ll use the await form.
 
@@ -2175,30 +2192,30 @@ Since getPost exposes an HTTP endpoint, it’s important to validate this argume
 
 src/routes/blog/data.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { error } from '@sveltejs/kit';
 import { query } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 
-export const getPosts = query(async () => { /* ... */ });
+export const getPosts = query(async () => { /_ ... _/ });
 
 export const getPost = query(v.string(), async (slug) => {
-	const [post] = await db.sql`
+const [post] = await db.sql`
 		SELECT * FROM post
 		WHERE slug = ${slug}
 	`;
 
-	if (!post) error(404, 'Not found');
-	return post;
+    if (!post) error(404, 'Not found');
+    return post;
+
 });
 Both the argument and the return value are serialized with devalue, which handles types like Date and Map (and custom types defined in your transport hook) in addition to JSON.
 
 Refreshing queries
 Any query can be re-fetched via its refresh method, which retrieves the latest value from the server:
 
-
 <button onclick={() => getPosts().refresh()}>
-	Check for new posts
+Check for new posts
 </button>
 Queries are cached while they’re on the page, meaning getPosts() === getPosts(). This means you don’t need a reference like const posts = getPosts() in order to update the query.
 
@@ -2209,18 +2226,19 @@ On the server, the callback receives an array of the arguments the function was 
 
 weather.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { query } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 
 export const getWeather = query.batch(v.string(), async (cities) => {
-	const weather = await db.sql`
+const weather = await db.sql`
 		SELECT * FROM weather
 		WHERE city = ANY(${cities})
 	`;
-	const lookup = new Map(weather.map(w => [w.city, w]));
+const lookup = new Map(weather.map(w => [w.city, w]));
 
-	return (city) => lookup.get(city);
+    return (city) => lookup.get(city);
+
 });
 Weather
 
@@ -2235,51 +2253,53 @@ Weather
 <h2>Weather</h2>
 
 {#each cities.slice(0, limit) as city}
-	<h3>{city.name}</h3>
-	<CityWeather weather={await getWeather(city.id)} />
+
+<h3>{city.name}</h3>
+<CityWeather weather={await getWeather(city.id)} />
 {/each}
 
 {#if cities.length > limit}
-	<button onclick={() => limit += 5}>
-		Load more
-	</button>
+<button onclick={() => limit += 5}>
+Load more
+</button>
 {/if}
 form
 The form function makes it easy to write data to the server. It takes a callback that receives data constructed from the submitted FormData...
 
 src/routes/blog/data.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { error, redirect } from '@sveltejs/kit';
 import { query, form } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 import * as auth from '$lib/server/auth';
 
-export const getPosts = query(async () => { /* ... */ });
+export const getPosts = query(async () => { /_ ... _/ });
 
-export const getPost = query(v.string(), async (slug) => { /* ... */ });
+export const getPost = query(v.string(), async (slug) => { /_ ... _/ });
 
 export const createPost = form(
-	v.object({
-		title: v.pipe(v.string(), v.nonEmpty()),
-		content:v.pipe(v.string(), v.nonEmpty())
-	}),
-	async ({ title, content }) => {
-		// Check the user is logged in
-		const user = await auth.getUser();
-		if (!user) error(401, 'Unauthorized');
+v.object({
+title: v.pipe(v.string(), v.nonEmpty()),
+content:v.pipe(v.string(), v.nonEmpty())
+}),
+async ({ title, content }) => {
+// Check the user is logged in
+const user = await auth.getUser();
+if (!user) error(401, 'Unauthorized');
 
-		const slug = title.toLowerCase().replace(/ /g, '-');
+    	const slug = title.toLowerCase().replace(/ /g, '-');
 
-		// Insert into the database
-		await db.sql`
-			INSERT INTO post (slug, title, content)
-			VALUES (${slug}, ${title}, ${content})
-		`;
+    	// Insert into the database
+    	await db.sql`
+    		INSERT INTO post (slug, title, content)
+    		VALUES (${slug}, ${title}, ${content})
+    	`;
 
-		// Redirect to the newly created page
-		redirect(303, `/blog/${slug}`);
-	}
+    	// Redirect to the newly created page
+    	redirect(303, `/blog/${slug}`);
+    }
+
 );
 ...and returns an object that can be spread onto a <form> element. The callback is called whenever the form is submitted.
 
@@ -2294,7 +2314,8 @@ src/routes/blog/new/+page
 <form {...createPost}>
 	<!-- form content goes here -->
 
-	<button>Publish!</button>
+    <button>Publish!</button>
+
 </form>
 The form object contains method and action properties that allow it to work without JavaScript (i.e. it submits data and reloads the page). It also has an attachment that progressively enhances the form when JavaScript is available, submitting data without reloading the entire page.
 
@@ -2303,19 +2324,19 @@ As with query, if the callback uses the submitted data, it should be validated b
 Fields
 A form is composed of a set of fields, which are defined by the schema. In the case of createPost, we have two fields, title and content, which are both strings. To get the attributes for a field, call its .as(...) method, specifying which input type to use:
 
-
 <form {...createPost}>
 	<label>
 		<h2>Title</h2>
 		<input {...createPost.fields.title.as('text')} />
 	</label>
 
-	<label>
-		<h2>Write your post</h2>
-		<textarea {...createPost.fields.content.as('text')}></textarea>
-	</label>
+    <label>
+    	<h2>Write your post</h2>
+    	<textarea {...createPost.fields.content.as('text')}></textarea>
+    </label>
 
-	<button>Publish!</button>
+    <button>Publish!</button>
+
 </form>
 These attributes allow SvelteKit to set the correct input type, set a name that is used to construct the data passed to the handler, populate the value of the form (for example following a failed submission, to save the user having to re-enter everything), and set the aria-invalid state.
 
@@ -2326,18 +2347,17 @@ Fields can be nested in objects and arrays, and their values can be strings, num
 data.remote
 
 const datingProfile = v.object({
-	name: v.string(),
-	photo: v.file(),
-	info: v.object({
-		height: v.number(),
-		likesDogs: v.optional(v.boolean(), false)
-	}),
-	attributes: v.array(v.string())
+name: v.string(),
+photo: v.file(),
+info: v.object({
+height: v.number(),
+likesDogs: v.optional(v.boolean(), false)
+}),
+attributes: v.array(v.string())
 });
 
-export const createProfile = form(datingProfile, (data) => { /* ... */ });
+export const createProfile = form(datingProfile, (data) => { /_ ... _/ });
 ...your form could look like this:
-
 
 <script>
 	import { createProfile } from './data.remote';
@@ -2350,24 +2370,25 @@ export const createProfile = form(datingProfile, (data) => { /* ... */ });
 		<input {...name.as('text')} /> Name
 	</label>
 
-	<label>
-		<input {...photo.as('file')} /> Photo
-	</label>
+    <label>
+    	<input {...photo.as('file')} /> Photo
+    </label>
 
-	<label>
-		<input {...info.height.as('number')} /> Height (cm)
-	</label>
+    <label>
+    	<input {...info.height.as('number')} /> Height (cm)
+    </label>
 
-	<label>
-		<input {...info.likesDogs.as('checkbox')} /> I like dogs
-	</label>
+    <label>
+    	<input {...info.likesDogs.as('checkbox')} /> I like dogs
+    </label>
 
-	<h2>My best attributes</h2>
-	<input {...attributes[0].as('text')} />
-	<input {...attributes[1].as('text')} />
-	<input {...attributes[2].as('text')} />
+    <h2>My best attributes</h2>
+    <input {...attributes[0].as('text')} />
+    <input {...attributes[1].as('text')} />
+    <input {...attributes[2].as('text')} />
 
-	<button>submit</button>
+    <button>submit</button>
+
 </form>
 Because our form contains a file input, we’ve added an enctype="multipart/form-data" attribute. The values for info.height and info.likesDogs are coerced to a number and a boolean respectively.
 
@@ -2378,55 +2399,56 @@ In the case of radio and checkbox inputs that all belong to the same field, the 
 data.remote
 
 export const survey = form(
-	v.object({
-		operatingSystem: v.picklist(['windows', 'mac', 'linux']),
-		languages: v.optional(v.array(v.picklist(['html', 'css', 'js'])), [])
-	}),
-	(data) => { /* ... */ }
+v.object({
+operatingSystem: v.picklist(['windows', 'mac', 'linux']),
+languages: v.optional(v.array(v.picklist(['html', 'css', 'js'])), [])
+}),
+(data) => { /_ ... _/ }
 );
 
 <form {...survey}>
 	<h2>Which operating system do you use?</h2>
 
-	{#each ['windows', 'mac', 'linux'] as os}
-		<label>
-			<input {...survey.fields.operatingSystem.as('radio', os)}>
-			{os}
-		</label>
-	{/each}
+    {#each ['windows', 'mac', 'linux'] as os}
+    	<label>
+    		<input {...survey.fields.operatingSystem.as('radio', os)}>
+    		{os}
+    	</label>
+    {/each}
 
-	<h2>Which languages do you write code in?</h2>
+    <h2>Which languages do you write code in?</h2>
 
-	{#each ['html', 'css', 'js'] as language}
-		<label>
-			<input {...survey.fields.languages.as('checkbox', language)}>
-			{language}
-		</label>
-	{/each}
+    {#each ['html', 'css', 'js'] as language}
+    	<label>
+    		<input {...survey.fields.languages.as('checkbox', language)}>
+    		{language}
+    	</label>
+    {/each}
 
-	<button>submit</button>
+    <button>submit</button>
+
 </form>
 Alternatively, you could use select and select multiple:
-
 
 <form {...survey}>
 	<h2>Which operating system do you use?</h2>
 
-	<select {...survey.fields.operatingSystem.as('select')}>
-		<option>windows</option>
-		<option>mac</option>
-		<option>linux</option>
-	</select>
+    <select {...survey.fields.operatingSystem.as('select')}>
+    	<option>windows</option>
+    	<option>mac</option>
+    	<option>linux</option>
+    </select>
 
-	<h2>Which languages do you write code in?</h2>
+    <h2>Which languages do you write code in?</h2>
 
-	<select {...survey.fields.languages.as('select multiple')}>
-		<option>html</option>
-		<option>css</option>
-		<option>js</option>
-	</select>
+    <select {...survey.fields.languages.as('select multiple')}>
+    	<option>html</option>
+    	<option>css</option>
+    	<option>js</option>
+    </select>
 
-	<button>submit</button>
+    <button>submit</button>
+
 </form>
 As with unchecked checkbox inputs, if no selections are made then the data will be undefined. For this reason, the languages field uses v.optional(v.array(...), []) rather than just v.array(...).
 
@@ -2435,29 +2457,29 @@ In addition to declarative schema validation, you can programmatically mark fiel
 
 src/routes/shop/data.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { invalid } from '@sveltejs/kit';
 import { form } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 
 export const buyHotcakes = form(
-	v.object({
-		qty: v.pipe(
-			v.number(),
-			v.minValue(1, 'you must buy at least one hotcake')
-		)
-	}),
-	async (data, issue) => {
-		try {
-			await db.buy(data.qty);
-		} catch (e) {
-			if (e.code === 'OUT_OF_STOCK') {
-				invalid(
-					issue.qty(`we don't have enough hotcakes`)
-				);
-			}
-		}
-	}
+v.object({
+qty: v.pipe(
+v.number(),
+v.minValue(1, 'you must buy at least one hotcake')
+)
+}),
+async (data, issue) => {
+try {
+await db.buy(data.qty);
+} catch (e) {
+if (e.code === 'OUT_OF_STOCK') {
+invalid(
+issue.qty(`we don't have enough hotcakes`)
+);
+}
+}
+}
 );
 The invalid function works as both a function and a proxy:
 
@@ -2467,32 +2489,31 @@ Use invalid.fieldName(message) to create an issue for a specific field. Like fie
 Validation
 If the submitted data doesn’t pass the schema, the callback will not run. Instead, each invalid field’s issues() method will return an array of { message: string } objects, and the aria-invalid attribute (returned from as(...)) will be set to true:
 
-
 <form {...createPost}>
 	<label>
 		<h2>Title</h2>
 
-		{#each createPost.fields.title.issues() as issue}
-			<p class="issue">{issue.message}</p>
-		{/each}
+    	{#each createPost.fields.title.issues() as issue}
+    		<p class="issue">{issue.message}</p>
+    	{/each}
 
-		<input {...createPost.fields.title.as('text')} />
-	</label>
+    	<input {...createPost.fields.title.as('text')} />
+    </label>
 
-	<label>
-		<h2>Write your post</h2>
+    <label>
+    	<h2>Write your post</h2>
 
-		{#each createPost.fields.content.issues() as issue}
-			<p class="issue">{issue.message}</p>
-		{/each}
+    	{#each createPost.fields.content.issues() as issue}
+    		<p class="issue">{issue.message}</p>
+    	{/each}
 
-		<textarea {...createPost.fields.content.as('text')}></textarea>
-	</label>
+    	<textarea {...createPost.fields.content.as('text')}></textarea>
+    </label>
 
-	<button>Publish!</button>
+    <button>Publish!</button>
+
 </form>
 You don’t need to wait until the form is submitted to validate the data — you can call validate() programmatically, for example in an oninput callback (which will validate the data on every keystroke) or an onchange callback:
-
 
 <form {...createPost} oninput={() => createPost.validate()}>
 	<!-- -->
@@ -2500,7 +2521,6 @@ You don’t need to wait until the form is submitted to validate the data — yo
 By default, issues will be ignored if they belong to form controls that haven’t yet been interacted with. To validate all inputs, call validate({ includeUntouched: true }).
 
 For client-side validation, you can specify a preflight schema which will populate issues() and prevent data being sent to the server if the data doesn’t validate:
-
 
 <script>
 	import * as v from 'valibot';
@@ -2521,13 +2541,12 @@ The preflight schema can be the same object as your server-side schema, if appro
 
 To get a list of all issues, rather than just those belonging to a single field, you can use the fields.allIssues() method:
 
-
 {#each createPost.fields.allIssues() as issue}
-	<p>{issue.message}</p>
+
+<p>{issue.message}</p>
 {/each}
 Getting/setting inputs
 Each field has a value() method that reflects its current value. As the user interacts with the form, it is automatically updated:
-
 
 <form {...createPost}>
 	<!-- -->
@@ -2540,7 +2559,6 @@ Each field has a value() method that reflects its current value. As the user int
 Alternatively, createPost.fields.value() would return a { title, content } object.
 
 You can update a field (or a collection of fields) via the set(...) method:
-
 
 <script>
 	import { createPost } from '../data.remote';
@@ -2555,11 +2573,11 @@ You can update a field (or a collection of fields) via the set(...) method:
 	createPost.fields.title.set('My new blog post');
 	createPost.fields.content.set('Lorem ipsum dolor sit amet');
 </script>
+
 Handling sensitive data
 In the case of a non-progressively-enhanced form submission (i.e. where JavaScript is unavailable, for whatever reason) value() is also populated if the submitted data is invalid, so that the user does not need to fill the entire form out from scratch.
 
 You can prevent sensitive data (such as passwords and credit card numbers) from being sent back to the user by using a name with a leading underscore:
-
 
 <form {...register}>
 	<label>
@@ -2567,12 +2585,13 @@ You can prevent sensitive data (such as passwords and credit card numbers) from 
 		<input {...register.fields.username.as('text')} />
 	</label>
 
-	<label>
-		Password
-		<input {...register.fields._password.as('password')} />
-	</label>
+    <label>
+    	Password
+    	<input {...register.fields._password.as('password')} />
+    </label>
 
-	<button>Sign up!</button>
+    <button>Sign up!</button>
+
 </form>
 In this example, if the data does not validate, only the first <input> will be populated when the page reloads.
 
@@ -2581,35 +2600,36 @@ By default, all queries used on the page (along with any load functions) are aut
 
 Instead, we can specify which queries should be refreshed in response to a particular form submission. This is called a single-flight mutation, and there are two ways to achieve it. The first is to refresh the query on the server, inside the form handler:
 
+export const getPosts = query(async () => { /_ ... _/ });
 
-export const getPosts = query(async () => { /* ... */ });
-
-export const getPost = query(v.string(), async (slug) => { /* ... */ });
+export const getPost = query(v.string(), async (slug) => { /_ ... _/ });
 
 export const createPost = form(
-	v.object({/* ... */}),
-	async (data) => {
-		// form logic goes here...
+v.object({/_ ... _/}),
+async (data) => {
+// form logic goes here...
 
-		// Refresh `getPosts()` on the server, and send
-		// the data back with the result of `createPost`
-		await getPosts().refresh();
+    	// Refresh `getPosts()` on the server, and send
+    	// the data back with the result of `createPost`
+    	await getPosts().refresh();
 
-		// Redirect to the newly created page
-		redirect(303, `/blog/${slug}`);
-	}
+    	// Redirect to the newly created page
+    	redirect(303, `/blog/${slug}`);
+    }
+
 );
 
 export const updatePost = form(
-	v.object({/* ... */}),
-	async (data) => {
-		// form logic goes here...
-		const result = externalApi.update(post);
+v.object({/_ ... _/}),
+async (data) => {
+// form logic goes here...
+const result = externalApi.update(post);
 
-		// The API already gives us the updated post,
-		// no need to refresh it, we can set it directly
-		await getPost(post.id).set(result);
-	}
+    	// The API already gives us the updated post,
+    	// no need to refresh it, we can set it directly
+    	await getPost(post.id).set(result);
+    }
+
 );
 The second is to drive the single-flight mutation from the client, which we’ll see in the section on enhance.
 
@@ -2619,12 +2639,13 @@ The example above uses redirect(...), which sends the user to the newly created 
 src/routes/blog/data.remote
 
 export const createPost = form(
-	v.object({/* ... */}),
-	async (data) => {
-		// ...
+v.object({/_ ... _/}),
+async (data) => {
+// ...
 
-		return { success: true };
-	}
+    	return { success: true };
+    }
+
 );
 src/routes/blog/new/+page
 
@@ -2639,7 +2660,8 @@ src/routes/blog/new/+page
 </form>
 
 {#if createPost.result?.success}
-	<p>Successfully published!</p>
+
+<p>Successfully published!</p>
 {/if}
 This value is ephemeral — it will vanish if you resubmit, navigate away, or reload the page.
 
@@ -2664,12 +2686,15 @@ src/routes/blog/new/+page
 		await submit();
 		form.reset();
 
-		showToast('Successfully published!');
-	} catch (error) {
-		showToast('Oh no! Something went wrong');
-	}
+    	showToast('Successfully published!');
+    } catch (error) {
+    	showToast('Oh no! Something went wrong');
+    }
+
 })}>
-	<!-- -->
+
+<!-- -->
+
 </form>
 When using enhance, the <form> is not automatically reset — you must call form.reset() if you want to clear the inputs.
 
@@ -2677,13 +2702,11 @@ The callback receives the form element, the data it contains, and a submit funct
 
 To enable client-driven single-flight mutations, use submit().updates(...). For example, if the getPosts() query was used on this page, we could refresh it like so:
 
-
 await submit().updates(getPosts());
 We can also override the current data while the submission is ongoing:
 
-
 await submit().updates(
-	getPosts().withOverride((posts) => [newPost, ...posts])
+getPosts().withOverride((posts) => [newPost, ...posts])
 );
 The override will be applied immediately, and released when the submission completes (or fails).
 
@@ -2699,11 +2722,12 @@ src/routes/todos/+page
 <h1>Todos</h1>
 
 {#each await getTodos() as todo}
-	{@const modify = modifyTodo.for(todo.id)}
-	<form {...modify}>
-		<!-- -->
-		<button disabled={!!modify.pending}>save changes</button>
-	</form>
+{@const modify = modifyTodo.for(todo.id)}
+
+<form {...modify}>
+<!-- -->
+<button disabled={!!modify.pending}>save changes</button>
+</form>
 {/each}
 buttonProps
 By default, submitting a form will send a request to the URL indicated by the <form> element’s action attribute, which in the case of a remote function is a property on the form object generated by SvelteKit.
@@ -2724,13 +2748,14 @@ src/routes/login/+page
 		<input {...login.fields.username.as('text')} />
 	</label>
 
-	<label>
-		Your password
-		<input {...login.fields._password.as('password')} />
-	</label>
+    <label>
+    	Your password
+    	<input {...login.fields._password.as('password')} />
+    </label>
 
-	<button>login</button>
-	<button {...register.buttonProps}>register</button>
+    <button>login</button>
+    <button {...register.buttonProps}>register</button>
+
 </form>
 Like the form object itself, buttonProps has an enhance method for customizing submission behaviour.
 
@@ -2743,22 +2768,23 @@ As with query and form, if the function accepts an argument, it should be valida
 
 likes.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { query, command } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 
 export const getLikes = query(v.string(), async (id) => {
-	const [row] = await db.sql`
+const [row] = await db.sql`
 		SELECT likes
 		FROM item
 		WHERE id = ${id}
 	`;
 
-	return row.likes;
+    return row.likes;
+
 });
 
 export const addLike = command(v.string(), async (id) => {
-	await db.sql`
+await db.sql`
 		UPDATE item
 		SET likes = likes + 1
 		WHERE id = ${id}
@@ -2776,15 +2802,18 @@ Now simply call addLike, from (for example) an event handler:
 </script>
 
 <button
-	onclick={async () => {
-		try {
-			await addLike(item.id);
-		} catch (error) {
-			showToast('Something went wrong!');
-		}
-	}}
+onclick={async () => {
+try {
+await addLike(item.id);
+} catch (error) {
+showToast('Something went wrong!');
+}
+}}
+
 >
-	add like
+
+    add like
+
 </button>
 
 <p>likes: {await getLikes(item.id)}</p>
@@ -2797,37 +2826,36 @@ We either do that inside the command itself...
 
 likes.remote
 
-export const getLikes = query(v.string(), async (id) => { /* ... */ });
+export const getLikes = query(v.string(), async (id) => { /_ ... _/ });
 
 export const addLike = command(v.string(), async (id) => {
-	await db.sql`
+await db.sql`
 		UPDATE item
 		SET likes = likes + 1
 		WHERE id = ${id}
 	`;
 
-	getLikes(id).refresh();
-	// Just like within form functions you can also do
-	// getLikes(id).set(...)
-	// in case you have the result already
+    getLikes(id).refresh();
+    // Just like within form functions you can also do
+    // getLikes(id).set(...)
+    // in case you have the result already
+
 });
 ...or when we call it:
 
-
 try {
-	await addLike(item.id).updates(getLikes(item.id));
+await addLike(item.id).updates(getLikes(item.id));
 } catch (error) {
-	showToast('Something went wrong!');
+showToast('Something went wrong!');
 }
 As before, we can use withOverride for optimistic updates:
 
-
 try {
-	await addLike(item.id).updates(
-		getLikes(item.id).withOverride((n) => n + 1)
-	);
+await addLike(item.id).updates(
+getLikes(item.id).withOverride((n) => n + 1)
+);
 } catch (error) {
-	showToast('Something went wrong!');
+showToast('Something went wrong!');
 }
 prerender
 The prerender function is similar to query, except that it will be invoked at build time to prerender the result. Use this for data that changes at most once per redeployment.
@@ -2838,14 +2866,15 @@ import { prerender } from '$app/server';
 import * as db from '$lib/server/database';
 
 export const getPosts = prerender(async () => {
-	const posts = await db.sql`
+const posts = await db.sql`
 		SELECT title, slug
 		FROM post
 		ORDER BY published_at
 		DESC
 	`;
 
-	return posts;
+    return posts;
+
 });
 You can use prerender functions on pages that are otherwise dynamic, allowing for partial prerendering of your data. This results in very fast navigation, since prerendered data can live on a CDN along with your other static assets.
 
@@ -2858,36 +2887,37 @@ As with queries, prerender functions can accept an argument, which should be val
 
 src/routes/blog/data.remote
 
-import * as v from 'valibot';
+import _ as v from 'valibot';
 import { error } from '@sveltejs/kit';
 import { prerender } from '$app/server';
-import * as db from '$lib/server/database';
+import _ as db from '$lib/server/database';
 
-export const getPosts = prerender(async () => { /* ... */ });
+export const getPosts = prerender(async () => { /_ ... _/ });
 
 export const getPost = prerender(v.string(), async (slug) => {
-	const [post] = await db.sql`
+const [post] = await db.sql`
 		SELECT * FROM post
 		WHERE slug = ${slug}
 	`;
 
-	if (!post) error(404, 'Not found');
-	return post;
+    if (!post) error(404, 'Not found');
+    return post;
+
 });
 Any calls to getPost(...) found by SvelteKit’s crawler while prerendering pages will be saved automatically, but you can also specify which values it should be called with using the inputs option:
 
 src/routes/blog/data.remote
 
 export const getPost = prerender(
-	v.string(),
-	async (slug) => { /* ... */ },
-	{
-		inputs: () => [
-			'first-post',
-			'second-post',
-			'third-post'
-		]
-	}
+v.string(),
+async (slug) => { /_ ... _/ },
+{
+inputs: () => [
+'first-post',
+'second-post',
+'third-post'
+]
+}
 );
 Svelte does not yet support asynchronous server-side rendering, so it’s likely that you’re only calling remote functions from the browser, rather than during prerendering. Because of this, you will need to use inputs, for now. We’re actively working on this roadblock.
 
@@ -2896,16 +2926,16 @@ By default, prerender functions are excluded from your server bundle, which mean
 src/routes/blog/data.remote
 
 export const getPost = prerender(
-	v.string(),
-	async (slug) => { /* ... */ },
-	{
-		dynamic: true,
-		inputs: () => [
-			'first-post',
-			'second-post',
-			'third-post'
-		]
-	}
+v.string(),
+async (slug) => { /_ ... _/ },
+{
+dynamic: true,
+inputs: () => [
+'first-post',
+'second-post',
+'third-post'
+]
+}
 );
 Handling validation errors
 As long as you’re not passing invalid data to your remote functions, there are only two reasons why the argument passed to a command, query or prerender function would fail validation:
@@ -2919,9 +2949,9 @@ src/hooks.server
 import type { HandleValidationError } from '@sveltejs/kit';
 
 export const handleValidationError: HandleValidationError = ({ event, issues }) => {
-	return {
-		message: 'Nice try, hacker!'
-	};
+return {
+message: 'Nice try, hacker!'
+};
 };
 If you know what you’re doing and want to opt out of validation, you can pass the string 'unchecked' in place of a schema:
 
@@ -2930,8 +2960,8 @@ data.remote
 import { query } from '$app/server';
 
 export const getStuff = query('unchecked', async ({ id }: { id: string }) => {
-	// the shape might not actually be what TypeScript thinks
-	// since bad actors might call this function with other arguments
+// the shape might not actually be what TypeScript thinks
+// since bad actors might call this function with other arguments
 });
 Using getRequestEvent
 Inside query, form and command you can use getRequestEvent to get the current RequestEvent object. This makes it easy to build abstractions for interacting with cookies, for example:
@@ -2942,20 +2972,22 @@ import { getRequestEvent, query } from '$app/server';
 import { findUser } from '$lib/server/database';
 
 export const getProfile = query(async () => {
-	const user = await getUser();
+const user = await getUser();
 
-	return {
-		name: user.name,
-		avatar: user.avatar
-	};
+    return {
+    	name: user.name,
+    	avatar: user.avatar
+    };
+
 });
 
 // this query could be called from multiple places, but
 // the function will only run once per request
 const getUser = query(async () => {
-	const { cookies } = getRequestEvent();
+const { cookies } = getRequestEvent();
 
-	return await findUser(cookies.get('session_id'));
+    return await findUser(cookies.get('session_id'));
+
 });
 Note that some properties of RequestEvent are different inside remote functions:
 
@@ -2969,16 +3001,16 @@ Compiler-based approach: Svelte is a compiler that transforms your components in
 Reactivity: It uses a unique reactive system that tracks variables and updates only the parts of the DOM that depend on them.
 Single-file components: You can write your component's markup, styles, and logic in a single file, with CSS automatically scoped to prevent conflicts.
 Readable syntax: The syntax is often described as HTML with JavaScript sprinkled in, making it familiar and easy to learn.
-Smaller bundle sizes: Because it compiles to vanilla JavaScript, Svelte applications are smaller and faster, which is ideal for low-power devices and slow networks. 
+Smaller bundle sizes: Because it compiles to vanilla JavaScript, Svelte applications are smaller and faster, which is ideal for low-power devices and slow networks.
 SvelteKit features
 File-based routing: SvelteKit provides a file-based system for defining routes and layouts, simplifying app structure.
 Server-Side Rendering (SSR): It supports SSR out-of-the-box for better performance and SEO.
 Static Site Generation (SSG): You can pre-render pages at build time for static site benefits.
 API routes: It allows you to define serverless functions and API endpoints directly within your SvelteKit project.
-Performance optimizations: SvelteKit includes features like code-splitting, prefetching, and request coalescing to improve performance. 
+Performance optimizations: SvelteKit includes features like code-splitting, prefetching, and request coalescing to improve performance.
 Recent and notable features
 Snippets: Svelte 5 introduces snippets, which are reusable blocks of markup and logic that can be rendered multiple times or passed to other components.
 Native TypeScript support: Builds are faster, and you can use TypeScript annotations directly in your Svelte markup.
 Derived statements are now writable: In Svelte 5, derived statements have been made writable, adding more flexibility.
 Form handling: Features like default defaultValue and defaultChecked for inputs are now supported.
-Reactive browser API: Svelte now provides a reactive browser API, making it easier to interact with browser features. 
+Reactive browser API: Svelte now provides a reactive browser API, making it easier to interact with browser features.

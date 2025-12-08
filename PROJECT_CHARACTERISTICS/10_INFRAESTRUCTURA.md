@@ -1,4 +1,5 @@
 # 🏗️ MÓDULO 10: INFRAESTRUCTURA Y DEVOPS
+
 **Total:** 5 características  
 **Prioridad PMV:** 5  
 **Última actualización:** 28 Nov 2025
@@ -12,6 +13,7 @@
 ## 10.1 DESPLIEGUE Y ORQUESTACIÓN (5 características)
 
 ### INF-001: Docker Compose Production
+
 - **Descripción:** Orquestación de todos los servicios
 - **Servicios:** Backend (Bun), Frontend (Node), PostgreSQL, Redis, Traefik
 - **Redes:** Frontend network, backend network, monitoring network
@@ -41,6 +43,7 @@ services:
 ```
 
 ### INF-002: CI/CD con GitHub Actions
+
 - **Descripción:** Pipeline automatizado de build, test, deploy
 - **Triggers:** Push a main (deploy), PR (test only)
 - **Jobs:** Lint → Test → Build → Deploy via SSH
@@ -70,6 +73,7 @@ jobs:
 ```
 
 ### INF-003: Reverse Proxy (Traefik)
+
 - **Descripción:** Routing, SSL, rate limiting, load balancing
 - **SSL:** Let's Encrypt automático (ACME)
 - **Routing:** api.dominio.com → backend, app.dominio.com → frontend
@@ -79,6 +83,7 @@ jobs:
 - **Plan:** INFRAESTRUCTURA
 
 ### INF-004: Monitoreo (Prometheus + Grafana)
+
 - **Descripción:** Métricas de sistema y aplicación
 - **Métricas:** CPU, memoria, requests, latencia, errores
 - **Dashboards:** Sistema, API, negocio
@@ -88,6 +93,7 @@ jobs:
 - **Plan:** INFRAESTRUCTURA
 
 ### INF-005: Backups Automatizados
+
 - **Descripción:** Respaldos de base de datos y archivos
 - **Frecuencia:** Diaria (incremental), Semanal (full)
 - **Retención:** 30 días
@@ -101,27 +107,27 @@ jobs:
 
 ## 🖥️ ESPECIFICACIONES VPS (Hostinger)
 
-| Recurso | Recomendado PMV | Producción |
-| :--- | :---: | :---: |
-| **vCPU** | 2 cores | 4 cores |
-| **RAM** | 4 GB | 8 GB |
-| **Storage** | 50 GB SSD | 100 GB NVMe |
-| **Bandwidth** | 4 TB | 8 TB |
-| **OS** | Ubuntu 24.04 LTS | Ubuntu 24.04 LTS |
-| **Precio** | ~$10 USD/mes | ~$20 USD/mes |
+| Recurso       | Recomendado PMV  |    Producción    |
+| :------------ | :--------------: | :--------------: |
+| **vCPU**      |     2 cores      |     4 cores      |
+| **RAM**       |       4 GB       |       8 GB       |
+| **Storage**   |    50 GB SSD     |   100 GB NVMe    |
+| **Bandwidth** |       4 TB       |       8 TB       |
+| **OS**        | Ubuntu 24.04 LTS | Ubuntu 24.04 LTS |
+| **Precio**    |   ~$10 USD/mes   |   ~$20 USD/mes   |
 
 ---
 
 ## 📊 RESUMEN MÓDULO INFRAESTRUCTURA
 
-| Característica | PMV | V1 | V2 | V3 |
-| :--- | :---: | :---: | :---: | :---: |
-| Docker Compose | ✅ | - | - | - |
-| CI/CD | ✅ | - | - | - |
-| Traefik | ✅ | - | - | - |
-| Monitoreo | ✅ | - | - | - |
-| Backups | ✅ | - | - | - |
-| **TOTAL** | **5** | **0** | **0** | **0** |
+| Característica |  PMV  |  V1   |  V2   |  V3   |
+| :------------- | :---: | :---: | :---: | :---: |
+| Docker Compose |  ✅   |   -   |   -   |   -   |
+| CI/CD          |  ✅   |   -   |   -   |   -   |
+| Traefik        |  ✅   |   -   |   -   |   -   |
+| Monitoreo      |  ✅   |   -   |   -   |   -   |
+| Backups        |  ✅   |   -   |   -   |   -   |
+| **TOTAL**      | **5** | **0** | **0** | **0** |
 
 ---
 
@@ -142,19 +148,19 @@ jobs:
 
 ## 📈 RESUMEN GLOBAL
 
-| Módulo | Características | PMV | V1 | V2 | V3 |
-| :--- | :---: | :---: | :---: | :---: | :---: |
-| 01 Core Financiero | 45 | 19 | 14 | 10 | 2 |
-| 02 Contabilidad SAT | 35 | 13 | 8 | 12 | 2 |
-| 03 Inteligencia | 30 | 6 | 12 | 10 | 2 |
-| 04 Gamificación | 25 | 5 | 10 | 7 | 3 |
-| 05 Seguridad | 22 | 19 | 3 | 0 | 0 |
-| 06 UX/UI | 20 | 10 | 7 | 3 | 0 |
-| 07 Integraciones | 15 | 7 | 6 | 2 | 0 |
-| 08 Negocio | 12 | 5 | 3 | 2 | 2 |
-| 09 Palantir | 8 | 0 | 0 | 3 | 5 |
-| 10 Infraestructura | 5 | 5 | 0 | 0 | 0 |
-| **TOTAL** | **217** | **89** | **63** | **49** | **16** |
+| Módulo              | Características |  PMV   |   V1   |   V2   |   V3   |
+| :------------------ | :-------------: | :----: | :----: | :----: | :----: |
+| 01 Core Financiero  |       45        |   19   |   14   |   10   |   2    |
+| 02 Contabilidad SAT |       35        |   13   |   8    |   12   |   2    |
+| 03 Inteligencia     |       30        |   6    |   12   |   10   |   2    |
+| 04 Gamificación     |       25        |   5    |   10   |   7    |   3    |
+| 05 Seguridad        |       22        |   19   |   3    |   0    |   0    |
+| 06 UX/UI            |       20        |   10   |   7    |   3    |   0    |
+| 07 Integraciones    |       15        |   7    |   6    |   2    |   0    |
+| 08 Negocio          |       12        |   5    |   3    |   2    |   2    |
+| 09 Palantir         |        8        |   0    |   0    |   3    |   5    |
+| 10 Infraestructura  |        5        |   5    |   0    |   0    |   0    |
+| **TOTAL**           |     **217**     | **89** | **63** | **49** | **16** |
 
 ---
 

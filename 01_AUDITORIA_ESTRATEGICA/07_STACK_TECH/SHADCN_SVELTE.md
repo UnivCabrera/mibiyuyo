@@ -78,13 +78,13 @@ If you are not using the default alias $lib, you'll need to update your svelte.c
 
 svelte.config.js
 const config = {
-  // ... other config
-  kit: {
-    // ... other config
-    alias: {
-      "@/*": "./path/to/lib/*",
-    },
-  },
+// ... other config
+kit: {
+// ... other config
+alias: {
+"@/_": "./path/to/lib/_",
+},
+},
 };
 Copy
 Run the CLI
@@ -119,7 +119,7 @@ The command above will add the Button component to your project. You can then im
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
- 
+
 <Button>Click me</Button>
 JavaScript
 
@@ -135,29 +135,29 @@ To opt-out of TypeScript, you can use the typescript flag in your components.jso
 
 components.json
 {
-  "style": "default",
-  "tailwind": {
-    "css": "src/routes/layout.css"
-  },
-  "typescript": false,
-  "aliases": {
-    "utils": "$lib/utils",
+"style": "default",
+"tailwind": {
+"css": "src/routes/layout.css"
+},
+"typescript": false,
+"aliases": {
+"utils": "$lib/utils",
     "components": "$lib/components",
-    "hooks": "$lib/hooks",
+"hooks": "$lib/hooks",
     "ui": "$lib/components/ui"
-  },
-  "registry": "https://shadcn-svelte.com/registry"
+},
+"registry": "https://shadcn-svelte.com/registry"
 }
 Copy
 To configure import aliases, create a jsconfig.json file:
 
 jsconfig.json
 {
-  "compilerOptions": {
-    "paths": {
-      "$lib/*": ["./src/lib/*"]
-    }
-  }
+"compilerOptions": {
+"paths": {
+"$lib/_": ["./src/lib/_"]
+}
+}
 }
 Copy
 CLI
@@ -192,13 +192,13 @@ If you are not using the default alias $lib, you'll need to update your svelte.c
 
 svelte.config.js
 const config = {
-  // ... other config
-  kit: {
-    // ... other config
-    alias: {
-      "@/*": "./path/to/lib/*",
-    },
-  },
+// ... other config
+kit: {
+// ... other config
+alias: {
+"@/_": "./path/to/lib/_",
+},
+},
 };
 Copy
 Run the CLI
@@ -233,7 +233,7 @@ The command above will add the Button component to your project. You can then im
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
 </script>
- 
+
 <Button>Click me</Button>
 Components
 

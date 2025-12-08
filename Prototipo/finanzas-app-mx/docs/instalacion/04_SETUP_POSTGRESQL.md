@@ -48,6 +48,7 @@ Esta guía tiene como objetivo proporcionar un enfoque paso a paso para la insta
      ```
 
 4. **Agregar tu usuario al grupo de Docker** (opcional):
+
    ```bash
    usermod -aG docker $USER
    ```
@@ -166,29 +167,29 @@ chmod +x scripts.sh
 Ejemplo de un endpoint en Node.js:
 
 ```javascript
-const express = require('express');
-const { exec } = require('child_process');
+const express = require("express");
+const { exec } = require("child_process");
 
 const app = express();
 app.use(express.json());
 
-app.post('/webhook', (req, res) => {
-    exec('./scripts.sh deploy', (error, stdout, stderr) => {
-        if (error) {
-            console.error(`Error: ${error.message}`);
-            return res.status(500).send('Error en el despliegue');
-        }
-        if (stderr) {
-            console.error(`stderr: ${stderr}`);
-            return res.status(500).send('Error en el despliegue');
-        }
-        console.log(`stdout: ${stdout}`);
-        res.send('Despliegue exitoso');
-    });
+app.post("/webhook", (req, res) => {
+  exec("./scripts.sh deploy", (error, stdout, stderr) => {
+    if (error) {
+      console.error(`Error: ${error.message}`);
+      return res.status(500).send("Error en el despliegue");
+    }
+    if (stderr) {
+      console.error(`stderr: ${stderr}`);
+      return res.status(500).send("Error en el despliegue");
+    }
+    console.log(`stdout: ${stdout}`);
+    res.send("Despliegue exitoso");
+  });
 });
 
 app.listen(3000, () => {
-    console.log('Servidor de webhooks escuchando en el puerto 3000');
+  console.log("Servidor de webhooks escuchando en el puerto 3000");
 });
 ```
 

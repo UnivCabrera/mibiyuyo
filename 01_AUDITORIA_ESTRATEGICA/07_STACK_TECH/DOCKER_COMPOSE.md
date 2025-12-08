@@ -39,7 +39,7 @@ Dependencies upgrade: bump docker engine and cli to v28.5.0
 2.39.4
 2025-09-19
 Bug fixes and enhancements
-Added initial_sync attribute to the Compose Develop Specification definition, to sync files after starting a watch session
+Added initial*sync attribute to the Compose Develop Specification definition, to sync files after starting a watch session
 Fixed a TLS issue when building with bake
 Disabled Tty on run when running as a piped command
 Update
@@ -208,7 +208,7 @@ Dependencies upgrade: bump buildkit to v0.21.0
 2.34.0
 2025-03-14
 Bug fixes and enhancements
-Added support of refresh pull_policy values daily, weekly and every_<duration>
+Added support of refresh pull_policy values daily, weekly and every*<duration>
 Introduced include attribut to watch definition to match file patterns
 Introduced --env-from-file in flag for the docker compose run command
 Promoted publish as a regular command of Compose
@@ -277,96 +277,96 @@ Browse by section
 Docker Desktop
 Manage containers, applications, and images directly from your machine.
 
- Overview
- Explore Docker Desktop
- Release notes
+Overview
+Explore Docker Desktop
+Release notes
 Docker Hardened Images
 Secure, minimal images for trusted software delivery.
 
- Overview
- Quickstart
- Use an image
+Overview
+Quickstart
+Use an image
 Docker MCP Catalog and Toolkit
 Augment your AI workflows with MCP servers.
 
- Overview
- Quickstart
- Explore the MCP Toolkit
+Overview
+Quickstart
+Explore the MCP Toolkit
 Docker Engine
 The definitive open source container client and runtime.
 
- Overview
- Install
- Release notes
+Overview
+Install
+Release notes
 Docker Build
 Package, test, and ship your applications.
 
- Overview
- Packaging your software
- Release notes
+Overview
+Packaging your software
+Release notes
 Docker Build Cloud
 Run your builds in the cloud.
 
- Overview
- Setup
- Release notes
+Overview
+Setup
+Release notes
 Docker Compose
 Define and run multi-container applications with Docker.
 
- Overview
- Try Docker Compose
- Release notes
+Overview
+Try Docker Compose
+Release notes
 Docker Hub
 Find and share container images and other artifacts.
 
- Overview
- Create an account
- Create a repository
+Overview
+Create an account
+Create a repository
 Docker Scout
 Strengthen your software supply chain with Docker Scout.
 
- Overview
- Quickstart
- Image analysis
+Overview
+Quickstart
+Image analysis
 Subscription
 Licensing for commercial use of Docker components.
 
- Overview
- Subscriptions and features
- Change subscription
+Overview
+Subscriptions and features
+Change subscription
 Billing
 Manage your billing and payment settings for your subscription.
 
- Overview
- Update payment method
- View billing history
+Overview
+Update payment method
+View billing history
 Administration
 Manage company and organization users, permissions, and more.
 
- Overview
- Organization administration
- Company administration
+Overview
+Organization administration
+Company administration
 Security
 Security guardrails for both administrators and developers.
 
- Overview
- SSO
- SCIM
+Overview
+SSO
+SCIM
 Testcontainers Cloud
 Testcontainers Cloud lets you run heavy test workloads remotely.
 
- Overview
- Getting started
- TCC for CI
+Overview
+Getting started
+TCC for CI
 Docker Offload
 Build and run containers in the cloud.
 
- Overview
- Quickstart
- About Docker OffloadGet started with Docker Sandboxes
+Overview
+Quickstart
+About Docker OffloadGet started with Docker Sandboxes
 Page options
 Availability:
-Experimental 
+Experimental
 Requires:
 Docker Desktop 4.50 or later
 This guide will help you run Claude Code in a sandboxed environment for the first time.
@@ -381,12 +381,10 @@ Follow these steps to run Claude Code in a sandboxed environment:
 
 Navigate to Your Project
 
-
- cd ~/my-project
+cd ~/my-project
 Start Claude in a sandbox
 
-
- docker sandbox run claude
+docker sandbox run claude
 Authenticate: on first run, Claude will prompt you to authenticate.
 
 Once you've authenticated, the credentials are stored in a persistent Docker volume and reused for future sessions.
@@ -408,17 +406,17 @@ Here are a few essential commands to manage your sandboxes:
 
 List your sandboxes
 
- docker sandbox ls
+docker sandbox ls
 Shows all your sandboxes with their IDs, names, status, and creation time.
 
 Remove a sandbox
 
- docker sandbox rm <sandbox-id>
+docker sandbox rm <sandbox-id>
 Deletes a sandbox when you're done with it. Get the sandbox ID from docker sandbox ls.
 
 View sandbox details
 
- docker sandbox inspect <sandbox-id>
+docker sandbox inspect <sandbox-id>
 Shows detailed information about a specific sandbox in JSON format.
 
 For a complete list of all commands and options, see the CLI reference.
@@ -426,7 +424,7 @@ For a complete list of all commands and options, see the CLI reference.
 Advanced configurations
 Page options
 Availability:
-Experimental 
+Experimental
 Requires:
 Docker Desktop 4.50 or later
 This guide covers advanced configurations for sandboxed agents running locally.
@@ -435,10 +433,9 @@ Managing sandboxes
 Recreating sandboxes
 Since Docker enforces one sandbox per workspace, the same sandbox is reused each time you run docker sandbox run <agent> in a given directory. To create a fresh sandbox, you need to remove the existing one first:
 
-
- docker sandbox ls  # Find the sandbox ID
- docker sandbox rm <sandbox-id>
- docker sandbox run <agent>  # Creates a new sandbox
+docker sandbox ls # Find the sandbox ID
+docker sandbox rm <sandbox-id>
+docker sandbox run <agent> # Creates a new sandbox
 When to recreate sandboxes
 Sandboxes remember their initial configuration and don't pick up changes from subsequent docker sandbox run commands. You must recreate the sandbox to modify:
 
@@ -449,23 +446,19 @@ Credentials mode (the --credentials flag)
 Listing and inspecting sandboxes
 View all your sandboxes:
 
-
- docker sandbox ls
+docker sandbox ls
 Get detailed information about a specific sandbox:
 
-
- docker sandbox inspect <sandbox-id>
+docker sandbox inspect <sandbox-id>
 This shows the sandbox's configuration, including environment variables, volumes, and creation time.
 
 Removing sandboxes
 Remove a specific sandbox:
 
-
- docker sandbox rm <sandbox-id>
+docker sandbox rm <sandbox-id>
 Remove all sandboxes at once:
 
-
- docker sandbox rm $(docker sandbox ls -q)
+docker sandbox rm $(docker sandbox ls -q)
 This is useful for cleanup when you're done with a project or want to start fresh.
 
 Giving agents access to Docker
@@ -477,8 +470,7 @@ Mounting the Docker socket grants the agent full access to your Docker daemon, w
 Enable Docker socket access
 Use the --mount-docker-socket flag:
 
-
- docker sandbox run --mount-docker-socket claude
+docker sandbox run --mount-docker-socket claude
 This mounts your host's Docker socket (/var/run/docker.sock) into the container, giving the agent access to Docker commands.
 
 Important
@@ -487,17 +479,15 @@ The agent can see and interact with all containers on your host, not just those 
 Example: Testing a containerized application
 If your project has a Dockerfile, the agent can build and test it:
 
-
- cd ~/my-docker-app
- docker sandbox run --mount-docker-socket claude
+cd ~/my-docker-app
+docker sandbox run --mount-docker-socket claude
 Example conversation:
-
 
 You: "Build the Docker image and run the tests"
 
-Claude: *runs*
-  docker build -t myapp:test .
-  docker run myapp:test npm test
+Claude: _runs_
+docker build -t myapp:test .
+docker run myapp:test npm test
 What agents can do with Docker socket access
 With Docker access enabled, agents can:
 
@@ -508,40 +498,36 @@ Validate Dockerfiles and test build processes
 Environment variables
 Pass environment variables to configure the sandbox environment with the -e flag:
 
-
- docker sandbox run \
-  -e NODE_ENV=development \
-  -e DATABASE_URL=postgresql://localhost/myapp_dev \
-  -e DEBUG=true \
-  claude
+docker sandbox run \
+ -e NODE_ENV=development \
+ -e DATABASE_URL=postgresql://localhost/myapp_dev \
+ -e DEBUG=true \
+ claude
 These variables are available to all processes in the container, including the agent and any commands it runs. Use multiple -e flags for multiple variables.
 
 Example: Development environment setup
 Set up a complete development environment:
 
-
- docker sandbox run \
-  -e NODE_ENV=development \
-  -e DATABASE_URL=postgresql://localhost/myapp_dev \
-  -e REDIS_URL=redis://localhost:6379 \
-  -e LOG_LEVEL=debug \
-  claude
+docker sandbox run \
+ -e NODE_ENV=development \
+ -e DATABASE_URL=postgresql://localhost/myapp_dev \
+ -e REDIS_URL=redis://localhost:6379 \
+ -e LOG_LEVEL=debug \
+ claude
 Example conversation:
-
 
 You: "Run the database migrations and start the development server"
 
-Claude: *uses DATABASE_URL and other environment variables*
-  npm run migrate
-  npm run dev
+Claude: _uses DATABASE_URL and other environment variables_
+npm run migrate
+npm run dev
 Common use cases
 API keys for testing:
 
-
- docker sandbox run \
-  -e STRIPE_TEST_KEY=sk_test_xxx \
-  -e SENDGRID_API_KEY=SG.xxx \
-  claude
+docker sandbox run \
+ -e STRIPE_TEST_KEY=sk_test_xxx \
+ -e SENDGRID_API_KEY=SG.xxx \
+ claude
 Caution
 Only use test/development API keys in sandboxes, never production keys.
 
@@ -549,72 +535,63 @@ Loading from .env files:
 
 Sandboxes don't automatically load .env files from your workspace, but you can ask Claude to use them:
 
-
 You: "Load environment variables from .env.development and start the server"
 Claude can use dotenv tools or source the file directly.
 
 Volume mounting
 Mount additional directories or files to share data beyond your main workspace. Use the -v flag with the syntax host-path:container-path:
 
-
- docker sandbox run -v ~/datasets:/data claude
+docker sandbox run -v ~/datasets:/data claude
 This makes ~/datasets available at /data inside the container. The agent can read and write files in this location.
 
 Read-only mounts:
 
 Add :ro to prevent modifications:
 
-
- docker sandbox run -v ~/configs/app.yml:/config/app.yml:ro claude
+docker sandbox run -v ~/configs/app.yml:/config/app.yml:ro claude
 Multiple mounts:
 
 Use multiple -v flags to mount several locations:
 
-
- docker sandbox run \
-  -v ~/datasets:/data:ro \
-  -v ~/models:/models \
-  -v ~/.cache/pip:/root/.cache/pip \
-  claude
+docker sandbox run \
+ -v ~/datasets:/data:ro \
+ -v ~/models:/models \
+ -v ~/.cache/pip:/root/.cache/pip \
+ claude
 Example: Machine learning workflow
 Set up an ML environment with shared datasets, model storage, and persistent caches:
 
-
- docker sandbox run \
-  -v ~/datasets:/data:ro \
-  -v ~/models:/models \
-  -v ~/.cache/pip:/root/.cache/pip \
-  claude
+docker sandbox run \
+ -v ~/datasets:/data:ro \
+ -v ~/models:/models \
+ -v ~/.cache/pip:/root/.cache/pip \
+ claude
 This provides read-only access to datasets (preventing accidental modifications), read-write access to save trained models, and a persistent pip cache for faster package installs across sessions.
 
 Example conversation:
 
-
 You: "Train a model on the MNIST dataset and save it to /models"
 
-Claude: *runs*
-  python train.py --data /data/mnist --output /models/mnist_model.h5
+Claude: _runs_
+python train.py --data /data/mnist --output /models/mnist_model.h5
 Common use cases
 Shared configuration files:
 
-
- docker sandbox run -v ~/.aws:/root/.aws:ro claude
+docker sandbox run -v ~/.aws:/root/.aws:ro claude
 Build caches:
 
-
- docker sandbox run \
-  -v ~/.cache/go-build:/root/.cache/go-build \
-  -v ~/go/pkg/mod:/go/pkg/mod \
-  claude
+docker sandbox run \
+ -v ~/.cache/go-build:/root/.cache/go-build \
+ -v ~/go/pkg/mod:/go/pkg/mod \
+ claude
 Custom tools:
 
-
- docker sandbox run -v ~/bin:/shared-bin:ro claude
+docker sandbox run -v ~/bin:/shared-bin:ro claude
 Custom templates
 Create custom sandbox templates to reuse configured environments. Instead of installing tools every time you start an agent, build a Docker image with everything pre-installed:
 
-
 # syntax=docker/dockerfile:1
+
 FROM docker/sandbox-templates:claude-code
 RUN <<EOF
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -624,20 +601,18 @@ EOF
 ENV PATH="$PATH:~/.local/bin"
 Build the image, and use the docker sandbox run --template flag to start a new sandbox based on the image.
 
-
- docker build -t my-dev-env .
- docker sandbox run --template my-dev-env claude
+docker build -t my-dev-env .
+docker sandbox run --template my-dev-env claude
 Using standard images
 You can use standard Docker images as sandbox templates, but they don't include agent binaries, shell configuration, or runtime dependencies that Docker's sandbox templates provide. Using a standard Python image directly fails:
 
-
- docker sandbox run --template python:3-slim claude
+docker sandbox run --template python:3-slim claude
 The claude binary was not found in the sandbox; please check this is the correct sandbox for this agent.
 To use a standard image, create a Dockerfile that installs the agent binary, dependencies, and shell configuration on top of your base image. This approach makes sense when you need a specific base image (for example, an exact OS version or a specialized image with particular build tools).
 Troubleshooting
 Page options
 Availability:
-Experimental 
+Experimental
 Requires:
 Docker Desktop 4.50 or later
 This guide helps you resolve common issues when sandboxing Claude Code locally.
@@ -649,8 +624,7 @@ This means the CLI plugin isn't installed or isn't in the correct location. To f
 
 Verify the plugin exists:
 
-
- ls -la ~/.docker/cli-plugins/docker-sandbox
+ls -la ~/.docker/cli-plugins/docker-sandbox
 The file should exist and be executable.
 
 If using Docker Desktop, restart it to detect the plugin.
@@ -660,13 +634,12 @@ You see an error about beta features being disabled when trying to use sandboxes
 
 This happens when your Docker Desktop installation is managed by an administrator who has locked settings. If your organization uses Settings Management, ask your administrator to allow beta features:
 
-
 {
-  "configurationFileVersion": 2,
-  "allowBetaFeatures": {
-    "locked": false,
-    "value": true
-  }
+"configurationFileVersion": 2,
+"allowBetaFeatures": {
+"locked": false,
+"value": true
+}
 }
 Authentication failure
 Claude can't authenticate, or you see API key errors.
@@ -677,12 +650,10 @@ If using --credentials=sandbox (the default):
 
 Remove the stored credentials:
 
-
- docker volume rm docker-claude-sandbox-data
+docker volume rm docker-claude-sandbox-data
 Start a new sandbox and complete the authentication workflow:
 
-
- docker sandbox run claude
+docker sandbox run claude
 Workspace contains API key configuration
 You see a warning about conflicting credentials when starting a sandbox.
 
@@ -690,12 +661,11 @@ This happens when your workspace has a .claude.json file with a primaryApiKey fi
 
 Remove the primaryApiKey field from your .claude.json:
 
-
 {
-  "apiKeyHelper": "/path/to/script",
-  "env": {
-    "ANTHROPIC_BASE_URL": "https://api.anthropic.com"
-  }
+"apiKeyHelper": "/path/to/script",
+"env": {
+"ANTHROPIC_BASE_URL": "https://api.anthropic.com"
+}
 }
 Or proceed with the warning - workspace credentials will be ignored in favor of sandbox credentials.
 
@@ -716,16 +686,13 @@ Restart Docker Desktop.
 
 For all platforms, verify file permissions:
 
-
- ls -la <workspace>
+ls -la <workspace>
 Ensure files are readable. If needed:
 
-
- chmod -R u+r <workspace>
+chmod -R u+r <workspace>
 Also verify the workspace path exists:
 
-
- cd <workspace>
+cd <workspace>
 Get started with DMR
 Page options
 Docker Model Runner (DMR) lets you run and manage AI models locally using Docker. This page shows you how to enable DMR, pull and run a model, configure model settings, and publish custom models.
@@ -756,7 +723,6 @@ $ sudo apt-get update
 $ sudo apt-get install docker-model-plugin
 Test the installation:
 
-
 $ docker model version
 $ docker model run ai/smollm2
 Note
@@ -764,7 +730,6 @@ TCP support is enabled by default for Docker Engine on port 12434.
 
 Update DMR in Docker Engine
 To update Docker Model Runner in Docker Engine, uninstall it with docker model uninstall-runner then reinstall it:
-
 
 docker model uninstall-runner --images && docker model install-runner
 Note
@@ -794,21 +759,23 @@ This works for any Container Registry supporting OCI Artifacts, not only Docker 
 
 You can tag existing models with a new name and publish them under a different namespace and repository:
 
-
 # Tag a pulled model under a new name
+
 $ docker model tag ai/smollm2 myorg/smollm2
 
 # Push it to Docker Hub
+
 $ docker model push myorg/smollm2
 For more details, see the docker model tag and docker model push command documentation.
 
 You can also package a model file in GGUF format as an OCI Artifact and publish it to Docker Hub.
 
-
 # Download a model file in GGUF format, for example from HuggingFace
+
 $ curl -L -o model.gguf https://huggingface.co/TheBloke/Mistral-7B-v0.1-GGUF/resolve/main/mistral-7b-v0.1.Q4_K_M.gguf
 
 # Package it as OCI Artifact and push it to Docker Hub
+
 $ docker model package --gguf "$(pwd)/model.gguf" --push myorg/mistral-7b-v0.1:Q4_K_M
 For more details, see the docker model package command documentation.
 
@@ -849,18 +816,14 @@ From host processes: http://localhost:12434/, assuming TCP host access is enable
 Available DMR endpoints
 Create a model:
 
-
 POST /models/create
 List models:
-
 
 GET /models
 Get a model:
 
-
 GET /models/{namespace}/{name}
 Delete a local model:
-
 
 DELETE /models/{namespace}/{name}
 Available OpenAI endpoints
@@ -868,22 +831,17 @@ DMR supports the following OpenAI endpoints:
 
 List models:
 
-
 GET /engines/llama.cpp/v1/models
 Retrieve model:
-
 
 GET /engines/llama.cpp/v1/models/{namespace}/{name}
 List chat completions:
 
-
 POST /engines/llama.cpp/v1/chat/completions
 Create completions:
 
-
 POST /engines/llama.cpp/v1/completions
 Create embeddings:
-
 
 POST /engines/llama.cpp/v1/embeddings
 To call these endpoints via a Unix socket (/var/run/docker.sock), prefix their path with /exp/vDD4.40.
@@ -895,24 +853,23 @@ REST API examples
 Request from within a container
 To call the chat/completions OpenAI endpoint from within another container using curl:
 
-
 #!/bin/sh
 
 curl http://model-runner.docker.internal/engines/llama.cpp/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -d '{
-        "model": "ai/smollm2",
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are a helpful assistant."
-            },
-            {
-                "role": "user",
-                "content": "Please write 500 words about the fall of Rome."
-            }
-        ]
-    }'
+ -H "Content-Type: application/json" \
+ -d '{
+"model": "ai/smollm2",
+"messages": [
+{
+"role": "system",
+"content": "You are a helpful assistant."
+},
+{
+"role": "user",
+"content": "Please write 500 words about the fall of Rome."
+}
+]
+}'
 Request from the host using TCP
 To call the chat/completions OpenAI endpoint from the host via TCP:
 
@@ -922,47 +879,44 @@ If you are running on Windows, also enable GPU-backed inference. See Enable Dock
 
 Interact with it as documented in the previous section using localhost and the correct port.
 
-
 #!/bin/sh
 
-  curl http://localhost:12434/engines/llama.cpp/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -d '{
-        "model": "ai/smollm2",
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are a helpful assistant."
-            },
-            {
-                "role": "user",
-                "content": "Please write 500 words about the fall of Rome."
-            }
-        ]
-    }'
+curl http://localhost:12434/engines/llama.cpp/v1/chat/completions \
+ -H "Content-Type: application/json" \
+ -d '{
+"model": "ai/smollm2",
+"messages": [
+{
+"role": "system",
+"content": "You are a helpful assistant."
+},
+{
+"role": "user",
+"content": "Please write 500 words about the fall of Rome."
+}
+]
+}'
 Request from the host using a Unix socket
 To call the chat/completions OpenAI endpoint through the Docker socket from the host using curl:
-
 
 #!/bin/sh
 
 curl --unix-socket $HOME/.docker/run/docker.sock \
-    localhost/exp/vDD4.40/engines/llama.cpp/v1/chat/completions \
-    -H "Content-Type: application/json" \
-    -d '{
-        "model": "ai/smollm2",
-        "messages": [
-            {
-                "role": "system",
-                "content": "You are a helpful assistant."
-            },
-            {
-                "role": "user",
-                "content": "Please write 500 words about the fall of Rome."
-            }
-        ]
-    }'
-
+ localhost/exp/vDD4.40/engines/llama.cpp/v1/chat/completions \
+ -H "Content-Type: application/json" \
+ -d '{
+"model": "ai/smollm2",
+"messages": [
+{
+"role": "system",
+"content": "You are a helpful assistant."
+},
+{
+"role": "user",
+"content": "Please write 500 words about the fall of Rome."
+}
+]
+}'
 
 DMR examples
 Page options
@@ -975,8 +929,7 @@ If you want to try an existing GenAI application, follow these steps:
 
 Set up the sample app. Clone and run the following repository:
 
-
- git clone https://github.com/docker/hello-genai.git
+git clone https://github.com/docker/hello-genai.git
 In your terminal, go to the hello-genai directory.
 
 Run run.sh to pull the chosen model and run the app.
@@ -995,21 +948,21 @@ dmr-run.yml
 name: Docker Model Runner Example Workflow
 
 permissions:
-  contents: read
+contents: read
 
 on:
-  workflow_dispatch:
-    inputs:
-      test_model:
-        description: 'Model to test with (default: ai/smollm2:360M-Q4_K_M)'
-        required: false
-        type: string
-        default: 'ai/smollm2:360M-Q4_K_M'
+workflow_dispatch:
+inputs:
+test_model:
+description: 'Model to test with (default: ai/smollm2:360M-Q4_K_M)'
+required: false
+type: string
+default: 'ai/smollm2:360M-Q4_K_M'
 
 jobs:
-  dmr-test:
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
+dmr-test:
+runs-on: ubuntu-latest
+timeout-minutes: 30
 
     steps:
       - name: Set up Docker
@@ -1024,7 +977,7 @@ jobs:
           sudo install -m 0755 -d /etc/apt/keyrings
           sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
           sudo chmod a+r /etc/apt/keyrings/docker.asc
-          
+
           # Add the repository to Apt sources:
           echo \
           "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
@@ -1032,14 +985,14 @@ jobs:
           sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
           sudo apt-get update
           sudo apt-get install -y docker-model-plugin
-          
+
           echo "Installation completed successfully"
 
       - name: Test docker model version
         run: |
           echo "Testing docker model version command..."
           sudo docker model version
-          
+
           # Verify the command returns successfully
           if [ $? -eq 0 ]; then
             echo "✅ docker model version command works correctly"
@@ -1052,18 +1005,18 @@ jobs:
         run: |
           MODEL="${{ github.event.inputs.test_model || 'ai/smollm2:360M-Q4_K_M' }}"
           echo "Testing with model: $MODEL"
-          
+
           # Test model pull
           echo "Pulling model..."
           sudo docker model pull "$MODEL"
-          
+
           if [ $? -eq 0 ]; then
             echo "✅ Model pull successful"
           else
             echo "❌ Model pull failed"
             exit 1
           fi
-                  
+
           # Test basic model run (with timeout to avoid hanging)
           echo "Testing docker model run..."
           timeout 60s sudo docker model run "$MODEL" "Give me a fact about whales." || {
@@ -1079,18 +1032,18 @@ jobs:
         run: |
           MODEL="${{ github.event.inputs.test_model || 'ai/smollm2:360M-Q4_K_M' }}"
           echo "Testing with model: $MODEL"
-          
+
           # Test model pull
           echo "Pulling model..."
           sudo docker model pull "$MODEL"
-          
+
           if [ $? -eq 0 ]; then
             echo "✅ Model pull successful"
           else
             echo "❌ Model pull failed"
             exit 1
           fi
-                  
+
           # Test basic model run (with timeout to avoid hanging)
           echo "Testing docker model run..."
           timeout 60s sudo docker model run "$MODEL" "Give me a fact about whales." || {
@@ -1107,7 +1060,7 @@ jobs:
         run: |
           MODEL="${{ github.event.inputs.test_model || 'ai/smollm2:360M-Q4_K_M' }}"
           echo "Testing API endpoint with model: $MODEL"
-                  
+
           # Test API call with curl
           echo "Testing API call..."
           RESPONSE=$(curl -s http://localhost:12434/engines/llama.cpp/v1/chat/completions \
@@ -1123,11 +1076,11 @@ jobs:
                 \"top_k\": 1,
                 \"temperature\": 0
             }")
-          
+
           if [ $? -eq 0 ]; then
             echo "✅ API call successful"
             echo "Response received: $RESPONSE"
-            
+
             # Check if response contains "hello" (case-insensitive)
             if echo "$RESPONSE" | grep -qi "hello"; then
               echo "✅ Response contains 'hello' (case-insensitive)"
@@ -1144,14 +1097,14 @@ jobs:
       - name: Test model cleanup
         run: |
           MODEL="${{ github.event.inputs.test_model || 'ai/smollm2:360M-Q4_K_M' }}"
-          
+
           echo "Cleaning up test model..."
           sudo docker model rm "$MODEL" || echo "Model removal failed or model not found"
-          
+
           # Verify model was removed
           echo "Verifying model cleanup..."
           sudo docker model ls
-          
+
           echo "✅ Model cleanup completed"
 
       - name: Report success
@@ -1164,6 +1117,7 @@ jobs:
           echo "  ✅ Model pull and run operations successful"
           echo "  ✅ API endpoint operations successful"
           echo "  ✅ Cleanup operations successful"
+
 Related pages
 
 Model Context Protocol (MCP)
@@ -1178,7 +1132,7 @@ Use the built-in tools.
 Ask Gordon
 Page options
 Availability:
-Beta 
+Beta
 Requires:
 Docker Desktop 4.38.0 or later
 Ask Gordon is your personal AI assistant embedded in Docker Desktop and the Docker CLI. It's designed to streamline your workflow and help you make the most of the Docker ecosystem.
@@ -1253,22 +1207,21 @@ Improve a Dockerfile
 Migrate a Dockerfile to DHI
 For more examples, try asking Gordon directly. For example:
 
-
- docker ai "What can you do?"
+docker ai "What can you do?"
 Troubleshoot a crashed container
 If you start a container with an invalid configuration or command, use Ask Gordon to troubleshoot the error. For example, try starting a Postgres container without a database password:
 
-
- docker run postgres
+docker run postgres
 Error: Database is uninitialized and superuser password is not specified.
-       You must specify POSTGRES_PASSWORD to a non-empty value for the
-       superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
+You must specify POSTGRES_PASSWORD to a non-empty value for the
+superuser. For example, "-e POSTGRES_PASSWORD=password" on "docker run".
 
        You may also use "POSTGRES_HOST_AUTH_METHOD=trust" to allow all
        connections without a password. This is *not* recommended.
 
        See PostgreSQL documentation about "trust":
        https://www.postgresql.org/docs/current/auth-trust.html
+
 In the Containers view in Docker Desktop, select the ✨ icon next to the container's name, or inspect the container and open the Ask Gordon tab.
 
 Get help with running a container
@@ -1287,12 +1240,10 @@ Gordon can analyze your Dockerfile and suggest improvements. To have Gordon eval
 
 Go to your project directory:
 
-
- cd <path-to-your-project>
+cd <path-to-your-project>
 Use the docker ai command to rate your Dockerfile:
 
-
- docker ai rate my Dockerfile
+docker ai rate my Dockerfile
 Gordon will analyze your Dockerfile and identify opportunities for improvement across several dimensions:
 
 Build cache optimization
@@ -1316,10 +1267,8 @@ In the terminal, navigate to the directory containing your Dockerfile.
 
 Start a conversation with Gordon:
 
-
 docker ai
 Type:
-
 
 "Migrate my dockerfile to DHI"
 Follow the conversation with Gordon. Gordon will edit your Dockerfile, so when it requests access to the filesystem and more, type yes to allow Gordon to proceed.
@@ -1328,7 +1277,6 @@ Note
 To learn more about Gordon's data retention and the data it can access, see Gordon.
 
 When the migration is complete, you see a success message:
-
 
 The migration to Docker Hardened Images (DHI) is complete. The updated Dockerfile
 successfully builds the image, and no vulnerabilities were detected in the final image.
@@ -1347,21 +1295,19 @@ Select Apply.
 For organizations
 To disable Ask Gordon for your entire Docker organization, use Settings Management and add this property to your admin-settings.json file:
 
-
 {
-  "enableDockerAI": {
-    "value": false,
-    "locked": true
-  }
+"enableDockerAI": {
+"value": false,
+"locked": true
+}
 }
 Or disable all Beta features by setting allowBetaFeatures to false:
 
-
 {
-  "allowBetaFeatures": {
-    "value": false,
-    "locked": true
-  }
+"allowBetaFeatures": {
+"value": false,
+"locked": true
+}
 }
 Feedback
 We value your input on Ask Gordon and encourage you to share your experience. Your feedback helps us improve and refine Ask Gordon for all users. If you encounter issues, have suggestions, or simply want to share what you like, here's how you can get in touch:
@@ -1393,16 +1339,14 @@ Let the platform handle model provisioning and lifecycle management
 Basic model definition
 To define models in your Compose application, use the models top-level element:
 
-
 services:
-  chat-app:
-    image: my-chat-app
-    models:
-      - llm
+chat-app:
+image: my-chat-app
+models: - llm
 
 models:
-  llm:
-    model: ai/smollm2
+llm:
+model: ai/smollm2
 This example defines:
 
 A service called chat-app that uses a model named llm
@@ -1410,14 +1354,11 @@ A model definition for llm that references the ai/smollm2 model image
 Model configuration options
 Models support various configuration options:
 
-
 models:
-  llm:
-    model: ai/smollm2
-    context_size: 1024
-    runtime_flags:
-      - "--a-flag"
-      - "--another-flag=42"
+llm:
+model: ai/smollm2
+context_size: 1024
+runtime_flags: - "--a-flag" - "--another-flag=42"
 Common configuration options include:
 
 model (required): The OCI artifact identifier for the model. This is what Compose pulls and runs via the model runner.
@@ -1429,7 +1370,7 @@ Each model has its own maximum context size. When increasing the context length,
 
 runtime_flags: A list of raw command-line flags passed to the inference engine when the model is started. For example, if you use llama.cpp, you can pass any of the available parameters.
 
-Platform-specific options may also be available via extension attributes x-*
+Platform-specific options may also be available via extension attributes x-\*
 
 Tip
 See more example in the Common runtime configurations section.
@@ -1440,19 +1381,16 @@ Services can reference models in two ways: short syntax and long syntax.
 Short syntax
 The short syntax is the simplest way to bind a model to a service:
 
-
 services:
-  app:
-    image: my-app
-    models:
-      - llm
-      - embedding-model
+app:
+image: my-app
+models: - llm - embedding-model
 
 models:
-  llm:
-    model: ai/smollm2
-  embedding-model:
-    model: ai/all-minilm
+llm:
+model: ai/smollm2
+embedding-model:
+model: ai/all-minilm
 With short syntax, the platform automatically generates environment variables based on the model name:
 
 LLM_URL - URL to access the LLM model
@@ -1462,23 +1400,22 @@ EMBEDDING_MODEL_MODEL - Model identifier for the embedding-model
 Long syntax
 The long syntax allows you to customize environment variable names:
 
-
 services:
-  app:
-    image: my-app
-    models:
-      llm:
-        endpoint_var: AI_MODEL_URL
-        model_var: AI_MODEL_NAME
-      embedding-model:
-        endpoint_var: EMBEDDING_URL
-        model_var: EMBEDDING_NAME
+app:
+image: my-app
+models:
+llm:
+endpoint_var: AI_MODEL_URL
+model_var: AI_MODEL_NAME
+embedding-model:
+endpoint_var: EMBEDDING_URL
+model_var: EMBEDDING_NAME
 
 models:
-  llm:
-    model: ai/smollm2
-  embedding-model:
-    model: ai/all-minilm
+llm:
+model: ai/smollm2
+embedding-model:
+model: ai/all-minilm
 With this configuration, your service receives:
 
 AI_MODEL_URL and AI_MODEL_NAME for the LLM model
@@ -1489,21 +1426,19 @@ One of the key benefits of using Compose models is portability across different 
 Docker Model Runner
 When Docker Model Runner is enabled:
 
-
 services:
-  chat-app:
-    image: my-chat-app
-    models:
-      llm:
-        endpoint_var: AI_MODEL_URL
-        model_var: AI_MODEL_NAME
+chat-app:
+image: my-chat-app
+models:
+llm:
+endpoint_var: AI_MODEL_URL
+model_var: AI_MODEL_NAME
 
 models:
-  llm:
-    model: ai/smollm2
-    context_size: 4096
-    runtime_flags:
-      - "--no-prefill-assistant"
+llm:
+model: ai/smollm2
+context_size: 4096
+runtime_flags: - "--no-prefill-assistant"
 Docker Model Runner will:
 
 Pull and run the specified model locally
@@ -1512,20 +1447,15 @@ Inject environment variables into the service
 Cloud providers
 The same Compose file can run on cloud providers that support Compose models:
 
-
 services:
-  chat-app:
-    image: my-chat-app
-    models:
-      - llm
+chat-app:
+image: my-chat-app
+models: - llm
 
 models:
-  llm:
-    model: ai/smollm2
-    # Cloud-specific configurations
-    x-cloud-options:
-      - "cloud.instance-type=gpu-small"
-      - "cloud.region=us-west-2"
+llm:
+model: ai/smollm2 # Cloud-specific configurations
+x-cloud-options: - "cloud.instance-type=gpu-small" - "cloud.region=us-west-2"
 Cloud providers might:
 
 Use managed AI services instead of running models locally
@@ -1538,119 +1468,93 @@ Below are some example configurations for various use cases.
 Development
 
 services:
-  app:
-    image: app
-    models:
-      dev_model:
-        endpoint_var: DEV_URL
-        model_var: DEV_MODEL
+app:
+image: app
+models:
+dev_model:
+endpoint_var: DEV_URL
+model_var: DEV_MODEL
 
 models:
-  dev_model:
-    model: ai/model
-    context_size: 4096
-    runtime_flags:
-      - "--verbose"                       # Set verbosity level to infinity
-      - "--verbose-prompt"                # Print a verbose prompt before generation
-      - "--log-prefix"                    # Enable prefix in log messages
-      - "--log-timestamps"                # Enable timestamps in log messages
-      - "--log-colors"                    # Enable colored logging
+dev_model:
+model: ai/model
+context_size: 4096
+runtime_flags: - "--verbose" # Set verbosity level to infinity - "--verbose-prompt" # Print a verbose prompt before generation - "--log-prefix" # Enable prefix in log messages - "--log-timestamps" # Enable timestamps in log messages - "--log-colors" # Enable colored logging
 Conservative with disabled reasoning
 
 services:
-  app:
-    image: app
-    models:
-      conservative_model:
-        endpoint_var: CONSERVATIVE_URL
-        model_var: CONSERVATIVE_MODEL
+app:
+image: app
+models:
+conservative_model:
+endpoint_var: CONSERVATIVE_URL
+model_var: CONSERVATIVE_MODEL
 
 models:
-  conservative_model:
-    model: ai/model
-    context_size: 4096
-    runtime_flags:
-      - "--temp"                # Temperature
-      - "0.1"
-      - "--top-k"               # Top-k sampling
-      - "1"
-      - "--reasoning-budget"    # Disable reasoning
-      - "0"
+conservative_model:
+model: ai/model
+context_size: 4096
+runtime_flags: - "--temp" # Temperature - "0.1" - "--top-k" # Top-k sampling - "1" - "--reasoning-budget" # Disable reasoning - "0"
 Creative with high randomness
 
 services:
-  app:
-    image: app
-    models:
-      creative_model:
-        endpoint_var: CREATIVE_URL
-        model_var: CREATIVE_MODEL
+app:
+image: app
+models:
+creative_model:
+endpoint_var: CREATIVE_URL
+model_var: CREATIVE_MODEL
 
 models:
-  creative_model:
-    model: ai/model
-    context_size: 4096
-    runtime_flags:
-      - "--temp"                # Temperature
-      - "1"
-      - "--top-p"               # Top-p sampling
-      - "0.9"
+creative_model:
+model: ai/model
+context_size: 4096
+runtime_flags: - "--temp" # Temperature - "1" - "--top-p" # Top-p sampling - "0.9"
 Highly deterministic
 
 services:
-  app:
-    image: app
-    models:
-      deterministic_model:
-        endpoint_var: DET_URL
-        model_var: DET_MODEL
+app:
+image: app
+models:
+deterministic_model:
+endpoint_var: DET_URL
+model_var: DET_MODEL
 
 models:
-  deterministic_model:
-    model: ai/model
-    context_size: 4096
-    runtime_flags:
-      - "--temp"                # Temperature
-      - "0"
-      - "--top-k"               # Top-k sampling
-      - "1"
+deterministic_model:
+model: ai/model
+context_size: 4096
+runtime_flags: - "--temp" # Temperature - "0" - "--top-k" # Top-k sampling - "1"
 Concurrent processing
 
 services:
-  app:
-    image: app
-    models:
-      concurrent_model:
-        endpoint_var: CONCURRENT_URL
-        model_var: CONCURRENT_MODEL
+app:
+image: app
+models:
+concurrent_model:
+endpoint_var: CONCURRENT_URL
+model_var: CONCURRENT_MODEL
 
 models:
-  concurrent_model:
-    model: ai/model
-    context_size: 2048
-    runtime_flags:
-      - "--threads"             # Number of threads to use during generation
-      - "8"
-      - "--mlock"               # Lock memory to prevent swapping
+concurrent_model:
+model: ai/model
+context_size: 2048
+runtime_flags: - "--threads" # Number of threads to use during generation - "8" - "--mlock" # Lock memory to prevent swapping
 Rich vocabulary model
 
 services:
-  app:
-    image: app
-    models:
-      rich_vocab_model:
-        endpoint_var: RICH_VOCAB_URL
-        model_var: RICH_VOCAB_MODEL
+app:
+image: app
+models:
+rich_vocab_model:
+endpoint_var: RICH_VOCAB_URL
+model_var: RICH_VOCAB_MODEL
 
 models:
-  rich_vocab_model:
-    model: ai/model
-    context_size: 4096
-    runtime_flags:
-      - "--temp"                # Temperature
-      - "0.1"
-      - "--top-p"               # Top-p sampling
-      - "0.9"
+rich_vocab_model:
+model: ai/model
+context_size: 4096
+runtime_flags: - "--temp" # Temperature - "0.1" - "--top-p" # Top-p sampling - "0.9"
 Alternative configuration with provider services
 Important
 This approach is deprecated. Use the models top-level element instead.
@@ -1659,25 +1563,23 @@ You can also use the provider service type, which allows you to declare platform
 
 To define a model provider:
 
-
 services:
-  chat:
-    image: my-chat-app
-    depends_on:
-      - ai_runner
+chat:
+image: my-chat-app
+depends_on: - ai_runner
 
-  ai_runner:
-    provider:
-      type: model
-      options:
-        model: ai/smollm2
-        context-size: 1024
-        runtime-flags: "--no-prefill-assistant"
+ai_runner:
+provider:
+type: model
+options:
+model: ai/smollm2
+context-size: 1024
+runtime-flags: "--no-prefill-assistant"
 
 Get started with Docker MCP Toolkit
 Page options
 Availability:
-Beta 
+Beta
 The Docker MCP Toolkit makes it easy to set up, manage, and run containerized Model Context Protocol (MCP) servers, and connect them to AI agents. It provides secure defaults and support for a growing ecosystem of LLM-based clients. This page shows you how to get started quickly with the Docker MCP Toolkit.
 
 Setup
@@ -1721,19 +1623,17 @@ Find your application in the list.
 Select Connect to configure the client.
 If your client isn't listed, you can connect the MCP Toolkit manually over stdio by configuring your client to run the following command:
 
-
 docker mcp gateway run
 For example, if your client uses a JSON file to configure MCP servers, you may add an entry like:
 
-
 {
-  "servers": {
-    "MCP_DOCKER": {
-      "command": "docker",
-      "args": ["mcp", "gateway", "run"],
-      "type": "stdio"
-    }
-  }
+"servers": {
+"MCP_DOCKER": {
+"command": "docker",
+"args": ["mcp", "gateway", "run"],
+"type": "stdio"
+}
+}
 }
 Consult the documentation of the application you're using for instructions on how to set up MCP servers manually.
 
@@ -1756,78 +1656,67 @@ Zed
 Claude Code
 If you configured the MCP Toolkit for a specific project, navigate to the relevant project directory. Then run claude mcp list. The output should show MCP_DOCKER with a "connected" status:
 
-
- claude mcp list
+claude mcp list
 Checking MCP server health...
 
 MCP_DOCKER: docker mcp gateway run - ✓ Connected
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
- claude "Use the GitHub MCP server to show me my open pull requests"
+claude "Use the GitHub MCP server to show me my open pull requests"
 Claude Desktop
 Restart Claude Desktop and check the Search and tools menu in the chat input. You should see the MCP_DOCKER server listed and enabled:
 
 Claude Desktop
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
 Use the GitHub MCP server to show me my open pull requests
 Codex
 Run codex mcp list to view active MCP servers and their statuses. The MCP_DOCKER server should appear in the list with an "enabled" status:
 
-
- codex mcp list
-Name        Command  Args             Env  Cwd  Status   Auth
-MCP_DOCKER  docker   mcp gateway run  -    -    enabled  Unsupported
+codex mcp list
+Name Command Args Env Cwd Status Auth
+MCP_DOCKER docker mcp gateway run - - enabled Unsupported
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
- codex "Use the GitHub MCP server to show me my open pull requests"
+codex "Use the GitHub MCP server to show me my open pull requests"
 Continue
 Launch the Continue terminal UI by running cn. Use the /mcp command to view active MCP servers and their statuses. The MCP_DOCKER server should appear in the list with a "connected" status:
 
+MCP Servers
 
-   MCP Servers
+➤ 🟢 MCP_DOCKER (🔧75 📝3)
+🔄 Restart all servers
+⏹️ Stop all servers
+🔍 Explore MCP Servers
+Back
 
-   ➤ 🟢 MCP_DOCKER (🔧75 📝3)
-     🔄 Restart all servers
-     ⏹️ Stop all servers
-     🔍 Explore MCP Servers
-     Back
-
-   ↑/↓ to navigate, Enter to select, Esc to go back
+↑/↓ to navigate, Enter to select, Esc to go back
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
- cn "Use the GitHub MCP server to show me my open pull requests"
+cn "Use the GitHub MCP server to show me my open pull requests"
 Cursor
 Open Cursor. If you configured the MCP Toolkit for a specific project, open the relevant project directory. Then navigate to Cursor Settings > Tools & MCP. You should see MCP_DOCKER under Installed MCP Servers:
 
 Cursor
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
 Use the GitHub MCP server to show me my open pull requests
 Gemini
 Run gemini mcp list to view active MCP servers and their statuses. The MCP_DOCKER should appear in the list with a "connected" status.
 
-
- gemini mcp list
+gemini mcp list
 Configured MCP servers:
 
 ✓ MCP_DOCKER: docker mcp gateway run (stdio) - Connected
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
- gemini "Use the GitHub MCP server to show me my open pull requests"
+gemini "Use the GitHub MCP server to show me my open pull requests"
 Goose
 Desktop app CLI
 Open the Goose desktop application and select Extensions in the sidebar. Under Enabled Extensions, you should see an extension named Mcpdocker:
 
 Goose desktop app
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
-
 
 Use the GitHub MCP server to show me my open pull requests
 Gordon
@@ -1836,34 +1725,30 @@ Open the Ask Gordon view in Docker Desktop and select the toolbox icon in the ch
 MCP Toolkit in the Ask Gordon UI
 Test the connection by submitting a prompt that invokes one of your installed MCP servers, either directly in Docker Desktop or using the CLI:
 
-
- docker ai "Use the GitHub MCP server to show me my open pull requests"
+docker ai "Use the GitHub MCP server to show me my open pull requests"
 LM Studio
 Restart LM Studio and start a new chat. Open the integrations menu and look for an entry named mcp/mcp-docker. Use the toggle to enable the server:
 
 LM Studio
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
 Use the GitHub MCP server to show me my open pull requests
 OpenCode
 The OpenCode configuration file (at ~/.config/opencode/opencode.json by default) contains the setup for MCP Toolkit:
 
-
 {
-  "mcp": {
-    "MCP_DOCKER": {
-      "type": "local",
-      "command": ["docker", "mcp", "gateway", "run"],
-      "enabled": true
-    }
-  },
-  "$schema": "https://opencode.ai/config.json"
+"mcp": {
+"MCP_DOCKER": {
+"type": "local",
+"command": ["docker", "mcp", "gateway", "run"],
+"enabled": true
+}
+},
+"$schema": "https://opencode.ai/config.json"
 }
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
- opencode "Use the GitHub MCP server to show me my open pull requests"
+opencode "Use the GitHub MCP server to show me my open pull requests"
 Sema4.ai Studio
 In Sema4.ai Studio, select Actions in the sidebar, then select the MCP Servers tab. You should see Docker MCP Toolkit in the list:
 
@@ -1873,14 +1758,12 @@ To use MCP Toolkit with Sema4.ai, add it as an agent action. Find the agent you 
 Editing an agent in Sema4.ai Studio
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
 Use the GitHub MCP server to show me my open pull requests
 Visual Studio Code
 Open Visual Studio Code. If you configured the MCP Toolkit for a specific project, open the relevant project directory. Then open the Extensions pane. You should see the MCP_DOCKER server listed under installed MCP servers.
 
 MCP_DOCKER installed in Visual Studio Code
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
-
 
 Use the GitHub MCP server to show me my open pull requests
 Zed
@@ -1892,12 +1775,11 @@ Ensure that MCP_DOCKER is listed and enabled in the MCP Servers section:
 MCP_DOCKER in Zed's agent settings
 Test the connection by submitting a prompt that invokes one of your installed MCP servers:
 
-
 Use the GitHub MCP server to show me my open pull requests
 Docker MCP Catalog
 Page options
 Availability:
-Beta 
+Beta
 The Docker MCP Catalog is a centralized, trusted registry for discovering, sharing, and running MCP-compatible tools. Integrated with Docker Hub, it offers verified, versioned, and curated MCP servers packaged as Docker images. The catalog is also available in Docker Desktop.
 
 The catalog solves common MCP server challenges:
@@ -1955,7 +1837,7 @@ The Docker Hub mcp namespace (for MCP servers built by Docker).
 Docker MCP Toolkit
 Page options
 Availability:
-Beta 
+Beta
 The Docker MCP Toolkit is a management interface integrated into Docker Desktop that lets you set up, manage, and run containerized MCP servers and connect them to AI agents. It removes friction from tool usage by offering secure defaults, easy setup, and support for a growing ecosystem of LLM-based clients. It is the fastest way from MCP tool discovery to local execution.
 
 Key features
@@ -2017,7 +1899,6 @@ In the Clients tab, ensure Gordon is connected.
 
 From the Ask Gordon menu, you can now send requests related to your GitHub account, in accordance to the tools provided by the GitHub Official server. To test it, ask Gordon:
 
-
 What's my GitHub handle?
 Make sure to allow Gordon to interact with GitHub by selecting Always allow in Gordon's answer.
 
@@ -2035,7 +1916,6 @@ From the Clients tab, select Connect next to Claude Desktop. Restart Claude Desk
 
 Within Claude Desktop, run a test by submitting the following prompt using the Sonnet 3.5 model:
 
-
 Take a screenshot of docs.docker.com and then invert the colors
 Example: Use Visual Studio Code as a client
 You can interact with all your installed MCP servers in Visual Studio Code:
@@ -2045,19 +1925,18 @@ To enable the MCP Toolkit:
 Enable globally Enable for a given project
 Insert the following in your Visual Studio Code's User mcp.json:
 
-
 "mcp": {
- "servers": {
-   "MCP_DOCKER": {
-     "command": "docker",
-     "args": [
-       "mcp",
-       "gateway",
-       "run"
-     ],
-     "type": "stdio"
-   }
- }
+"servers": {
+"MCP_DOCKER": {
+"command": "docker",
+"args": [
+"mcp",
+"gateway",
+"run"
+],
+"type": "stdio"
+}
+}
 }
 In Visual Studio Code, open a new Chat and select the Agent mode:
 
@@ -2079,13 +1958,13 @@ Dynamic MCP is an experimental feature in early development. While you're welcom
 How it works
 When you connect a client to the MCP Gateway, the gateway exposes a small set of management tools alongside any MCP servers you've already enabled. These management tools let agents interact with the gateway's configuration:
 
-Tool	Description
-mcp-find	Search for MCP servers in the catalog by name or description
-mcp-add	Add a new MCP server to the current session
-mcp-config-set	Configure settings for an MCP server
-mcp-remove	Remove an MCP server from the session
-mcp-exec	Execute a tool by name that exists in the current session
-code-mode	Create a JavaScript-enabled tool that combines multiple MCP server tools
+Tool Description
+mcp-find Search for MCP servers in the catalog by name or description
+mcp-add Add a new MCP server to the current session
+mcp-config-set Configure settings for an MCP server
+mcp-remove Remove an MCP server from the session
+mcp-exec Execute a tool by name that exists in the current session
+code-mode Create a JavaScript-enabled tool that combines multiple MCP server tools
 With these tools available, an agent can search the catalog, add servers, handle authentication, and use newly added tools directly without requiring a restart or manual configuration.
 
 Dynamically added servers and tools are associated with your current session only. When you start a new session, previously added servers are not automatically included.
@@ -2103,12 +1982,10 @@ Dynamic MCP is enabled automatically when you use the MCP Toolkit. Your connecte
 
 To see Dynamic MCP in action, connect your AI client to the Docker MCP Toolkit and try this prompt:
 
-
 What MCP servers can I use for working with SQL databases?
 Given this prompt, your agent will use the mcp-find tool provided by MCP Toolkit to search for SQL-related servers in the MCP Catalog.
 
 And to add a server to a session, simply write a prompt and the MCP Toolkit takes care of installing and running the server:
-
 
 Add the postgres mcp server
 Tool composition with code mode
@@ -2142,12 +2019,10 @@ The key difference with dynamic capabilities is that agents can add new tools du
 Disabling Dynamic MCP
 Dynamic MCP is enabled by default in the MCP Toolkit. If you prefer to use only statically configured MCP servers, you can disable the dynamic tools feature:
 
-
- docker mcp feature disable dynamic-tools
+docker mcp feature disable dynamic-tools
 To re-enable the feature later:
 
-
- docker mcp feature enable dynamic-tools
+docker mcp feature enable dynamic-tools
 After changing this setting, you may need to restart any connected MCP clients.
 MCP Gateway
 Page options
@@ -2180,14 +2055,11 @@ Browse the MCP Catalog for a server that you want to use, and copy the install c
 
 For example, run this command in your terminal to install the duckduckgo MCP server:
 
-
 docker mcp server enable duckduckgo
 Connect a client, like Claude Code:
 
-
 docker mcp client connect claude-code
 Run the gateway:
-
 
 docker mcp gateway run
 Now your MCP gateway is running and you can leverage all the servers set up behind it from Claude Code.
@@ -2199,16 +2071,14 @@ Download the latest binary from the GitHub releases page.
 
 Move or symlink the binary to the destination matching your OS:
 
-OS	Binary destination
-Linux	~/.docker/cli-plugins/docker-mcp
-macOS	~/.docker/cli-plugins/docker-mcp
-Windows	%USERPROFILE%\.docker\cli-plugins
+OS Binary destination
+Linux ~/.docker/cli-plugins/docker-mcp
+macOS ~/.docker/cli-plugins/docker-mcp
+Windows %USERPROFILE%\.docker\cli-plugins
 Make the binaries executable:
-
 
 $ chmod +x ~/.docker/cli-plugins/docker-mcp
 You can now use the docker mcp command:
-
 
 docker mcp --help
 Additional information
@@ -2232,7 +2102,6 @@ In the Clients tab in MCP Toolkit, ensure Gordon is connected.
 
 From the Ask Gordon menu, you can now send requests related to your Docker Hub account, in accordance to the tools provided by the Docker Hub MCP server. To test it, ask Gordon:
 
-
 What repositories are in my namespace?
 Tip
 By default, the Gordon client is enabled, which means Gordon can automatically interact with your MCP servers.
@@ -2243,12 +2112,12 @@ Add the Docker Hub MCP Server configuration to your claude_desktop_config.json:
 For public repositories only For authenticated access
 
 {
-  "mcpServers": {
-    "docker-hub": {
-      "command": "node",
-      "args": ["/FULL/PATH/TO/YOUR/docker-hub-mcp-server/dist/index.js", "--transport=stdio"]
-    }
-  }
+"mcpServers": {
+"docker-hub": {
+"command": "node",
+"args": ["/FULL/PATH/TO/YOUR/docker-hub-mcp-server/dist/index.js", "--transport=stdio"]
+}
+}
 }
 Where :
 
@@ -2261,12 +2130,12 @@ Add the Docker Hub MCP Server configuration to your User Settings (JSON) file in
 For public repositories only For authenticated access
 
 {
-  "mcpServers": {
-    "docker-hub": {
-      "command": "node",
-      "args": ["/FULL/PATH/TO/YOUR/docker-hub-mcp-server/dist/index.js", "--transport=stdio"]
-    }
-  }
+"mcpServers": {
+"docker-hub": {
+"command": "node",
+"args": ["/FULL/PATH/TO/YOUR/docker-hub-mcp-server/dist/index.js", "--transport=stdio"]
+}
+}
 }
 Where :
 
@@ -2283,69 +2152,69 @@ This section provides task-oriented examples for common operations with Docker H
 
 Finding images
 
- Search for official images
- docker ai "Search for official nginx images on Docker Hub"
+Search for official images
+docker ai "Search for official nginx images on Docker Hub"
 
- Search for lightweight images to reduce deployment size and improve performance
- docker ai "Search for minimal Node.js images with small footprint"
+Search for lightweight images to reduce deployment size and improve performance
+docker ai "Search for minimal Node.js images with small footprint"
 
- Get the most recent tag of a base image
- docker ai "Show me the latest tag details for go"
+Get the most recent tag of a base image
+docker ai "Show me the latest tag details for go"
 
- Find a production-ready database with enterprise features and reliability
- docker ai "Search for production ready database images"
+Find a production-ready database with enterprise features and reliability
+docker ai "Search for production ready database images"
 
- Compare Ubuntu versions to choose the right one for my project
- docker ai "Help me find the right Ubuntu version for my project"
+Compare Ubuntu versions to choose the right one for my project
+docker ai "Help me find the right Ubuntu version for my project"
 Repository management
 
- Create a repository
- docker ai "Create a repository in my namespace"
+Create a repository
+docker ai "Create a repository in my namespace"
 
- List all repositories in my namespace
- docker ai "List all repositories in my namespace"
+List all repositories in my namespace
+docker ai "List all repositories in my namespace"
 
- Find the largest repository in my namespace
- docker ai "Which of my repositories takes up the most space?"
+Find the largest repository in my namespace
+docker ai "Which of my repositories takes up the most space?"
 
- Find repositories that haven't been updated recently
- docker ai "Which of my repositories haven't had any pushes in the last 60 days?"
+Find repositories that haven't been updated recently
+docker ai "Which of my repositories haven't had any pushes in the last 60 days?"
 
- Find which repositories are currently active and being used
- docker ai "Show me my most recently updated repositories"
+Find which repositories are currently active and being used
+docker ai "Show me my most recently updated repositories"
 
- Get details about a repository
- docker ai "Show me information about my '<repository-name>' repository"
+Get details about a repository
+docker ai "Show me information about my '<repository-name>' repository"
 Pull/push images
 
- Pull latest PostgreSQL version
- docker ai "Pull the latest postgres image"
+Pull latest PostgreSQL version
+docker ai "Pull the latest postgres image"
 
- Push image to your Docker Hub repository
- docker ai "Push my <image-name> to my <repository-name> repository"
+Push image to your Docker Hub repository
+docker ai "Push my <image-name> to my <repository-name> repository"
 Tag management
 
- List all tags for a repository
- $ docker ai "Show me all tags for my '<repository-name>' repository"
+List all tags for a repository
+$ docker ai "Show me all tags for my '<repository-name>' repository"
 
- Find the most recently pushed tag
- docker ai "What's the most recent tag pushed to my '<repository-name>' repository?"
+Find the most recently pushed tag
+docker ai "What's the most recent tag pushed to my '<repository-name>' repository?"
 
- List tags with architecture filtering
- docker ai "List tags for in the '<repository-name>' repository that support amd64 architecture"
+List tags with architecture filtering
+docker ai "List tags for in the '<repository-name>' repository that support amd64 architecture"
 
- Get detailed information about a specific tag
- docker ai "Show me details about the '<tag-name>' tag in the '<repository-name>' repository"
+Get detailed information about a specific tag
+docker ai "Show me details about the '<tag-name>' tag in the '<repository-name>' repository"
 
- Check if a specific tag exists
- docker ai "Check if version 'v1.2.0' exists for my 'my-web-app' repository"
+Check if a specific tag exists
+docker ai "Check if version 'v1.2.0' exists for my 'my-web-app' repository"
 Docker Hardened Images
 
- List available hardened images
- docker ai "What is the most secure image I can use to run a node.js application?"
+List available hardened images
+docker ai "What is the most secure image I can use to run a node.js application?"
 
- Convert Dockerfile to use a hardened image
- docker ai "Can you help me update my Dockerfile to use a docker hardened image instead of the current one"
+Convert Dockerfile to use a hardened image
+docker ai "Can you help me update my Dockerfile to use a docker hardened image instead of the current one"
 Note
 To access Docker Hardened Images, a subscription is required. If you're interested in using Docker Hardened Images, visit Docker Hardened Images.
 
@@ -2355,18 +2224,18 @@ This section provides a comprehensive listing of the tools you can find in the D
 Docker Hub MCP server tools
 Tools to interact with your Docker repositories and discover content on Docker Hub.
 
-Name	Description
-check-repository	Check repository
-check-repository-tag	Check repository tag
-check-repository-tags	Check repository tags
-create-repository	Creates a new repository
-docker-hardened-images	Lists available Docker Hardened Images in specified namespace
-get-namespaces	Get organizations/namespaces for a user
-get-repository-dockerfile	Gets Dockerfile for repository
-get-repository-info	Gets repository info
-list-repositories-by-namespace	Lists repositories under namespace
-list-repository-tags	List repository tags
-read-repository-tag	Read repository tag
-search	Search content on Docker Hub
-set-repository-dockerfile	Sets Dockerfile for repository
-update-repository-info	Updates repository info
+Name Description
+check-repository Check repository
+check-repository-tag Check repository tag
+check-repository-tags Check repository tags
+create-repository Creates a new repository
+docker-hardened-images Lists available Docker Hardened Images in specified namespace
+get-namespaces Get organizations/namespaces for a user
+get-repository-dockerfile Gets Dockerfile for repository
+get-repository-info Gets repository info
+list-repositories-by-namespace Lists repositories under namespace
+list-repository-tags List repository tags
+read-repository-tag Read repository tag
+search Search content on Docker Hub
+set-repository-dockerfile Sets Dockerfile for repository
+update-repository-info Updates repository info

@@ -9,6 +9,7 @@ The MCP Svelte Documentation Tool is designed to provide developers with easy ac
 To install the MCP Svelte Documentation Tool, follow these steps:
 
 1. Clone the repository:
+
    ```bash
    git clone https://github.com/yourusername/finanzas-app-mx.git
    cd finanzas-app-mx/tools/mcp-svelte-docs

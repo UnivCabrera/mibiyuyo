@@ -67,7 +67,7 @@ Then, sign in and add your student program benefits to your New Relic account:
 Select the Help icon in the top, right corner of your New Relic account
 At the bottom of the window, select New Relic for Students
 Select GitHub Education
-Select Authorize with GitHub and complete the steps 
+Select Authorize with GitHub and complete the steps
 Sign In
 
 Platzi
@@ -75,8 +75,6 @@ Platzi
 Fill out our form with your seven-digit New Relic account number
 Student benefits will be added to your account in 5–10 business days
 Fill Out Form
-
- 
 
 Coming from a different partner?
 Fill out our form with your seven-digit New Relic account number
@@ -88,11 +86,6 @@ Reduce customer churn
 Maximize conversion with actionable insights
 Get Started Free
 Get Demo
-
-
-
-
-
 
 gartner meta image
 Report
@@ -119,7 +112,7 @@ Skyrocket customer satisfaction.
 Skyrocket customer satisfaction
 Proactively resolve issues in less time—and improve experiences—with AI session summaries that take you directly to where the problem is for quick resolution.
 
- Keep your customers coming back.
+Keep your customers coming back.
 Keep your customers coming back
 Automatically capture and analyze user actions to find and resolve customer issues.
 
@@ -162,7 +155,7 @@ how-to-relic
 Digital Experience Monitoring
 blog
 Learn how to optimize user interactions
-    Simple, transparent pricing.
+Simple, transparent pricing.
 Only pay for what you use.
 50+ capabilities in one platform
 100 GB of free data ingest/month
@@ -200,12 +193,9 @@ Commitment options i
 Data Plus eligibility i
 Optional: Full consumption pricing with no user licenses
 
- 
-
 Get Pro Pricing
 Enterprise
-For at-scale organizations with advanced security and support needs. 
- 
+For at-scale organizations with advanced security and support needs.
 
 Everything in Pro plus:
 FedRAMP Moderate and HIPAA eligibility with Data Plus
@@ -228,7 +218,7 @@ Advanced Compute
 Access New Relic’s latest Intelligent Observability capabilities, including New Relic AI, Live Archives, and more.
 Learn More About Compute
 
-Your price 
+Your price
 Access 50+ capabilities (including APM, infrastructure monitoring, logs, RUM, and more), 780+ integrations, unlimited hosts, and unlimited CPUs at no additional cost.
 Get Started
 compute
@@ -238,7 +228,6 @@ Pay for what your users access, with no user fee.
 Learn More
 Compare editions to suit your scale.
 For more in-depth details on our editions and what's included, read our docs.
- 	
 Free
 
 Standard
@@ -248,34 +237,34 @@ Pro
 Enterprise
 
 DATA COSTS (MONTHLY)
-Option 1: Original data ingesti	
+Option 1: Original data ingesti
 100 GB freei
 
 $0.40/GB
-beyond free 100 GB 
+beyond free 100 GB
 limit
 
 $0.40/GB
-beyond free 100 GB 
+beyond free 100 GB
 limit
 
 Contact Sales
 
-Option 2: Data Plus data ingesti		
+Option 2: Data Plus data ingesti
 $0.60/GB
-beyond free 100 GB 
+beyond free 100 GB
 limit
 
 $0.60/GB
-beyond free 100 GB 
+beyond free 100 GB
 limit
 
 Contact Sales
-(includes FedRAMP Moderate 
+(includes FedRAMP Moderate
 and HIPAA eligibility)i
 
-USER COSTS (MONTHLY)iVIEW PERMISSIONS 
-Basic users	
+USER COSTS (MONTHLY)iVIEW PERMISSIONS
+Basic users
 $0
 
 $0
@@ -284,7 +273,7 @@ $0
 
 $0
 
-Core users 	
+Core users
 $0 (unlimited)
 
 $49/user
@@ -293,7 +282,7 @@ $49/user
 
 $49/user
 
-Full platform users	
+Full platform users
 One free user
 
 $10/first user
@@ -308,12 +297,11 @@ $418.80/user
 Contact Sales
 
 COMPUTE COSTS (MONTHLY)i
-Compute capacity unit (CCU) tiersi			
+Compute capacity unit (CCU) tiersi
 Contact Sales
 
 Contact Sales
 
- 	
 Start for free
 
 Get Standard

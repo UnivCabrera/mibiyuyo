@@ -41,12 +41,14 @@ finanzas-app-mx
 ## Instalación
 
 1. Clona el repositorio:
+
    ```bash
    git clone https://github.com/tu_usuario/finanzas-app-mx.git
    cd finanzas-app-mx
    ```
 
 2. Instala las dependencias:
+
    ```bash
    npm install
    ```

@@ -1,4 +1,5 @@
 # 🏠 PÁGINA DE PRESENTACIÓN - PRO_FINAN_CONTA_PYM
+
 **El Primer Contacto con Tu Usuario**  
 **Versión:** 2.0  
 **Fecha:** 8 Diciembre 2025
@@ -7,11 +8,11 @@
 
 ## 🔗 DOCUMENTOS COMPLEMENTARIOS
 
-| Documento | Descripción |
-|:---|:---|
-| [04_NEUROFINANZAS_FRAMEWORK](../05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md) | Copy con base neurocientífica |
-| [15_MODULOS_INNOVADORES](../PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md) | Features a destacar |
-| [08_NEGOCIO_MONETIZACION](../PROJECT_CHARACTERISTICS/08_NEGOCIO_MONETIZACION.md) | Precios oficiales |
+| Documento                                                                        | Descripción                   |
+| :------------------------------------------------------------------------------- | :---------------------------- |
+| [04_NEUROFINANZAS_FRAMEWORK](../05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md)   | Copy con base neurocientífica |
+| [15_MODULOS_INNOVADORES](../PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md)   | Features a destacar           |
+| [08_NEGOCIO_MONETIZACION](../PROJECT_CHARACTERISTICS/08_NEGOCIO_MONETIZACION.md) | Precios oficiales             |
 
 ---
 
@@ -20,6 +21,7 @@
 > **"Democratizar la inteligencia financiera para cada PyME mexicana, transformando la complejidad fiscal en claridad, el estrés contable en tranquilidad, y los datos en decisiones que impulsan el crecimiento."**
 
 ### Misión Extendida
+
 Ser el aliado financiero digital que toda PyME mexicana merece: una plataforma que habla su idioma, entiende su realidad fiscal (SAT, CFDI, ISR), y convierte cada número en una oportunidad de crecimiento. Creemos que la prosperidad financiera no debe ser un privilegio de grandes corporaciones, sino un derecho accesible para los 4.9 millones de pequeños negocios que son el corazón económico de México.
 
 ---
@@ -29,7 +31,9 @@ Ser el aliado financiero digital que toda PyME mexicana merece: una plataforma q
 > **"Para 2030, ser la plataforma financiera que transformó la manera en que 1 millón de PyMEs mexicanas gestionan su dinero, contribuyendo a reducir en un 40% el índice de fracaso empresarial por causas financieras en México."**
 
 ### Visión a Largo Plazo
+
 Imaginamos un México donde:
+
 - Ningún emprendedor cierra su negocio por desconocimiento financiero
 - Cada decisión empresarial está respaldada por datos claros
 - La contabilidad deja de ser una carga y se convierte en una ventaja competitiva
@@ -40,18 +44,21 @@ Imaginamos un México donde:
 ## 🎯 OBJETIVOS ESTRATÉGICOS
 
 ### Corto Plazo (0-6 meses)
+
 1. **Lanzar MVP funcional** con gestión de ingresos/gastos
 2. **Validar con 100 usuarios beta** la propuesta de valor
 3. **Lograr NPS > 50** en usuarios activos
 4. **Integrar facturación SAT** para compliance fiscal
 
 ### Mediano Plazo (6-18 meses)
+
 1. **Alcanzar 10,000 usuarios activos**
 2. **Lanzar funciones premium** (IA predictiva, reportes avanzados)
 3. **Establecer partnerships** con bancos mexicanos
 4. **Generar ingresos recurrentes** sostenibles
 
 ### Largo Plazo (18-36 meses)
+
 1. **Expansión a LATAM** (Colombia, Chile, Perú)
 2. **1 millón de usuarios** en la plataforma
 3. **Ecosistema financiero completo** (créditos, inversiones, seguros)
@@ -96,35 +103,37 @@ Imaginamos un México donde:
 ### Principios de Comunicación
 
 Nuestra comunicación está diseñada con:
+
 - **Psicología Positiva:** Enfocamos en posibilidades, no limitaciones
 - **Anclaje Emocional:** Conectamos con aspiraciones y sueños
 - **Persuasión Constructiva:** Motivamos a través del valor, no del miedo
 
 ### Palabras que SÍ Usamos (Vocabulario Positivo)
 
-| Categoría | Palabras Clave |
-|-----------|----------------|
-| **Crecimiento** | Prosperar, evolucionar, expandir, crecer, florecer |
-| **Control** | Dominar, gestionar, organizar, dirigir, liderar |
-| **Claridad** | Entender, visualizar, descubrir, iluminar, aclarar |
-| **Seguridad** | Proteger, resguardar, blindar, fortalecer, asegurar |
-| **Facilidad** | Simplificar, automatizar, agilizar, optimizar, fluir |
-| **Logro** | Alcanzar, conseguir, cumplir, completar, conquistar |
-| **Comunidad** | Acompañar, apoyar, guiar, respaldar, empoderar |
+| Categoría       | Palabras Clave                                       |
+| --------------- | ---------------------------------------------------- |
+| **Crecimiento** | Prosperar, evolucionar, expandir, crecer, florecer   |
+| **Control**     | Dominar, gestionar, organizar, dirigir, liderar      |
+| **Claridad**    | Entender, visualizar, descubrir, iluminar, aclarar   |
+| **Seguridad**   | Proteger, resguardar, blindar, fortalecer, asegurar  |
+| **Facilidad**   | Simplificar, automatizar, agilizar, optimizar, fluir |
+| **Logro**       | Alcanzar, conseguir, cumplir, completar, conquistar  |
+| **Comunidad**   | Acompañar, apoyar, guiar, respaldar, empoderar       |
 
 ### Palabras que NO Usamos (Evitar)
 
-| Categoría | Palabras a Evitar | Alternativa |
-|-----------|-------------------|-------------|
-| **Miedo** | Fracaso, quiebra, pérdida | "Área de oportunidad", "ajuste", "aprendizaje" |
-| **Complejidad** | Complicado, difícil, técnico | "Detallado", "especializado", "paso a paso" |
-| **Obligación** | Debes, tienes que, obligatorio | "Te invitamos", "te sugerimos", "considera" |
-| **Negatividad** | Problema, error, fallo | "Oportunidad", "ajuste", "mejora" |
-| **Presión** | Urgente, última oportunidad | "Disponible por tiempo limitado", "exclusivo" |
+| Categoría       | Palabras a Evitar              | Alternativa                                    |
+| --------------- | ------------------------------ | ---------------------------------------------- |
+| **Miedo**       | Fracaso, quiebra, pérdida      | "Área de oportunidad", "ajuste", "aprendizaje" |
+| **Complejidad** | Complicado, difícil, técnico   | "Detallado", "especializado", "paso a paso"    |
+| **Obligación**  | Debes, tienes que, obligatorio | "Te invitamos", "te sugerimos", "considera"    |
+| **Negatividad** | Problema, error, fallo         | "Oportunidad", "ajuste", "mejora"              |
+| **Presión**     | Urgente, última oportunidad    | "Disponible por tiempo limitado", "exclusivo"  |
 
 ### Frases de Poder (Copy Estratégico)
 
 #### Para la Landing Page Hero
+
 ```
 PRINCIPAL:
 "Tu negocio merece la misma tecnología financiera que usan las grandes empresas"
@@ -140,6 +149,7 @@ ALTERNATIVA 3:
 ```
 
 #### Para Llamadas a la Acción (CTAs)
+
 ```
 ✅ "Empieza gratis hoy"
 ✅ "Descubre tu potencial financiero"
@@ -154,11 +164,12 @@ ALTERNATIVA 3:
 ```
 
 #### Para Testimonios
+
 ```
 Estructura: [Problema] + [Descubrimiento] + [Transformación]
 
 Ejemplo:
-"Antes pasaba horas en Excel sin entender realmente mis números. 
+"Antes pasaba horas en Excel sin entender realmente mis números.
 Desde que uso [App], tengo claridad total de mi negocio en minutos.
 Por primera vez, me siento en control de mi crecimiento."
 ```
@@ -168,6 +179,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ## 🎨 ESTRUCTURA DE LA LANDING PAGE
 
 ### Sección 1: Hero (Above the Fold)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  LOGO                                                    [Login] [CTA]  │
@@ -192,6 +204,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 2: Prueba Social Rápida
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -205,6 +218,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 3: Problema → Solución
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -228,6 +242,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 4: Features con Beneficios
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -251,6 +266,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 5: Planes y Precios (UNIFICADOS v5.0)
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -291,6 +307,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 6: Testimonios
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -316,6 +333,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 7: FAQ
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -340,6 +358,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Sección 8: CTA Final
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -356,6 +375,7 @@ Por primera vez, me siento en control de mi crecimiento."
 ```
 
 ### Footer
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                                                                         │
@@ -496,12 +516,12 @@ Por primera vez, me siento en control de mi crecimiento."
     6. TRIGGER DE UPGRADE
     ──────────────────────
     Momento estratégico para ofrecer Pro:
-    
+
     • Llega a límite de transacciones (90/100)
     • Intenta usar feature Pro (IA, multi-empresa)
     • 14 días de uso activo
     • Genera su primer reporte
-    
+
     ┌─────────────────────────────────────┐
     │  ✨ Desbloquea todo el poder        │
     │                                     │
@@ -588,36 +608,53 @@ Por primera vez, me siento en control de mi crecimiento."
 ## 📊 SEO PARA LANDING PAGE
 
 ### Meta Tags Esenciales
+
 ```html
 <title>PRO_FINAN_CONTA_PYM | Software de Finanzas para PyMEs México</title>
-<meta name="description" content="Gestiona ingresos, gastos, facturas SAT y reportes de tu PyME en una sola plataforma. Gratis para empezar. Hecho en México.">
-<meta name="keywords" content="finanzas pymes, contabilidad mexico, facturación sat, control de gastos, software contable">
-<meta name="robots" content="index, follow">
-<link rel="canonical" href="https://profinanconta.mx">
+<meta
+  name="description"
+  content="Gestiona ingresos, gastos, facturas SAT y reportes de tu PyME en una sola plataforma. Gratis para empezar. Hecho en México."
+/>
+<meta
+  name="keywords"
+  content="finanzas pymes, contabilidad mexico, facturación sat, control de gastos, software contable"
+/>
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://profinanconta.mx" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="PRO_FINAN_CONTA_PYM | Finanzas Inteligentes para PyMEs">
-<meta property="og:description" content="La app que transforma la gestión financiera de tu negocio.">
-<meta property="og:image" content="https://profinanconta.mx/og-image.png">
-<meta property="og:url" content="https://profinanconta.mx">
+<meta
+  property="og:title"
+  content="PRO_FINAN_CONTA_PYM | Finanzas Inteligentes para PyMEs"
+/>
+<meta
+  property="og:description"
+  content="La app que transforma la gestión financiera de tu negocio."
+/>
+<meta property="og:image" content="https://profinanconta.mx/og-image.png" />
+<meta property="og:url" content="https://profinanconta.mx" />
 
 <!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="PRO_FINAN_CONTA_PYM">
-<meta name="twitter:description" content="Finanzas claras, futuro brillante para tu PyME.">
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="PRO_FINAN_CONTA_PYM" />
+<meta
+  name="twitter:description"
+  content="Finanzas claras, futuro brillante para tu PyME."
+/>
 ```
 
 ### Palabras Clave Objetivo
 
-| Keyword | Volumen Mensual | Dificultad | Intención |
-|---------|-----------------|------------|-----------|
-| software contable mexico | 2,400 | Media | Transaccional |
-| control de gastos pyme | 1,800 | Baja | Informacional |
-| facturación sat gratis | 3,200 | Alta | Transaccional |
-| app finanzas negocio | 1,200 | Media | Transaccional |
-| contabilidad para emprendedores | 900 | Baja | Informacional |
+| Keyword                         | Volumen Mensual | Dificultad | Intención     |
+| ------------------------------- | --------------- | ---------- | ------------- |
+| software contable mexico        | 2,400           | Media      | Transaccional |
+| control de gastos pyme          | 1,800           | Baja       | Informacional |
+| facturación sat gratis          | 3,200           | Alta       | Transaccional |
+| app finanzas negocio            | 1,200           | Media      | Transaccional |
+| contabilidad para emprendedores | 900             | Baja       | Informacional |
 
 ### Estructura URL
+
 ```
 https://profinanconta.mx/                    # Landing principal
 https://profinanconta.mx/precios/            # Planes y precios
@@ -634,6 +671,7 @@ https://profinanconta.mx/ayuda/              # FAQ y soporte
 ## 📱 RESPONSIVE DESIGN
 
 ### Breakpoints Recomendados
+
 ```css
 /* Mobile First */
 /* Base: < 640px (móvil) */
@@ -645,6 +683,7 @@ https://profinanconta.mx/ayuda/              # FAQ y soporte
 ```
 
 ### Prioridades Mobile
+
 1. CTA siempre visible (sticky en mobile)
 2. Testimonios en carrusel (no grid)
 3. Features colapsables (acordeón)
@@ -656,12 +695,14 @@ https://profinanconta.mx/ayuda/              # FAQ y soporte
 ## ✅ CHECKLIST PRE-LANZAMIENTO
 
 ### Contenido
+
 - [ ] Todos los textos revisados por nativo español MX
 - [ ] Testimonios reales (o claramente marcados como ejemplo)
 - [ ] Imágenes optimizadas (WebP, lazy loading)
 - [ ] Videos con subtítulos
 
 ### SEO
+
 - [ ] Meta tags completos
 - [ ] Schema markup (Organization, Product, FAQ)
 - [ ] Sitemap.xml
@@ -669,18 +710,21 @@ https://profinanconta.mx/ayuda/              # FAQ y soporte
 - [ ] Google Search Console configurado
 
 ### Legal
+
 - [ ] Política de privacidad (LFPDPPP México)
 - [ ] Términos de servicio
 - [ ] Aviso de cookies
 - [ ] Información fiscal empresa
 
 ### Performance
+
 - [ ] Lighthouse score > 90
 - [ ] TTFB < 200ms
 - [ ] LCP < 2.5s
 - [ ] CLS < 0.1
 
 ### Analytics
+
 - [ ] Google Analytics 4
 - [ ] Hotjar/Clarity (mapas de calor)
 - [ ] Eventos de conversión trackeados
@@ -688,4 +732,4 @@ https://profinanconta.mx/ayuda/              # FAQ y soporte
 
 ---
 
-*PRO_FINAN_CONTA_PYM - Donde la tecnología encuentra la pasión por México*
+_PRO_FINAN_CONTA_PYM - Donde la tecnología encuentra la pasión por México_

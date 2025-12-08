@@ -1,4 +1,5 @@
 # 🚀 DISEÑO DE PIPELINE CI/CD SEGURO (DOKPLOY + GITHUB ACTIONS)
+
 ## Despliegue Automatizado sin Comandos Peligrosos
 
 Este diseño garantiza que el código pase por verificaciones de calidad y seguridad antes de tocar producción, eliminando el acceso manual SSH y el error humano.
@@ -28,13 +29,13 @@ Este diseño garantiza que el código pase por verificaciones de calidad y segur
 
 1.  **Push a `main`:** Desarrollador sube código.
 2.  **CI (Integración Continua - GitHub Actions):**
-    *   Linting (Biome/ESLint).
-    *   Testing Unitario (Bun Test).
-    *   Análisis de Seguridad Estático (SAST con Trivy).
-    *   Auditoría de dependencias.
+    - Linting (Biome/ESLint).
+    - Testing Unitario (Bun Test).
+    - Análisis de Seguridad Estático (SAST con Trivy).
+    - Auditoría de dependencias.
 3.  **CD (Despliegue Continuo - Dokploy):**
-    *   Si todos los checks pasan, GitHub Actions llama al **Webhook de Despliegue** de Dokploy.
-    *   Dokploy hace pull del código, construye la imagen y despliega sin downtime.
+    - Si todos los checks pasan, GitHub Actions llama al **Webhook de Despliegue** de Dokploy.
+    - Dokploy hace pull del código, construye la imagen y despliega sin downtime.
 
 ---
 
@@ -52,7 +53,7 @@ on:
     branches: [main]
 
 env:
-  BUN_VERSION: '1.3.3'
+  BUN_VERSION: "1.3.3"
 
 jobs:
   # ═══════════════════════════════════════════════════════════════════
@@ -63,18 +64,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: ${{ env.BUN_VERSION }}
-      
+
       - name: Install Dependencies
         run: bun install --frozen-lockfile
-      
+
       - name: Run Biome (Lint + Format)
         run: bun run lint
-      
+
       - name: TypeScript Type Check
         run: bun run typecheck
 
@@ -104,21 +105,21 @@ jobs:
           - 6379:6379
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Bun
         uses: oven-sh/setup-bun@v1
         with:
           bun-version: ${{ env.BUN_VERSION }}
-      
+
       - name: Install Dependencies
         run: bun install --frozen-lockfile
-      
+
       - name: Run Unit Tests
         run: bun test
         env:
           DATABASE_URL: postgresql://postgres:test@localhost:5432/test_db
           REDIS_URL: redis://localhost:6379
-      
+
       - name: Upload Coverage
         uses: codecov/codecov-action@v3
         if: github.event_name == 'push'
@@ -132,25 +133,25 @@ jobs:
     needs: lint-and-typecheck
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Trivy (SAST)
         uses: aquasecurity/trivy-action@master
         with:
-          scan-type: 'fs'
-          scan-ref: '.'
+          scan-type: "fs"
+          scan-ref: "."
           ignore-unfixed: true
-          format: 'sarif'
-          output: 'trivy-results.sarif'
-          severity: 'CRITICAL,HIGH'
-      
+          format: "sarif"
+          output: "trivy-results.sarif"
+          severity: "CRITICAL,HIGH"
+
       - name: Upload Trivy Results
         uses: github/codeql-action/upload-sarif@v2
         if: always()
         with:
-          sarif_file: 'trivy-results.sarif'
-      
+          sarif_file: "trivy-results.sarif"
+
       - name: Dependency Audit
-        run: bun pm audit || true  # No falla por vulnerabilidades conocidas en desarrollo
+        run: bun pm audit || true # No falla por vulnerabilidades conocidas en desarrollo
 
   # ═══════════════════════════════════════════════════════════════════
   # FASE 4: DEPLOY A PRODUCCIÓN (Solo main, solo si todo pasa)
@@ -172,7 +173,7 @@ jobs:
             exit 1
           fi
           echo "✅ Backend deploy triggered successfully"
-      
+
       - name: Trigger Dokploy Deployment (Frontend)
         run: |
           response=$(curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.DOKPLOY_WEBHOOK_FRONTEND }}")
@@ -181,10 +182,10 @@ jobs:
             exit 1
           fi
           echo "✅ Frontend deploy triggered successfully"
-      
+
       - name: Wait for Deployment
-        run: sleep 60  # Esperar a que Dokploy complete el deploy
-      
+        run: sleep 60 # Esperar a que Dokploy complete el deploy
+
       - name: Health Check
         run: |
           for i in {1..10}; do
@@ -198,7 +199,7 @@ jobs:
           done
           echo "❌ Health check failed after 10 attempts"
           exit 1
-      
+
       - name: Notify Success
         if: success()
         run: echo "🎉 Deployment successful!"
@@ -219,6 +220,7 @@ Secrets requeridos:
 ```
 
 **Cómo obtener las URLs de webhook en Dokploy:**
+
 ```
 Dokploy Panel → Project → Service → Settings → Webhooks → Generate
 ```
@@ -227,14 +229,14 @@ Dokploy Panel → Project → Service → Settings → Webhooks → Generate
 
 ## 4. VENTAJAS DE ESTE MÉTODO
 
-| Aspecto | Método Anterior (SSH) | Método Dokploy |
-| :--- | :--- | :--- |
-| **Llaves SSH** | Almacenadas en GitHub Secrets | ❌ No requeridas |
-| **Acceso al servidor** | GitHub tiene acceso root | ❌ Solo webhook público |
-| **Superficie de ataque** | Alta (SSH expuesto) | Baja (solo HTTPS) |
-| **Rollback** | Manual (SSH + comandos) | Un clic en Dokploy |
-| **Logs de deploy** | `docker logs` vía SSH | Panel visual en tiempo real |
-| **Zero-downtime** | Configuración manual compleja | Automático (Swarm/rolling) |
+| Aspecto                  | Método Anterior (SSH)         | Método Dokploy              |
+| :----------------------- | :---------------------------- | :-------------------------- |
+| **Llaves SSH**           | Almacenadas en GitHub Secrets | ❌ No requeridas            |
+| **Acceso al servidor**   | GitHub tiene acceso root      | ❌ Solo webhook público     |
+| **Superficie de ataque** | Alta (SSH expuesto)           | Baja (solo HTTPS)           |
+| **Rollback**             | Manual (SSH + comandos)       | Un clic en Dokploy          |
+| **Logs de deploy**       | `docker logs` vía SSH         | Panel visual en tiempo real |
+| **Zero-downtime**        | Configuración manual compleja | Automático (Swarm/rolling)  |
 
 ---
 
@@ -257,7 +259,7 @@ jobs:
           curl -X POST "${{ secrets.DOKPLOY_WEBHOOK_PREVIEW }}" \
             -H "Content-Type: application/json" \
             -d '{"pr_number": "${{ github.event.pull_request.number }}"}'
-      
+
       - name: Comment PR with Preview URL
         uses: actions/github-script@v6
         with:
@@ -279,6 +281,7 @@ jobs:
 Si un deploy falla en producción:
 
 1. **Desde Dokploy (Recomendado):**
+
    ```
    Panel → Service → Deployments → Seleccionar versión anterior → Redeploy
    ```
@@ -295,7 +298,8 @@ Si un deploy falla en producción:
 
 **Documento mantenido por:** Equipo DevOps PRO_FINAN_CONTA_PYM  
 **Última actualización:** 1 Diciembre 2025
-```
+
+````
 
 ## 3. MEDIDAS DE SEGURIDAD IMPLEMENTADAS
 
@@ -315,4 +319,4 @@ if ! docker compose up -d; then
   docker compose up -d
   exit 1
 fi
-```
+````

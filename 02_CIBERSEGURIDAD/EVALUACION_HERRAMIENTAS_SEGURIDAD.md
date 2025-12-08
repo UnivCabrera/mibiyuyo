@@ -1,4 +1,5 @@
 # 🔐 EVALUACIÓN DE HERRAMIENTAS DE SEGURIDAD IA
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Herramientas Evaluadas:** Metis AI Security, BruteForceAI  
 **Versión:** 1.0  
@@ -25,10 +26,10 @@
 
 ### Respuesta Corta
 
-| Herramienta | ¿Agregar? | Cuándo | Prioridad |
-| :--- | :---: | :--- | :---: |
-| **Metis AI** | ✅ SÍ | Fase 2 (Post-MVP) | 🟡 MEDIA |
-| **BruteForceAI** | ⚠️ CONDICIONAL | Solo auditorías | 🟢 BAJA |
+| Herramienta      |   ¿Agregar?    | Cuándo            | Prioridad |
+| :--------------- | :------------: | :---------------- | :-------: |
+| **Metis AI**     |     ✅ SÍ      | Fase 2 (Post-MVP) | 🟡 MEDIA  |
+| **BruteForceAI** | ⚠️ CONDICIONAL | Solo auditorías   |  🟢 BAJA  |
 
 ### Justificación Rápida
 
@@ -61,6 +62,7 @@
 ### ¿Qué es Metis?
 
 Metis es una herramienta de revisión de código impulsada por IA que:
+
 - Analiza código fuente en busca de vulnerabilidades de seguridad
 - Usa embeddings vectoriales (pgvector compatible) para entender contexto
 - Puede correr con modelos locales (Ollama) o APIs externas
@@ -68,15 +70,15 @@ Metis es una herramienta de revisión de código impulsada por IA que:
 
 ### Características Relevantes para el Proyecto
 
-| Feature | Relevancia | Alineación con Stack |
-| :--- | :---: | :--- |
-| **Detección SQL Injection** | 🔴 ALTA | Protege Drizzle ORM queries |
-| **XSS Detection** | 🔴 ALTA | Protege Svelte components |
-| **Auth Vulnerabilities** | 🔴 ALTA | Complementa Auth.js |
-| **Secrets Scanning** | 🟡 MEDIA | Detecta API keys expuestas |
-| **Dependency Audit** | 🟡 MEDIA | Revisa package.json |
-| **pgvector Integration** | 🟢 BONUS | Ya tenemos pgvector |
-| **Ollama Support** | 🟢 BONUS | Podemos correr local |
+| Feature                     | Relevancia | Alineación con Stack        |
+| :-------------------------- | :--------: | :-------------------------- |
+| **Detección SQL Injection** |  🔴 ALTA   | Protege Drizzle ORM queries |
+| **XSS Detection**           |  🔴 ALTA   | Protege Svelte components   |
+| **Auth Vulnerabilities**    |  🔴 ALTA   | Complementa Auth.js         |
+| **Secrets Scanning**        |  🟡 MEDIA  | Detecta API keys expuestas  |
+| **Dependency Audit**        |  🟡 MEDIA  | Revisa package.json         |
+| **pgvector Integration**    |  🟢 BONUS  | Ya tenemos pgvector         |
+| **Ollama Support**          |  🟢 BONUS  | Podemos correr local        |
 
 ### Arquitectura de Integración Propuesta
 
@@ -112,12 +114,12 @@ Metis es una herramienta de revisión de código impulsada por IA que:
 
 ### Recursos Requeridos
 
-| Recurso | Mínimo | Recomendado |
-| :--- | :---: | :---: |
-| **RAM** | 2GB | 4GB |
-| **CPU** | 2 cores | 4 cores |
-| **Disco** | 5GB | 10GB |
-| **Modelo IA** | Gemma 2B | Llama 3 8B |
+| Recurso       |  Mínimo  | Recomendado |
+| :------------ | :------: | :---------: |
+| **RAM**       |   2GB    |     4GB     |
+| **CPU**       | 2 cores  |   4 cores   |
+| **Disco**     |   5GB    |    10GB     |
+| **Modelo IA** | Gemma 2B | Llama 3 8B  |
 
 ### Impacto en VPS Actual (4 vCPU, 16GB)
 
@@ -154,15 +156,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Run Metis Scanner
         uses: metis-ai/scanner-action@v1
         with:
-          scan-path: './src'
-          language: 'typescript'
-          severity-threshold: 'medium'
-          ollama-model: 'llama3:8b'  # Corre en GitHub Actions
-          
+          scan-path: "./src"
+          language: "typescript"
+          severity-threshold: "medium"
+          ollama-model: "llama3:8b" # Corre en GitHub Actions
+
       - name: Upload SARIF
         uses: github/codeql-action/upload-sarif@v2
         with:
@@ -195,14 +197,14 @@ const API_KEY = process.env.GEMINI_API_KEY;
 
 ### Costo-Beneficio
 
-| Aspecto | Valor |
-| :--- | :--- |
-| **Costo** | $0 (Open Source) |
-| **Tiempo Setup** | ~2 horas |
-| **Mantenimiento** | ~30 min/semana |
-| **Vulnerabilidades Evitadas** | ~5-10/mes estimado |
-| **Costo de un breach** | $50,000 - $500,000 USD |
-| **ROI** | Muy alto ✅ |
+| Aspecto                       | Valor                  |
+| :---------------------------- | :--------------------- |
+| **Costo**                     | $0 (Open Source)       |
+| **Tiempo Setup**              | ~2 horas               |
+| **Mantenimiento**             | ~30 min/semana         |
+| **Vulnerabilidades Evitadas** | ~5-10/mes estimado     |
+| **Costo de un breach**        | $50,000 - $500,000 USD |
+| **ROI**                       | Muy alto ✅            |
 
 ---
 
@@ -211,6 +213,7 @@ const API_KEY = process.env.GEMINI_API_KEY;
 ### ¿Qué es BruteForceAI?
 
 Herramienta de pruebas de penetración automatizadas con IA que:
+
 - Simula ataques de fuerza bruta inteligentes
 - Encuentra endpoints vulnerables
 - Prueba configuraciones de autenticación
@@ -218,13 +221,13 @@ Herramienta de pruebas de penetración automatizadas con IA que:
 
 ### Características
 
-| Feature | Descripción |
-| :--- | :--- |
-| **Smart Fuzzing** | Genera payloads inteligentes con IA |
-| **Auth Testing** | Prueba mecanismos de login |
-| **API Discovery** | Encuentra endpoints ocultos |
+| Feature                | Descripción                            |
+| :--------------------- | :------------------------------------- |
+| **Smart Fuzzing**      | Genera payloads inteligentes con IA    |
+| **Auth Testing**       | Prueba mecanismos de login             |
+| **API Discovery**      | Encuentra endpoints ocultos            |
 | **Rate Limit Testing** | Verifica protecciones anti-brute force |
-| **Report Generation** | Informes detallados |
+| **Report Generation**  | Informes detallados                    |
 
 ### ⚠️ ADVERTENCIAS IMPORTANTES
 
@@ -248,13 +251,13 @@ Herramienta de pruebas de penetración automatizadas con IA que:
 
 ### Cuándo Usar BruteForceAI
 
-| Escenario | ¿Usar? | Frecuencia |
-| :--- | :---: | :--- |
-| Auditoría pre-lanzamiento | ✅ SÍ | Una vez |
-| Auditoría trimestral | ✅ SÍ | Cada 3 meses |
-| Después de cambios grandes | ✅ SÍ | Por evento |
-| Pruebas continuas en CI | ❌ NO | N/A |
-| Contra producción | ⚠️ CUIDADO | Con autorización |
+| Escenario                  |   ¿Usar?   | Frecuencia       |
+| :------------------------- | :--------: | :--------------- |
+| Auditoría pre-lanzamiento  |   ✅ SÍ    | Una vez          |
+| Auditoría trimestral       |   ✅ SÍ    | Cada 3 meses     |
+| Después de cambios grandes |   ✅ SÍ    | Por evento       |
+| Pruebas continuas en CI    |   ❌ NO    | N/A              |
+| Contra producción          | ⚠️ CUIDADO | Con autorización |
 
 ### Alternativa Recomendada: OWASP ZAP
 
@@ -272,14 +275,14 @@ Para pruebas de penetración regulares, mejor usar OWASP ZAP:
 
 ### Herramientas de Seguridad Ya Incluidas
 
-| Capa | Herramienta Actual | Metis Agregaría |
-| :--- | :--- | :--- |
-| **Código** | ESLint security rules | Análisis profundo con IA |
-| **Dependencias** | npm audit | Contexto de uso |
-| **Secrets** | .env + gitignore | Detección en commits |
-| **Runtime** | Sentry | N/A (Metis es estático) |
-| **Infra** | Traefik + rate limiting | N/A |
-| **Auth** | Auth.js | Validación de config |
+| Capa             | Herramienta Actual      | Metis Agregaría          |
+| :--------------- | :---------------------- | :----------------------- |
+| **Código**       | ESLint security rules   | Análisis profundo con IA |
+| **Dependencias** | npm audit               | Contexto de uso          |
+| **Secrets**      | .env + gitignore        | Detección en commits     |
+| **Runtime**      | Sentry                  | N/A (Metis es estático)  |
+| **Infra**        | Traefik + rate limiting | N/A                      |
+| **Auth**         | Auth.js                 | Validación de config     |
 
 ### Matriz de Decisión
 
@@ -386,7 +389,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: "22"
       - run: npm ci
       - run: npm run lint:security
 
@@ -423,11 +426,15 @@ jobs:
 
 ```typescript
 // src/lib/security/audit-logger.ts
-import { db } from '$lib/database';
+import { db } from "$lib/database";
 
 interface SecurityEvent {
-  type: 'auth_failure' | 'rate_limit' | 'suspicious_activity' | 'vulnerability_scan';
-  severity: 'low' | 'medium' | 'high' | 'critical';
+  type:
+    | "auth_failure"
+    | "rate_limit"
+    | "suspicious_activity"
+    | "vulnerability_scan";
+  severity: "low" | "medium" | "high" | "critical";
   details: Record<string, unknown>;
   ip?: string;
   userId?: string;
@@ -440,11 +447,11 @@ export async function logSecurityEvent(event: SecurityEvent): Promise<void> {
     details: JSON.stringify(event.details),
     ip: event.ip,
     userId: event.userId,
-    timestamp: new Date()
+    timestamp: new Date(),
   });
 
   // Alertar si es crítico
-  if (event.severity === 'critical') {
+  if (event.severity === "critical") {
     // Enviar notificación a Sentry/Slack
     await notifySecurityTeam(event);
   }
@@ -455,14 +462,14 @@ export async function logSecurityEvent(event: SecurityEvent): Promise<void> {
 
 ## 📊 RESUMEN DE DECISIONES
 
-| Herramienta | Decisión | Prioridad | Timeline |
-| :--- | :---: | :---: | :--- |
-| **Metis AI** | ✅ Implementar | MEDIA | Fase 2 (post-MVP) |
-| **BruteForceAI** | ⚠️ Solo auditorías | BAJA | Cuando se necesite |
-| **ESLint Security** | ✅ Ya incluido | ALTA | Ahora |
-| **npm audit** | ✅ Ya incluido | ALTA | Ahora |
-| **OWASP ZAP** | 📋 Considerar | MEDIA | Auditorías |
-| **Trufflehog** | ✅ Implementar | ALTA | Semana 1 |
+| Herramienta         |      Decisión      | Prioridad | Timeline           |
+| :------------------ | :----------------: | :-------: | :----------------- |
+| **Metis AI**        |   ✅ Implementar   |   MEDIA   | Fase 2 (post-MVP)  |
+| **BruteForceAI**    | ⚠️ Solo auditorías |   BAJA    | Cuando se necesite |
+| **ESLint Security** |   ✅ Ya incluido   |   ALTA    | Ahora              |
+| **npm audit**       |   ✅ Ya incluido   |   ALTA    | Ahora              |
+| **OWASP ZAP**       |   📋 Considerar    |   MEDIA   | Auditorías         |
+| **Trufflehog**      |   ✅ Implementar   |   ALTA    | Semana 1           |
 
 ---
 

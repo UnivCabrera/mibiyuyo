@@ -3,12 +3,12 @@ Public
 pgvector/pgvector
 Go to file
 t
-Name		
+Name
 ankane
 ankane
 Added links [skip ci]
 2b74257
- · 
+·
 4 days ago
 .github/workflows
 Updated style to be consistent with Mac [skip ci]
@@ -107,7 +107,7 @@ Insert vectors
 INSERT INTO items (embedding) VALUES ('[1,2,3]'), ('[4,5,6]');
 Get the nearest neighbors by L2 distance
 
-SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
 Also supports inner product (<#>), cosine distance (<=>), and L1 distance (<+>)
 
 Note: <#> returns the negative inner product since Postgres only supports ASC order index scans on operators
@@ -130,7 +130,7 @@ COPY items (embedding) FROM STDIN WITH (FORMAT BINARY);
 Upsert vectors
 
 INSERT INTO items (id, embedding) VALUES (1, '[1,2,3]'), (2, '[4,5,6]')
-    ON CONFLICT (id) DO UPDATE SET embedding = EXCLUDED.embedding;
+ON CONFLICT (id) DO UPDATE SET embedding = EXCLUDED.embedding;
 Update vectors
 
 UPDATE items SET embedding = '[1,2,3]' WHERE id = 1;
@@ -140,7 +140,7 @@ DELETE FROM items WHERE id = 1;
 Querying
 Get the nearest neighbors to a vector
 
-SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
 Supported distance functions are:
 
 <-> - L2 distance
@@ -151,10 +151,10 @@ Supported distance functions are:
 <%> - Jaccard distance (binary vectors)
 Get the nearest neighbors to a row
 
-SELECT * FROM items WHERE id != 1 ORDER BY embedding <-> (SELECT embedding FROM items WHERE id = 1) LIMIT 5;
+SELECT \* FROM items WHERE id != 1 ORDER BY embedding <-> (SELECT embedding FROM items WHERE id = 1) LIMIT 5;
 Get rows within a certain distance
 
-SELECT * FROM items WHERE embedding <-> '[3,1,2]' < 5;
+SELECT \* FROM items WHERE embedding <-> '[3,1,2]' < 5;
 Note: Combine with ORDER BY and LIMIT to use an index
 
 Distances
@@ -163,7 +163,7 @@ Get the distance
 SELECT embedding <-> '[3,1,2]' AS distance FROM items;
 For inner product, multiply by -1 (since <#> returns the negative inner product)
 
-SELECT (embedding <#> '[3,1,2]') * -1 AS inner_product FROM items;
+SELECT (embedding <#> '[3,1,2]') \* -1 AS inner_product FROM items;
 For cosine similarity, use 1 - cosine distance
 
 SELECT 1 - (embedding <=> '[3,1,2]') AS cosine_similarity FROM items;
@@ -240,9 +240,9 @@ Indexes build significantly faster when the graph fits into maintenance_work_mem
 SET maintenance_work_mem = '8GB';
 A notice is shown when the graph no longer fits
 
-NOTICE:  hnsw graph no longer fits into maintenance_work_mem after 100000 tuples
-DETAIL:  Building will take significantly more time.
-HINT:  Increase maintenance_work_mem to speed up builds.
+NOTICE: hnsw graph no longer fits into maintenance_work_mem after 100000 tuples
+DETAIL: Building will take significantly more time.
+HINT: Increase maintenance_work_mem to speed up builds.
 Note: Do not set maintenance_work_mem so high that it exhausts the memory on the server
 
 Like other index types, it’s faster to create an index after loading your initial data
@@ -257,7 +257,7 @@ The index options also have a significant impact on build time (use the defaults
 Indexing Progress
 Check indexing progress
 
-SELECT phase, round(100.0 * blocks_done / nullif(blocks_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
+SELECT phase, round(100.0 \* blocks_done / nullif(blocks_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
 The phases for HNSW are:
 
 initializing
@@ -312,7 +312,7 @@ For a large number of workers, you may also need to increase max_parallel_worker
 Indexing Progress
 Check indexing progress
 
-SELECT phase, round(100.0 * tuples_done / nullif(tuples_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
+SELECT phase, round(100.0 \* tuples_done / nullif(tuples_total, 0), 1) AS "%" FROM pg_stat_progress_create_index;
 The phases for IVFFlat are:
 
 initializing
@@ -324,7 +324,7 @@ Note: % is only populated during the loading tuples phase
 Filtering
 There are a few ways to index nearest neighbor queries with a WHERE clause.
 
-SELECT * FROM items WHERE category_id = 123 ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
+SELECT \* FROM items WHERE category_id = 123 ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
 A good place to start is creating an index on the filter column. This can provide fast, exact nearest neighbor search in many cases. Postgres has a number of index types for this: B-tree (default), hash, GiST, SP-GiST, GIN, and BRIN.
 
 CREATE INDEX ON items (category_id);
@@ -357,20 +357,22 @@ SET hnsw.iterative_scan = strict_order;
 Relaxed allows results to be slightly out of order by distance, but provides better recall
 
 SET hnsw.iterative_scan = relaxed_order;
+
 # or
+
 SET ivfflat.iterative_scan = relaxed_order;
 With relaxed ordering, you can use a materialized CTE to get strict ordering
 
 WITH relaxed_results AS MATERIALIZED (
-    SELECT id, embedding <-> '[1,2,3]' AS distance FROM items WHERE category_id = 123 ORDER BY distance LIMIT 5
-) SELECT * FROM relaxed_results ORDER BY distance + 0;
+SELECT id, embedding <-> '[1,2,3]' AS distance FROM items WHERE category_id = 123 ORDER BY distance LIMIT 5
+) SELECT \* FROM relaxed_results ORDER BY distance + 0;
 Note: + 0 is needed for Postgres 17+
 
 For queries that filter by distance, use a materialized CTE and place the distance filter outside of it for best performance (due to the current behavior of the Postgres executor)
 
 WITH nearest_results AS MATERIALIZED (
-    SELECT id, embedding <-> '[1,2,3]' AS distance FROM items ORDER BY distance LIMIT 5
-) SELECT * FROM nearest_results WHERE distance < 5 ORDER BY distance;
+SELECT id, embedding <-> '[1,2,3]' AS distance FROM items ORDER BY distance LIMIT 5
+) SELECT \* FROM nearest_results WHERE distance < 5 ORDER BY distance;
 Note: Place any other filters inside the CTE
 
 Iterative Scan Options
@@ -403,7 +405,7 @@ Index vectors at half precision for smaller indexes
 CREATE INDEX ON items USING hnsw ((embedding::halfvec(3)) halfvec_l2_ops);
 Get the nearest neighbors
 
-SELECT * FROM items ORDER BY embedding::halfvec(3) <-> '[1,2,3]' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding::halfvec(3) <-> '[1,2,3]' LIMIT 5;
 Binary Vectors
 Use the bit type to store binary vectors (example)
 
@@ -411,7 +413,7 @@ CREATE TABLE items (id bigserial PRIMARY KEY, embedding bit(3));
 INSERT INTO items (embedding) VALUES ('000'), ('111');
 Get the nearest neighbors by Hamming distance
 
-SELECT * FROM items ORDER BY embedding <~> '101' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding <~> '101' LIMIT 5;
 Also supports Jaccard distance (<%>)
 
 Binary Quantization
@@ -420,11 +422,11 @@ Use expression indexing for binary quantization
 CREATE INDEX ON items USING hnsw ((binary_quantize(embedding)::bit(3)) bit_hamming_ops);
 Get the nearest neighbors by Hamming distance
 
-SELECT * FROM items ORDER BY binary_quantize(embedding)::bit(3) <~> binary_quantize('[1,-2,3]') LIMIT 5;
+SELECT \* FROM items ORDER BY binary_quantize(embedding)::bit(3) <~> binary_quantize('[1,-2,3]') LIMIT 5;
 Re-rank by the original vectors for better recall
 
-SELECT * FROM (
-    SELECT * FROM items ORDER BY binary_quantize(embedding)::bit(3) <~> binary_quantize('[1,-2,3]') LIMIT 20
+SELECT _ FROM (
+SELECT _ FROM items ORDER BY binary_quantize(embedding)::bit(3) <~> binary_quantize('[1,-2,3]') LIMIT 20
 ) ORDER BY embedding <=> '[1,-2,3]' LIMIT 5;
 Sparse Vectors
 Use the sparsevec type to store sparse vectors
@@ -437,12 +439,12 @@ The format is {index1:value1,index2:value2}/dimensions and indices start at 1 li
 
 Get the nearest neighbors by L2 distance
 
-SELECT * FROM items ORDER BY embedding <-> '{1:3,3:1,5:2}/5' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding <-> '{1:3,3:1,5:2}/5' LIMIT 5;
 Hybrid Search
 Use together with Postgres full-text search for hybrid search.
 
 SELECT id, content FROM items, plainto_tsquery('hello search') query
-    WHERE textsearch @@ query ORDER BY ts_rank_cd(textsearch, query) DESC LIMIT 5;
+WHERE textsearch @@ query ORDER BY ts_rank_cd(textsearch, query) DESC LIMIT 5;
 You can use Reciprocal Rank Fusion or a cross-encoder to combine results.
 
 Indexing Subvectors
@@ -451,11 +453,11 @@ Use expression indexing to index subvectors
 CREATE INDEX ON items USING hnsw ((subvector(embedding, 1, 3)::vector(3)) vector_cosine_ops);
 Get the nearest neighbors by cosine distance
 
-SELECT * FROM items ORDER BY subvector(embedding, 1, 3)::vector(3) <=> subvector('[1,2,3,4,5]'::vector, 1, 3) LIMIT 5;
+SELECT \* FROM items ORDER BY subvector(embedding, 1, 3)::vector(3) <=> subvector('[1,2,3,4,5]'::vector, 1, 3) LIMIT 5;
 Re-rank by the full vectors for better recall
 
-SELECT * FROM (
-    SELECT * FROM items ORDER BY subvector(embedding, 1, 3)::vector(3) <=> subvector('[1,2,3,4,5]'::vector, 1, 3) LIMIT 20
+SELECT _ FROM (
+SELECT _ FROM items ORDER BY subvector(embedding, 1, 3)::vector(3) <=> subvector('[1,2,3,4,5]'::vector, 1, 3) LIMIT 20
 ) ORDER BY embedding <=> '[1,2,3,4,5]' LIMIT 5;
 Performance
 Tuning
@@ -482,14 +484,14 @@ CREATE INDEX CONCURRENTLY ...
 Querying
 Use EXPLAIN (ANALYZE, BUFFERS) to debug performance.
 
-EXPLAIN (ANALYZE, BUFFERS) SELECT * FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
+EXPLAIN (ANALYZE, BUFFERS) SELECT \* FROM items ORDER BY embedding <-> '[3,1,2]' LIMIT 5;
 Exact Search
 To speed up queries without an index, increase max_parallel_workers_per_gather.
 
 SET max_parallel_workers_per_gather = 4;
 If vectors are normalized to length 1 (like OpenAI embeddings), use inner product for best performance.
 
-SELECT * FROM items ORDER BY embedding <#> '[3,1,2]' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding <#> '[3,1,2]' LIMIT 5;
 Approximate Search
 To speed up queries with an IVFFlat index, increase the number of inverted lists (at the expense of recall).
 
@@ -506,8 +508,8 @@ CREATE EXTENSION pg_stat_statements;
 Get the most time-consuming queries with:
 
 SELECT query, calls, ROUND((total_plan_time + total_exec_time) / calls) AS avg_time_ms,
-    ROUND((total_plan_time + total_exec_time) / 60000) AS total_time_min
-    FROM pg_stat_statements ORDER BY total_plan_time + total_exec_time DESC LIMIT 20;
+ROUND((total_plan_time + total_exec_time) / 60000) AS total_time_min
+FROM pg_stat_statements ORDER BY total_plan_time + total_exec_time DESC LIMIT 20;
 Monitor recall by comparing results from approximate search with exact search.
 
 BEGIN;
@@ -524,40 +526,40 @@ Scale horizontally with replicas, or use Citus or another approach for sharding 
 Languages
 Use pgvector from any language with a Postgres client. You can even generate and store vectors in one language and query them in another.
 
-Language	Libraries / Examples
-Ada	pgvector-ada
-Algol	pgvector-algol
-C	pgvector-c
-C++	pgvector-cpp
-C#, F#, Visual Basic	pgvector-dotnet
-Crystal	pgvector-crystal
-D	pgvector-d
-Dart	pgvector-dart
-Elixir	pgvector-elixir
-Erlang	pgvector-erlang
-Fortran	pgvector-fortran
-Gleam	pgvector-gleam
-Go	pgvector-go
-Haskell	pgvector-haskell
-Java, Kotlin, Groovy, Scala	pgvector-java
-JavaScript, TypeScript	pgvector-node
-Julia	Pgvector.jl
-Lisp	pgvector-lisp
-Lua	pgvector-lua
-Nim	pgvector-nim
-OCaml	pgvector-ocaml
-Pascal	pgvector-pascal
-Perl	pgvector-perl
-PHP	pgvector-php
-Prolog	pgvector-prolog
-Python	pgvector-python
-R	pgvector-r
-Racket	pgvector-racket
-Raku	pgvector-raku
-Ruby	pgvector-ruby, Neighbor
-Rust	pgvector-rust
-Swift	pgvector-swift
-Zig	pgvector-zig
+Language Libraries / Examples
+Ada pgvector-ada
+Algol pgvector-algol
+C pgvector-c
+C++ pgvector-cpp
+C#, F#, Visual Basic pgvector-dotnet
+Crystal pgvector-crystal
+D pgvector-d
+Dart pgvector-dart
+Elixir pgvector-elixir
+Erlang pgvector-erlang
+Fortran pgvector-fortran
+Gleam pgvector-gleam
+Go pgvector-go
+Haskell pgvector-haskell
+Java, Kotlin, Groovy, Scala pgvector-java
+JavaScript, TypeScript pgvector-node
+Julia Pgvector.jl
+Lisp pgvector-lisp
+Lua pgvector-lua
+Nim pgvector-nim
+OCaml pgvector-ocaml
+Pascal pgvector-pascal
+Perl pgvector-perl
+PHP pgvector-php
+Prolog pgvector-prolog
+Python pgvector-python
+R pgvector-r
+Racket pgvector-racket
+Raku pgvector-raku
+Ruby pgvector-ruby, Neighbor
+Rust pgvector-rust
+Swift pgvector-swift
+Zig pgvector-zig
 Frequently Asked Questions
 How many vectors can be stored in a single table?
 A non-partitioned table has a limit of 32 TB by default in Postgres. A partitioned table can have thousands of partitions of that size.
@@ -577,7 +579,7 @@ However, you can only create indexes on rows with the same number of dimensions 
 CREATE INDEX ON embeddings USING hnsw ((embedding::vector(3)) vector_l2_ops) WHERE (model_id = 123);
 and query with:
 
-SELECT * FROM embeddings WHERE model_id = 123 ORDER BY embedding::vector(3) <-> '[3,1,2]' LIMIT 5;
+SELECT \* FROM embeddings WHERE model_id = 123 ORDER BY embedding::vector(3) <-> '[3,1,2]' LIMIT 5;
 Can I store vectors with more precision?
 You can use the double precision[] or numeric[] type to store vectors with more precision.
 
@@ -593,7 +595,7 @@ Use expression indexing to index (at a lower precision):
 CREATE INDEX ON items USING hnsw ((embedding::vector(3)) vector_l2_ops);
 and query with:
 
-SELECT * FROM items ORDER BY embedding::vector(3) <-> '[3,1,2]' LIMIT 5;
+SELECT \* FROM items ORDER BY embedding::vector(3) <-> '[3,1,2]' LIMIT 5;
 Do indexes need to fit into memory?
 No, but like other index types, you’ll likely see better performance if they do. You can get the size of an index with:
 
@@ -645,89 +647,95 @@ Halfvec
 Bit
 Sparsevec
 Vector Type
-Each vector takes 4 * dimensions + 8 bytes of storage. Each element is a single-precision floating-point number (like the real type in Postgres), and all elements must be finite (no NaN, Infinity or -Infinity). Vectors can have up to 16,000 dimensions.
+Each vector takes 4 \* dimensions + 8 bytes of storage. Each element is a single-precision floating-point number (like the real type in Postgres), and all elements must be finite (no NaN, Infinity or -Infinity). Vectors can have up to 16,000 dimensions.
 
 Vector Operators
-Operator	Description	Added
-+	element-wise addition	
--	element-wise subtraction	
-*	element-wise multiplication	0.5.0
-||	concatenate	0.7.0
-<->	Euclidean distance	
-<#>	negative inner product	
-<=>	cosine distance	
-<+>	taxicab distance	0.7.0
-Vector Functions
-Function	Description	Added
-binary_quantize(vector) → bit	binary quantize	0.7.0
-cosine_distance(vector, vector) → double precision	cosine distance	
-inner_product(vector, vector) → double precision	inner product	
-l1_distance(vector, vector) → double precision	taxicab distance	0.5.0
-l2_distance(vector, vector) → double precision	Euclidean distance	
-l2_normalize(vector) → vector	Normalize with Euclidean norm	0.7.0
-subvector(vector, integer, integer) → vector	subvector	0.7.0
-vector_dims(vector) → integer	number of dimensions	
-vector_norm(vector) → double precision	Euclidean norm	
-Vector Aggregate Functions
-Function	Description	Added
-avg(vector) → vector	average	
-sum(vector) → vector	sum	0.5.0
-Halfvec Type
-Each half vector takes 2 * dimensions + 8 bytes of storage. Each element is a half-precision floating-point number, and all elements must be finite (no NaN, Infinity or -Infinity). Half vectors can have up to 16,000 dimensions.
+Operator Description Added
+
+- element-wise addition
+
+* element-wise subtraction
+
+- element-wise multiplication 0.5.0
+  || concatenate 0.7.0
+  <-> Euclidean distance
+  <#> negative inner product
+  <=> cosine distance
+  <+> taxicab distance 0.7.0
+  Vector Functions
+  Function Description Added
+  binary_quantize(vector) → bit binary quantize 0.7.0
+  cosine_distance(vector, vector) → double precision cosine distance
+  inner_product(vector, vector) → double precision inner product
+  l1_distance(vector, vector) → double precision taxicab distance 0.5.0
+  l2_distance(vector, vector) → double precision Euclidean distance
+  l2_normalize(vector) → vector Normalize with Euclidean norm 0.7.0
+  subvector(vector, integer, integer) → vector subvector 0.7.0
+  vector_dims(vector) → integer number of dimensions
+  vector_norm(vector) → double precision Euclidean norm
+  Vector Aggregate Functions
+  Function Description Added
+  avg(vector) → vector average
+  sum(vector) → vector sum 0.5.0
+  Halfvec Type
+  Each half vector takes 2 \* dimensions + 8 bytes of storage. Each element is a half-precision floating-point number, and all elements must be finite (no NaN, Infinity or -Infinity). Half vectors can have up to 16,000 dimensions.
 
 Halfvec Operators
-Operator	Description	Added
-+	element-wise addition	0.7.0
--	element-wise subtraction	0.7.0
-*	element-wise multiplication	0.7.0
-||	concatenate	0.7.0
-<->	Euclidean distance	0.7.0
-<#>	negative inner product	0.7.0
-<=>	cosine distance	0.7.0
-<+>	taxicab distance	0.7.0
-Halfvec Functions
-Function	Description	Added
-binary_quantize(halfvec) → bit	binary quantize	0.7.0
-cosine_distance(halfvec, halfvec) → double precision	cosine distance	0.7.0
-inner_product(halfvec, halfvec) → double precision	inner product	0.7.0
-l1_distance(halfvec, halfvec) → double precision	taxicab distance	0.7.0
-l2_distance(halfvec, halfvec) → double precision	Euclidean distance	0.7.0
-l2_norm(halfvec) → double precision	Euclidean norm	0.7.0
-l2_normalize(halfvec) → halfvec	Normalize with Euclidean norm	0.7.0
-subvector(halfvec, integer, integer) → halfvec	subvector	0.7.0
-vector_dims(halfvec) → integer	number of dimensions	0.7.0
-Halfvec Aggregate Functions
-Function	Description	Added
-avg(halfvec) → halfvec	average	0.7.0
-sum(halfvec) → halfvec	sum	0.7.0
-Bit Type
-Each bit vector takes dimensions / 8 + 8 bytes of storage. See the Postgres docs for more info.
+Operator Description Added
+
+- element-wise addition 0.7.0
+
+* element-wise subtraction 0.7.0
+
+- element-wise multiplication 0.7.0
+  || concatenate 0.7.0
+  <-> Euclidean distance 0.7.0
+  <#> negative inner product 0.7.0
+  <=> cosine distance 0.7.0
+  <+> taxicab distance 0.7.0
+  Halfvec Functions
+  Function Description Added
+  binary_quantize(halfvec) → bit binary quantize 0.7.0
+  cosine_distance(halfvec, halfvec) → double precision cosine distance 0.7.0
+  inner_product(halfvec, halfvec) → double precision inner product 0.7.0
+  l1_distance(halfvec, halfvec) → double precision taxicab distance 0.7.0
+  l2_distance(halfvec, halfvec) → double precision Euclidean distance 0.7.0
+  l2_norm(halfvec) → double precision Euclidean norm 0.7.0
+  l2_normalize(halfvec) → halfvec Normalize with Euclidean norm 0.7.0
+  subvector(halfvec, integer, integer) → halfvec subvector 0.7.0
+  vector_dims(halfvec) → integer number of dimensions 0.7.0
+  Halfvec Aggregate Functions
+  Function Description Added
+  avg(halfvec) → halfvec average 0.7.0
+  sum(halfvec) → halfvec sum 0.7.0
+  Bit Type
+  Each bit vector takes dimensions / 8 + 8 bytes of storage. See the Postgres docs for more info.
 
 Bit Operators
-Operator	Description	Added
-<~>	Hamming distance	0.7.0
-<%>	Jaccard distance	0.7.0
+Operator Description Added
+<~> Hamming distance 0.7.0
+<%> Jaccard distance 0.7.0
 Bit Functions
-Function	Description	Added
-hamming_distance(bit, bit) → double precision	Hamming distance	0.7.0
-jaccard_distance(bit, bit) → double precision	Jaccard distance	0.7.0
+Function Description Added
+hamming_distance(bit, bit) → double precision Hamming distance 0.7.0
+jaccard_distance(bit, bit) → double precision Jaccard distance 0.7.0
 Sparsevec Type
-Each sparse vector takes 8 * non-zero elements + 16 bytes of storage. Each element is a single-precision floating-point number, and all elements must be finite (no NaN, Infinity or -Infinity). Sparse vectors can have up to 16,000 non-zero elements.
+Each sparse vector takes 8 \* non-zero elements + 16 bytes of storage. Each element is a single-precision floating-point number, and all elements must be finite (no NaN, Infinity or -Infinity). Sparse vectors can have up to 16,000 non-zero elements.
 
 Sparsevec Operators
-Operator	Description	Added
-<->	Euclidean distance	0.7.0
-<#>	negative inner product	0.7.0
-<=>	cosine distance	0.7.0
-<+>	taxicab distance	0.7.0
+Operator Description Added
+<-> Euclidean distance 0.7.0
+<#> negative inner product 0.7.0
+<=> cosine distance 0.7.0
+<+> taxicab distance 0.7.0
 Sparsevec Functions
-Function	Description	Added
-cosine_distance(sparsevec, sparsevec) → double precision	cosine distance	0.7.0
-inner_product(sparsevec, sparsevec) → double precision	inner product	0.7.0
-l1_distance(sparsevec, sparsevec) → double precision	taxicab distance	0.7.0
-l2_distance(sparsevec, sparsevec) → double precision	Euclidean distance	0.7.0
-l2_norm(sparsevec) → double precision	Euclidean norm	0.7.0
-l2_normalize(sparsevec) → sparsevec	Normalize with Euclidean norm	0.7.0
+Function Description Added
+cosine_distance(sparsevec, sparsevec) → double precision cosine distance 0.7.0
+inner_product(sparsevec, sparsevec) → double precision inner product 0.7.0
+l1_distance(sparsevec, sparsevec) → double precision taxicab distance 0.7.0
+l2_distance(sparsevec, sparsevec) → double precision Euclidean distance 0.7.0
+l2_norm(sparsevec) → double precision Euclidean norm 0.7.0
+l2_normalize(sparsevec) → sparsevec Normalize with Euclidean norm 0.7.0
 Installation Notes - Linux and Mac
 Postgres Location
 If your machine has multiple Postgres installations, specify the path to pg_config with:
@@ -825,7 +833,9 @@ Yum
 RPM packages are available from the PostgreSQL Yum Repository. Follow the setup instructions for your distribution and run:
 
 sudo yum install pgvector_18
+
 # or
+
 sudo dnf install pgvector_18
 Note: Replace 18 with your Postgres server version
 
@@ -883,12 +893,12 @@ make
 make install
 To run all tests:
 
-make installcheck        # regression tests
-make prove_installcheck  # TAP tests
+make installcheck # regression tests
+make prove_installcheck # TAP tests
 To run single tests:
 
-make installcheck REGRESS=functions                            # regression test
-make prove_installcheck PROVE_TESTS=test/t/001_ivfflat_wal.pl  # TAP test
+make installcheck REGRESS=functions # regression test
+make prove_installcheck PROVE_TESTS=test/t/001_ivfflat_wal.pl # TAP test
 To enable assertions:
 
 make clean && PG_CFLAGS="-DUSE_ASSERT_CHECKING" make && make install

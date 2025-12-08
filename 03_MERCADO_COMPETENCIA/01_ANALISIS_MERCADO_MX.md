@@ -1,4 +1,5 @@
 # 📊 ANÁLISIS DE MERCADO Y COMPETENCIA DIRECTA
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Mercado Objetivo:** México - PyMEs y Finanzas Personales  
 **Versión:** 2.0  
@@ -8,11 +9,11 @@
 
 ## 🔗 DOCUMENTOS COMPLEMENTARIOS
 
-| Documento | Descripción |
-|:---|:---|
-| [03_40_PERFILES_PROFESIONALES](03_40_PERFILES_PROFESIONALES.md) | 40 perfiles expandidos con neurociencia |
-| [07_100_NECESIDADES_DIARIAS](07_100_NECESIDADES_DIARIAS_NO_RESUELTAS.md) | 100+ necesidades diarias no resueltas |
-| [02_15_TIPOS_CLIENTE](02_15_TIPOS_CLIENTE.md) | 15 tipos de cliente originales (JTBD) |
+| Documento                                                                | Descripción                             |
+| :----------------------------------------------------------------------- | :-------------------------------------- |
+| [03_40_PERFILES_PROFESIONALES](03_40_PERFILES_PROFESIONALES.md)          | 40 perfiles expandidos con neurociencia |
+| [07_100_NECESIDADES_DIARIAS](07_100_NECESIDADES_DIARIAS_NO_RESUELTAS.md) | 100+ necesidades diarias no resueltas   |
+| [02_15_TIPOS_CLIENTE](02_15_TIPOS_CLIENTE.md)                            | 15 tipos de cliente originales (JTBD)   |
 
 ---
 
@@ -32,16 +33,16 @@
 
 ### México en Números (2024-2025)
 
-| Métrica | Valor | Fuente |
-| :--- | :--- | :--- |
-| **Población Total** | 130+ millones | INEGI |
-| **PEA (Población Económicamente Activa)** | 60 millones | INEGI |
-| **PyMEs Registradas** | 4.9 millones | INEGI |
-| **PyMEs con Contabilidad Digital** | ~15% | CONDUSEF |
-| **Usuarios de Banca Móvil** | 45 millones | CNBV |
-| **Penetración Smartphone** | 78% | IFT |
-| **Régimen RESICO** | 4+ millones | SAT |
-| **Contribuyentes Activos** | 82 millones | SAT |
+| Métrica                                   | Valor         | Fuente   |
+| :---------------------------------------- | :------------ | :------- |
+| **Población Total**                       | 130+ millones | INEGI    |
+| **PEA (Población Económicamente Activa)** | 60 millones   | INEGI    |
+| **PyMEs Registradas**                     | 4.9 millones  | INEGI    |
+| **PyMEs con Contabilidad Digital**        | ~15%          | CONDUSEF |
+| **Usuarios de Banca Móvil**               | 45 millones   | CNBV     |
+| **Penetración Smartphone**                | 78%           | IFT      |
+| **Régimen RESICO**                        | 4+ millones   | SAT      |
+| **Contribuyentes Activos**                | 82 millones   | SAT      |
 
 ### Mercado Potencial (TAM, SAM, SOM)
 
@@ -67,42 +68,46 @@ SOM (Serviceable Obtainable Market - 3 años)
 
 ### Matriz Competitiva
 
-| App | Precio | SAT | IA | Gamificación | Neurociencia | Offline | Open Source |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Nuestro Proyecto** | Freemium | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Finerio | Gratis | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Monefy | $49/mes | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Contabilizate | $199/mes | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| ASPEL COI | $3,500/lic | ✅ | ❌ | ❌ | ❌ | ✅ | ❌ |
-| QuickBooks MX | $299/mes | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Conta365 | $199/mes | ✅ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| YNAB | $99 USD/año | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Mint (discontinuado) | Gratis | ❌ | ❌ | ❌ | ❌ | ❌ | ❌ |
-| Wallet by BudgetBakers | $49/año | ❌ | ❌ | ❌ | ❌ | ✅ | ❌ |
+| App                    |   Precio    | SAT | IA  | Gamificación | Neurociencia | Offline | Open Source |
+| :--------------------- | :---------: | :-: | :-: | :----------: | :----------: | :-----: | :---------: |
+| **Nuestro Proyecto**   |  Freemium   | ✅  | ✅  |      ✅      |      ✅      |   ✅    |     ✅      |
+| Finerio                |   Gratis    | ❌  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| Monefy                 |   $49/mes   | ❌  | ❌  |      ❌      |      ❌      |   ✅    |     ❌      |
+| Contabilizate          |  $199/mes   | ✅  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| ASPEL COI              | $3,500/lic  | ✅  | ❌  |      ❌      |      ❌      |   ✅    |     ❌      |
+| QuickBooks MX          |  $299/mes   | ✅  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| Conta365               |  $199/mes   | ✅  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| YNAB                   | $99 USD/año | ❌  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| Mint (discontinuado)   |   Gratis    | ❌  | ❌  |      ❌      |      ❌      |   ❌    |     ❌      |
+| Wallet by BudgetBakers |   $49/año   | ❌  | ❌  |      ❌      |      ❌      |   ✅    |     ❌      |
 
 > **🧠 Diferenciador clave:** Somos la única app que aplica neurociencias (cognitiva, afectiva, del desarrollo y neuropsicología) al diseño de experiencia financiera.
 
 ### Análisis Detallado por Competidor
 
 #### 1. **Finerio** (Finanzas Personales)
+
 - **Fortalezas:** Gratis, conexión bancaria, interfaz limpia
 - **Debilidades:** Sin SAT, sin gamificación, requiere conexión constante
 - **Modelo:** Monetizan con datos agregados
 - **Oportunidad:** Usuarios migrarán si ofrecemos SAT + gamificación
 
 #### 2. **ASPEL COI/NOI** (Contabilidad Empresarial)
+
 - **Fortalezas:** Dominio del mercado PyME mexicano, cumplimiento SAT
 - **Debilidades:** Software legacy, UX anticuada, costoso
 - **Modelo:** Licencia perpetua + soporte anual
 - **Oportunidad:** Modernizar experiencia con mismo cumplimiento
 
 #### 3. **QuickBooks México** (Contabilidad Cloud)
+
 - **Fortalezas:** Marca global, integraciones, soporte 24/7
 - **Debilidades:** Costoso, curva de aprendizaje, pensado para USA
 - **Modelo:** SaaS mensual
 - **Oportunidad:** Más barato y localizado para México
 
 #### 4. **Contpaqi** (Contabilidad Empresarial)
+
 - **Fortalezas:** Líder en PyMEs, cumplimiento SAT total
 - **Debilidades:** Muy técnico, requiere contador, caro
 - **Modelo:** Licencias + suscripción
@@ -113,40 +118,44 @@ SOM (Serviceable Obtainable Market - 3 años)
 ## 📊 ANÁLISIS FODA
 
 ### Fortalezas (Strengths)
-| # | Fortaleza | Impacto |
-| :---: | :--- | :---: |
-| F1 | **Cumplimiento SAT nativo** (CFDI, RESICO) | 🔴 Alto |
-| F2 | **IA local** sin costos de API externos | 🔴 Alto |
-| F3 | **Gamificación** para engagement | 🟡 Medio |
-| F4 | **100% Open Source** - confianza | 🔴 Alto |
-| F5 | **Offline-first** - funciona sin internet | 🟡 Medio |
-| F6 | **Diseño mexicano** - UX localizada | 🟡 Medio |
-| F7 | **Freemium real** - funciones útiles gratis | 🔴 Alto |
+
+|  #  | Fortaleza                                   | Impacto  |
+| :-: | :------------------------------------------ | :------: |
+| F1  | **Cumplimiento SAT nativo** (CFDI, RESICO)  | 🔴 Alto  |
+| F2  | **IA local** sin costos de API externos     | 🔴 Alto  |
+| F3  | **Gamificación** para engagement            | 🟡 Medio |
+| F4  | **100% Open Source** - confianza            | 🔴 Alto  |
+| F5  | **Offline-first** - funciona sin internet   | 🟡 Medio |
+| F6  | **Diseño mexicano** - UX localizada         | 🟡 Medio |
+| F7  | **Freemium real** - funciones útiles gratis | 🔴 Alto  |
 
 ### Debilidades (Weaknesses)
-| # | Debilidad | Mitigación |
-| :---: | :--- | :--- |
-| D1 | **Nuevo en mercado** - sin marca | Marketing de contenido, SEO |
-| D2 | **Recursos limitados** - startup | Open source + comunidad |
-| D3 | **Sin conexión bancaria** (inicial) | Roadmap fase 2 |
-| D4 | **Solo web** (inicial) | PWA + app nativa fase 2 |
+
+|  #  | Debilidad                           | Mitigación                  |
+| :-: | :---------------------------------- | :-------------------------- |
+| D1  | **Nuevo en mercado** - sin marca    | Marketing de contenido, SEO |
+| D2  | **Recursos limitados** - startup    | Open source + comunidad     |
+| D3  | **Sin conexión bancaria** (inicial) | Roadmap fase 2              |
+| D4  | **Solo web** (inicial)              | PWA + app nativa fase 2     |
 
 ### Oportunidades (Opportunities)
-| # | Oportunidad | Timeline |
-| :---: | :--- | :---: |
-| O1 | **4M+ en RESICO** necesitan herramientas | Inmediato |
-| O2 | **Facturación 4.0** obligatoria | 2024+ |
-| O3 | **Educación financiera** trending | Continuo |
-| O4 | **Insatisfacción con ASPEL** | Inmediato |
-| O5 | **IA democratizada** - diferenciador | 2024-2025 |
+
+|  #  | Oportunidad                              | Timeline  |
+| :-: | :--------------------------------------- | :-------: |
+| O1  | **4M+ en RESICO** necesitan herramientas | Inmediato |
+| O2  | **Facturación 4.0** obligatoria          |   2024+   |
+| O3  | **Educación financiera** trending        | Continuo  |
+| O4  | **Insatisfacción con ASPEL**             | Inmediato |
+| O5  | **IA democratizada** - diferenciador     | 2024-2025 |
 
 ### Amenazas (Threats)
-| # | Amenaza | Estrategia |
-| :---: | :--- | :--- |
-| A1 | **Bancos lanzan apps** similares | Nicho SAT + gamificación |
-| A2 | **Cambios regulatorios** SAT | Arquitectura flexible |
-| A3 | **Competidor con más recursos** | Comunidad + nicho |
-| A4 | **Brechas de seguridad** | Auditorías constantes |
+
+|  #  | Amenaza                          | Estrategia               |
+| :-: | :------------------------------- | :----------------------- |
+| A1  | **Bancos lanzan apps** similares | Nicho SAT + gamificación |
+| A2  | **Cambios regulatorios** SAT     | Arquitectura flexible    |
+| A3  | **Competidor con más recursos**  | Comunidad + nicho        |
+| A4  | **Brechas de seguridad**         | Auditorías constantes    |
 
 ---
 
@@ -170,15 +179,15 @@ SOM (Serviceable Obtainable Market - 3 años)
 
 ### Tabla de Diferenciadores
 
-| Diferenciador | Nosotros | Competencia |
-| :--- | :--- | :--- |
-| **SAT + Finanzas Personales** | ✅ Integrado | Separado |
-| **IA sin costo extra** | ✅ Local (Gemma) | ❌ o API cara |
-| **Gamificación financiera** | ✅ Logros, niveles, streaks | ❌ Inexistente |
-| **Open Source** | ✅ 100% código abierto | ❌ Propietario |
-| **Offline capable** | ✅ PWA + IndexedDB | ❌ Requiere internet |
-| **Precio** | Freemium ($0-$99) | $199-$3500/año |
-| **Privacidad** | ✅ Datos locales | ❌ En sus servers |
+| Diferenciador                 | Nosotros                    | Competencia          |
+| :---------------------------- | :-------------------------- | :------------------- |
+| **SAT + Finanzas Personales** | ✅ Integrado                | Separado             |
+| **IA sin costo extra**        | ✅ Local (Gemma)            | ❌ o API cara        |
+| **Gamificación financiera**   | ✅ Logros, niveles, streaks | ❌ Inexistente       |
+| **Open Source**               | ✅ 100% código abierto      | ❌ Propietario       |
+| **Offline capable**           | ✅ PWA + IndexedDB          | ❌ Requiere internet |
+| **Precio**                    | Freemium ($0-$99)           | $199-$3500/año       |
+| **Privacidad**                | ✅ Datos locales            | ❌ En sus servers    |
 
 ---
 
@@ -199,13 +208,13 @@ graph LR
 
 ### Métricas de Tendencia
 
-| Tendencia | Crecimiento | Impacto en Proyecto |
-| :--- | :---: | :--- |
-| **RESICO contribuyentes** | +20% anual | 🔴 Alto - más usuarios |
-| **Facturación 4.0** | Obligatoria | 🔴 Crítico - necesidad |
-| **Apps finanzas** | +15% usuarios | 🟡 Medio - competencia |
-| **IA en finanzas** | +40% adopción | 🔴 Alto - diferenciador |
-| **Privacidad datos** | Creciente | 🔴 Alto - ventaja open source |
+| Tendencia                 |  Crecimiento  | Impacto en Proyecto           |
+| :------------------------ | :-----------: | :---------------------------- |
+| **RESICO contribuyentes** |  +20% anual   | 🔴 Alto - más usuarios        |
+| **Facturación 4.0**       |  Obligatoria  | 🔴 Crítico - necesidad        |
+| **Apps finanzas**         | +15% usuarios | 🟡 Medio - competencia        |
+| **IA en finanzas**        | +40% adopción | 🔴 Alto - diferenciador       |
+| **Privacidad datos**      |   Creciente   | 🔴 Alto - ventaja open source |
 
 ---
 
@@ -213,21 +222,21 @@ graph LR
 
 ### Para Nuevos Competidores
 
-| Barrera | Dificultad | Nuestra Posición |
-| :--- | :---: | :--- |
-| **Cumplimiento SAT** | 🔴 Alta | Ya implementado |
-| **Desarrollo de IA** | 🔴 Alta | EmbeddingGemma local |
-| **Comunidad Open Source** | 🟡 Media | Construyendo |
-| **Confianza del usuario** | 🔴 Alta | Transparencia código |
-| **Integraciones bancarias** | 🔴 Alta | Roadmap fase 2 |
+| Barrera                     | Dificultad | Nuestra Posición     |
+| :-------------------------- | :--------: | :------------------- |
+| **Cumplimiento SAT**        |  🔴 Alta   | Ya implementado      |
+| **Desarrollo de IA**        |  🔴 Alta   | EmbeddingGemma local |
+| **Comunidad Open Source**   |  🟡 Media  | Construyendo         |
+| **Confianza del usuario**   |  🔴 Alta   | Transparencia código |
+| **Integraciones bancarias** |  🔴 Alta   | Roadmap fase 2       |
 
 ### Para Nosotros
 
-| Barrera | Estrategia |
-| :--- | :--- |
-| **Marca desconocida** | SEO, content marketing, comunidad |
-| **Recursos limitados** | Open source contributors |
-| **Soporte técnico** | Documentación + comunidad |
+| Barrera                | Estrategia                        |
+| :--------------------- | :-------------------------------- |
+| **Marca desconocida**  | SEO, content marketing, comunidad |
+| **Recursos limitados** | Open source contributors          |
+| **Soporte técnico**    | Documentación + comunidad         |
 
 ---
 
@@ -280,20 +289,20 @@ graph LR
 
 ### Escenario Conservador (3 años)
 
-| Año | Usuarios Gratis | Usuarios Premium | MRR |
-| :---: | :---: | :---: | :---: |
-| Año 1 | 10,000 | 200 (2%) | $10,000 USD |
-| Año 2 | 50,000 | 1,500 (3%) | $75,000 USD |
-| Año 3 | 150,000 | 6,000 (4%) | $300,000 USD |
+|  Año  | Usuarios Gratis | Usuarios Premium |     MRR      |
+| :---: | :-------------: | :--------------: | :----------: |
+| Año 1 |     10,000      |     200 (2%)     | $10,000 USD  |
+| Año 2 |     50,000      |    1,500 (3%)    | $75,000 USD  |
+| Año 3 |     150,000     |    6,000 (4%)    | $300,000 USD |
 
 ### Métricas Objetivo
 
-| Métrica | Año 1 | Año 2 | Año 3 |
-| :--- | :---: | :---: | :---: |
-| **CAC** (Costo Adq. Cliente) | $5 USD | $4 USD | $3 USD |
-| **LTV** (Lifetime Value) | $150 USD | $200 USD | $250 USD |
-| **Churn Rate** | 8% | 6% | 4% |
-| **NPS** | 40 | 50 | 60 |
+| Métrica                      |  Año 1   |  Año 2   |  Año 3   |
+| :--------------------------- | :------: | :------: | :------: |
+| **CAC** (Costo Adq. Cliente) |  $5 USD  |  $4 USD  |  $3 USD  |
+| **LTV** (Lifetime Value)     | $150 USD | $200 USD | $250 USD |
+| **Churn Rate**               |    8%    |    6%    |    4%    |
+| **NPS**                      |    40    |    50    |    60    |
 
 ---
 

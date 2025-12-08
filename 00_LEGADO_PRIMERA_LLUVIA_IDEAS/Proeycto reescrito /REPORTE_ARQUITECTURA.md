@@ -12,6 +12,7 @@
 ### 1. **Clean Architecture Implementada (100%)**
 
 #### **Domain Layer** - Lógica de Negocio Pura
+
 ```
 ✅ entities/subscription.dart (160 líneas)
    - Entidad inmutable con Equatable
@@ -31,6 +32,7 @@
 ```
 
 #### **Data Layer** - Implementación
+
 ```
 ✅ models/subscription_model.dart (156 líneas)
    - DTO con mappers bidireccionales
@@ -58,6 +60,7 @@
 ```
 
 #### **Presentation Layer** - UI State Management
+
 ```
 ✅ controllers/subscriptions_controller.dart (107 líneas)
    - Riverpod Notifier (API moderna 3.x)
@@ -103,23 +106,28 @@
 ## 📐 Principios SOLID Aplicados
 
 ### ✅ **S** - Single Responsibility
+
 - **Ejemplo**: `GetSubscriptions` → Solo obtiene suscripciones
 - **Ejemplo**: `SubscriptionLocalDataSource` → Solo accede a Drift
 - **Resultado**: 21 archivos, cada uno con responsabilidad clara
 
 ### ✅ **O** - Open/Closed
+
 - **Ejemplo**: Agregar `SubscriptionRemoteDataSource` sin modificar código existente
 - **Resultado**: Fácil extensión (agregar API, Firebase, etc.)
 
 ### ✅ **L** - Liskov Substitution
+
 - **Ejemplo**: `SubscriptionRepositoryImpl` reemplaza `SubscriptionRepository`
 - **Resultado**: Polimorfismo correcto en toda la app
 
 ### ✅ **I** - Interface Segregation
+
 - **Ejemplo**: `SubscriptionLocalDataSource` vs `SubscriptionRemoteDataSource`
 - **Resultado**: Interfaces específicas, no monolíticas
 
 ### ✅ **D** - Dependency Inversion
+
 - **Ejemplo**: Domain no depende de Data, solo de abstracciones
 - **Resultado**: Testeable, modular, mantenible
 
@@ -127,19 +135,20 @@
 
 ## 🏗️ Arquitectura en Números
 
-| Capa | Archivos | Líneas de Código | Responsabilidad |
-|------|----------|------------------|-----------------|
-| **Domain** | 3 | 305 | Lógica de negocio pura |
-| **Data** | 5 | 769 | Persistencia + API |
-| **Presentation** | 1 | 107 | UI State Management |
-| **Core** | 3 | 190 | Infraestructura compartida |
-| **TOTAL** | **21** | **~1,400** | **Clean Architecture** |
+| Capa             | Archivos | Líneas de Código | Responsabilidad            |
+| ---------------- | -------- | ---------------- | -------------------------- |
+| **Domain**       | 3        | 305              | Lógica de negocio pura     |
+| **Data**         | 5        | 769              | Persistencia + API         |
+| **Presentation** | 1        | 107              | UI State Management        |
+| **Core**         | 3        | 190              | Infraestructura compartida |
+| **TOTAL**        | **21**   | **~1,400**       | **Clean Architecture**     |
 
 ---
 
 ## 🧪 Testability Score: 95/100
 
 ### ✅ **Unit Tests Ready** (Domain Layer)
+
 ```dart
 // Fácil de testear - Sin dependencias externas
 test('Should calculate annual cost for monthly subscription', () {
@@ -153,19 +162,21 @@ test('Should calculate annual cost for monthly subscription', () {
 ```
 
 ### ✅ **Repository Tests Ready** (Data Layer)
+
 ```dart
 // Mockeable con mocktail
 test('Should return subscriptions from local datasource', () async {
   when(() => mockLocalDataSource.getSubscriptions())
       .thenAnswer((_) async => [testSubscriptionModel]);
-  
+
   final result = await repository.getSubscriptions();
-  
+
   expect(result.isRight(), true);
 });
 ```
 
 ### ✅ **Widget Tests Ready** (Presentation Layer)
+
 ```dart
 // Riverpod overrides para testing
 testWidgets('Should show loading state', (tester) async {
@@ -179,7 +190,7 @@ testWidgets('Should show loading state', (tester) async {
       child: MaterialApp(home: SubscriptionsPage()),
     ),
   );
-  
+
   expect(find.byType(CircularProgressIndicator), findsOneWidget);
 });
 ```
@@ -189,21 +200,25 @@ testWidgets('Should show loading state', (tester) async {
 ## 🚀 Mantenibilidad a 3+ Años
 
 ### **Escenario 1: Cambiar de Drift a Isar**
+
 - ✅ Solo modificar `SubscriptionLocalDataSourceImpl`
 - ✅ Domain y Presentation NO se tocan
 - ✅ Tiempo estimado: 2-4 horas
 
 ### **Escenario 2: Agregar API REST**
+
 - ✅ Crear `SubscriptionRemoteDataSource`
 - ✅ Actualizar `SubscriptionRepositoryImpl`
 - ✅ Tiempo estimado: 4-6 horas
 
 ### **Escenario 3: Migrar a Riverpod 4.x**
+
 - ✅ Solo actualizar providers y controllers
 - ✅ Domain layer permanece igual
 - ✅ Tiempo estimado: 1-2 horas
 
 ### **Escenario 4: Nuevo feature (Goals)**
+
 - ✅ Copiar estructura de Subscriptions
 - ✅ Reemplazar entidad
 - ✅ Tiempo estimado: 6-8 horas (feature completo)
@@ -223,10 +238,11 @@ Total issues: 118 (todas no-bloqueantes)
 ```
 
 ### **Warnings Restantes (no críticos)**
+
 1. `strict_raw_type` - List sin tipo explícito en Failure (cosmético)
 2. `inference_failure_on_instance_creation` - Future.delayed sin tipo (minor)
 3. `unused_local_variable` - Variable theme en dashboard (cleanup pendiente)
-4-5. `unintended_html_in_doc_comment` - Comentarios doc (cosmético)
+   4-5. `unintended_html_in_doc_comment` - Comentarios doc (cosmético)
 
 ---
 
@@ -260,6 +276,7 @@ Total issues: 118 (todas no-bloqueantes)
 ## 🎯 Siguientes Pasos Recomendados
 
 ### **Prioridad Alta** (Esta semana)
+
 1. ✅ Crear UI de suscripciones
    - `SubscriptionsPage` con lista
    - `SubscriptionCard` widget reutilizable
@@ -275,6 +292,7 @@ Total issues: 118 (todas no-bloqueantes)
    - Búsqueda por nombre
 
 ### **Prioridad Media** (Próximas 2 semanas)
+
 4. ⏳ Conectar con backend (NestJS)
    - `SubscriptionRemoteDataSource`
    - Sincronización local ↔ remoto
@@ -290,6 +308,7 @@ Total issues: 118 (todas no-bloqueantes)
    - Repository
 
 ### **Prioridad Baja** (Siguiente mes)
+
 7. ⏳ Features de psicología
    - Jardín Financiero
    - Retos 21 días
@@ -303,6 +322,7 @@ Total issues: 118 (todas no-bloqueantes)
 ## 💡 Aprendizajes Técnicos
 
 ### **Riverpod 3.x - Notifier API**
+
 ```dart
 // ✅ CORRECTO (2025)
 final provider = NotifierProvider<MyNotifier, MyState>(MyNotifier.new);
@@ -317,6 +337,7 @@ final provider = StateNotifierProvider<MyNotifier, MyState>(...);
 ```
 
 ### **Drift Type-Safety**
+
 ```dart
 // ✅ Compile-time safety
 final subs = await select(subscriptions).get();  // Type: List<SubscriptionData>
@@ -326,6 +347,7 @@ final subs = await db.query('subscriptions');  // Type: List<Map<String, dynamic
 ```
 
 ### **Dartz Either Pattern**
+
 ```dart
 // ✅ Error handling funcional
 final result = await repository.getSubscriptions();
@@ -353,7 +375,7 @@ try {
 ✅ **Testeable** - 95% de código mockeable  
 ✅ **Documentado** - 1,080 líneas de docs  
 ✅ **Escalable** - Fácil agregar features  
-✅ **Mantenible** - Clean Architecture permite 3+ años  
+✅ **Mantenible** - Clean Architecture permite 3+ años
 
 ---
 

@@ -1,4 +1,5 @@
 # 📦 GESTIÓN DE ENTORNOS
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Versión:** 1.0  
 **Fecha:** 29 Noviembre 2025
@@ -53,6 +54,7 @@
 ## 🔐 VARIABLES DE ENTORNO
 
 ### Archivo `.env.example`
+
 ```bash
 # ================================
 # AMBIENTE
@@ -119,34 +121,37 @@ API_URL=http://localhost:4000
 ## 📋 CONFIGURACIÓN POR ENTORNO
 
 ### Development (Local)
-| Variable | Valor |
-|----------|-------|
-| NODE_ENV | development |
-| DATABASE_URL | postgresql://finanzas:dev123@localhost:5432/finanzas_dev |
-| REDIS_URL | redis://localhost:6379 |
-| AUTH_SECRET | dev-secret-no-usar-en-prod |
-| LOG_LEVEL | debug |
-| STRIPE_SECRET_KEY | sk_test_... |
+
+| Variable          | Valor                                                    |
+| ----------------- | -------------------------------------------------------- |
+| NODE_ENV          | development                                              |
+| DATABASE_URL      | postgresql://finanzas:dev123@localhost:5432/finanzas_dev |
+| REDIS_URL         | redis://localhost:6379                                   |
+| AUTH_SECRET       | dev-secret-no-usar-en-prod                               |
+| LOG_LEVEL         | debug                                                    |
+| STRIPE_SECRET_KEY | sk*test*...                                              |
 
 ### Staging
-| Variable | Valor |
-|----------|-------|
-| NODE_ENV | staging |
-| DATABASE_URL | postgresql://...@staging-db:5432/finanzas_staging |
-| REDIS_URL | redis://staging-redis:6379 |
-| AUTH_SECRET | (secreto staging) |
-| LOG_LEVEL | info |
-| STRIPE_SECRET_KEY | sk_test_... |
+
+| Variable          | Valor                                             |
+| ----------------- | ------------------------------------------------- |
+| NODE_ENV          | staging                                           |
+| DATABASE_URL      | postgresql://...@staging-db:5432/finanzas_staging |
+| REDIS_URL         | redis://staging-redis:6379                        |
+| AUTH_SECRET       | (secreto staging)                                 |
+| LOG_LEVEL         | info                                              |
+| STRIPE_SECRET_KEY | sk*test*...                                       |
 
 ### Production
-| Variable | Valor |
-|----------|-------|
-| NODE_ENV | production |
-| DATABASE_URL | postgresql://...@prod-db:5432/finanzas_prod |
-| REDIS_URL | redis://prod-redis:6379 |
-| AUTH_SECRET | (secreto producción - 64 chars) |
-| LOG_LEVEL | warn |
-| STRIPE_SECRET_KEY | sk_live_... |
+
+| Variable          | Valor                                       |
+| ----------------- | ------------------------------------------- |
+| NODE_ENV          | production                                  |
+| DATABASE_URL      | postgresql://...@prod-db:5432/finanzas_prod |
+| REDIS_URL         | redis://prod-redis:6379                     |
+| AUTH_SECRET       | (secreto producción - 64 chars)             |
+| LOG_LEVEL         | warn                                        |
+| STRIPE_SECRET_KEY | sk*live*...                                 |
 
 ---
 
@@ -182,18 +187,21 @@ bun run rollback:prod    # Revertir última migración
 ## 🔒 SEGURIDAD DE SECRETOS
 
 ### ❌ NUNCA HACER
+
 - Subir `.env` a Git
 - Hardcodear secretos en código
 - Compartir secretos por chat/email
 - Usar mismos secretos en todos los ambientes
 
 ### ✅ SIEMPRE HACER
+
 - Usar `.env.example` sin valores reales
 - Secretos diferentes por ambiente
 - Rotar secretos periódicamente
 - Usar gestor de secretos (1Password, Vault)
 
 ### Gestores Recomendados
+
 1. **Development:** `.env` local (nunca en git)
 2. **CI/CD:** GitHub Secrets (solo para tokens de webhook)
 3. **Staging/Production:** **Dokploy Environment Variables** (panel visual)
@@ -233,11 +241,11 @@ bun run rollback:prod    # Revertir última migración
 
 ### Conceptos
 
-| Estrategia | Descripción | Cuándo Usar |
-|:-----------|:------------|:------------|
-| **Blue-Green** | Dos entornos idénticos, cambio instantáneo | Cambios grandes, necesitas rollback inmediato |
-| **Canary** | Despliegue gradual (10% → 50% → 100%) | Cambios arriesgados, quieres probar con usuarios reales |
-| **Rolling** | Actualización progresiva de instancias | Default de Docker Swarm |
+| Estrategia     | Descripción                                | Cuándo Usar                                             |
+| :------------- | :----------------------------------------- | :------------------------------------------------------ |
+| **Blue-Green** | Dos entornos idénticos, cambio instantáneo | Cambios grandes, necesitas rollback inmediato           |
+| **Canary**     | Despliegue gradual (10% → 50% → 100%)      | Cambios arriesgados, quieres probar con usuarios reales |
+| **Rolling**    | Actualización progresiva de instancias     | Default de Docker Swarm                                 |
 
 ### Arquitectura Blue-Green
 
@@ -289,6 +297,7 @@ bun run rollback:prod    # Revertir última migración
 ### Implementación con Traefik (ya en stack)
 
 **Archivo de configuración dinámica:**
+
 ```yaml
 # filepath: docker/traefik/dynamic/canary.yml
 http:
@@ -298,9 +307,9 @@ http:
       weighted:
         services:
           - name: app-blue
-            weight: 90    # 90% del tráfico a versión estable
+            weight: 90 # 90% del tráfico a versión estable
           - name: app-green
-            weight: 10    # 10% del tráfico a canary
+            weight: 10 # 10% del tráfico a canary
 
     app-blue:
       loadBalancer:
@@ -333,6 +342,7 @@ http:
 ### Scripts de Deployment
 
 **Canary Deploy (10%):**
+
 ```bash
 #!/bin/bash
 # filepath: scripts/canary-deploy.sh
@@ -375,6 +385,7 @@ echo "📝 Comando para promocionar: ./scripts/promote-canary.sh ${NEW_VERSION}"
 ```
 
 **Promoción completa (100%):**
+
 ```bash
 #!/bin/bash
 # filepath: scripts/promote-canary.sh
@@ -404,6 +415,7 @@ echo "✅ v${NEW_VERSION} ahora es producción (100% en blue)"
 ```
 
 **Rollback de emergencia:**
+
 ```bash
 #!/bin/bash
 # filepath: scripts/rollback-canary.sh
@@ -435,18 +447,19 @@ echo "✅ Rollback completado. Todo el tráfico en versión estable."
 
 ### Métricas a Monitorear Durante Canary
 
-| Métrica | Umbral de Rollback | Herramienta |
-|:--------|:-------------------|:------------|
-| Error rate | > 1% | Sentry / Grafana |
-| Latencia p95 | > 500ms | Prometheus |
-| Memory usage | > 85% | Dokploy / Grafana |
-| HTTP 5xx | > 10/min | Traefik metrics |
+| Métrica      | Umbral de Rollback | Herramienta       |
+| :----------- | :----------------- | :---------------- |
+| Error rate   | > 1%               | Sentry / Grafana  |
+| Latencia p95 | > 500ms            | Prometheus        |
+| Memory usage | > 85%              | Dokploy / Grafana |
+| HTTP 5xx     | > 10/min           | Traefik metrics   |
 
 ---
 
 ## 📊 CHECKLIST POR AMBIENTE
 
 ### Antes de ir a Staging
+
 - [ ] Todos los tests pasan
 - [ ] No hay console.log
 - [ ] Variables de entorno configuradas
@@ -454,6 +467,7 @@ echo "✅ Rollback completado. Todo el tráfico en versión estable."
 - [ ] Code review aprobado
 
 ### Antes de ir a Production
+
 - [ ] Staging funcionó 48h sin errores
 - [ ] Tests E2E en staging pasaron
 - [ ] Backup de BD actual
@@ -462,6 +476,7 @@ echo "✅ Rollback completado. Todo el tráfico en versión estable."
 - [ ] Monitoring configurado
 
 ### Antes de Canary Deploy
+
 - [ ] Feature flags configurados (si aplica)
 - [ ] Métricas baseline documentadas
 - [ ] Tiempo de observación definido (mínimo 30 min)
@@ -470,5 +485,5 @@ echo "✅ Rollback completado. Todo el tráfico en versión estable."
 
 ---
 
-*Cada ambiente tiene su propósito. Respétalos.*  
-*Actualizado: 7 Diciembre 2025 - Agregada sección Blue-Green/Canary*
+_Cada ambiente tiene su propósito. Respétalos._  
+_Actualizado: 7 Diciembre 2025 - Agregada sección Blue-Green/Canary_

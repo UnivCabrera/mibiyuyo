@@ -1,4 +1,5 @@
 # CLÁUSULAS DE PROTECCIÓN DE DATOS PARA CONTRATOS
+
 ## Anexo de Privacidad para Empleados y Proveedores
 
 Estas cláusulas deben insertarse en los contratos laborales y de prestación de servicios para blindar legalmente a la empresa.
@@ -11,6 +12,7 @@ Estas cláusulas deben insertarse en los contratos laborales y de prestación de
 EL TRABAJADOR reconoce que, en desempeño de sus funciones, tendrá acceso a Datos Personales, Datos Financieros y Secretos Industriales propiedad de LA EMPRESA o de sus CLIENTES (en adelante "INFORMACIÓN CONFIDENCIAL").
 
 EL TRABAJADOR se obliga a:
+
 1.  Mantener la más estricta confidencialidad sobre la INFORMACIÓN CONFIDENCIAL.
 2.  Utilizar dicha información única y exclusivamente para el cumplimiento de sus funciones laborales.
 3.  No divulgar, copiar, sustraer o transferir la información a terceros sin autorización por escrito.
@@ -21,12 +23,14 @@ El incumplimiento de esta cláusula será causal de rescisión de la relación l
 ---
 
 ## 2. CLÁUSULA PARA PROVEEDORES (ENCARGADOS DEL TRATAMIENTO)
-*(Ej. Desarrolladores externos, Agencias de Marketing, Consultores)*
+
+_(Ej. Desarrolladores externos, Agencias de Marketing, Consultores)_
 
 **CLÁUSULA DE PROTECCIÓN DE DATOS PERSONALES (ENCARGADO).**
 Para efectos de la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP), EL PROVEEDOR actuará en carácter de ENCARGADO y LA EMPRESA como RESPONSABLE.
 
 EL PROVEEDOR se obliga a:
+
 1.  Tratar los datos personales únicamente conforme a las instrucciones de LA EMPRESA.
 2.  No utilizar los datos para fines distintos a los pactados en este contrato.
 3.  Implementar las medidas de seguridad administrativas, técnicas y físicas necesarias para proteger los datos.

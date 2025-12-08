@@ -1,0 +1,84 @@
+# =============================================================================
+# 📝 MARKDOWNLINT CI/CD WORKFLOW
+# =============================================================================
+# Proyecto: PRO_FINAN_CONTA_PYM - FinTech SaaS México
+# Propósito: Validar calidad de documentación Markdown en cada PR/push
+# Documentación: https://github.com/DavidAnson/markdownlint-cli2-action
+# =============================================================================
+
+name: 📝 Lint Markdown
+
+on:
+  # Ejecutar en push a main
+  push:
+    branches: [main, develop]
+    paths:
+      - '**/*.md'
+      - '.markdownlint.jsonc'
+      - '.markdownlint-cli2.jsonc'
+  
+  # Ejecutar en Pull Requests
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - '**/*.md'
+      - '.markdownlint.jsonc'
+      - '.markdownlint-cli2.jsonc'
+  
+  # Permitir ejecución manual
+  workflow_dispatch:
+
+jobs:
+  markdownlint:
+    name: 🔍 Lint Markdown Files
+    runs-on: ubuntu-latest
+    
+    steps:
+      # ─────────────────────────────────────────────────────────────────────
+      # 1. Checkout del repositorio
+      # ─────────────────────────────────────────────────────────────────────
+      - name: 📥 Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Full history para mejor análisis
+
+      # ─────────────────────────────────────────────────────────────────────
+      # 2. Ejecutar markdownlint-cli2
+      # ─────────────────────────────────────────────────────────────────────
+      - name: 📝 Run markdownlint
+        uses: DavidAnson/markdownlint-cli2-action@v19
+        with:
+          # Usar configuración del proyecto
+          config: '.markdownlint-cli2.jsonc'
+          
+          # Archivos a lint (respeta ignores del config)
+          globs: |
+            **/*.md
+            !node_modules/**
+            !00_LEGADO_PRIMERA_LLUVIA_IDEAS/**
+            !.git/**
+
+      # ─────────────────────────────────────────────────────────────────────
+      # 3. Resumen del resultado
+      # ─────────────────────────────────────────────────────────────────────
+      - name: ✅ Lint Summary
+        if: success()
+        run: |
+          echo "## ✅ Markdown Linting Passed!" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "All Markdown files comply with project standards." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Configuration:** \`.markdownlint.jsonc\`" >> $GITHUB_STEP_SUMMARY
+
+      - name: ❌ Lint Failed Summary
+        if: failure()
+        run: |
+          echo "## ❌ Markdown Linting Failed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Some Markdown files have issues. Please fix them before merging." >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔧 How to fix locally:" >> $GITHUB_STEP_SUMMARY
+          echo "1. Open VS Code in the project" >> $GITHUB_STEP_SUMMARY
+          echo "2. Press \`Ctrl+Shift+P\` → \`markdownlint: Lint Workspace\`" >> $GITHUB_STEP_SUMMARY
+          echo "3. Fix issues shown in the Problems panel" >> $GITHUB_STEP_SUMMARY
+          echo "4. Or use auto-fix: \`Ctrl+Shift+P\` → \`Format Document\`" >> $GITHUB_STEP_SUMMARY

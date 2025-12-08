@@ -34,11 +34,13 @@ Esta guía tiene como objetivo proporcionar un enfoque paso a paso para la insta
      ```
 
 2. **Actualiza el sistema**:
+
    ```bash
    sudo apt update && sudo apt upgrade -y
    ```
 
 3. **Instala Docker y Docker Compose**:
+
    ```bash
    sudo apt install docker.io
    sudo systemctl start docker
@@ -47,6 +49,7 @@ Esta guía tiene como objetivo proporcionar un enfoque paso a paso para la insta
    ```
 
 4. **Agrega tu usuario al grupo de Docker**:
+
    ```bash
    sudo usermod -aG docker $USER
    ```
@@ -125,7 +128,7 @@ CMD ["npm", "run", "preview"]
 Crea un archivo `docker-compose.yml` en la raíz del proyecto:
 
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
@@ -171,29 +174,29 @@ chmod +x scripts/deploy.sh
 
 ```javascript
 // server.js
-import express from 'express';
-import { exec } from 'child_process';
+import express from "express";
+import { exec } from "child_process";
 
 const app = express();
 app.use(express.json());
 
-app.post('/webhook', (req, res) => {
-  exec('./scripts/deploy.sh', (error, stdout, stderr) => {
+app.post("/webhook", (req, res) => {
+  exec("./scripts/deploy.sh", (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
-      return res.status(500).send('Error en el despliegue');
+      return res.status(500).send("Error en el despliegue");
     }
     if (stderr) {
       console.error(`stderr: ${stderr}`);
-      return res.status(500).send('Error en el despliegue');
+      return res.status(500).send("Error en el despliegue");
     }
     console.log(`stdout: ${stdout}`);
-    res.status(200).send('Despliegue exitoso');
+    res.status(200).send("Despliegue exitoso");
   });
 });
 
 app.listen(3001, () => {
-  console.log('Servidor de webhook escuchando en el puerto 3001');
+  console.log("Servidor de webhook escuchando en el puerto 3001");
 });
 ```
 

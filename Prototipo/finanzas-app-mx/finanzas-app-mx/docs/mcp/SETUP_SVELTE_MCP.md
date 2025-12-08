@@ -14,6 +14,7 @@ Este documento proporciona una guía paso a paso para instalar y configurar el s
 
 1. **Clonar el Repositorio de Herramientas MCP**:
    Abre tu terminal y ejecuta el siguiente comando para clonar el repositorio de herramientas MCP para Svelte:
+
    ```bash
    git clone https://github.com/tu-usuario/finanzas-app-mx.git
    cd finanzas-app-mx/tools/mcp-svelte-docs
@@ -21,12 +22,14 @@ Este documento proporciona una guía paso a paso para instalar y configurar el s
 
 2. **Instalar Dependencias**:
    Una vez dentro del directorio del proyecto, instala las dependencias necesarias ejecutando:
+
    ```bash
    npm install
    ```
 
 3. **Configurar el Archivo de Configuración**:
    Asegúrate de que el archivo `mcp_config.json` esté correctamente configurado. Este archivo debe contener las rutas y parámetros necesarios para el funcionamiento del servidor MCP. Un ejemplo básico de configuración podría ser:
+
    ```json
    {
      "docsPath": "./src/resources/svelte-docs.ts",
@@ -44,6 +47,7 @@ Este documento proporciona una guía paso a paso para instalar y configurar el s
 ## Acceso a la Documentación
 
 Una vez que el servidor esté en funcionamiento, podrás acceder a la documentación de Svelte a través de tu navegador web. Abre tu navegador y dirígete a:
+
 ```
 http://localhost:3000
 ```

@@ -11,11 +11,11 @@ Additionally, the Redis Community Edition has been renamed to Redis Open Source,
 
 Below is a detailed breakdown of these updates.
 
-New features 
-Vector set [beta] 
+New features
+Vector set [beta]
 The new Vector set data structure supports high-dimensional vector similarity search, which is ideal for AI use cases such as semantic search and recommendation systems. Vector set complements Redis’s existing vector search capabilities via the Query Engine and is currently available in beta. APIs and behaviors may change in future releases.
 
-New hash commands 
+New hash commands
 Redis 8 builds on Redis 7.4’s introduction of field-level expiration in hashes and adds three new commands for working with hashes:
 
 HGETEX: Fetch a hash field and optionally set an expiration
@@ -23,8 +23,8 @@ HSETEX: Set a hash field and optionally set an expiration
 HGETDEL: Fetch and delete a hash field
 These commands simplify common caching and session management usage patterns.
 
-Improvements 
-Redis Query Engine Improvements 
+Improvements
+Redis Query Engine Improvements
 The Redis Query Engine allows users to use Redis as a document database, a vector database, a secondary index, and a search engine. With Redis Query Engine, users can define indexes for hash and JSON documents, and use a rich query language for vector search, full-text search, geospatial queries, and aggregations.
 
 Use cases include:
@@ -34,12 +34,12 @@ Exact Matching: Lookups using filters, tags, and ranges
 Full-Text Search: Supports stemming, synonyms, and fuzzy matching
 The Redis Query Engine powers a wide range of applications, from AI retrieval-augmented generation (RAG) systems to full-featured search engines.
 
-Access Control Improvements 
+Access Control Improvements
 Access Control Lists (ACLs) have been updated to support the new data structures introduced in Redis 8. Existing ACL categories such as @read and @write now include commands for JSON, time series, VECTOR, and probabilistic data structures.
 
 These updates allow for more precise control over which operations users can perform on each data structure.
 
-Performance improvements 
+Performance improvements
 Redis 8 delivers the largest performance leap in Redis history with over 30 optimizations, including:
 
 Up to 87% lower command latency
@@ -47,12 +47,12 @@ Up to 87% lower command latency
 16x more query processing capacity with horizontal and vertical scaling
 These improvements benefit both single-node and clustered deployments. More details are available in the Redis 8 GA blog post.
 
-Changes 
-Breaking changes 
-ACL behavior 
+Changes
+Breaking changes
+ACL behavior
 Commands from included modules are now covered under standard categories (e.g., +@read, +@write). For example, a user with +@all -@write will no longer be able to execute JSON.SET as they could before. Explicit inclusion of new command categories is required to maintain access.
 
-Redis Query Engine 
+Redis Query Engine
 The following changes affect behavior and validation in the Redis Query Engine:
 
 Enforces validation for LIMIT arguments (offset must be 0 if limit is 0).
@@ -64,8 +64,8 @@ Updates to scoring (BM25 is now the default instead of TF-IDF).
 Improved handling of expired records, memory constraints, and malformed fields.
 For a full list of the Redis Query Engine-related changes, see the release notes.
 
-Other changes 
-One Redis 
+Other changes
+One Redis
 Over time, Redis introduced several modules to address new use cases such as search, vector similarity, time series analysis, and probabilistic modeling. While these modules extended Redis’s functionality, managing version compatibility and module installation introduced friction.
 
 Redis Stack partially solved this by bundling modules together, but it also created fragmentation across the ecosystem.
@@ -86,14 +86,14 @@ Enhanced keyspace notifications with new event types
 More than 15 performance and resource utilization improvements
 Below is a detailed breakdown of these updates.
 
-Security improvements 
+Security improvements
 Redis 8.2 includes important security fixes:
 
 CVE-2025-27151: Fixed potential stack overflow and RCE vulnerability in redis-check-aof.
 CVE-2025-32023: Fixed out-of-bounds write vulnerability in HyperLogLog commands.
 CVE-2025-48367: Improved connection handling to retry accepting connections even when errors occur.
-New features 
-Enhanced Redis Streams 
+New features
+Enhanced Redis Streams
 Redis 8.2 introduces powerful new commands that simplify consumer group management and stream lifecycle operations:
 
 XDELEX: Delete entries from streams with advanced consumer group handling options.
@@ -102,7 +102,7 @@ These commands include KEEPREF, DELREF, and ACKED options that give you precise 
 
 The XADD and XTRIM commands have also been extended with these same options, providing consistent behavior across all commands that remove stream entries.
 
-Cluster monitoring improvements 
+Cluster monitoring improvements
 The new CLUSTER SLOT-STATS command provides detailed per-slot usage metrics including:
 
 Key count per slot
@@ -110,10 +110,10 @@ CPU time consumption
 Network ingress and egress
 This enhanced visibility helps you optimize cluster performance and identify hotspots in your data distribution.
 
-Vector search enhancements 
+Vector search enhancements
 The VSIM command now supports the IN operator for filtering expressions, giving you more flexibility when performing vector similarity searches with complex filtering criteria.
 
-Enhanced bitmap operations 
+Enhanced bitmap operations
 Redis 8.2 extends the BITOP command with new operators that provide more sophisticated bit manipulation capabilities:
 
 DIFF: Perform bitwise difference operations between bitmaps.
@@ -122,17 +122,17 @@ ANDOR: Combine AND and OR operations in a single command.
 ONE: Specialized operation for single-bit scenarios.
 These new operators enable more complex bitmap workflows and can simplify operations that previously required multiple commands.
 
-Improved keyspace notifications 
+Improved keyspace notifications
 Redis 8.2 introduces new keyspace notification event types that provide better visibility into data changes:
 
 OVERWRITTEN: Triggered when a key's value is completely overwritten.
 TYPE_CHANGED: Fired when a key's data type changes.
 These events help you build more responsive applications by providing granular notifications about specific types of data modifications.
 
-Improvements 
+Improvements
 Redis 8.2 delivers substantial performance improvements across core operations.
 
-Performance optimizations 
+Performance optimizations
 BITCOUNT: Enhanced with prefetching optimizations for faster bit counting operations.
 SCAN: Optimized to perform expiration checks only on databases with volatile keys, reducing unnecessary overhead.
 List operations: LREM, LPOS, and LINSERT benefit from cached string2ll results in quicklistCompare.
@@ -140,27 +140,27 @@ Sorted set operations: ZRANK and related commands use the same caching optimizat
 Key operations: COPY, RENAME, and RESTORE are optimized when TTL is used.
 Client management: Reduced overhead in client cron operations to avoid blocking the main thread.
 Vector operations: Improved RDB loading and RESTORE speed for vector sets by storing worst link information.
-Memory efficiency improvements 
+Memory efficiency improvements
 JSON data types: Memory footprint improvements through number inlining.
 Memory tracking: Reduced overhead associated with tracking malloc's usable memory.
 Expiry handling: Optimized expiry checks in scan callbacks.
 Vector compression: Additional compression variants for the SVS-VAMANA vector index reduce memory usage.
-Vector search performance 
+Vector search performance
 Redis 8.2 introduces the SHARD_K_RATIO parameter for KNN vector queries in Redis clusters. This unstable feature allows you to favor network latency over accuracy, providing faster responses when exact precision isn't critical.
 
-Enhanced metrics 
+Enhanced metrics
 Redis 8.2 provides new metrics to help you monitor and troubleshoot your Redis instances.
 
-Memory metrics 
+Memory metrics
 used_memory_peak_time: Timestamp when used_memory_peak was reached
-Replication metrics 
+Replication metrics
 master_current_sync_attempts: Number of sync attempts since last disconnection
 master_total_sync_attempts: Total number of sync attempts to master
 master_link_up_since_seconds: Duration since the replication link was established
 total_disconnect_time_sec: Cumulative time the replica has been disconnected
 These metrics provide better visibility into replication health and help you identify patterns in connection stability.
 
-Component versions 
+Component versions
 Redis 8.2 continues the unified distribution approach introduced in Redis 8.0, delivering all functionality in a single Redis Open Source package without separate modules.
 
 Redis 8.4
@@ -178,60 +178,60 @@ High-performance SIMD optimizations for bit operations and vector processing
 Improved JSON handling with better memory efficiency
 Below is a detailed breakdown of these updates.
 
-New features 
-Atomic cluster operations 
+New features
+Atomic cluster operations
 Redis 8.4 introduces the CLUSTER MIGRATION command, which enables atomic slot migration between cluster nodes. This command ensures zero-downtime cluster operations by moving slots and their associated data in a single atomic operation, eliminating the brief unavailability window that previously occurred during slot migrations.
 
-Enhanced string operations 
+Enhanced string operations
 Redis 8.4 extends string manipulation capabilities with powerful new commands that enable atomic compare-and-set operations:
 
 DELEX: Delete a key only if its value matches a specified condition.
 DIGEST: Generate cryptographic digests of key values for integrity verification.
 The SET command now supports atomic compare-and-set and compare-and-delete operations through new extensions, enabling you to implement lock-free data structures and optimistic concurrency control patterns.
 
-Multi-key expiration management 
+Multi-key expiration management
 The new MSETEX command allows you to set multiple keys and update their expiration times in a single atomic operation. This simplifies batch operations where you need to maintain consistent TTL values across related keys.
 
-Advanced stream processing 
+Advanced stream processing
 Redis 8.4 enhances stream processing with the CLAIM min-idle-time option for XREADGROUP. This feature enables consumer groups to automatically claim and process both idle pending entries and new incoming entries in a single operation, simplifying consumer group management and improving processing efficiency.
 
-Hybrid search capabilities 
+Hybrid search capabilities
 The new FT.HYBRID command introduces hybrid queries that combine multiple ranking algorithms using Reciprocal Rank Fusion (RRF) and linear combination methods. This enables you to create sophisticated search experiences that leverage both semantic similarity and traditional text matching.
 
-Enhanced AOF reliability 
+Enhanced AOF reliability
 Redis 8.4 introduces auto-repair options for corrupted AOF (Append Only File) tails during startup. The new aof-load-corrupt-tail-max-size configuration parameter allows Redis to automatically repair minor AOF corruption, improving system resilience and reducing manual intervention requirements.
 
-Improvements 
+Improvements
 Redis 8.4 delivers substantial performance improvements through advanced SIMD optimizations and enhanced algorithms.
 
-Performance optimizations 
+Performance optimizations
 BITCOUNT: Enhanced with AVX2 and AVX512 popcount implementations for x86 architectures, plus Arm Neon SIMD vectorization for ARM processors.
 HyperLogLog: Optimized with branchless comparisons and Arm Neon SIMD vectorization for improved cardinality estimation performance.
 Vector operations: VADD and VSIM commands benefit from AVX2 and AVX512 dot product implementations for faster vector processing.
 Command processing: New lookahead prefetching parses multiple commands in advance through a lookahead pipeline, reducing processing latency.
-Memory efficiency improvements 
+Memory efficiency improvements
 JSON data types: Improved memory footprint through homogeneous array optimization and short string inlining.
 Lua integration: Enhanced JSON array handling with the new decode_array_with_array_mt configuration parameter for better memory utilization.
-Search and indexing enhancements 
+Search and indexing enhancements
 Redis 8.4 introduces several improvements to search functionality:
 
 Default scoring: The new search-default-scorer parameter sets BM25STD as the default text and tag scorer, providing better relevance ranking out of the box.
 OOM handling: The search-on-oom parameter controls query behavior during out-of-memory conditions, with options to ignore, fail, or return partial results.
 Multi-threading: The search-io-threads parameter allows you to configure communication threads for cluster manager coordination, improving search performance in clustered environments.
 Index updates: Search indexes now support updates during atomic slot migrations, maintaining search functionality during cluster operations.
-Enhanced configuration 
+Enhanced configuration
 Redis 8.4 introduces new configuration parameters that give you greater control over system behavior:
 
 lookahead: Runtime-configurable lookahead depth for command prefetching (default: 16)
 aof-load-corrupt-tail-max-size: Maximum corrupted tail size for automatic AOF repair
 decode_array_with_array_mt: Controls how Lua handles empty JSON arrays
-Component versions 
+Component versions
 Redis 8.4 continues the unified distribution approach, delivering all functionality in a single Redis Open Source package without separate modules. This includes:
 
 RedisTimeSeries: Enhanced with HELP and COMMAND DOCS support for time series commands
 RedisBloom: Improved with HELP and COMMAND DOCS support for probabilistic commands
 RediSearch: Advanced hybrid search capabilities and improved cluster coordination
-Known limitations 
+Known limitations
 When using Redis 8.4, be aware of these current limitations:
 
 Search commands (FT.SEARCH, FT.AGGREGATE, FT.CURSOR, FT.HYBRID) and time series commands (TS.MGET, TS.MRANGE, TS.MREVRANGE, TS.QUERYINDEX) may return partial results or duplicates during atomic slot migration.
@@ -246,13 +246,13 @@ Integrated data structures: Redis 8 integrates modules into the core, including 
 New hash commands: Includes HGETEX, HSETEX, and HGETDEL for simpler caching and session management patterns.
 Enhanced ACLs: Access control lists now include commands for new data structures like JSON, TimeSeries, and Vectors, with new categories like @search, @json, and @timeseries.
 Improved Redis Query Engine: Offers significantly more query processing power, with support for both horizontal and vertical scaling.
-New licensing: Redis 8 is available under the AGPLv3 license. 
+New licensing: Redis 8 is available under the AGPLv3 license.
 Performance improvements
 Latency reduction: Up to 87% lower command latency.
 Replication: Up to 18% faster replication.
 Memory savings: Up to 35% memory savings on replica nodes.
 Throughput: Up to 16x more query processing capacity.
-I/O threading: Increases throughput on multi-core systems. 
+I/O threading: Increases throughput on multi-core systems.
 
 Redis 8 is now GA, loaded with new features and more than 30 performance improvements
 May 01, 2025
@@ -270,7 +270,6 @@ Redis 8 is the most performant and scalable version of Redis yet. It has over 30
 This release adds 8 more data structures, including vector set (beta), JSON, time series, and five probabilistic structures, including Bloom filter, cuckoo filter, count-min sketch, top-k, and t-digest (some previously available as separate Redis modules). These new data structures help you solve your current use cases better and build for the next generation of fast and real-time apps.
 
 Additionally, we’ve changed the name of our free product from Redis Community Edition to Redis Open Source to reflect the addition of AGPLv3 as a licensing option.
-
 
 One Redis
 Over the years, we have created new Redis modules that help you build real-time apps for web, mobile, and GenAI faster. However, we’ve heard from many of you how it often becomes confusing figuring out how to get started with modules, especially with matching the right module version to the Redis version. The introduction of Redis Stack helped and saw significant adoption but also introduced fragmentation in the community.
@@ -455,19 +454,19 @@ We've also enhanced memory allocation management for query execution, making the
 
 We also continue to invest in reducing the memory consumption of the JSON data type. In Redis 8.2, we introduced a substantial reduction by inlining numeric values. In Redis 8.4, we also inline short strings (up to 7 bytes). For example, a JSON array with 500 key-value elements, where all keys and values are short strings, would now require 37% less memory:
 
-Map key and values	Redis 8.2 memory	Redis 8.4 memory	Benefit
-Short string (up to 7 bytes)	64,512 bytes	40,624 bytes	37% less memory
+Map key and values Redis 8.2 memory Redis 8.4 memory Benefit
+Short string (up to 7 bytes) 64,512 bytes 40,624 bytes 37% less memory
 But more importantly, we now store homogeneous JSON numeric arrays much more efficiently. Previous to 8.4, for each element in a JSON array, we stored the element’s type and the element’s value. Now, when the array is homogeneous (or in other words—when all the array elements are of the same data type), we store the elements data type just once for the whole array. For an array of numeric values, Redis now automatically determines the most efficient element type (I8, U8, I16, U16, I32, U32, I64, I64, BF16, FP16, FP32, or FP64) that ensures that all the values are within range and can be stored with no loss of accuracy. For example, a JSON array with 1 million numeric values would now require between 50% to 92% less memory:
 
-Array elements	Redis 8.2 memory	Redis 8.4 memory	Benefit
-signed integers [-2^7 .. 2^7) or unsigned integers [0 .. 2^8)	8.42 MB	1.14 MB	87% less memory
-signed integers [-2^15 .. 2^15) or unsigned integers [0 .. 2^16)	8.43 MB	2.19 MB	74% less memory
-signed integers [-2^31 .. 2^31) or unsigned integers [0 .. 2^32)	8.46 MB	4.26 MB	50% less memory
-signed integers [-2^63 .. 2^63) or unsigned integers [0 .. 2^64)	24.46 MB	8.43 MB	66% less memory
-BF16-representable FP values	24.43 MB	2.16 MB	92% less memory
-FP16-representable FP values	24.43 MB	2.19 MB	92% less memory
-FP32-representable FP values	24.46 MB	4.26 MB	83% less memory
-FP64-representable FP values	24.46 MB	8.43 MB	66% less memory
+Array elements Redis 8.2 memory Redis 8.4 memory Benefit
+signed integers [-2^7 .. 2^7) or unsigned integers [0 .. 2^8) 8.42 MB 1.14 MB 87% less memory
+signed integers [-2^15 .. 2^15) or unsigned integers [0 .. 2^16) 8.43 MB 2.19 MB 74% less memory
+signed integers [-2^31 .. 2^31) or unsigned integers [0 .. 2^32) 8.46 MB 4.26 MB 50% less memory
+signed integers [-2^63 .. 2^63) or unsigned integers [0 .. 2^64) 24.46 MB 8.43 MB 66% less memory
+BF16-representable FP values 24.43 MB 2.16 MB 92% less memory
+FP16-representable FP values 24.43 MB 2.19 MB 92% less memory
+FP32-representable FP values 24.46 MB 4.26 MB 83% less memory
+FP64-representable FP values 24.46 MB 8.43 MB 66% less memory
 Simplified streams processing consumes both idle pending and incoming messages in one command
 In Redis streams, pending messages refer to messages that have been delivered to a consumer in a consumer group but not yet acknowledged. Pending messages are kept until they are acknowledged or deleted. When a message is pending for a long time, it usually means something went wrong. Either the client that consumed this message crashed (while handling the message or before acknowledging it) or because this message is “problematic” - e.g., causing a deadlock or taking a very long time to handle. It can also be because of communications problems between the consuming client and Redis.
 
@@ -565,7 +564,7 @@ While specialized tokenization vaults handle secure token generation and storage
 
 4. Multi-cloud integration & scalabilityRedis Cloud integrates seamlessly with tokenization services across AWS, GCP, and Azure, providing a consistent performance layer regardless of underlying infrastructure. Active-Active geo-distribution ensures global availability for international banking operations.
 
-5. Real-time monitoring & observabilityRedis provides instant visibility into token validation latency, cache hit rates, and system health. Combined with Redis Pub/Sub, security teams receive instant alerts on anomalous activity, enabling proactive fraud prevention across the Open Banking ecosystem. 
+5. Real-time monitoring & observabilityRedis provides instant visibility into token validation latency, cache hit rates, and system health. Combined with Redis Pub/Sub, security teams receive instant alerts on anomalous activity, enabling proactive fraud prevention across the Open Banking ecosystem.
 
 Real impact across financial lines of business
 Payments – Accelerating Pay-by-Bank, VRP, and real-time settlements with sub-ms response times. .
@@ -626,9 +625,9 @@ The new FT.HYBRID API takes this concept a step further.
 Instead of relying solely on pre-filters or post-processing with aggregation pipelines, Redis 8.4 introduces native score fusion combining full-text relevance and vector similarity within a single command execution plan. As simple as:
 
 FT.HYBRID idx:products
-  SEARCH "comfortable running shoes @brand:{brandA|brandB}"
-  VSIM @product_embedding $vector
-  PARAMS 2 vector "AQID...BCDE"
+SEARCH "comfortable running shoes @brand:{brandA|brandB}"
+VSIM @product_embedding $vector
+PARAMS 2 vector "AQID...BCDE"
 Copied!
 This means you can now retrieve, filter, and rank results across modalities in one cohesive operation, with consistent normalization and configurable scoring strategies like Reciprocal Rank Fusion (RRF) and Linear Combination.
 
@@ -641,12 +640,12 @@ Prioritizing recent memories
 When an agent retrieves prior interactions or documents, recency often outweighs raw similarity. With FT.HYBRID, you can easily emphasize freshness by combining time filters with vector relevance surfacing semantically similar but recent events first.
 
 FT.HYBRID idx:memory
-  SEARCH "activities in Lisbon @type:{conversation} @timestamp:[2025-10-01 +inf]"
-  VSIM @embedding $query_embedding KNN 4 K 50 EF_RUNTIME 100
-  COMBINE LINEAR 4 ALPHA 0.5 BETA 0.5
-  SORTBY 2 @timestamp DESC
-  LOAD 3 title summary timestamp
-  PARAMS 2 $query_embedding "AQID...XYZ"
+SEARCH "activities in Lisbon @type:{conversation} @timestamp:[2025-10-01 +inf]"
+VSIM @embedding $query_embedding KNN 4 K 50 EF_RUNTIME 100
+COMBINE LINEAR 4 ALPHA 0.5 BETA 0.5
+SORTBY 2 @timestamp DESC
+LOAD 3 title summary timestamp
+PARAMS 2 $query_embedding "AQID...XYZ"
 Copied!
 This query fuses BM25 text relevance with vector similarity, then sorts by timestamp giving the agent recent and semantically relevant memories first.
 
@@ -654,14 +653,14 @@ Regionalizing context with GEO and GEOSHAPE
 Decision-making agents often operate within a spatial context. Think of a logistics optimizer, travel assistant, or local recommender. FT.HYBRID allows you to filter or rank by geographic proximity while still considering semantic meaning and metadata.
 
 FT.HYBRID idx:places
-  SEARCH "@category:{coffee|coworking} wifi outdoor"
-  VSIM @embedding $vector
-  COMBINE RRF
-  APPLY "@distance / 1000" AS distance_km
-  FILTER "@geoshape:[-122.33 47.60 5km]"   # Seattle region
-  SORTBY 2 distance_km ASC
-  LOAD 4 name address rating distance_km
-  PARAMS 2 $vector "AQID...BCDE"
+SEARCH "@category:{coffee|coworking} wifi outdoor"
+VSIM @embedding $vector
+COMBINE RRF
+APPLY "@distance / 1000" AS distance_km
+FILTER "@geoshape:[-122.33 47.60 5km]" # Seattle region
+SORTBY 2 distance_km ASC
+LOAD 4 name address rating distance_km
+PARAMS 2 $vector "AQID...BCDE"
 Copied!
 The agent now retrieves “nearby” contexts ranking Seattle cafés by both semantic similarity (“wifi outdoor”) and proximity, using reciprocal rank fusion for precision.
 
@@ -669,13 +668,13 @@ Mixing semantic, fuzzy, and exact matches
 Sometimes, you want an agent to understand that “AI workshop” and “machine learning session” are similar, but also to prioritize exact keyword hits when available. FT.HYBRID makes this natural with optional (~) and fuzzy (%) operators combined with vector matching.
 
 FT.HYBRID idx:events
-  SEARCH "(~@topic:(AI|LLM|vector) @description:(%machine% %learning%))"
-  VSIM @session_embedding $vector KNN 4 K 20 EF_RUNTIME 80
-  COMBINE RRF 4 WINDOW 30 CONSTANT 2.0
-  GROUPBY 1 @organizer REDUCE COUNT 0
-  SORTBY 2 @__score DESC
-  LOAD 3 title date organizer
-  PARAMS 2 $vector "AQID...MNO"
+SEARCH "(~@topic:(AI|LLM|vector) @description:(%machine% %learning%))"
+VSIM @session_embedding $vector KNN 4 K 20 EF_RUNTIME 80
+COMBINE RRF 4 WINDOW 30 CONSTANT 2.0
+GROUPBY 1 @organizer REDUCE COUNT 0
+SORTBY 2 @\_\_score DESC
+LOAD 3 title date organizer
+PARAMS 2 $vector "AQID...MNO"
 Copied!
 Here, Redis fuses fuzzy keyword logic with semantic closeness producing rich, nuanced retrieval for dynamic or user-generated text.
 
@@ -774,10 +773,10 @@ Let’s say you are working on an app and want to implement session management u
 
 The app uses Redis to store user session data in JSON format. Each session is stored under a key prefixed with `session:<uuid>`, where `<uuid>` is a unique identifier for the session. The JSON document for each session has the following structure:
 
-*   **`visited`**: A JSON array of unique song IDs that the user has viewed during the session. Song IDs are deduplicated to ensure each song is listed only once.
-*   **`created`**: A Unix timestamp (integer) indicating when the session was first created.
-*   **`updated`**: A Unix timestamp (integer) indicating the last time the session was updated.
-  
+- **`visited`**: A JSON array of unique song IDs that the user has viewed during the session. Song IDs are deduplicated to ensure each song is listed only once.
+- **`created`**: A Unix timestamp (integer) indicating when the session was first created.
+- **`updated`**: A Unix timestamp (integer) indicating the last time the session was updated.
+
 A session is created for each user, and the number of songs viewed is tracked in the "visited" array.
 Copied!
 If you would like to customize your experience further, you can modify the prompt with additional instructions, such as avoiding anti-patterns or providing specific recommendations.
@@ -787,14 +786,14 @@ If you would like to customize your experience further, you can modify the promp
 1. Never flush a Redis database, neither in code nor running redis-cli
 2. Never use the KEYS command in a project
 3. Use the node-redis client library to connect to Redis
-Copied!
-When working with data, you may want to verify the execution of a functionality and review the state of the database. You can use Redis Insight, the official Redis dev tool with an intuitive UI, to quickly browse your data, profile the flow of commands to Redis, inspect JSON files, and more. This is an invaluable source of truth during development.
+   Copied!
+   When working with data, you may want to verify the execution of a functionality and review the state of the database. You can use Redis Insight, the official Redis dev tool with an intuitive UI, to quickly browse your data, profile the flow of commands to Redis, inspect JSON files, and more. This is an invaluable source of truth during development.
 
 Alternatively, the Redis MCP Server’s natural language interface helps you issue the right commands and inspect results directly from Gemini CLI while your app runs:
 
 > count the existing sessions
 
-✓  scan_all_keys (redis MCP Server) {"pattern":"session:*"}                                         session:31f2032da547230149ad4d57766a3152                                                         session:cYl7jUxkfGNAFOeVTRthWctMj69vgDf62cJsQmhwk64                                              session:4w5a8jOQO8Ro9zyyyA2LNYh-VDHfZynbPCKQUrULzD8                                              
+✓ scan_all_keys (redis MCP Server) {"pattern":"session:\*"} session:31f2032da547230149ad4d57766a3152 session:cYl7jUxkfGNAFOeVTRthWctMj69vgDf62cJsQmhwk64 session:4w5a8jOQO8Ro9zyyyA2LNYh-VDHfZynbPCKQUrULzD8
 
 ✦ I found 3 sessions.
 Copied!
@@ -802,14 +801,14 @@ The Gemini CLI knows from the contextual preferences that the app should store s
 
 > check if there are duplicate songs in the sessions
 
- ✓  json_get (redis MCP Server) {"name":"session:31f2032da547230149ad4d57766a3152","path":".visited"}  
+✓ json_get (redis MCP Server) {"name":"session:31f2032da547230149ad4d57766a3152","path":".visited"}
 
 [
-    "0",
-    "1",
-    "3",
-    "2",
-    "4"
+"0",
+"1",
+"3",
+"2",
+"4"
 ]
 
 [...]
@@ -825,29 +824,27 @@ Peeking into the database isn’t the only way to speed up your coding experienc
 ✦ I have successfully created three sessions with fake data: session:fake_user_001, session:fake_user_002, and session:fake_user_003
 
 > read session session:fake_user_002
-✓  json_get (redis MCP Server) {"path":"$","name":"session:fake_user_002"}
+> ✓ json_get (redis MCP Server) {"path":"$","name":"session:fake_user_002"}
 
 ✦ The content of session session:fake_user_002 is:
 
 1 [
-2   {
-3     "visited": [
-4       "2",
-5       "4",
-6       "1",
-7       "0"
-8     ],
-9     "created": 1697037000,
-10     "updated": 1697296200
-11   }
+2 {
+3 "visited": [
+4 "2",
+5 "4",
+6 "1",
+7 "0"
+8 ],
+9 "created": 1697037000,
+10 "updated": 1697296200
+11 }
 12 ]
 Copied!
 You can formulate complex questions that are easily solved using Gemini CLI and the Redis MCP Server extension, as well as write and verify complex data structures. Additionally, you can create, merge, update, or delete data in Redis.
 
 Where to learn more
 You can learn more about the Redis MCP Server’s capabilities in our docs. To discover the Gemini CLI’s integration with MCP servers and customize your experience, read the following Gemini CLI docs.
-
-
 
 Sections
 Installing the Redis MCP Server extension
@@ -884,7 +881,7 @@ What’s new in the latest Python RedisVL release?
 RedisVL 0.11.0 introduces powerful new capabilities that make it easier than ever to build context-aware, multimodal, and low-latency AI applications.
 
 1. Multi-vector queries
-RedisVL takes vector search to the next level with multi-vector queries — enabling you to search across multiple embeddings at once to capture deeper context.
+   RedisVL takes vector search to the next level with multi-vector queries — enabling you to search across multiple embeddings at once to capture deeper context.
 
 For example:
 
@@ -896,7 +893,7 @@ Each document can contain multiple vector fields. RedisVL combines their similar
 This expands RedisVL’s reach into multimodal search while keeping the developer experience simple and familiar.
 
 2. Enhanced full-text query & index customization
-RedisVL now gives developers finer control over text relevance and performance.
+   RedisVL now gives developers finer control over text relevance and performance.
 
 Text field weighting: Perform similarity searches across multiple text fields and tune how much each word or field influences the result.
 Example: A query for “new Nike Air Jordans” can prioritize Nike and Jordans over new — improving ranking quality without reindexing your data.
@@ -905,7 +902,7 @@ Field-level control: Support for Redis field attributes like UNF (un-normalized 
 Together, these enhancements make it easier to create relevant, context-aware text search experiences using familiar RedisVL tools and patterns.
 
 3. New vector index: SVS-Vamana
-RedisVL 0.11.0 adds support for SVS-Vamana, a new vector indexing algorithm optimized for both memory and performance.
+   RedisVL 0.11.0 adds support for SVS-Vamana, a new vector indexing algorithm optimized for both memory and performance.
 
 Built with advanced compression techniques, SVS-Vamana offers:
 
@@ -915,7 +912,7 @@ Optimizations for Intel hardware
 This gives teams more flexibility to balance speed, scalability, and resource efficiency for large-scale AI workloads.
 
 4. LangCache integration
-Redis LangCache, the semantic caching service for LLM applications, is now natively integrated into RedisVL.
+   Redis LangCache, the semantic caching service for LLM applications, is now natively integrated into RedisVL.
 
 This allows developers to combine RedisVL’s AI-native tooling with a production-grade caching layer that:
 
@@ -1012,20 +1009,20 @@ Azure Managed Redis combines Redis Enterprise’s performance and modules with A
 
 You get:
 
-Enterprise-grade performance and high availability with up to 99.999% SLA*
+Enterprise-grade performance and high availability with up to 99.999% SLA\*
 Native Azure billing, security, and identity integration
 Full module support: RedisJSON, RediSearch, RedisBloom, and RedisTimeSeries
 This service is the evolution of Azure’s Redis offering — and the strategic path forward for Redis workloads in Azure.
 
-* With recommended configuration of active georeplication.
+- With recommended configuration of active georeplication.
 
 Azure Cache for Redis Retirement!
 Microsoft has announced a clear transition timeline for Azure Cache for Redis:
 
-Date	Change
-October 1, 2026	No new Azure Cache for Redis instances can be created
-Existing Instances	Supported until further notice
-Recommended Path	Migrate to Azure Managed Redis for new deployments
+Date Change
+October 1, 2026 No new Azure Cache for Redis instances can be created
+Existing Instances Supported until further notice
+Recommended Path Migrate to Azure Managed Redis for new deployments
 In short: New Redis deployments on Azure should use Azure Managed Redis, which brings Redis Enterprise features under Azure’s managed control plane.
 
 Why Use AzAPI with Terraform?
@@ -1033,72 +1030,73 @@ The azurerm provider doesn’t yet expose all capabilities of Azure Managed Redi
 
 This approach gives you:
 
-Benefit	Description
-Full feature access	Deploy Redis with features unavailable in azurerm 4.5 (e.g., persistence, non-clustered mode)
-Future-proof design	Module interface remains stable — just flip one variable to migrate later
-Direct API access	Use the latest Azure REST API versions without waiting for provider updates
-Immediate usability	Ready-to-deploy module and tested examples available on GitHub
+Benefit Description
+Full feature access Deploy Redis with features unavailable in azurerm 4.5 (e.g., persistence, non-clustered mode)
+Future-proof design Module interface remains stable — just flip one variable to migrate later
+Direct API access Use the latest Azure REST API versions without waiting for provider updates
+Immediate usability Ready-to-deploy module and tested examples available on GitHub
 
 AzAPI vs. azurerm: Feature Comparison (as of v4.5)
-Feature	AzAPI Provider	azurerm v4.5
-Clustered Deployments	✅ Supported	✅ Supported
-Non-Clustered Mode	✅ Supported	❌ Not yet supported
-Persistence (RDB, AOF)	✅ Supported	❌ Not yet supported
-Access Policy Assignments (Entra ID)	✅ Supported	❌ Not yet supported
-Defer Upgrade	✅ Supported	❌ Not yet supported
-Redis Modules (JSON, Search, Bloom, TimeSeries)	✅ Supported	✅ Supported
-TLS / Encryption	✅ Supported	✅ Supported
-High Availability	✅ Supported	✅ Supported
-Geo-Replication	✅ Supported	✅ Supported
-Managed Identity	✅ Supported	✅ Supported
-Customer Managed Keys	✅ Supported	✅ Supported
-Private Endpoint	✅ Supported	✅ Supported
+Feature AzAPI Provider azurerm v4.5
+Clustered Deployments ✅ Supported ✅ Supported
+Non-Clustered Mode ✅ Supported ❌ Not yet supported
+Persistence (RDB, AOF) ✅ Supported ❌ Not yet supported
+Access Policy Assignments (Entra ID) ✅ Supported ❌ Not yet supported
+Defer Upgrade ✅ Supported ❌ Not yet supported
+Redis Modules (JSON, Search, Bloom, TimeSeries) ✅ Supported ✅ Supported
+TLS / Encryption ✅ Supported ✅ Supported
+High Availability ✅ Supported ✅ Supported
+Geo-Replication ✅ Supported ✅ Supported
+Managed Identity ✅ Supported ✅ Supported
+Customer Managed Keys ✅ Supported ✅ Supported
+Private Endpoint ✅ Supported ✅ Supported
 Module Implementation: Deploy Azure Managed Redis Today!
 To bridge the gap, this Terraform module uses AzAPI under the hood while maintaining the same interface that future azurerm resources will use.
 
 Example: Cluster and Database Definition
 locals {
-  redis_enterprise_api_version = "2025-05-01-preview"
+redis_enterprise_api_version = "2025-05-01-preview"
 }
 
 # Cluster definition
+
 resource "azapi_resource" "cluster" {
-  count     = var.use_azapi ? 1 : 0
-  type      = "Microsoft.Cache/redisEnterprise@${local.redis_enterprise_api_version}"
-  name      = var.name
-  location  = var.location
-  parent_id = var.resource_group_id
+count = var.use_azapi ? 1 : 0
+type = "Microsoft.Cache/redisEnterprise@${local.redis_enterprise_api_version}"
+name = var.name
+location = var.location
+parent_id = var.resource_group_id
 
-  body = jsonencode({
-    sku = { name = var.sku }
-    properties = {
-      minimumTlsVersion = var.minimum_tls_version
-    }
-  })
+body = jsonencode({
+sku = { name = var.sku }
+properties = {
+minimumTlsVersion = var.minimum_tls_version
+}
+})
 
-  tags = var.tags
+tags = var.tags
 }
 Copied!
 Example: Database with Persistence and Non-Clustered Mode
 resource "azapi_resource" "database" {
-  count     = var.use_azapi ? 1 : 0
-  type      = "Microsoft.Cache/redisEnterprise/databases@${local.redis_enterprise_api_version}"
-  name      = var.database_name
-  parent_id = azapi_resource.cluster[0].id
+count = var.use_azapi ? 1 : 0
+type = "Microsoft.Cache/redisEnterprise/databases@${local.redis_enterprise_api_version}"
+name = var.database_name
+parent_id = azapi_resource.cluster[0].id
 
-  body = jsonencode({
-    properties = {
-      clientProtocol   = var.client_protocol
-      evictionPolicy   = var.eviction_policy
-      clusteringPolicy = "NoCluster"  
-      persistence = {
-        aofEnabled = true
-        rdbEnabled = true
-      }
-      modules = [for m in var.modules : { name = m }]
-      accessKeysAuthentication = "Enabled"
-    }
-  })
+body = jsonencode({
+properties = {
+clientProtocol = var.client_protocol
+evictionPolicy = var.eviction_policy
+clusteringPolicy = "NoCluster"  
+ persistence = {
+aofEnabled = true
+rdbEnabled = true
+}
+modules = [for m in var.modules : { name = m }]
+accessKeysAuthentication = "Enabled"
+}
+})
 }
 Copied!
 ⚠️ Note:
@@ -1111,19 +1109,19 @@ Reading Access Keys
 AzAPI allows direct key retrieval through the List Keys API — no scripts needed:
 
 data "azapi_resource_action" "database_keys" {
-  type        = "Microsoft.Cache/redisEnterprise/databases@${local.redis_enterprise_api_version}"
-  resource_id = azapi_resource.database.id
-  action      = "listKeys"
-  method      = "POST"
-  response_export_values = ["primaryKey", "secondaryKey"]
+type = "Microsoft.Cache/redisEnterprise/databases@${local.redis_enterprise_api_version}"
+resource_id = azapi_resource.database.id
+action = "listKeys"
+method = "POST"
+response_export_values = ["primaryKey", "secondaryKey"]
 }
 Copied!
 Future-Proof Design: The use_azapi Switch
 When azurerm adds full Managed Redis support, migration is effortless.
 
 variable "use_azapi" {
-  type    = bool
-  default = true
+type = bool
+default = true
 }
 Copied!
 To migrate later:
@@ -1379,7 +1377,7 @@ Data Summarizer Agent
 Guidance Agent
 The Guidance Agent observes failed executions and any user feedback if provided and summarizes them into meaningful strings. These strings represent the observations of the failures, its causes, and instructions to avoid them in the future. The guidance strings are written to the Guidance Cache at the end of successful execution of a query. If guidance already exists for a question, the entry is updated by reconciling the new guidances with the existing guidances. They are retrieved for similar questions in future executions from the Guidance Cache. A predefined threshold (hyperparameter) is used here for retrieval which is lower than the threshold used for the Execution Cache. It is possible that irrelevant guidances may be retrieved, as limitation of embedding-based retrieval systems, however the LLMs are instructed to use guidances if they are appropriate and relevant. Some experimentation is needed to balance true helpful guidances matches against false positives that may pollute the context.
 
-Example of a retrieved guidance 
+Example of a retrieved guidance
 Example of a retrieved guidance
 
 Filter Agent
@@ -1503,10 +1501,10 @@ Subsequent run with a warmed cache
 How did Learning Agents help here?
 Notice that both similar matches and guidance were retrieved here. The system was able to use both pieces of information to understand the desired logic and preferences underlying the question “What profile should I avoid if I am running a personal loan campaign?“ and adapt that to the question “What profile should I target if am running a personal loan campaign?”. The result is a noticeable reduction in token consumption, the number of retries and subsequently the time-to-result.
 
-User question	Original question: What profile should I avoid if am running a personal loan campaign?	Subsequent question: What profile should I target if am running a personal loan campaign?
-Type	First run	Second run (cache warmed)
-Total number of tokens consumed	6022	1143
-Number of attempts	6	1
+User question Original question: What profile should I avoid if am running a personal loan campaign? Subsequent question: What profile should I target if am running a personal loan campaign?
+Type First run Second run (cache warmed)
+Total number of tokens consumed 6022 1143
+Number of attempts 6 1
 What type of improvements can you expect?
 We illustrate, with some examples, the benefits over various lexical variations of the original user question. There are three scenarios here where learning can be advantageous:
 
@@ -1515,10 +1513,10 @@ hits in both the Execution Cache (non-exact) and the Guidance Cache - the LLM ad
 a hit in the Guidance Cache but no hit in the Execution Cache - the LLM uses guidance alone to create a query for the current question
 Below is one such ensemble of questions expressing the same ‘intent’. Every question following the original question that expresses the same intent is denoted a variation of that question.
 
-Original	Give me the age group that has the highest loan balance but also have taken out home loans?
-Subsequent variations	I want to find the age group that has a home loan with the highest loan balance?
-Subsequent variations	I want to know what age group has the highest loan balance but also has a home loan?
-Subsequent variations	Who has an outstanding home loan and has the highest loan balance, give me the age groups?
+Original Give me the age group that has the highest loan balance but also have taken out home loans?
+Subsequent variations I want to find the age group that has a home loan with the highest loan balance?
+Subsequent variations I want to know what age group has the highest loan balance but also has a home loan?
+Subsequent variations Who has an outstanding home loan and has the highest loan balance, give me the age groups?
 Below are two sets of runs:
 
 In order to demonstrate the token usage without learning, 3 runs (red) for the original question were made. This was done with the cached cleared after each run, i.e. with learning turned off
@@ -1535,10 +1533,10 @@ Two sentences can be semantically similar yet convey different intents, because 
 
 We revisit the question ‘Who is my ideal target for a loan campaign?’, but this time follow up with 3 variations of that question. As seen before, the benefits of imparting the domain knowledge and its subsequent reuse is clear in the reduction in the number of attempts from 2 to 1.
 
-Original	Who is my ideal target for a loan campaign?
-Subsequent variations	If I wanted to run a loan campaign, who should I target?
-Subsequent variations	Who should I target if I want to run a loan campaign?
-Subsequent variations	How do I optimize my loan campaign? Who do I target?
+Original Who is my ideal target for a loan campaign?
+Subsequent variations If I wanted to run a loan campaign, who should I target?
+Subsequent variations Who should I target if I want to run a loan campaign?
+Subsequent variations How do I optimize my loan campaign? Who do I target?
 Once feedback is provided by the user, subsequent runs (in teal) can use the guidance/grounding generated from the user feedback resulting in predictable and correct results as shown below.
 
 Token Usage
@@ -1546,20 +1544,20 @@ Token usage comparison for question 2
 
 The following demonstrates queries and execution over the insurance dataset. In the example below, similar behavior is observed with respect to the reduction in token count, run time and retry elimination resulting in more predictable and reliable responses.
 
-Original	What age groups are likely to have automatic transmissions?
-Subsequent variations	Which age groups are most likely to drive cars with automatic transmissions?”
-Subsequent variations	Identify age groups that tend to use automatic transmissions
-Subsequent variations	Determine which age ranges prefer automatic transmissions
-Subsequent variations	Find out which age groups commonly have automatic transmission variables
+Original What age groups are likely to have automatic transmissions?
+Subsequent variations Which age groups are most likely to drive cars with automatic transmissions?”
+Subsequent variations Identify age groups that tend to use automatic transmissions
+Subsequent variations Determine which age ranges prefer automatic transmissions
+Subsequent variations Find out which age groups commonly have automatic transmission variables
 Token Usage Comparison
 Token usage comparison for question 3
 
 What happens when the variations have intents that differ from the original question. Here, the original question is “What age groups are likely to have automatic transmissions?” but the questions that follow would like to know about age groups that prefer manual transmissions. Once again, similar savings are observed in the metrics of interest.
 
-Original	What age groups are likely to have automatic transmissions?
-Negated variation	What age groups are likely to have manual transmissions?
-Negated variation	Determine which age ranges prefer manual transmissions
-Negated variation	Find out which age groups commonly drive manual transmission vehicles
+Original What age groups are likely to have automatic transmissions?
+Negated variation What age groups are likely to have manual transmissions?
+Negated variation Determine which age ranges prefer manual transmissions
+Negated variation Find out which age groups commonly drive manual transmission vehicles
 Token usage for variations where intent differs from the original
 Token usage for variations where intent differs from the original
 
@@ -1846,7 +1844,7 @@ Overview of data types supported by Redis
 
 Redis is a data structure server. At its core, Redis provides a collection of native data types that help you solve a wide variety of problems, from caching to queuing to event processing. Below is a short description of each data type, with links to broader overviews and command references. Each overview includes a comprehensive tutorial with code samples.
 
-Data types 
+Data types
 Redis Open Source implements the following data types:
 
 String
@@ -1862,62 +1860,62 @@ Geospatial
 JSON
 Probabilistic data types
 Time series
-Strings 
+Strings
 Redis strings are the most basic Redis data type, representing a sequence of bytes. For more information, see:
 
 Overview of Redis strings
 Redis string command reference
-Lists 
+Lists
 Redis lists are lists of strings sorted by insertion order. For more information, see:
 
 Overview of Redis lists
 Redis list command reference
-Sets 
+Sets
 Redis sets are unordered collections of unique strings that act like the sets from your favorite programming language (for example, Java HashSets, Python sets, and so on). With a Redis set, you can add, remove, and test for existence in O(1) time (in other words, regardless of the number of set elements). For more information, see:
 
 Overview of Redis sets
 Redis set command reference
-Hashes 
+Hashes
 Redis hashes are record types modeled as collections of field-value pairs. As such, Redis hashes resemble Python dictionaries, Java HashMaps, and Ruby hashes. For more information, see:
 
 Overview of Redis hashes
 Redis hashes command reference
-Sorted sets 
+Sorted sets
 Redis sorted sets are collections of unique strings that maintain order by each string's associated score. For more information, see:
 
 Overview of Redis sorted sets
 Redis sorted set command reference
-Vector sets 
+Vector sets
 Redis vector sets are a specialized data type designed for managing high-dimensional vector data, enabling fast and efficient vector similarity search within Redis. Vector sets are optimized for use cases involving machine learning, recommendation systems, and semantic search, where each vector represents a data point in multi-dimensional space. Vector sets supports the HNSW (hierarchical navigable small world) algorithm, allowing you to store, index, and query vectors based on the cosine similarity metric. With vector sets, Redis provides native support for hybrid search, combining vector similarity with structured filters. For more information, see:
 
 Overview of Redis vector sets
 Redis vector set command reference
-Streams 
+Streams
 A Redis stream is a data structure that acts like an append-only log. Streams help record events in the order they occur and then syndicate them for processing. For more information, see:
 
 Overview of Redis Streams
 Redis Streams command reference
-Geospatial indexes 
+Geospatial indexes
 Redis geospatial indexes are useful for finding locations within a given geographic radius or bounding box. For more information, see:
 
 Overview of Redis geospatial indexes
 Redis geospatial indexes command reference
-Bitmaps 
+Bitmaps
 Redis bitmaps let you perform bitwise operations on strings. For more information, see:
 
 Overview of Redis bitmaps
 Redis bitmap command reference
-Bitfields 
+Bitfields
 Redis bitfields efficiently encode multiple counters in a string value. Bitfields provide atomic get, set, and increment operations and support different overflow policies. For more information, see:
 
 Overview of Redis bitfields
 The BITFIELD command.
-JSON 
+JSON
 Redis JSON provides structured, hierarchical arrays and key-value objects that match the popular JSON text file format. You can import JSON text into Redis objects and access, modify, and query individual data elements. For more information, see:
 
 Overview of Redis JSON
 JSON command reference
-Probabilistic data types 
+Probabilistic data types
 These data types let you gather and calculate statistics in a way that is approximate but highly efficient. The following types are available:
 
 HyperLogLog
@@ -1926,42 +1924,42 @@ Cuckoo filter
 t-digest
 Top-K
 Count-min sketch
-HyperLogLog 
+HyperLogLog
 The Redis HyperLogLog data structures provide probabilistic estimates of the cardinality (i.e., number of elements) of large sets. For more information, see:
 
 Overview of Redis HyperLogLog
 Redis HyperLogLog command reference
-Bloom filter 
+Bloom filter
 Redis Bloom filters let you check for the presence or absence of an element in a set. For more information, see:
 
 Overview of Redis Bloom filters
 Bloom filter command reference
-Cuckoo filter 
+Cuckoo filter
 Redis Cuckoo filters let you check for the presence or absence of an element in a set. They are similar to Bloom filters but with slightly different trade-offs between features and performance. For more information, see:
 
 Overview of Redis Cuckoo filters
 Cuckoo filter command reference
-t-digest 
+t-digest
 Redis t-digest structures estimate percentiles from a stream of data values. For more information, see:
 
 Redis t-digest overview
 t-digest command reference
-Top-K 
+Top-K
 Redis Top-K structures estimate the ranking of a data point within a stream of values. For more information, see:
 
 Redis Top-K overview
 Top-K command reference
-Count-min sketch 
+Count-min sketch
 Redis Count-min sketch estimate the frequency of a data point within a stream of values. For more information, see:
 
 Redis Count-min sketch overview
 Count-min sketch command reference
-Time series 
+Time series
 Redis time series structures let you store and query timestamped data points. For more information, see:
 
 Redis time series overview
 Count-min sketch command reference
-Adding extensions 
+Adding extensions
 To extend the features provided by the included data types, use one of these options:
 
 Write your own custom server-side functions in Lua.

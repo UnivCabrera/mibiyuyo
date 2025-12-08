@@ -1,4 +1,5 @@
 # 🏗️ AUDITORÍA DE ARQUITECTURA: ESTABILIDAD vs OBESIDAD
+
 ## Cómo Soportar 333+ Features Sin Colapsar
 
 **Proyecto:** PRO_FINAN_CONTA_PYM  
@@ -12,13 +13,13 @@
 
 ### Síntomas de una App "Obesa"
 
-| Síntoma | Causa | Impacto |
-|:---|:---|:---|
-| **Carga inicial >5s** | Bundle JS gigante | 40% abandono |
-| **Navegación lenta** | Demasiados componentes en memoria | UX frustrante |
-| **Build de 10+ min** | Monolito sin separación | Desarrollo lento |
-| **RAM >500MB en browser** | Memory leaks, estados duplicados | Crashes en móviles |
-| **API >500ms** | Queries N+1, sin índices | Usuarios impacientes |
+| Síntoma                   | Causa                             | Impacto              |
+| :------------------------ | :-------------------------------- | :------------------- |
+| **Carga inicial >5s**     | Bundle JS gigante                 | 40% abandono         |
+| **Navegación lenta**      | Demasiados componentes en memoria | UX frustrante        |
+| **Build de 10+ min**      | Monolito sin separación           | Desarrollo lento     |
+| **RAM >500MB en browser** | Memory leaks, estados duplicados  | Crashes en móviles   |
+| **API >500ms**            | Queries N+1, sin índices          | Usuarios impacientes |
 
 ### ¿Cuántas Features son "Demasiadas"?
 
@@ -51,9 +52,11 @@
 ### PILAR 1: MICRO-FRONTENDS (Islas de Arquitectura)
 
 #### ¿Qué es?
+
 En lugar de un bundle monolítico, dividir el frontend en "islas" independientes que se cargan bajo demanda.
 
 #### ¿Por qué lo necesitas?
+
 ```
 MONOLITO (Malo)                    ISLAS (Bueno)
 ┌─────────────────────┐            ┌─────────────────────┐
@@ -94,6 +97,7 @@ MONOLITO (Malo)                    ISLAS (Bueno)
 ```
 
 **Herramientas necesarias:**
+
 - ✅ SvelteKit dynamic imports (ya incluido)
 - ✅ Vite code splitting (ya incluido)
 - 🆕 **@sveltejs/adapter-static** para pre-render de rutas estáticas
@@ -106,12 +110,12 @@ MONOLITO (Malo)                    ISLAS (Bueno)
 
 #### Niveles de Lazy Loading
 
-| Nivel | Qué cargar | Cuándo cargar | Ejemplo |
-|:---:|:---|:---|:---|
-| 1 | **Rutas** | Al navegar | `/facturas` solo cuando click |
-| 2 | **Componentes** | Al scroll/viewport | Gráficas debajo del fold |
-| 3 | **Datos** | Al interactuar | Historial solo al abrir modal |
-| 4 | **Librerías** | Al necesitar | PDF.js solo al ver factura |
+| Nivel | Qué cargar      | Cuándo cargar      | Ejemplo                       |
+| :---: | :-------------- | :----------------- | :---------------------------- |
+|   1   | **Rutas**       | Al navegar         | `/facturas` solo cuando click |
+|   2   | **Componentes** | Al scroll/viewport | Gráficas debajo del fold      |
+|   3   | **Datos**       | Al interactuar     | Historial solo al abrir modal |
+|   4   | **Librerías**   | Al necesitar       | PDF.js solo al ver factura    |
 
 #### Implementación Práctica
 
@@ -156,6 +160,7 @@ MONOLITO (Malo)                    ISLAS (Bueno)
 ```
 
 **Herramientas necesarias:**
+
 - ✅ IntersectionObserver API (nativo)
 - 🆕 **svelte-lazy** - wrapper para lazy components
 
@@ -166,31 +171,34 @@ MONOLITO (Malo)                    ISLAS (Bueno)
 ### PILAR 3: TREE SHAKING EXTREMO
 
 #### ¿Qué es?
+
 Eliminar código que nunca se usa del bundle final.
 
 #### Problema Común
+
 ```javascript
 // MAL: Importa TODA la librería
-import _ from 'lodash';
+import _ from "lodash";
 const result = _.debounce(fn, 300);
 // Bundle incluye 70 KB de lodash aunque solo uses 1 función
 
 // BIEN: Importa SOLO lo necesario
-import debounce from 'lodash/debounce';
+import debounce from "lodash/debounce";
 const result = debounce(fn, 300);
 // Bundle incluye 2 KB
 ```
 
 #### Librerías Problemáticas y Alternativas
 
-| Librería Pesada | Tamaño | Alternativa Ligera | Tamaño |
-|:---|:---:|:---|:---:|
-| moment.js | 290 KB | **date-fns** (ya la tienes) | 13 KB (modular) |
-| lodash | 70 KB | **es-toolkit** o imports selectivos | 2-5 KB |
-| Chart.js completo | 180 KB | Solo módulos usados | 40 KB |
-| PDF.js | 400 KB | **pdfjs-dist/legacy/build/pdf** | 150 KB |
+| Librería Pesada   | Tamaño | Alternativa Ligera                  |     Tamaño      |
+| :---------------- | :----: | :---------------------------------- | :-------------: |
+| moment.js         | 290 KB | **date-fns** (ya la tienes)         | 13 KB (modular) |
+| lodash            | 70 KB  | **es-toolkit** o imports selectivos |     2-5 KB      |
+| Chart.js completo | 180 KB | Solo módulos usados                 |      40 KB      |
+| PDF.js            | 400 KB | **pdfjs-dist/legacy/build/pdf**     |     150 KB      |
 
 **Herramientas necesarias:**
+
 - ✅ Vite (ya lo tienes) con rollup tree-shaking
 - 🆕 **vite-plugin-bundle-analyzer** - visualizar qué ocupa espacio
 - 🆕 **source-map-explorer** - alternativa de análisis
@@ -203,12 +211,12 @@ const result = debounce(fn, 300);
 
 #### Problemas de Escala con 333 Features
 
-| Problema | Síntoma | Solución |
-|:---|:---|:---|
-| **Queries N+1** | 100 queries para 1 página | Eager loading, joins |
-| **Sin índices** | GET /transactions toma 3s | Índices en columnas de filtro |
-| **Tablas gigantes** | 10M+ filas en transactions | Particionado por fecha |
-| **Blobs en DB** | PDFs en PostgreSQL | Mover a S3/MinIO |
+| Problema            | Síntoma                    | Solución                      |
+| :------------------ | :------------------------- | :---------------------------- |
+| **Queries N+1**     | 100 queries para 1 página  | Eager loading, joins          |
+| **Sin índices**     | GET /transactions toma 3s  | Índices en columnas de filtro |
+| **Tablas gigantes** | 10M+ filas en transactions | Particionado por fecha        |
+| **Blobs en DB**     | PDFs en PostgreSQL         | Mover a S3/MinIO              |
 
 #### Índices Obligatorios (Ya debes tenerlos)
 
@@ -224,7 +232,7 @@ CREATE INDEX idx_invoices_uuid ON invoices(uuid); -- Búsqueda SAT
 CREATE INDEX idx_invoices_rfc ON invoices(rfc_emisor, rfc_receptor);
 
 -- Full-text search
-CREATE INDEX idx_transactions_search ON transactions 
+CREATE INDEX idx_transactions_search ON transactions
   USING gin(to_tsvector('spanish', description));
 ```
 
@@ -250,6 +258,7 @@ CREATE TABLE transactions_2025 PARTITION OF transactions
 ```
 
 **Herramientas necesarias:**
+
 - ✅ PostgreSQL 18 (ya lo tienes)
 - 🆕 **pg_stat_statements** - encontrar queries lentas
 - 🆕 **pgHero** o **pganalyze** - dashboard de performance
@@ -305,20 +314,20 @@ CREATE TABLE transactions_2025 PARTITION OF transactions
 // Balance de cuenta = dato calculado costoso
 async function getAccountBalance(accountId: string): Promise<number> {
   const cacheKey = `balance:${accountId}`;
-  
+
   // Intentar cache
   const cached = await redis.get(cacheKey);
   if (cached) return parseFloat(cached);
-  
+
   // Calcular (costoso)
   const balance = await db
     .select({ total: sql`SUM(amount)` })
     .from(transactions)
     .where(eq(transactions.accountId, accountId));
-  
+
   // Guardar en cache 5 minutos
   await redis.setex(cacheKey, 300, balance.total.toString());
-  
+
   return balance.total;
 }
 
@@ -330,6 +339,7 @@ async function createTransaction(data: TransactionInput) {
 ```
 
 **Herramientas necesarias:**
+
 - ✅ Redis 8 (ya lo tienes)
 - ✅ Vite PWA Plugin (ya lo tienes)
 - 🆕 **ioredis** - cliente Redis para Bun
@@ -341,6 +351,7 @@ async function createTransaction(data: TransactionInput) {
 ### PILAR 6: FEATURE FLAGS DINÁMICOS
 
 #### ¿Por qué son críticos con 333 features?
+
 ```
 Sin Feature Flags:
 - Usuario FREEMIUM carga 333 features
@@ -361,14 +372,14 @@ Con Feature Flags:
 async function featureMiddleware(ctx, next) {
   const user = ctx.user;
   const features = await getEnabledFeatures(user.plan, user.id);
-  
+
   ctx.features = features;
-  
+
   // Si intenta acceder a feature deshabilitada
   if (ctx.path.startsWith('/api/sat') && !features.includes('sat_module')) {
     return ctx.json({ error: 'Upgrade to PRO for SAT features' }, 403);
   }
-  
+
   return next();
 }
 
@@ -385,36 +396,37 @@ async function featureMiddleware(ctx, next) {
 ```typescript
 const FEATURES_BY_PLAN = {
   FREEMIUM: [
-    'transactions_basic',
-    'accounts_3',
-    'categories_10',
-    'dashboard_basic',
-    'budget_3',
-    'escudo_basico',
+    "transactions_basic",
+    "accounts_3",
+    "categories_10",
+    "dashboard_basic",
+    "budget_3",
+    "escudo_basico",
   ],
   PRO: [
     ...FEATURES_BY_PLAN.FREEMIUM,
-    'transactions_unlimited',
-    'accounts_50',
-    'sat_download',
-    'ai_categorization',
-    'ai_chatbot',
-    'reports_pdf',
-    'escudo_completo',
-    'predicciones',
+    "transactions_unlimited",
+    "accounts_50",
+    "sat_download",
+    "ai_categorization",
+    "ai_chatbot",
+    "reports_pdf",
+    "escudo_completo",
+    "predicciones",
   ],
   BUSINESS: [
     ...FEATURES_BY_PLAN.PRO,
-    'sat_cfdi_emit',
-    'multi_user',
-    'api_access',
-    'white_label',
-    'priority_support',
+    "sat_cfdi_emit",
+    "multi_user",
+    "api_access",
+    "white_label",
+    "priority_support",
   ],
 };
 ```
 
 **Herramientas necesarias:**
+
 - 🆕 **PostHog** (ya recomendado) - feature flags + analytics
 - Alternativa: **Unleash** (self-hosted)
 
@@ -426,15 +438,15 @@ const FEATURES_BY_PLAN = {
 
 #### Métricas Obligatorias
 
-| Métrica | Target | Herramienta | Alerta si |
-|:---|:---:|:---|:---|
-| **LCP** (Largest Contentful Paint) | <2.5s | Web Vitals | >4s |
-| **FID** (First Input Delay) | <100ms | Web Vitals | >300ms |
-| **CLS** (Cumulative Layout Shift) | <0.1 | Web Vitals | >0.25 |
-| **TTFB** (Time to First Byte) | <200ms | Prometheus | >500ms |
-| **API p95 latency** | <300ms | Prometheus | >1s |
-| **Error rate** | <0.1% | Sentry | >1% |
-| **Memory usage** | <70% | Prometheus | >85% |
+| Métrica                            | Target | Herramienta | Alerta si |
+| :--------------------------------- | :----: | :---------- | :-------- |
+| **LCP** (Largest Contentful Paint) | <2.5s  | Web Vitals  | >4s       |
+| **FID** (First Input Delay)        | <100ms | Web Vitals  | >300ms    |
+| **CLS** (Cumulative Layout Shift)  |  <0.1  | Web Vitals  | >0.25     |
+| **TTFB** (Time to First Byte)      | <200ms | Prometheus  | >500ms    |
+| **API p95 latency**                | <300ms | Prometheus  | >1s       |
+| **Error rate**                     | <0.1%  | Sentry      | >1%       |
+| **Memory usage**                   |  <70%  | Prometheus  | >85%      |
 
 #### Dashboard de Performance (Grafana)
 
@@ -468,6 +480,7 @@ const FEATURES_BY_PLAN = {
 ```
 
 **Herramientas necesarias:**
+
 - ✅ Prometheus + Grafana (ya lo tienes)
 - ✅ Sentry (ya lo tienes)
 - 🆕 **web-vitals** - librería para métricas de frontend
@@ -503,30 +516,30 @@ const FEATURES_BY_PLAN = {
 
 ## 🛠️ HERRAMIENTAS DEVOPS OBLIGATORIAS
 
-| Herramienta | Propósito | Prioridad |
-|:---|:---|:---:|
+| Herramienta                     | Propósito                       | Prioridad  |
+| :------------------------------ | :------------------------------ | :--------: |
 | **vite-plugin-bundle-analyzer** | Ver qué ocupa espacio en bundle | 🔴 CRÍTICA |
-| **pg_stat_statements** | Encontrar queries lentas | 🔴 CRÍTICA |
-| **web-vitals** | Métricas de UX en producción | 🔴 CRÍTICA |
-| **Lighthouse CI** | Auditoría automática en cada PR | 🟡 ALTA |
-| **k6** | Load testing | 🟡 ALTA |
-| **Playwright** | E2E tests de performance | 🟡 ALTA |
-| **pgHero** | Dashboard de PostgreSQL | 🟢 MEDIA |
+| **pg_stat_statements**          | Encontrar queries lentas        | 🔴 CRÍTICA |
+| **web-vitals**                  | Métricas de UX en producción    | 🔴 CRÍTICA |
+| **Lighthouse CI**               | Auditoría automática en cada PR |  🟡 ALTA   |
+| **k6**                          | Load testing                    |  🟡 ALTA   |
+| **Playwright**                  | E2E tests de performance        |  🟡 ALTA   |
+| **pgHero**                      | Dashboard de PostgreSQL         |  🟢 MEDIA  |
 
 ---
 
 ## 📊 RESUMEN: CONTEO DE TAREAS
 
-| Pilar | Esfuerzo | Prioridad |
-|:---|:---:|:---:|
-| Micro-frontends | 🔧 6-10 días | 🔴 CRÍTICA |
-| Lazy Loading | 🔨 3-5 días | 🔴 CRÍTICA |
-| Tree Shaking | ⚡ 1-2 días | 🟡 ALTA |
-| DB Optimizada | 🔧 6-10 días | 🔴 CRÍTICA |
-| Caché Redis | 🔧 6-10 días | 🟡 ALTA |
-| Feature Flags | 🔧 6-10 días | 🟡 ALTA |
-| Monitoreo | 🔧 6-10 días | 🔴 CRÍTICA |
-| **TOTAL** | **~40-55 días** | - |
+| Pilar           |    Esfuerzo     | Prioridad  |
+| :-------------- | :-------------: | :--------: |
+| Micro-frontends |  🔧 6-10 días   | 🔴 CRÍTICA |
+| Lazy Loading    |   🔨 3-5 días   | 🔴 CRÍTICA |
+| Tree Shaking    |   ⚡ 1-2 días   |  🟡 ALTA   |
+| DB Optimizada   |  🔧 6-10 días   | 🔴 CRÍTICA |
+| Caché Redis     |  🔧 6-10 días   |  🟡 ALTA   |
+| Feature Flags   |  🔧 6-10 días   |  🟡 ALTA   |
+| Monitoreo       |  🔧 6-10 días   | 🔴 CRÍTICA |
+| **TOTAL**       | **~40-55 días** |     -      |
 
 **Nota:** Esto se puede paralelizar. Con enfoque, 3-4 semanas de trabajo.
 
@@ -534,4 +547,4 @@ const FEATURES_BY_PLAN = {
 
 **Conclusión:** Con estas 7 estrategias, puedes manejar 333+ features sin que la app se sienta lenta o abrumadora. La clave es **cargar solo lo que el usuario necesita, cuando lo necesita**.
 
-*"La velocidad es una feature. La lentitud es un bug."*
+_"La velocidad es una feature. La lentitud es un bug."_

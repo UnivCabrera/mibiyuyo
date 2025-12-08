@@ -1,0 +1,32 @@
+# =============================================================================
+# 🚫 PRETTIER IGNORE - PRO_FINAN_CONTA_PYM
+# =============================================================================
+
+# Build outputs
+dist/
+build/
+.svelte-kit/
+
+# Dependencies
+node_modules/
+vendor/
+bower_components/
+
+# Legacy (no tocar)
+00_LEGADO_PRIMERA_LLUVIA_IDEAS/
+
+# Git
+.git/
+
+# Cache
+.cache/
+*.log
+
+# Lock files
+package-lock.json
+bun.lockb
+pnpm-lock.yaml
+
+# Generados automáticamente
+*.min.js
+*.min.css

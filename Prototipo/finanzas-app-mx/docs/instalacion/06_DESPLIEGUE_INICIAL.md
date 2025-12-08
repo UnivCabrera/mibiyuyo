@@ -123,7 +123,7 @@ CMD ["npm", "run", "preview"]
 Crea un archivo `docker-compose.yml` en la raíz del proyecto:
 
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
@@ -131,7 +131,7 @@ services:
       context: ./backend
     ports:
       - "3000:3000"
-  
+
   frontend:
     build:
       context: ./frontend
@@ -219,7 +219,7 @@ sudo systemctl restart nginx
 ### 8.1. Problemas Comunes
 
 - **Docker no inicia**: Verifica que el servicio de Docker esté activo.
-  
+
   ```bash
   sudo systemctl status docker
   ```

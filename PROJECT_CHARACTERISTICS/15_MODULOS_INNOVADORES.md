@@ -42,6 +42,7 @@
 ```
 
 **Especificaciones:**
+
 - Cálculo en tiempo real basado en compromisos
 - Actualización automática al registrar gastos
 - Vista desglosada de lo apartado
@@ -76,6 +77,7 @@
 ```
 
 **Especificaciones:**
+
 - Distribución automática al recibir quincena
 - Vista día a día con $/día disponible
 - Comparativa vs quincena anterior
@@ -114,6 +116,7 @@
 ```
 
 **Triggers configurables:**
+
 - Monto > promedio × 3
 - Categorías de riesgo (compras, entretenimiento)
 - Hora sospechosa (23:00 - 03:00)
@@ -121,6 +124,7 @@
 - Fin de quincena + saldo bajo
 
 **Especificaciones:**
+
 - Countdown obligatorio (10-30 segundos)
 - Visualización de costo de oportunidad
 - Historial de "gastos evitados"
@@ -138,16 +142,17 @@
 
 **Sistema de Niveles de Meta:**
 
-| Nivel | Duración | Monto | Ejemplo |
-|:---:|:---:|:---:|:---|
-| 1️⃣ | 7 días | $100-500 | "Ahorra para tacos" |
-| 2️⃣ | 14 días | $500-1,500 | "Ahorra para regalo" |
-| 3️⃣ | 30 días | $1,000-3,000 | "Algo especial" |
-| 4️⃣ | 90 días | $3,000-10,000 | "Tecnología" |
-| 5️⃣ | 6 meses | $10,000-30,000 | "Vacaciones" |
-| 6️⃣ | 12 meses | $30,000+ | "Auto/Casa" |
+| Nivel | Duración |     Monto      | Ejemplo              |
+| :---: | :------: | :------------: | :------------------- |
+|  1️⃣   |  7 días  |    $100-500    | "Ahorra para tacos"  |
+|  2️⃣   | 14 días  |   $500-1,500   | "Ahorra para regalo" |
+|  3️⃣   | 30 días  |  $1,000-3,000  | "Algo especial"      |
+|  4️⃣   | 90 días  | $3,000-10,000  | "Tecnología"         |
+|  5️⃣   | 6 meses  | $10,000-30,000 | "Vacaciones"         |
+|  6️⃣   | 12 meses |    $30,000+    | "Auto/Casa"          |
 
 **Especificaciones:**
+
 - Onboarding guiado por visualización emocional
 - Compromiso público opcional
 - Recordatorios adaptables
@@ -165,15 +170,16 @@
 
 **Categorías Mexicanas Pre-configuradas:**
 
-| Categoría | Emoji | Subcategorías |
-|:---|:---:|:---|
-| Comida | 🍔 | Tacos, comida corrida, café, restaurante |
-| Transporte | 🚗 | Uber/Didi, Metro, Gasolina, Estacionamiento |
-| Casa | 🏠 | Renta, CFE, Agua, Gas, Internet, Predial |
-| Compras | 🛒 | Super, OXXO, Farmacia, Amazon/ML |
-| Entretenimiento | 🎬 | Netflix/Spotify, Salidas, Viajes |
+| Categoría       | Emoji | Subcategorías                               |
+| :-------------- | :---: | :------------------------------------------ |
+| Comida          |  🍔   | Tacos, comida corrida, café, restaurante    |
+| Transporte      |  🚗   | Uber/Didi, Metro, Gasolina, Estacionamiento |
+| Casa            |  🏠   | Renta, CFE, Agua, Gas, Internet, Predial    |
+| Compras         |  🛒   | Super, OXXO, Farmacia, Amazon/ML            |
+| Entretenimiento |  🎬   | Netflix/Spotify, Salidas, Viajes            |
 
 **Especificaciones:**
+
 - Registro en 1 tap (monto + categoría sugerida)
 - Detección inteligente por hora/monto
 - OCR para tickets (10/mes gratis)
@@ -200,15 +206,16 @@ Tú: "Sí, pero esta quincena viene apretada"
 
 Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
        llegas a tu meta solo 2 semanas después.
-       
+
        Pero si te la saltas, pierdes tu racha de 12. 🔥
-       
+
        ¿Qué prefieres?"
-       
+
        [Apartar $800]  [Apartar $1,000]  [Saltar]
 ```
 
 **Especificaciones:**
+
 - Lenguaje mexicano coloquial
 - Personalidad configurable (formal/casual)
 - Consejos basados en patrones reales
@@ -245,6 +252,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Captura opcional de estado emocional post-gasto
 - Correlación automática emoción-categoría
 - Insights personalizados
@@ -284,15 +292,16 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 
 **Retos Disponibles:**
 
-| Reto | Dificultad | Premio |
-|:---|:---:|:---|
-| Semana sin Uber | ⭐⭐ | +$300 a meta |
-| Cocinero del mes | ⭐⭐⭐ | Badge + 500 XP |
-| Cero gastos hormiga | ⭐⭐ | +$200 a meta |
-| Ahorra lo que no gastaste | ⭐ | 100 XP/día |
-| Detective de suscripciones | ⭐ | Badge + 300 XP |
+| Reto                       | Dificultad | Premio         |
+| :------------------------- | :--------: | :------------- |
+| Semana sin Uber            |    ⭐⭐    | +$300 a meta   |
+| Cocinero del mes           |   ⭐⭐⭐   | Badge + 500 XP |
+| Cero gastos hormiga        |    ⭐⭐    | +$200 a meta   |
+| Ahorra lo que no gastaste  |     ⭐     | 100 XP/día     |
+| Detective de suscripciones |     ⭐     | Badge + 300 XP |
 
 **Especificaciones:**
+
 - Nuevo reto cada lunes
 - Leaderboard por ciudad/nacional
 - Invitar amigos al reto
@@ -332,6 +341,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Contextos: salidas, compromisos, regalos, viajes
 - Tono configurable (formal/casual)
 - Tracking de "gastos evitados socialmente"
@@ -370,6 +380,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Detección automática por transacciones
 - Score de uso (frecuencia vs costo)
 - Links directos para cancelar
@@ -411,6 +422,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Cálculo automático por salario
 - Deducción de ISR aproximada
 - Distribución sugerida (50-30-20 adaptada)
@@ -453,6 +465,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Lista de regalos con presupuesto
 - Tracking de compras realizadas
 - Comparador de precios básico
@@ -493,6 +506,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Comparativa visual
 - Cálculo de costo real con intereses
 - Impacto en flujo mensual
@@ -533,6 +547,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 ```
 
 **Especificaciones:**
+
 - Validación de descuento real
 - Historial de precios (si disponible)
 - Impacto en presupuesto personal
@@ -546,27 +561,27 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 
 ### 4.1 Sistema de Puntos Mejorado (FinCoins)
 
-| Acción | Puntos | Multiplicador |
-|:---|:---:|:---|
-| Registrar gasto | +5 | ×1.5 si es efectivo |
-| Mantener racha | +10 | ×2 cada 7 días |
-| Cumplir presupuesto semanal | +50 | ×1.5 si perfecto |
-| Completar meta | +100 | ×2 si anticipado |
-| Completar reto | +75 | ×1.5 en grupo |
-| Evitar gasto impulsivo | +25 | - |
-| Referir amigo | +200 | +100 si se activa |
+| Acción                      | Puntos | Multiplicador       |
+| :-------------------------- | :----: | :------------------ |
+| Registrar gasto             |   +5   | ×1.5 si es efectivo |
+| Mantener racha              |  +10   | ×2 cada 7 días      |
+| Cumplir presupuesto semanal |  +50   | ×1.5 si perfecto    |
+| Completar meta              |  +100  | ×2 si anticipado    |
+| Completar reto              |  +75   | ×1.5 en grupo       |
+| Evitar gasto impulsivo      |  +25   | -                   |
+| Referir amigo               |  +200  | +100 si se activa   |
 
 ### 4.2 Badges Únicos Mexicanos
 
-| Badge | Nombre | Requisito | Rareza |
-|:---|:---|:---|:---:|
-| 🌮 | Taquero Inteligente | 30 días registrando comida | Común |
-| 🚇 | Metro Master | Semana sin Uber completada | Raro |
-| 🎄 | Navidad Sin Deudas | Enero sin deudas nuevas | Épico |
-| 🏖️ | Cancún Achieved | Meta vacaciones completada | Legendario |
-| 🦸 | Libertador | Pagar toda deuda | Legendario |
-| 🧘 | Zen Financiero | 30 días sin impulsos | Épico |
-| 👨‍👩‍👧 | Familia Financiera | Vista pareja activa 6 meses | Raro |
+| Badge | Nombre              | Requisito                   |   Rareza   |
+| :---- | :------------------ | :-------------------------- | :--------: |
+| 🌮    | Taquero Inteligente | 30 días registrando comida  |   Común    |
+| 🚇    | Metro Master        | Semana sin Uber completada  |    Raro    |
+| 🎄    | Navidad Sin Deudas  | Enero sin deudas nuevas     |   Épico    |
+| 🏖️    | Cancún Achieved     | Meta vacaciones completada  | Legendario |
+| 🦸    | Libertador          | Pagar toda deuda            | Legendario |
+| 🧘    | Zen Financiero      | 30 días sin impulsos        |   Épico    |
+| 👨‍👩‍👧    | Familia Financiera  | Vista pareja activa 6 meses |    Raro    |
 
 ### 4.3 Economía Virtual
 
@@ -614,6 +629,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 **Formato:** 2-3 minutos, gamificadas, sin jerga
 
 **Temas:**
+
 1. ¿Qué es RESICO? (1 min)
 2. Interés compuesto explicado con tacos
 3. ¿Por qué ahorrar 10% primero?
@@ -624,6 +640,7 @@ Paco: "Entiendo. Si apartamos $800 en vez de $1,000,
 8. Cómo negociar tu salario
 
 **Gamificación:**
+
 - 10 XP por lección completada
 - Badge "Estudiante Financiero"
 - Quiz con recompensas
@@ -683,17 +700,18 @@ Antes de gastar, piensa:
 
 ### 7.1 Integraciones Prioritarias
 
-| Integración | Plan | Prioridad | Esfuerzo |
-|:---|:---:|:---:|:---:|
-| Open Banking (Belvo/Finerio) | PRO | 🔴 Alta | 🚧 2-4 sem |
-| SAT (CIEC) | NEGOCIO | 🔴 Alta | 🚧 2-4 sem |
-| WhatsApp (registro por chat) | PRO | 🟡 Media | 🔧 6-10 días |
-| Google Sheets (export) | PRO | 🟢 Baja | 🔨 3-5 días |
-| OXXO Pay | TODOS | 🔴 Alta | 🔧 6-10 días |
+| Integración                  |  Plan   | Prioridad |   Esfuerzo   |
+| :--------------------------- | :-----: | :-------: | :----------: |
+| Open Banking (Belvo/Finerio) |   PRO   |  🔴 Alta  |  🚧 2-4 sem  |
+| SAT (CIEC)                   | NEGOCIO |  🔴 Alta  |  🚧 2-4 sem  |
+| WhatsApp (registro por chat) |   PRO   | 🟡 Media  | 🔧 6-10 días |
+| Google Sheets (export)       |   PRO   |  🟢 Baja  | 🔨 3-5 días  |
+| OXXO Pay                     |  TODOS  |  🔴 Alta  | 🔧 6-10 días |
 
 ### 7.2 API Pública (Business)
 
 Endpoints principales:
+
 - `GET /transactions` - Lista de transacciones
 - `POST /transactions` - Crear transacción
 - `GET /budgets` - Presupuestos activos
@@ -705,6 +723,7 @@ Endpoints principales:
 ## 8. ROADMAP DE IMPLEMENTACIÓN
 
 ### Fase 1: MVP (Semanas 1-8)
+
 - ✅ Wallet Mexicano
 - ✅ Planificador Quincenal
 - ✅ Tu Dinero Hoy
@@ -712,6 +731,7 @@ Endpoints principales:
 - ✅ Gamificación básica
 
 ### Fase 2: Core Completo (Semanas 9-16)
+
 - ⬜ Metas Inteligentes
 - ⬜ Control de Deudas Neuro
 - ⬜ Retos Semanales
@@ -719,12 +739,14 @@ Endpoints principales:
 - ⬜ Auditor Suscripciones
 
 ### Fase 3: Premium (Semanas 17-24)
+
 - ⬜ Coach IA "Paco"
 - ⬜ Mapa Emocional
 - ⬜ Open Banking
 - ⬜ CFDI/SAT
 
 ### Fase 4: Scale (Semanas 25-36)
+
 - ⬜ Super-app features
 - ⬜ API pública
 - ⬜ Integraciones avanzadas
@@ -732,5 +754,5 @@ Endpoints principales:
 
 ---
 
-*Documento de módulos innovadores - Actualizar conforme se implementan*  
-*Última actualización: 8 Diciembre 2025*
+_Documento de módulos innovadores - Actualizar conforme se implementan_  
+_Última actualización: 8 Diciembre 2025_

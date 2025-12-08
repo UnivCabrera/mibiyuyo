@@ -2,15 +2,15 @@ Documentation → PostgreSQL 18
 Supported Versions: Current (18)
 Search the documentation for...
 E.2. Release 18
-Prev 	Up	Appendix E. Release Notes	Home	 Next
-E.2. Release 18 
+Prev Up Appendix E. Release Notes Home Next
+E.2. Release 18
 E.2.1. Overview
 E.2.2. Migration to Version 18
 E.2.3. Changes
 E.2.4. Acknowledgments
 Release date: 2025-09-25
 
-E.2.1. Overview 
+E.2.1. Overview
 PostgreSQL 18 contains many new features and enhancements, including:
 
 An asynchronous I/O (AIO) subsystem that can improve performance of sequential scans, bitmap heap scans, vacuums, and other operations.
@@ -31,7 +31,7 @@ Temporal constraints, or constraints over ranges, for PRIMARY KEY, UNIQUE, and F
 
 The above items and other new features of PostgreSQL 18 are explained in more detail in the sections below.
 
-E.2.2. Migration to Version 18 
+E.2.2. Migration to Version 18
 A dump/restore using pg_dumpall or use of pg_upgrade or logical replication is required for those wishing to migrate data from any previous release. See Section 18.6 for general information on migrating to new major releases.
 
 Version 18 contains a number of changes that may affect compatibility with previous releases. Observe the following incompatibilities:
@@ -80,11 +80,11 @@ Change full text search to use the default collation provider of the cluster to 
 
 Clusters that default to non-libc collation providers (e.g., ICU, builtin) that behave differently than libc for characters processed by LC_CTYPE could observe changes in behavior of some full-text search functions, as well as the pg_trgm extension. When upgrading such clusters using pg_upgrade, it is recommended to reindex all indexes related to full-text search and pg_trgm after the upgrade.
 
-E.2.3. Changes 
+E.2.3. Changes
 Below you will find a detailed account of the changes between PostgreSQL 18 and the previous major release.
 
-E.2.3.1. Server 
-E.2.3.1.1. Optimizer 
+E.2.3.1. Server
+E.2.3.1.1. Optimizer
 Automatically remove some unnecessary table self-joins (Andrey Lepikhov, Alexander Kuzmenkov, Alexander Korotkov, Alena Rybakina) §
 
 This optimization can be disabled using server variable enable_self_join_elimination.
@@ -125,7 +125,7 @@ Improve SQL-language function plan caching (Alexander Pyhalov, Tom Lane) § §
 
 Improve handling of disabled optimizer features (Robert Haas) §
 
-E.2.3.1.2. Indexes 
+E.2.3.1.2. Indexes
 Allow skip scans of btree indexes (Peter Geoghegan) § §
 
 This allows multi-column btree indexes to be used in more cases such as when there are no restrictions on the first or early indexed columns (or there are non-equality ones), and there are useful restrictions on later indexed columns.
@@ -138,7 +138,7 @@ Allow GIN indexes to be created in parallel (Tomas Vondra, Matthias van de Meent
 
 Allow values to be sorted to speed range-type GiST and btree index builds (Bernd Helmle) §
 
-E.2.3.1.3. General Performance 
+E.2.3.1.3. General Performance
 Add an asynchronous I/O subsystem (Andres Freund, Thomas Munro, Nazir Bilal Yavuz, Melanie Plageman) § § § § § § § § § § §
 
 This feature allows backends to queue multiple read requests, which allows for more efficient sequential scans, bitmap heap scans, vacuums, etc. This is enabled by server variable io_method, with server variables io_combine_limit and io_max_combine_limit added to control it. This also enables effective_io_concurrency and maintenance_io_concurrency values greater than zero for systems without fadvise() support. The new system view pg_aios shows the file handles being used for asynchronous I/O.
@@ -161,7 +161,7 @@ Increase server variables effective_io_concurrency's and maintenance_io_concurre
 
 This more accurately reflects modern hardware.
 
-E.2.3.1.4. Monitoring 
+E.2.3.1.4. Monitoring
 Increase the logging granularity of server variable log_connections (Melanie Plageman) §
 
 This server variable was previously only boolean, which is still supported.
@@ -234,7 +234,7 @@ Add column pg_backend_memory_contexts.type to report the type of memory context 
 
 Add column pg_backend_memory_contexts.path to show memory context parents (Melih Mutlu) §
 
-E.2.3.1.5. Privileges 
+E.2.3.1.5. Privileges
 Add function pg_get_acl() to retrieve database access control details (Joel Jacobson) § §
 
 Add function has_largeobject_privilege() to check large object privileges (Yugo Nagata) §
@@ -245,7 +245,7 @@ Add predefined role pg_signal_autovacuum_worker (Kirill Reshke) §
 
 This allows sending signals to autovacuum workers.
 
-E.2.3.1.6. Server Configuration 
+E.2.3.1.6. Server Configuration
 Add support for the OAuth authentication method (Jacob Champion, Daniel Gustafsson, Thomas Munro) §
 
 This adds an oauth authentication method to pg_hba.conf, libpq OAuth options, a server variable oauth_validator_libraries to load token validation libraries, and a configure flag --with-libcurl to add the required compile-time libraries.
@@ -280,14 +280,14 @@ This is useful for operating system configuration.
 
 Add server variable extension_control_path to specify the location of extension control files (Peter Eisentraut, Matheus Alcantara) § §
 
-E.2.3.1.7. Streaming Replication and Recovery 
+E.2.3.1.7. Streaming Replication and Recovery
 Allow inactive replication slots to be automatically invalidated using server variable idle_replication_slot_timeout (Nisha Moond, Bharath Rupireddy) §
 
 Add server variable max_active_replication_origins to control the maximum active replication origins (Euler Taveira) §
 
 This was previously controlled by max_replication_slots, but this new setting allows a higher origin count in cases where fewer slots are required.
 
-E.2.3.1.8. Logical Replication 
+E.2.3.1.8. Logical Replication
 Allow the values of generated columns to be logically replicated (Shubham Khanna, Vignesh C, Zhijie Hou, Shlok Kyal, Peter Smith) § § § §
 
 If the publication specifies a column list, all specified columns, generated and non-generated, are published. Without a specified column list, publication option publish_generated_columns controls whether generated columns are published. Previously generated columns were not replicated and the subscriber had to compute the values if possible; this is particularly useful for non-PostgreSQL subscribers which lack such a capability.
@@ -300,7 +300,7 @@ Log conflicts while applying logical replication changes (Zhijie Hou, Nisha Moon
 
 Also report in new columns of pg_stat_subscription_stats.
 
-E.2.3.2. Utility Commands 
+E.2.3.2. Utility Commands
 Allow generated columns to be virtual, and make them the default (Peter Eisentraut, Jian He, Richard Guo, Dean Rasheed) § § §
 
 Virtual generated columns generate their values when the columns are read, not written. The write behavior can still be specified via the STORED option.
@@ -335,7 +335,7 @@ Add server variable file_copy_method to control the file copying method (Nazir B
 
 This controls whether CREATE DATABASE ... STRATEGY=FILE_COPY and ALTER DATABASE ... SET TABLESPACE uses file copy or clone.
 
-E.2.3.2.1. Constraints 
+E.2.3.2.1. Constraints
 Allow the specification of non-overlapping PRIMARY KEY, UNIQUE, and foreign key constraints (Paul A. Jungwirth) § §
 
 This is specified by WITHOUT OVERLAPS for PRIMARY KEY and UNIQUE, and by PERIOD for foreign keys, all applied to the last specified column.
@@ -364,7 +364,7 @@ Allow dropping of constraints ONLY on partitioned tables (Álvaro Herrera) §
 
 This was previously erroneously prohibited.
 
-E.2.3.2.2. COPY 
+E.2.3.2.2. COPY
 Add REJECT_LIMIT to control the number of invalid rows COPY FROM can ignore (Atsushi Torikoshi) §
 
 This is available when ON_ERROR = 'ignore'.
@@ -379,7 +379,7 @@ Disallow COPY FREEZE on foreign tables (Nathan Bossart) §
 
 Previously, the COPY worked but the FREEZE was ignored, so disallow this command.
 
-E.2.3.2.3. EXPLAIN 
+E.2.3.2.3. EXPLAIN
 Automatically include BUFFERS output in EXPLAIN ANALYZE (Guillaume Lelarge, David Rowley) §
 
 Add full WAL buffer count to EXPLAIN (WAL) output (Bertrand Drouvot) §
@@ -396,7 +396,7 @@ Add Parallel Bitmap Heap Scan worker cache statistics to EXPLAIN ANALYZE (David 
 
 Indicate disabled nodes in EXPLAIN ANALYZE output (Robert Haas, David Rowley, Laurenz Albe) § § §
 
-E.2.3.3. Data Types 
+E.2.3.3. Data Types
 Improve Unicode full case mapping and conversion (Jeff Davis) § §
 
 This adds the ability to do conditional and title case mapping, and case map single characters to multiple characters.
@@ -405,7 +405,7 @@ Allow jsonb null values to be cast to scalar types as NULL (Tom Lane) §
 
 Previously such casts generated an error.
 
-Add optional parameter to json{b}_strip_nulls to allow removal of null array elements (Florents Tselai) §
+Add optional parameter to json{b}\_strip_nulls to allow removal of null array elements (Florents Tselai) §
 
 Add function array_sort() which sorts an array's first dimension (Junwang Zhao, Jian He) §
 
@@ -425,7 +425,7 @@ Improve the XML error codes to more closely match the SQL standard (Tom Lane) §
 
 These errors are reported via SQLSTATE.
 
-E.2.3.4. Functions 
+E.2.3.4. Functions
 Add function casefold() to allow for more sophisticated case-insensitive matching (Jeff Davis) §
 
 This allows more accurate comparisons, i.e., a character can have multiple upper or lower case equivalents, or upper or lower case conversion changes the number of characters.
@@ -454,7 +454,7 @@ We previously only accepted :=.
 
 Allow regexp_match[es]()/regexp_like()/regexp_replace()/regexp_count()/regexp_instr()/regexp_substr()/regexp_split_to_table()/regexp_split_to_array() to use named arguments (Jian He) §
 
-E.2.3.5. libpq 
+E.2.3.5. libpq
 Add function PQfullProtocolVersion() to report the full, including minor, protocol version number (Jacob Champion, Jelte Fennema-Nio) §
 
 Add libpq connection parameters and environment variables to specify the minimum and maximum acceptable protocol version for connections (Jelte Fennema-Nio) § §
@@ -471,7 +471,7 @@ Modify some libpq function signatures to use int64_t (Thomas Munro) §
 
 These previously used pg_int64, which is now deprecated.
 
-E.2.3.6. psql 
+E.2.3.6. psql
 Allow psql to parse, bind, and close named prepared statements (Anthonin Bonnefoy, Michael Paquier) § §
 
 This is accomplished with new commands \parse, \bind_named, and \close_prepared.
@@ -500,7 +500,7 @@ Add default_version to the psql \dx extension output (Magnus Hagander) §
 
 Add psql variable WATCH_INTERVAL to set the default \watch wait time (Daniel Gustafsson) §
 
-E.2.3.7. Server Applications 
+E.2.3.7. Server Applications
 Change initdb to default to enabling checksums (Greg Sabino Mullane) § §
 
 The new initdb option --no-data-checksums disables checksums.
@@ -523,7 +523,7 @@ If pg_rewind's --source-server specifies a database name, use it in --write-reco
 
 Add pg_resetwal option --char-signedness to change the default char signedness (Masahiko Sawada) §
 
-E.2.3.7.1. pg_dump/pg_dumpall/pg_restore 
+E.2.3.7.1. pg_dump/pg_dumpall/pg_restore
 Add pg_dump option --statistics (Jeff Davis) § §
 
 Add pg_dump and pg_dumpall option --sequence-data to dump sequence data that would normally be excluded (Nathan Bossart) § §
@@ -534,7 +534,7 @@ Add option --no-policies to disable row level security policy processing in pg_d
 
 This is useful for migrating to systems with different policies.
 
-E.2.3.7.2. pg_upgrade 
+E.2.3.7.2. pg_upgrade
 Allow pg_upgrade to preserve optimizer statistics (Corey Huinker, Jeff Davis, Nathan Bossart) § § § §
 
 Extended statistics are not preserved. Also add pg_upgrade option --no-statistics to disable statistics preservation.
@@ -551,7 +551,7 @@ Add pg_upgrade option --set-char-signedness to set the default char signedness o
 
 This is to handle cases where a pre-PostgreSQL 18 cluster's default CPU signedness does not match the new cluster.
 
-E.2.3.7.3. Logical Replication Applications 
+E.2.3.7.3. Logical Replication Applications
 Add pg_createsubscriber option --all to create logical replicas for all databases (Shubham Khanna) §
 
 Add pg_createsubscriber option --clean to remove publications (Shubham Khanna) § §
@@ -564,7 +564,7 @@ Also add option --enable-two-phase as a synonym for --two-phase, and deprecate t
 
 Allow pg_recvlogical --drop-slot to work without --dbname (Hayato Kuroda) §
 
-E.2.3.8. Source Code 
+E.2.3.8. Source Code
 Separate the loading and running of injection points (Michael Paquier, Heikki Linnakangas) § §
 
 Injection points can now be created, but not run, via INJECTION_POINT_LOAD(), and such injection points can be run via INJECTION_POINT_CACHED().
@@ -625,7 +625,7 @@ Thirty-two-bit atomic operations are now required.
 
 Remove support for the HPPA/PA-RISC architecture (Tom Lane) §
 
-E.2.3.9. Additional Modules 
+E.2.3.9. Additional Modules
 Add extension pg_logicalinspect to inspect logical snapshots (Bertrand Drouvot) §
 
 Add extension pg_overexplain which adds debug details to EXPLAIN output (Robert Haas) §
@@ -670,7 +670,7 @@ Allow extensions to install custom EXPLAIN options (Robert Haas, Sami Imseih) §
 
 Allow extensions to use the server's cumulative statistics API (Michael Paquier) § §
 
-E.2.3.9.1. pg_stat_statements 
+E.2.3.9.1. pg_stat_statements
 Allow the queries of CREATE TABLE AS and DECLARE to be tracked by pg_stat_statements (Anthonin Bonnefoy) §
 
 They are also now assigned query ids.
@@ -685,7 +685,7 @@ The new columns are parallel_workers_to_launch and parallel_workers_launched.
 
 Add pg_stat_statements.wal_buffers_full to report full WAL buffers (Bertrand Drouvot) §
 
-E.2.3.9.2. pgcrypto 
+E.2.3.9.2. pgcrypto
 Add pgcrypto algorithms sha256crypt and sha512crypt (Bernd Helmle) §
 
 Add CFB mode to pgcrypto encryption and decryption (Umar Hayat) §
@@ -696,10 +696,11 @@ Add pgcrypto server variable builtin_crypto_enabled to allow disabling builtin n
 
 This is useful for guaranteeing FIPS mode behavior.
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---
+
 PostgreSQL 18 Released!
 Posted on 2025-09-25 by PostgreSQL Global Development Group
- PostgreSQL Project
+PostgreSQL Project
 The PostgreSQL Global Development Group today announced the release of PostgreSQL 18, the latest version of the world's most advanced open source database. Translations of this press release are available in the PostgreSQL 18 press kit.
 
 PostgreSQL 18 improves performance for workloads of all sizes through a new I/O subsystem that has demonstrated up to 3× performance improvements when reading from storage, and also increases the number of queries that can use indexes. This release makes major-version upgrades less disruptive, accelerating upgrade times and reducing the time required to reach expected performance after an upgrade completes. Developers also benefit from PostgreSQL 18 features, including virtual generated columns that compute values at query time, and the database-friendly uuidv7() function that provides better indexing and read performance for UUIDs. PostgreSQL 18 makes it easier to integrate with single-sign on (SSO) systems with support for OAuth 2.0 authentication.
@@ -761,21 +762,21 @@ Many other new features and improvements have been added to PostgreSQL 18 that m
 About PostgreSQL
 PostgreSQL is the world's most advanced open source database, with a global community of thousands of users, contributors, companies and organizations. Since its beginnings at the University of California, Berkeley over 40 years ago, PostgreSQL has continued with an unmatched pace of development. PostgreSQL's mature feature set not only matches top proprietary database systems, but exceeds them in advanced database features, extensibility, security, and stability.
 ......----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-PostgreSQL 18 introduced hundreds of new features and enhancements. Here is an exhaustive breakdown of significant changes across performance, developer experience, operations, and security. 
+PostgreSQL 18 introduced hundreds of new features and enhancements. Here is an exhaustive breakdown of significant changes across performance, developer experience, operations, and security.
 Performance & Query Optimization
 Asynchronous I/O (AIO): A fundamental new subsystem that enables the database to issue multiple read requests concurrently, significantly boosting performance (up to 3x in some tests) for sequential scans, bitmap heap scans, and VACUUM operations.
 B-tree "Skip Scans": The optimizer can now effectively use multi-column B-tree indexes even if leading columns are omitted in WHERE clauses, potentially eliminating the need for extra indexes.
 Parallel GIN Index Builds: Creation of GIN indexes (used for JSONB and full-text search) can now be parallelized, significantly speeding up index creation on large tables.
 Optimized Joins and Aggregations: Improvements to hash joins (reduced memory usage), merge joins (using incremental sorts), and parallel aggregation utilizing extended statistics more effectively.
 Optimizer Enhancements: The query planner is smarter, automatically removing unnecessary table self-joins, transforming some OR and IN clauses for better index use, and improving cost estimates for partitioned tables.
-Hardware Acceleration: Includes support for ARM NEON and SVE CPU intrinsics for the popcount function used internally. 
+Hardware Acceleration: Includes support for ARM NEON and SVE CPU intrinsics for the popcount function used internally.
 Developer Experience & SQL Enhancements
 OLD and NEW Values in RETURNING: DML commands (INSERT, UPDATE, DELETE, MERGE) can now access both the old and new row values in the RETURNING clause, simplifying change data capture and audit logging.
 Virtual Generated Columns (Default): Generated columns are now VIRTUAL by default, saving disk space and write overhead by computing values at read time. Stored generated columns can now be logically replicated.
 Native UUIDv7 Support: The new uuidv7() function generates timestamp-ordered UUIDs, which offer better data locality and improved B-tree index performance compared to random UUIDs.
 Temporal Constraints: Support for WITHOUT OVERLAPS for PRIMARY KEY/UNIQUE constraints and PERIOD for FOREIGN KEY constraints, enhancing handling of time-range data.
 Schema Management Flexibility: NOT NULL and CHECK constraints can be added using the NOT VALID clause, avoiding full table scans and minimizing locking during deployment on large tables.
-New Functions: Additions include casefold() for sophisticated case-insensitive matching, array_sort() and array_reverse() for array manipulation, and CRC functions (crc32, crc32c). 
+New Functions: Additions include casefold() for sophisticated case-insensitive matching, array_sort() and array_reverse() for array manipulation, and CRC functions (crc32, crc32c).
 Operations & Reliability
 Faster Major Version Upgrades: The pg_upgrade utility retains optimizer statistics, eliminating the need for a potentially time-consuming ANALYZE operation post-upgrade. It also supports parallel checks and directory swapping for faster upgrades.
 Logical Replication DDL Support: Logical replication can now propagate DDL statements (like CREATE TABLE, ALTER TABLE), simplifying schema synchronization across distributed systems.
@@ -783,33 +784,33 @@ Enhanced EXPLAIN ANALYZE: The output automatically includes buffer usage informa
 New Monitoring Views: New system views like pg_stat_io provide byte-level I/O statistics and pg_aios tracks asynchronous I/O activity, giving DBAs better observability.
 Page Checksums by Default: New databases created with initdb now enable page checksums by default, enhancing data integrity.
 Parallel COPY FROM: Bulk data loading with COPY FROM is now parallelized, speeding up large data ingestion tasks.
-Automatic Idle Replication Slot Timeout: A new setting idle_replication_slot_timeout allows automatic invalidation of inactive replication slots, preventing excessive WAL file accumulation. 
+Automatic Idle Replication Slot Timeout: A new setting idle_replication_slot_timeout allows automatic invalidation of inactive replication slots, preventing excessive WAL file accumulation.
 Security & Authentication
 OAuth 2.0 Authentication: Built-in support for OAuth 2.0 via extensions allows easier integration with centralized identity management systems (e.g., Okta, Keycloak).
 MD5 Deprecation: MD5 password authentication is now deprecated and will be removed in a future release; users are encouraged to migrate to SCRAM authentication.
 TLS 1.3 Cipher Control: A new parameter ssl_tls13_ciphers allows configuration of server-side TLS v1.3 cipher suites.
-SCRAM Passthrough: SCRAM authentication can now be passed through to remote PostgreSQL instances via postgres_fdw and dblink. 
-For a complete list of features and potential incompatibilities, refer to the official PostgreSQL 18 Release Notes. 
-PostgreSQL 18, released on September 25, 2025, is a major update focusing on performance, scalability, and developer experience. Key features include a new Asynchronous I/O (AIO) subsystem, B-tree "skip scans," native UUIDv7 support, and significant improvements to the upgrade process and observability. 
+SCRAM Passthrough: SCRAM authentication can now be passed through to remote PostgreSQL instances via postgres_fdw and dblink.
+For a complete list of features and potential incompatibilities, refer to the official PostgreSQL 18 Release Notes.
+PostgreSQL 18, released on September 25, 2025, is a major update focusing on performance, scalability, and developer experience. Key features include a new Asynchronous I/O (AIO) subsystem, B-tree "skip scans," native UUIDv7 support, and significant improvements to the upgrade process and observability.
 Performance & Scalability
 Asynchronous I/O (AIO): PostgreSQL 18 introduces a new AIO subsystem, allowing the database to issue multiple read requests concurrently. This can lead to significant performance improvements (up to 3x in some cases) for read-heavy workloads like sequential and bitmap heap scans.
 B-tree "Skip Scans": The query planner can now utilize multicolumn B-tree indexes more efficiently, even if queries don't specify conditions for leading columns. This can eliminate the need for separate indexes and speed up analytical queries.
 Parallelization: The build process for GIN indexes can now be parallelized, and parallel aggregation leverages extended statistics more effectively.
 Faster Joins and Aggregations: Performance improvements for hash joins, merge joins (using incremental sorts), and aggregation queries are included.
-VACUUM Improvements: Enhancements to the VACUUM process, including lazy pruning optimizations and proactive page freezing, reduce overhead and improve performance in high-update environments. 
+VACUUM Improvements: Enhancements to the VACUUM process, including lazy pruning optimizations and proactive page freezing, reduce overhead and improve performance in high-update environments.
 Developer Experience & Features
 Native UUIDv7 Support: The new uuidv7() function generates timestamp-ordered UUIDs, which combine global uniqueness with better B-tree index performance due to improved data locality.
 OLD and NEW Values in RETURNING: Developers can now access both old and new row values in the RETURNING clause of INSERT, UPDATE, DELETE, and MERGE statements, simplifying audit logging and change tracking.
 Virtual Generated Columns (Default): Generated columns are now VIRTUAL by default, computing values at query time rather than storing them on disk. This reduces storage footprint and write overhead. Stored generated columns can now be logically replicated.
 Temporal Constraints: Support for WITHOUT OVERLAPS for PRIMARY KEY and UNIQUE constraints and PERIOD for FOREIGN KEY constraints, enhancing temporal database capabilities.
-Improved Text Processing: New functions like casefold() offer more sophisticated case-insensitive matching, and performance for upper() and lower() functions has improved. 
+Improved Text Processing: New functions like casefold() offer more sophisticated case-insensitive matching, and performance for upper() and lower() functions has improved.
 Operations & Reliability
 Faster Major Version Upgrades: The pg_upgrade utility is faster and now retains optimizer statistics across upgrades, preventing performance degradation immediately after the transition.
 Logical Replication Enhancements: Logical replication now supports Data Definition Language (DDL) statements and write conflict reporting.
 Enhanced EXPLAIN ANALYZE: The output now automatically includes buffer usage information and offers more detail on CPU and WAL statistics in verbose mode.
 OAuth Authentication: PostgreSQL 18 introduces support for OAuth 2.0 authentication via extensions, facilitating integration with SSO systems and deprecating MD5 password authentication.
-Default Checksums: New databases created with initdb now have page checksums enabled by default, improving data integrity. 
-For a complete list of features and changes, consult the official PostgreSQL 18 Release Notes. 
+Default Checksums: New databases created with initdb now have page checksums enabled by default, improving data integrity.
+For a complete list of features and changes, consult the official PostgreSQL 18 Release Notes.
 PostgreSQL 18.1 Documentation
 The PostgreSQL Global Development Group
 Copyright © 1996–2025 The PostgreSQL Global Development Group
@@ -818,107 +819,106 @@ Legal Notice
 Table of Contents
 
 Preface
+
 1. What Is PostgreSQL?
 2. A Brief History of PostgreSQL
 3. Conventions
 4. Further Information
 5. Bug Reporting Guidelines
-I. Tutorial
-1. Getting Started
-2. The SQL Language
-3. Advanced Features
-II. The SQL Language
-4. SQL Syntax
-5. Data Definition
-6. Data Manipulation
-7. Queries
-8. Data Types
-9. Functions and Operators
-10. Type Conversion
-11. Indexes
-12. Full Text Search
-13. Concurrency Control
-14. Performance Tips
-15. Parallel Query
-III. Server Administration
-16. Installation from Binaries
-17. Installation from Source Code
-18. Server Setup and Operation
-19. Server Configuration
-20. Client Authentication
-21. Database Roles
-22. Managing Databases
-23. Localization
-24. Routine Database Maintenance Tasks
-25. Backup and Restore
-26. High Availability, Load Balancing, and Replication
-27. Monitoring Database Activity
-28. Reliability and the Write-Ahead Log
-29. Logical Replication
-30. Just-in-Time Compilation (JIT)
-31. Regression Tests
-IV. Client Interfaces
-32. libpq — C Library
-33. Large Objects
-34. ECPG — Embedded SQL in C
-35. The Information Schema
-V. Server Programming
-36. Extending SQL
-37. Triggers
-38. Event Triggers
-39. The Rule System
-40. Procedural Languages
-41. PL/pgSQL — SQL Procedural Language
-42. PL/Tcl — Tcl Procedural Language
-43. PL/Perl — Perl Procedural Language
-44. PL/Python — Python Procedural Language
-45. Server Programming Interface
-46. Background Worker Processes
-47. Logical Decoding
-48. Replication Progress Tracking
-49. Archive Modules
-50. OAuth Validator Modules
-VI. Reference
-I. SQL Commands
-II. PostgreSQL Client Applications
-III. PostgreSQL Server Applications
-VII. Internals
-51. Overview of PostgreSQL Internals
-52. System Catalogs
-53. System Views
-54. Frontend/Backend Protocol
-55. PostgreSQL Coding Conventions
-56. Native Language Support
-57. Writing a Procedural Language Handler
-58. Writing a Foreign Data Wrapper
-59. Writing a Table Sampling Method
-60. Writing a Custom Scan Provider
-61. Genetic Query Optimizer
-62. Table Access Method Interface Definition
-63. Index Access Method Interface Definition
-64. Write Ahead Logging for Extensions
-65. Built-in Index Access Methods
-66. Database Physical Storage
-67. Transaction Processing
-68. System Catalog Declarations and Initial Contents
-69. How the Planner Uses Statistics
-70. Backup Manifest Format
-VIII. Appendixes
-A. PostgreSQL Error Codes
-B. Date/Time Support
-C. SQL Key Words
-D. SQL Conformance
-E. Release Notes
-F. Additional Supplied Modules and Extensions
-G. Additional Supplied Programs
-H. External Projects
-I. The Source Code Repository
-J. Documentation
-K. PostgreSQL Limits
-L. Acronyms
-M. Glossary
-N. Color Support
-O. Obsolete or Renamed Features
-Bibliography
-
-
+   I. Tutorial
+6. Getting Started
+7. The SQL Language
+8. Advanced Features
+   II. The SQL Language
+9. SQL Syntax
+10. Data Definition
+11. Data Manipulation
+12. Queries
+13. Data Types
+14. Functions and Operators
+15. Type Conversion
+16. Indexes
+17. Full Text Search
+18. Concurrency Control
+19. Performance Tips
+20. Parallel Query
+    III. Server Administration
+21. Installation from Binaries
+22. Installation from Source Code
+23. Server Setup and Operation
+24. Server Configuration
+25. Client Authentication
+26. Database Roles
+27. Managing Databases
+28. Localization
+29. Routine Database Maintenance Tasks
+30. Backup and Restore
+31. High Availability, Load Balancing, and Replication
+32. Monitoring Database Activity
+33. Reliability and the Write-Ahead Log
+34. Logical Replication
+35. Just-in-Time Compilation (JIT)
+36. Regression Tests
+    IV. Client Interfaces
+37. libpq — C Library
+38. Large Objects
+39. ECPG — Embedded SQL in C
+40. The Information Schema
+    V. Server Programming
+41. Extending SQL
+42. Triggers
+43. Event Triggers
+44. The Rule System
+45. Procedural Languages
+46. PL/pgSQL — SQL Procedural Language
+47. PL/Tcl — Tcl Procedural Language
+48. PL/Perl — Perl Procedural Language
+49. PL/Python — Python Procedural Language
+50. Server Programming Interface
+51. Background Worker Processes
+52. Logical Decoding
+53. Replication Progress Tracking
+54. Archive Modules
+55. OAuth Validator Modules
+    VI. Reference
+    I. SQL Commands
+    II. PostgreSQL Client Applications
+    III. PostgreSQL Server Applications
+    VII. Internals
+56. Overview of PostgreSQL Internals
+57. System Catalogs
+58. System Views
+59. Frontend/Backend Protocol
+60. PostgreSQL Coding Conventions
+61. Native Language Support
+62. Writing a Procedural Language Handler
+63. Writing a Foreign Data Wrapper
+64. Writing a Table Sampling Method
+65. Writing a Custom Scan Provider
+66. Genetic Query Optimizer
+67. Table Access Method Interface Definition
+68. Index Access Method Interface Definition
+69. Write Ahead Logging for Extensions
+70. Built-in Index Access Methods
+71. Database Physical Storage
+72. Transaction Processing
+73. System Catalog Declarations and Initial Contents
+74. How the Planner Uses Statistics
+75. Backup Manifest Format
+    VIII. Appendixes
+    A. PostgreSQL Error Codes
+    B. Date/Time Support
+    C. SQL Key Words
+    D. SQL Conformance
+    E. Release Notes
+    F. Additional Supplied Modules and Extensions
+    G. Additional Supplied Programs
+    H. External Projects
+    I. The Source Code Repository
+    J. Documentation
+    K. PostgreSQL Limits
+    L. Acronyms
+    M. Glossary
+    N. Color Support
+    O. Obsolete or Renamed Features
+    Bibliography

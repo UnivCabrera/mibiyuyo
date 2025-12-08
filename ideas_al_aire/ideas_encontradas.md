@@ -6,21 +6,21 @@
 
 ## 📊 Resumen de Procesamiento
 
-| Idea | Estado | Ubicación en Docs |
-|:-----|:-------|:------------------|
-| Monorepo (NX/TurboRepo) | ❌ NO APLICA | Single repo SvelteKit |
-| Service Mesh | ❌ NO APLICA | Arquitectura modular, no microservicios |
-| CDN | ✅ YA TENEMOS | Cloudflare configurado |
-| Message Queues (Redis) | ✅ YA TENEMOS | BullMQ + Redis |
-| Sharding DB | 📋 DOCUMENTADO | `06_ESCALAMIENTO/01_KUBERNETES_PREPARACION.md` |
-| Redis Pub/Sub | 📋 DOCUMENTADO | `13_RESILIENCIA_INFRAESTRUCTURA/01_ESTRATEGIA_ANTI_FALLOS_VPS.md` |
-| Repository Pattern | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
-| CQRS | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
-| Sagas | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
-| Blue-Green/Canary | 📋 DOCUMENTADO | `09_ENTORNOS/01_GESTION_ENTORNOS.md` |
-| API Wrappers | 📋 DOCUMENTADO | `10_API_DOCS/01_API_REFERENCE.md` |
-| Webhooks Alta Carga | 📋 DOCUMENTADO | `10_API_DOCS/01_API_REFERENCE.md` |
-| Deadlocks/Locks | 📋 DOCUMENTADO | `08_TESTING_QA/01_ESTRATEGIA_TESTING.md` |
+| Idea                    | Estado         | Ubicación en Docs                                                 |
+| :---------------------- | :------------- | :---------------------------------------------------------------- |
+| Monorepo (NX/TurboRepo) | ❌ NO APLICA   | Single repo SvelteKit                                             |
+| Service Mesh            | ❌ NO APLICA   | Arquitectura modular, no microservicios                           |
+| CDN                     | ✅ YA TENEMOS  | Cloudflare configurado                                            |
+| Message Queues (Redis)  | ✅ YA TENEMOS  | BullMQ + Redis                                                    |
+| Sharding DB             | 📋 DOCUMENTADO | `06_ESCALAMIENTO/01_KUBERNETES_PREPARACION.md`                    |
+| Redis Pub/Sub           | 📋 DOCUMENTADO | `13_RESILIENCIA_INFRAESTRUCTURA/01_ESTRATEGIA_ANTI_FALLOS_VPS.md` |
+| Repository Pattern      | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
+| CQRS                    | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
+| Sagas                   | 📋 DOCUMENTADO | `15_ARQUITECTURA_AVANZADA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
+| Blue-Green/Canary       | 📋 DOCUMENTADO | `09_ENTORNOS/01_GESTION_ENTORNOS.md`                              |
+| API Wrappers            | 📋 DOCUMENTADO | `10_API_DOCS/01_API_REFERENCE.md`                                 |
+| Webhooks Alta Carga     | 📋 DOCUMENTADO | `10_API_DOCS/01_API_REFERENCE.md`                                 |
+| Deadlocks/Locks         | 📋 DOCUMENTADO | `08_TESTING_QA/01_ESTRATEGIA_TESTING.md`                          |
 
 ---
 
@@ -84,6 +84,7 @@ Cuando ya tienes:
 
 No actives TODO el mesh el día uno.
 Hazlo por fases:
+
 1. Observabilidad → métricas, tracing, logs.
 2. Timeouts & Retries → controlar fallos sin drama.
 3. mTLS → seguridad entre servicios.
@@ -473,7 +474,7 @@ La respuesta: Redis Pub/Sub.
 
 En conclusión:
 Si tu app no habla en tiempo real… básicamente está hablando sola.
- Nada une más a un equipo que arreglar un bug en producción…
+Nada une más a un equipo que arreglar un bug en producción…
 y nada los separa más que no tener un CI/CD.
 
 👉 ¿Qué es CI/CD?
@@ -539,7 +540,7 @@ Bienvenido al mundo real: cuando procesos como pagar, facturar o notificar depen
 • Orquestadores (ej. Temporal, AWS Step Functions, Camunda): control central y menos caos.
 
 ❌ Recuerda: no manejar errores… no es arquitectura.
- Todo iba bien… hasta que tocaste el useEffect.
+Todo iba bien… hasta que tocaste el useEffect.
 De pronto tuviste renders infinitos, fugas de memoria y un código lleno de ansiedad. ¿Te suena?
 
 Los errores más comunes al usar este hook vienen de:
@@ -567,9 +568,9 @@ Todo estaba listo: staging verde ✅, PRs aprobados ✅, pruebas pasadas ✅… 
 
 👉 ¿Te ha pasado un deploy de viernes que terminó en desastre? Cuéntalo aquí y hagamos terapia grupal.o
 
-Liked by 
+Liked by
 holasoymalva
- and 72 others
+and 72 others
 💥 Nada une más a un equipo que arreglar un bug en producción…
 y nada los separa más que no tener un CI/CD.
 
@@ -659,7 +660,7 @@ El director de orquesta que maneja todos tus contenedores, monitorea, escala y m
 ⚠️ Spoiler: si tus imágenes pesan 5MB y tu CSS parece una biblia… Lighthouse te lo va a decir en la cara.
 
 🎯 Optimiza, acelera y deja de esperar a que cargue tu web como si fuera 2005. ¿Ya usaste Lighthouse o sigues culpando al Wi-Fi? porque ayudara en el sistema
-YA NO SUPE SI S ESTAMOS SUANDO  TanStack: el ecosistema moderno para manejar tu frontend como un pro (sin casarte con un framework gigante).
+YA NO SUPE SI S ESTAMOS SUANDO TanStack: el ecosistema moderno para manejar tu frontend como un pro (sin casarte con un framework gigante).
 
 ¿Ya usas react-query? Bueno, sorpresa: ahora se llama TanStack Query y es solo una parte del combo.
 

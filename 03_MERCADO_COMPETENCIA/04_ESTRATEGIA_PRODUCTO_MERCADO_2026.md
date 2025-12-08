@@ -1,4 +1,5 @@
 # 🎯 ESTRATEGIA DE PRODUCTO Y MERCADO 2026
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Versión:** 1.0  
 **Fecha:** 1 Diciembre 2025  
@@ -20,28 +21,28 @@
 
 ## 1.1 Apps Analizadas
 
-| # | App | Categoría | Precio MXN/mes | Usuarios Est. | Fortaleza Principal |
-|:---:|:---|:---|:---:|:---:|:---|
-| 1 | **Contpaqi Contabilidad** | Contabilidad | $2,500-8,000 | 200K+ | Estándar de la industria MX |
-| 2 | **Aspel COI/NOI/SAE** | Suite Empresarial | $1,800-5,000 | 150K+ | Suite integrada |
-| 3 | **QuickBooks MX** | Contabilidad Cloud | $450-2,500 | 50K+ | Marca global, estabilidad |
-| 4 | **Alegra** | Facturación LATAM | $299-1,499 | 30K+ MX | UX simple, barato |
-| 5 | **Zoho Books** | Contabilidad Cloud | $0-1,800 | 20K+ MX | Gratis para iniciar |
-| 6 | **Odoo Contabilidad** | ERP | $0-4,000 | 15K+ | Open source, extensible |
-| 7 | **Bind ERP** | ERP PyME | $500-2,500 | 10K+ | 100% mexicano |
-| 8 | **Microsip** | ERP Local | $3,000-10,000 | 40K+ | Muy usado en retail |
-| 9 | **AdminPAQ** | Contabilidad | $2,000-4,000 | 30K+ | Mismo ecosistema Contpaqi |
-| 10 | **Facturama** | Facturación | $199-999 | 25K+ | Solo facturación, simple |
-| 11 | **Finerio** | Finanzas Personales | $0-150 | 500K+ | Conexión bancaria |
-| 12 | **Monefy** | Finanzas Personales | $0-80 | 200K+ MX | Interfaz simple |
-| 13 | **Wallet by BudgetBakers** | PFM | $49/año | 100K+ MX | Multi-moneda |
-| 14 | **Spendee** | Finanzas Personales | $0-120 | 80K+ MX | Diseño moderno |
-| 15 | **1Money** | Finanzas Personales | $0-60 | 60K+ MX | Offline first |
-| 16 | **Money Manager** | Finanzas Personales | $0-50 | 50K+ MX | Japonés pero popular |
-| 17 | **Conta365** | Contabilidad | $199-599 | 15K+ | Cloud económico |
-| 18 | **FacturAPI** | API Facturación | Por uso | 5K+ devs | API-first |
-| 19 | **Holded** | Gestión Empresarial | $600-2,000 | 5K+ MX | Español, moderno |
-| 20 | **Wave** | Contabilidad Free | $0 | 10K+ MX | Gratis (con ads) |
+|  #  | App                        | Categoría           | Precio MXN/mes | Usuarios Est. | Fortaleza Principal         |
+| :-: | :------------------------- | :------------------ | :------------: | :-----------: | :-------------------------- |
+|  1  | **Contpaqi Contabilidad**  | Contabilidad        |  $2,500-8,000  |     200K+     | Estándar de la industria MX |
+|  2  | **Aspel COI/NOI/SAE**      | Suite Empresarial   |  $1,800-5,000  |     150K+     | Suite integrada             |
+|  3  | **QuickBooks MX**          | Contabilidad Cloud  |   $450-2,500   |     50K+      | Marca global, estabilidad   |
+|  4  | **Alegra**                 | Facturación LATAM   |   $299-1,499   |    30K+ MX    | UX simple, barato           |
+|  5  | **Zoho Books**             | Contabilidad Cloud  |    $0-1,800    |    20K+ MX    | Gratis para iniciar         |
+|  6  | **Odoo Contabilidad**      | ERP                 |    $0-4,000    |     15K+      | Open source, extensible     |
+|  7  | **Bind ERP**               | ERP PyME            |   $500-2,500   |     10K+      | 100% mexicano               |
+|  8  | **Microsip**               | ERP Local           | $3,000-10,000  |     40K+      | Muy usado en retail         |
+|  9  | **AdminPAQ**               | Contabilidad        |  $2,000-4,000  |     30K+      | Mismo ecosistema Contpaqi   |
+| 10  | **Facturama**              | Facturación         |    $199-999    |     25K+      | Solo facturación, simple    |
+| 11  | **Finerio**                | Finanzas Personales |     $0-150     |     500K+     | Conexión bancaria           |
+| 12  | **Monefy**                 | Finanzas Personales |     $0-80      |   200K+ MX    | Interfaz simple             |
+| 13  | **Wallet by BudgetBakers** | PFM                 |    $49/año     |   100K+ MX    | Multi-moneda                |
+| 14  | **Spendee**                | Finanzas Personales |     $0-120     |    80K+ MX    | Diseño moderno              |
+| 15  | **1Money**                 | Finanzas Personales |     $0-60      |    60K+ MX    | Offline first               |
+| 16  | **Money Manager**          | Finanzas Personales |     $0-50      |    50K+ MX    | Japonés pero popular        |
+| 17  | **Conta365**               | Contabilidad        |    $199-599    |     15K+      | Cloud económico             |
+| 18  | **FacturAPI**              | API Facturación     |    Por uso     |   5K+ devs    | API-first                   |
+| 19  | **Holded**                 | Gestión Empresarial |   $600-2,000   |    5K+ MX     | Español, moderno            |
+| 20  | **Wave**                   | Contabilidad Free   |       $0       |    10K+ MX    | Gratis (con ads)            |
 
 ---
 
@@ -49,33 +50,33 @@
 
 ### DEAL-BREAKERS PARA CONTADORES (Si no lo tenemos, NOS RECHAZAN)
 
-| # | Feature | Quién lo tiene | Estado Nuestro | Prioridad |
-|:---:|:---|:---|:---:|:---:|
-| **DB-01** | **Catálogo de Cuentas SAT completo (NIF)** | Contpaqi, Aspel, Bind | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-02** | **Pólizas contables con afectación automática** | Todos los de contabilidad | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-03** | **Estado de Resultados SAT** | Contpaqi, Aspel, QB | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-04** | **Balance General SAT** | Contpaqi, Aspel, QB | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-05** | **Balanza de Comprobación** | Todos de contabilidad | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-06** | **Libro Diario y Mayor** | Contpaqi, Aspel | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-07** | **DIOT (Declaración IVA)** | Contpaqi, Aspel | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-08** | **Contabilidad Electrónica XML** | Contpaqi, Aspel | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-09** | **Depreciación de Activos Fijos** | Contpaqi, Aspel, QB | ⚠️ Pendiente | 🟡 ALTA |
-| **DB-10** | **Auxiliares Contables** | Todos de contabilidad | ⚠️ Pendiente | 🟡 ALTA |
+|     #     | Feature                                         | Quién lo tiene            | Estado Nuestro | Prioridad  |
+| :-------: | :---------------------------------------------- | :------------------------ | :------------: | :--------: |
+| **DB-01** | **Catálogo de Cuentas SAT completo (NIF)**      | Contpaqi, Aspel, Bind     |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-02** | **Pólizas contables con afectación automática** | Todos los de contabilidad |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-03** | **Estado de Resultados SAT**                    | Contpaqi, Aspel, QB       |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-04** | **Balance General SAT**                         | Contpaqi, Aspel, QB       |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-05** | **Balanza de Comprobación**                     | Todos de contabilidad     |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-06** | **Libro Diario y Mayor**                        | Contpaqi, Aspel           |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-07** | **DIOT (Declaración IVA)**                      | Contpaqi, Aspel           |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-08** | **Contabilidad Electrónica XML**                | Contpaqi, Aspel           |  ⚠️ Pendiente  | 🔴 CRÍTICA |
+| **DB-09** | **Depreciación de Activos Fijos**               | Contpaqi, Aspel, QB       |  ⚠️ Pendiente  |  🟡 ALTA   |
+| **DB-10** | **Auxiliares Contables**                        | Todos de contabilidad     |  ⚠️ Pendiente  |  🟡 ALTA   |
 
 ### DEAL-BREAKERS PARA PyMEs (Sin esto, no nos toman en serio)
 
-| # | Feature | Quién lo tiene | Estado Nuestro | Prioridad |
-|:---:|:---|:---|:---:|:---:|
-| **DB-11** | **Complemento de Pago (REP)** | Contpaqi, Alegra, Facturama | ✅ Planeado (SAT-005) | 🔴 CRÍTICA |
-| **DB-12** | **Nota de Crédito CFDI** | Todos de facturación | ⚠️ No documentado | 🔴 CRÍTICA |
-| **DB-13** | **Cotizaciones/Presupuestos** | QuickBooks, Alegra, Holded | ⚠️ No documentado | 🟡 ALTA |
-| **DB-14** | **Órdenes de Compra** | Bind, Odoo, Microsip | ⚠️ No documentado | 🟡 ALTA |
-| **DB-15** | **Control de Inventario Básico** | Bind, Odoo, Microsip, QB | ⚠️ No documentado | 🟡 ALTA |
-| **DB-16** | **Cuentas por Cobrar/Pagar** | Todos empresariales | ⚠️ Parcial | 🔴 CRÍTICA |
-| **DB-17** | **Antigüedad de Saldos** | Contpaqi, Aspel, QB | ⚠️ No documentado | 🟡 ALTA |
-| **DB-18** | **Conciliación Bancaria Manual** | Todos | ⚠️ Solo automática | 🟡 ALTA |
-| **DB-19** | **Reportes para el SAT** | Contpaqi, Aspel | ⚠️ Pendiente | 🔴 CRÍTICA |
-| **DB-20** | **Multi-Sucursal/Centro de Costos** | Bind, Contpaqi | ⚠️ No documentado | 🟢 MEDIA |
+|     #     | Feature                             | Quién lo tiene              |    Estado Nuestro     | Prioridad  |
+| :-------: | :---------------------------------- | :-------------------------- | :-------------------: | :--------: |
+| **DB-11** | **Complemento de Pago (REP)**       | Contpaqi, Alegra, Facturama | ✅ Planeado (SAT-005) | 🔴 CRÍTICA |
+| **DB-12** | **Nota de Crédito CFDI**            | Todos de facturación        |   ⚠️ No documentado   | 🔴 CRÍTICA |
+| **DB-13** | **Cotizaciones/Presupuestos**       | QuickBooks, Alegra, Holded  |   ⚠️ No documentado   |  🟡 ALTA   |
+| **DB-14** | **Órdenes de Compra**               | Bind, Odoo, Microsip        |   ⚠️ No documentado   |  🟡 ALTA   |
+| **DB-15** | **Control de Inventario Básico**    | Bind, Odoo, Microsip, QB    |   ⚠️ No documentado   |  🟡 ALTA   |
+| **DB-16** | **Cuentas por Cobrar/Pagar**        | Todos empresariales         |      ⚠️ Parcial       | 🔴 CRÍTICA |
+| **DB-17** | **Antigüedad de Saldos**            | Contpaqi, Aspel, QB         |   ⚠️ No documentado   |  🟡 ALTA   |
+| **DB-18** | **Conciliación Bancaria Manual**    | Todos                       |  ⚠️ Solo automática   |  🟡 ALTA   |
+| **DB-19** | **Reportes para el SAT**            | Contpaqi, Aspel             |     ⚠️ Pendiente      | 🔴 CRÍTICA |
+| **DB-20** | **Multi-Sucursal/Centro de Costos** | Bind, Contpaqi              |   ⚠️ No documentado   |  🟢 MEDIA  |
 
 ---
 
@@ -119,28 +120,28 @@
 
 ### 🟡 GAPS IMPORTANTES (Perdemos frente a competencia)
 
-| Gap | Descripción | Quién lo tiene | Impacto |
-|:---|:---|:---|:---:|
-| GAP-06 | **Portal de Clientes** (ver facturas, pagar online) | Alegra, Holded | 🟡 ALTO |
-| GAP-07 | **Firma Electrónica en Cotizaciones** | Holded, Pandadoc | 🟡 ALTO |
-| GAP-08 | **Pagos Online Integrados** (link de pago en factura) | Alegra, Stripe | 🟡 ALTO |
-| GAP-09 | **Nómina CFDI 4.0 completa** | Contpaqi Nóminas, Runa | 🟢 MEDIO |
-| GAP-10 | **Integración con Marketplace** (Amazon, ML) | Bind, Alegra | 🟢 MEDIO |
-| GAP-11 | **App Móvil Nativa** (no solo PWA) | Finerio, QB | 🟢 MEDIO |
-| GAP-12 | **Modo POS (Punto de Venta)** | Bind, Microsip | 🟢 MEDIO |
-| GAP-13 | **Reportes Personalizables** (drag & drop) | Contpaqi, Odoo | 🟡 ALTO |
-| GAP-14 | **Integración Contabilidad ↔ Nómina** | Suite Contpaqi | 🟢 MEDIO |
-| GAP-15 | **Plantillas de Factura personalizables** | Todos | 🟡 ALTO |
+| Gap    | Descripción                                           | Quién lo tiene         | Impacto  |
+| :----- | :---------------------------------------------------- | :--------------------- | :------: |
+| GAP-06 | **Portal de Clientes** (ver facturas, pagar online)   | Alegra, Holded         | 🟡 ALTO  |
+| GAP-07 | **Firma Electrónica en Cotizaciones**                 | Holded, Pandadoc       | 🟡 ALTO  |
+| GAP-08 | **Pagos Online Integrados** (link de pago en factura) | Alegra, Stripe         | 🟡 ALTO  |
+| GAP-09 | **Nómina CFDI 4.0 completa**                          | Contpaqi Nóminas, Runa | 🟢 MEDIO |
+| GAP-10 | **Integración con Marketplace** (Amazon, ML)          | Bind, Alegra           | 🟢 MEDIO |
+| GAP-11 | **App Móvil Nativa** (no solo PWA)                    | Finerio, QB            | 🟢 MEDIO |
+| GAP-12 | **Modo POS (Punto de Venta)**                         | Bind, Microsip         | 🟢 MEDIO |
+| GAP-13 | **Reportes Personalizables** (drag & drop)            | Contpaqi, Odoo         | 🟡 ALTO  |
+| GAP-14 | **Integración Contabilidad ↔ Nómina**                 | Suite Contpaqi         | 🟢 MEDIO |
+| GAP-15 | **Plantillas de Factura personalizables**             | Todos                  | 🟡 ALTO  |
 
 ### 🟢 GAPS MENORES (Nice-to-have)
 
-| Gap | Descripción | Fase |
-|:---|:---|:---:|
-| GAP-16 | Integración con TimbradoFiscal.mx, Diverza | V2 |
-| GAP-17 | Importación desde Contpaqi/Aspel | V2 |
-| GAP-18 | API pública documentada | V1 |
-| GAP-19 | Webhooks para integraciones | V2 |
-| GAP-20 | White-label para contadores | V3 |
+| Gap    | Descripción                                | Fase |
+| :----- | :----------------------------------------- | :--: |
+| GAP-16 | Integración con TimbradoFiscal.mx, Diverza |  V2  |
+| GAP-17 | Importación desde Contpaqi/Aspel           |  V2  |
+| GAP-18 | API pública documentada                    |  V1  |
+| GAP-19 | Webhooks para integraciones                |  V2  |
+| GAP-20 | White-label para contadores                |  V3  |
 
 ---
 
@@ -148,18 +149,18 @@
 
 ### ✅ Lo que NOSOTROS tenemos y ELLOS NO
 
-| Ventaja | Detalle | Competidores sin esto |
-|:---|:---|:---|
-| **IA Nativa Gemini** | Chat, predicción, clasificación | Todos (nadie tiene IA real) |
-| **Predicción Flujo 90 días** | Prophet + ML | Nadie lo hace |
-| **Gamificación Financiera** | Retos, badges, streaks | Solo Finerio (básico) |
-| **Validación EFOS/69-B automática** | En tiempo real | Solo Contpaqi (manual) |
-| **Arquitectura Moderna** | Bun, Svelte, Edge-ready | Todos son legacy |
-| **Open Source Core** | Transparencia, auditable | Nadie |
-| **Modo Offline Real** | PWA + IndexedDB | Muy pocos |
-| **Multi-idioma nativo** | es-MX, en-US desde día 1 | Solo grandes |
-| **Simulador de Auditoría SAT** | Score de riesgo | Nadie |
-| **Escudo Financiero** (nuevo) | Ver Sección 3 | Nadie |
+| Ventaja                             | Detalle                         | Competidores sin esto       |
+| :---------------------------------- | :------------------------------ | :-------------------------- |
+| **IA Nativa Gemini**                | Chat, predicción, clasificación | Todos (nadie tiene IA real) |
+| **Predicción Flujo 90 días**        | Prophet + ML                    | Nadie lo hace               |
+| **Gamificación Financiera**         | Retos, badges, streaks          | Solo Finerio (básico)       |
+| **Validación EFOS/69-B automática** | En tiempo real                  | Solo Contpaqi (manual)      |
+| **Arquitectura Moderna**            | Bun, Svelte, Edge-ready         | Todos son legacy            |
+| **Open Source Core**                | Transparencia, auditable        | Nadie                       |
+| **Modo Offline Real**               | PWA + IndexedDB                 | Muy pocos                   |
+| **Multi-idioma nativo**             | es-MX, en-US desde día 1        | Solo grandes                |
+| **Simulador de Auditoría SAT**      | Score de riesgo                 | Nadie                       |
+| **Escudo Financiero** (nuevo)       | Ver Sección 3                   | Nadie                       |
 
 ---
 
@@ -167,28 +168,28 @@
 
 ## 2.1 Features de Fortune 500 → Adaptados para PyME
 
-| # | Feature Enterprise | Uso Original | Adaptación PyME | Prioridad |
-|:---:|:---|:---|:---|:---:|
-| **E-01** | **Consolidación Multi-Entidad** | Holdings con 50+ empresas | Multi-sucursal + Centro de costos | 🟡 V2 |
-| **E-02** | **Tesorería Avanzada** | Gestión de liquidez multi-banco | Dashboard de liquidez unificado | 🔴 V1 |
-| **E-03** | **Cash Pooling** | Optimizar saldos entre cuentas | Transferencias inteligentes sugeridas | 🟢 V2 |
-| **E-04** | **Proyección Rolling 12M** | Forecast financiero dinámico | Proyección trimestral automática | 🔴 V1 |
-| **E-05** | **Variance Analysis** | Desviación presupuestal | Alertas de desviación automáticas | 🔴 V1 |
-| **E-06** | **Intercompany Reconciliation** | Transacciones entre filiales | Conciliación proveedor-cliente | 🟢 V2 |
-| **E-07** | **Revenue Recognition (ASC 606)** | Reconocimiento de ingresos | Devengado vs efectivo simple | 🟡 V2 |
-| **E-08** | **Lease Accounting (IFRS 16)** | Contabilidad de arrendamientos | Calculadora de leasing simple | 🟢 V3 |
-| **E-09** | **Transfer Pricing** | Precios de transferencia | N/A para PyME | ❌ |
-| **E-10** | **Hedge Accounting** | Cobertura de riesgos | Alertas de tipo de cambio | 🟢 V2 |
-| **E-11** | **Workflow Approval** | Cadena de autorizaciones | Aprobación de gastos >$X | 🟡 V1 |
-| **E-12** | **Audit Trail Blockchain** | Inmutabilidad probada | Audit log firmado digitalmente | 🟢 V2 |
-| **E-13** | **Scenario Planning** | Modelado de escenarios | Simulador "¿Qué pasa si...?" | 🔴 V1 |
-| **E-14** | **Real-time Dashboards** | KPIs en vivo | Ya lo tenemos (ANA-001) | ✅ |
-| **E-15** | **Drill-Down Analysis** | Navegación en datos | Click en gráfica → detalle | 🔴 V1 |
-| **E-16** | **Budget vs Actual** | Control presupuestal | Ya documentado (FIN-021) | ✅ |
-| **E-17** | **Cost Allocation** | Distribución de costos | Por producto/servicio simple | 🟡 V2 |
-| **E-18** | **Project Accounting** | Contabilidad por proyecto | Rentabilidad por cliente | 🟡 V2 |
-| **E-19** | **Subscription Management** | Ingresos recurrentes | Para SaaS y servicios | 🟢 V2 |
-| **E-20** | **ESG Reporting** | Métricas sostenibilidad | Score ESG simplificado | 🟢 V2 |
+|    #     | Feature Enterprise                | Uso Original                    | Adaptación PyME                       | Prioridad |
+| :------: | :-------------------------------- | :------------------------------ | :------------------------------------ | :-------: |
+| **E-01** | **Consolidación Multi-Entidad**   | Holdings con 50+ empresas       | Multi-sucursal + Centro de costos     |   🟡 V2   |
+| **E-02** | **Tesorería Avanzada**            | Gestión de liquidez multi-banco | Dashboard de liquidez unificado       |   🔴 V1   |
+| **E-03** | **Cash Pooling**                  | Optimizar saldos entre cuentas  | Transferencias inteligentes sugeridas |   🟢 V2   |
+| **E-04** | **Proyección Rolling 12M**        | Forecast financiero dinámico    | Proyección trimestral automática      |   🔴 V1   |
+| **E-05** | **Variance Analysis**             | Desviación presupuestal         | Alertas de desviación automáticas     |   🔴 V1   |
+| **E-06** | **Intercompany Reconciliation**   | Transacciones entre filiales    | Conciliación proveedor-cliente        |   🟢 V2   |
+| **E-07** | **Revenue Recognition (ASC 606)** | Reconocimiento de ingresos      | Devengado vs efectivo simple          |   🟡 V2   |
+| **E-08** | **Lease Accounting (IFRS 16)**    | Contabilidad de arrendamientos  | Calculadora de leasing simple         |   🟢 V3   |
+| **E-09** | **Transfer Pricing**              | Precios de transferencia        | N/A para PyME                         |    ❌     |
+| **E-10** | **Hedge Accounting**              | Cobertura de riesgos            | Alertas de tipo de cambio             |   🟢 V2   |
+| **E-11** | **Workflow Approval**             | Cadena de autorizaciones        | Aprobación de gastos >$X              |   🟡 V1   |
+| **E-12** | **Audit Trail Blockchain**        | Inmutabilidad probada           | Audit log firmado digitalmente        |   🟢 V2   |
+| **E-13** | **Scenario Planning**             | Modelado de escenarios          | Simulador "¿Qué pasa si...?"          |   🔴 V1   |
+| **E-14** | **Real-time Dashboards**          | KPIs en vivo                    | Ya lo tenemos (ANA-001)               |    ✅     |
+| **E-15** | **Drill-Down Analysis**           | Navegación en datos             | Click en gráfica → detalle            |   🔴 V1   |
+| **E-16** | **Budget vs Actual**              | Control presupuestal            | Ya documentado (FIN-021)              |    ✅     |
+| **E-17** | **Cost Allocation**               | Distribución de costos          | Por producto/servicio simple          |   🟡 V2   |
+| **E-18** | **Project Accounting**            | Contabilidad por proyecto       | Rentabilidad por cliente              |   🟡 V2   |
+| **E-19** | **Subscription Management**       | Ingresos recurrentes            | Para SaaS y servicios                 |   🟢 V2   |
+| **E-20** | **ESG Reporting**                 | Métricas sostenibilidad         | Score ESG simplificado                |   🟢 V2   |
 
 ---
 
@@ -266,12 +267,12 @@ Estos features harán que tu PyME se sienta usando software de corporativo:
 
 **Descripción:** Vista especial activable cuando hay "modo crisis"
 
-| Métrica | Cálculo | Alerta |
-|:---|:---|:---|
-| **Runway (días)** | Efectivo ÷ Gasto diario promedio | < 30 días = 🔴 |
-| **Burn Rate** | Promedio de salidas mensuales | Tendencia creciente = 🔴 |
-| **Colchón de Emergencia** | Efectivo - (3 meses gastos fijos) | Negativo = 🔴 |
-| **Ratio de Cobertura** | Ingresos recurrentes ÷ Gastos fijos | < 1.2 = 🔴 |
+| Métrica                   | Cálculo                             | Alerta                   |
+| :------------------------ | :---------------------------------- | :----------------------- |
+| **Runway (días)**         | Efectivo ÷ Gasto diario promedio    | < 30 días = 🔴           |
+| **Burn Rate**             | Promedio de salidas mensuales       | Tendencia creciente = 🔴 |
+| **Colchón de Emergencia** | Efectivo - (3 meses gastos fijos)   | Negativo = 🔴            |
+| **Ratio de Cobertura**    | Ingresos recurrentes ÷ Gastos fijos | < 1.2 = 🔴               |
 
 ```typescript
 interface SurvivalDashboard {
@@ -279,7 +280,7 @@ interface SurvivalDashboard {
   burnRateMonthly: number;
   emergencyBuffer: number;
   coverageRatio: number;
-  riskLevel: 'critical' | 'warning' | 'stable' | 'healthy';
+  riskLevel: "critical" | "warning" | "stable" | "healthy";
   recommendations: string[];
   prioritizedPayments: Payment[];
 }
@@ -294,15 +295,16 @@ interface SurvivalDashboard {
 
 **Descripción:** "¿Qué pasa si...?" para prepararse para lo peor
 
-| Escenario Predefinido | Parámetros |
-|:---|:---|
-| **Pérdida de cliente principal** | Simula -X% de ingresos |
-| **Aumento de costos** | +20%, +50%, +100% en categoría |
-| **Recesión económica** | -30% ingresos, +15% costos |
-| **Emergencia personal/negocio** | Gasto inesperado de $X |
-| **Pérdida de empleo** | Ingresos = 0 por N meses |
+| Escenario Predefinido            | Parámetros                     |
+| :------------------------------- | :----------------------------- |
+| **Pérdida de cliente principal** | Simula -X% de ingresos         |
+| **Aumento de costos**            | +20%, +50%, +100% en categoría |
+| **Recesión económica**           | -30% ingresos, +15% costos     |
+| **Emergencia personal/negocio**  | Gasto inesperado de $X         |
+| **Pérdida de empleo**            | Ingresos = 0 por N meses       |
 
 **Ejemplo de Output:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │  SIMULACIÓN: Pérdida del cliente "Empresa ABC" (-$45,000/mes)          │
@@ -334,15 +336,16 @@ interface SurvivalDashboard {
 
 **Descripción:** Encontrar todas las "fugas" de dinero pequeñas pero constantes
 
-| Categoría | Ejemplos | Promedio MX |
-|:---|:---|:---:|
-| **Suscripciones olvidadas** | Netflix, Spotify, apps, gym | $800-2,000/mes |
-| **Cafés y snacks** | Starbucks, Oxxo, maquinitas | $1,500-3,000/mes |
-| **Servicios no usados** | Cloud storage, membresías | $500-1,500/mes |
-| **Seguros duplicados** | Auto, gastos médicos | Varía |
-| **Comisiones bancarias** | Manejo de cuenta, retiros | $200-600/mes |
+| Categoría                   | Ejemplos                    |   Promedio MX    |
+| :-------------------------- | :-------------------------- | :--------------: |
+| **Suscripciones olvidadas** | Netflix, Spotify, apps, gym |  $800-2,000/mes  |
+| **Cafés y snacks**          | Starbucks, Oxxo, maquinitas | $1,500-3,000/mes |
+| **Servicios no usados**     | Cloud storage, membresías   |  $500-1,500/mes  |
+| **Seguros duplicados**      | Auto, gastos médicos        |      Varía       |
+| **Comisiones bancarias**    | Manejo de cuenta, retiros   |   $200-600/mes   |
 
 **Output:**
+
 ```
 🐜 GASTOS HORMIGA DETECTADOS: $3,847/mes ($46,164/año)
 
@@ -352,7 +355,7 @@ interface SurvivalDashboard {
    Spotify Familiar    Activo          $189       ¿Bajar a Duo?
    Gym SmartFit        Hace 90 días    $599       ¿Cancelar?
    Dropbox Plus        10% usado       $199       ¿Bajar a Free?
-   
+
    [ ] Cancelar seleccionados → Ahorro: $1,286/mes
 ```
 
@@ -366,6 +369,7 @@ interface SurvivalDashboard {
 **Descripción:** IA que sugiere DÓNDE recortar sin afectar operación
 
 **Lógica:**
+
 ```
 Prioridad de Recorte (de más fácil a más difícil):
 
@@ -387,13 +391,14 @@ Prioridad de Recorte (de más fácil a más difícil):
 ```
 
 **Output Personalizado:**
+
 ```
 📊 PLAN DE RECORTE SUGERIDO (Meta: -$20,000/mes)
 
 Acción                                    Ahorro    Impacto
 ──────────────────────────────────────────────────────────
 ✅ Pausar Google Ads                      $8,000    Bajo
-✅ Cancelar software no usado             $2,500    Bajo  
+✅ Cancelar software no usado             $2,500    Bajo
 ✅ Renegociar renta oficina               $3,000    Bajo
 ⚠️ Reducir inventario (promo)             $5,000    Medio
 ⚠️ Cambiar a freelance vs empleado        $6,000    Medio
@@ -413,6 +418,7 @@ Acción                                    Ahorro    Impacto
 **Descripción:** Cuando hay poco dinero, ¿qué pagar primero?
 
 **Prioridad de Pagos en Crisis:**
+
 ```
 1. 🔴 CRÍTICO (Pagar siempre)
    - Nómina (retener talento)
@@ -432,6 +438,7 @@ Acción                                    Ahorro    Impacto
 ```
 
 **Notificación Ejemplo:**
+
 ```
 ⚠️ ALERTA DE SUPERVIVENCIA
 
@@ -464,6 +471,7 @@ RECOMENDACIÓN:
 **Descripción:** Apartar automáticamente para imprevistos
 
 **Mecánica:**
+
 - Al recibir ingreso, apartar X% automáticamente (sugerido: 10%)
 - Meta: 3-6 meses de gastos fijos
 - Cuenta separada (virtual o real) intocable
@@ -495,6 +503,7 @@ RECOMENDACIÓN:
 **Descripción:** Alertas cuando el entorno se pone difícil
 
 **Indicadores monitoreados:**
+
 - Tipo de cambio USD/MXN (alerta si sube >5% en semana)
 - Inflación INPC (alerta si tendencia alcista)
 - Tasa de referencia Banxico (afecta créditos)
@@ -502,6 +511,7 @@ RECOMENDACIÓN:
 - Noticias económicas clave (IA filtra relevantes)
 
 **Alerta Ejemplo:**
+
 ```
 📊 ALERTA MACROECONÓMICA
 
@@ -524,13 +534,13 @@ RECOMENDACIÓN:
 
 ## 3.3 Por qué NO Cancelarán en Crisis
 
-| Razón | Explicación |
-|:---|:---|
-| **Utilidad tangible** | "Gracias a esta app supe que tenía 23 días de runway" |
-| **Ahorro demostrable** | "Encontró $3,800/mes en gastos hormiga" |
-| **Guía en incertidumbre** | "Me dijo exactamente qué pagar primero" |
-| **Preparación** | "El simulador me ayudó a prepararme antes de la crisis" |
-| **Precio bajo** | $150-300/mes es nada vs perder el negocio |
+| Razón                     | Explicación                                             |
+| :------------------------ | :------------------------------------------------------ |
+| **Utilidad tangible**     | "Gracias a esta app supe que tenía 23 días de runway"   |
+| **Ahorro demostrable**    | "Encontró $3,800/mes en gastos hormiga"                 |
+| **Guía en incertidumbre** | "Me dijo exactamente qué pagar primero"                 |
+| **Preparación**           | "El simulador me ayudó a prepararme antes de la crisis" |
+| **Precio bajo**           | $150-300/mes es nada vs perder el negocio               |
 
 ---
 
@@ -562,15 +572,15 @@ RECOMENDACIÓN:
 
 ### Principio: "Cada feature de IA debe ahorrar dinero o tiempo CUANTIFICABLE"
 
-| Feature IA | Ahorro CUANTIFICABLE | Cálculo |
-|:---|:---|:---|
-| **Auto-clasificación** | 2 horas/semana × $200/hr = **$1,600/mes** | Tiempo de contador |
-| **Predicción flujo 90 días** | Evita 1 cheque rebotado/año = **$3,000+** | Multas + daño reputacional |
-| **Validación EFOS/69-B** | Evita 1 factura fantasma = **$50,000+** | Multa SAT promedio |
-| **OCR de tickets** | 30 min/día × $100/hr = **$1,500/mes** | Tiempo de captura |
-| **Chatbot fiscal** | 1 consulta contador/mes = **$500-1,500** | Ahorro en honorarios |
-| **Detector gastos hormiga** | Promedio encontrado = **$2,000-4,000/mes** | Fugas detectadas |
-| **Simulador escenarios** | Decisión informada = **INVALUABLE** | Evita quiebra |
+| Feature IA                   | Ahorro CUANTIFICABLE                       | Cálculo                    |
+| :--------------------------- | :----------------------------------------- | :------------------------- |
+| **Auto-clasificación**       | 2 horas/semana × $200/hr = **$1,600/mes**  | Tiempo de contador         |
+| **Predicción flujo 90 días** | Evita 1 cheque rebotado/año = **$3,000+**  | Multas + daño reputacional |
+| **Validación EFOS/69-B**     | Evita 1 factura fantasma = **$50,000+**    | Multa SAT promedio         |
+| **OCR de tickets**           | 30 min/día × $100/hr = **$1,500/mes**      | Tiempo de captura          |
+| **Chatbot fiscal**           | 1 consulta contador/mes = **$500-1,500**   | Ahorro en honorarios       |
+| **Detector gastos hormiga**  | Promedio encontrado = **$2,000-4,000/mes** | Fugas detectadas           |
+| **Simulador escenarios**     | Decisión informada = **INVALUABLE**        | Evita quiebra              |
 
 ### Comparación: Costo vs Beneficio
 
@@ -600,16 +610,16 @@ RECOMENDACIÓN:
 
 ## 4.3 Diferenciadores de Nuestra IA vs "Hype"
 
-| Aspecto | IA "Hype" (otros) | Nuestra IA |
-|:---|:---|:---|
-| **Datos** | Genéricos o inventados | TUS datos reales |
-| **Contexto** | No sabe tu situación | Conoce tu negocio, industria, historial |
-| **Precisión** | "Aproximadamente..." | 85%+ con métricas |
-| **Accionable** | "Deberías ahorrar más" | "Cancela Netflix, Gym, ahorra $1,087" |
-| **Responsable** | Sin garantías | "Si falla predicción, notificamos 48h antes" |
-| **Explicable** | Caja negra | "Predije déficit porque: A + B + C" |
-| **Offline** | Requiere internet | Funciones básicas offline |
-| **Local** | Todo en la nube | Embeddings locales (privacidad) |
+| Aspecto         | IA "Hype" (otros)      | Nuestra IA                                   |
+| :-------------- | :--------------------- | :------------------------------------------- |
+| **Datos**       | Genéricos o inventados | TUS datos reales                             |
+| **Contexto**    | No sabe tu situación   | Conoce tu negocio, industria, historial      |
+| **Precisión**   | "Aproximadamente..."   | 85%+ con métricas                            |
+| **Accionable**  | "Deberías ahorrar más" | "Cancela Netflix, Gym, ahorra $1,087"        |
+| **Responsable** | Sin garantías          | "Si falla predicción, notificamos 48h antes" |
+| **Explicable**  | Caja negra             | "Predije déficit porque: A + B + C"          |
+| **Offline**     | Requiere internet      | Funciones básicas offline                    |
+| **Local**       | Todo en la nube        | Embeddings locales (privacidad)              |
 
 ---
 
@@ -641,13 +651,13 @@ RECOMENDACIÓN:
 
 ## 4.5 Features IA que NO Haremos (Anti-Hype)
 
-| Feature "Hype" | Por qué NO lo hacemos |
-|:---|:---|
-| "Consejo de inversión" | Requiere licencia CNBV, responsabilidad legal |
-| "Predicción de mercados" | Nadie puede predecir mercados, sería mentira |
-| "Asesor fiscal automatizado" | Solo orientación, no reemplaza contador |
-| "Trading automático" | Fuera de scope y muy riesgoso |
-| "Análisis de sentimiento de crypto" | No es fintech serio |
+| Feature "Hype"                      | Por qué NO lo hacemos                         |
+| :---------------------------------- | :-------------------------------------------- |
+| "Consejo de inversión"              | Requiere licencia CNBV, responsabilidad legal |
+| "Predicción de mercados"            | Nadie puede predecir mercados, sería mentira  |
+| "Asesor fiscal automatizado"        | Solo orientación, no reemplaza contador       |
+| "Trading automático"                | Fuera de scope y muy riesgoso                 |
+| "Análisis de sentimiento de crypto" | No es fintech serio                           |
 
 ---
 
@@ -657,45 +667,45 @@ RECOMENDACIÓN:
 
 ### FASE INMEDIATA (Antes de Beta - Dic 2025)
 
-| # | Item | Tipo | Esfuerzo | Impacto |
-|:---:|:---|:---:|:---:|:---:|
-| 1 | Nota de Crédito CFDI | Gap DB-12 | 🔨 3-5d | 🔴 Blocker |
-| 2 | Cotizaciones básicas | Gap DB-13 | 🔧 6-10d | 🔴 Blocker |
-| 3 | CxC/CxP profesional | Gap DB-16 | 🔧 6-10d | 🔴 Blocker |
-| 4 | Dashboard Supervivencia | ESC-001 | 🔧 6-10d | 🟡 Diferenciador |
-| 5 | Detector Gastos Hormiga | ESC-003 | 🔨 3-5d | 🟡 Diferenciador |
+|  #  | Item                    |   Tipo    | Esfuerzo |     Impacto      |
+| :-: | :---------------------- | :-------: | :------: | :--------------: |
+|  1  | Nota de Crédito CFDI    | Gap DB-12 | 🔨 3-5d  |    🔴 Blocker    |
+|  2  | Cotizaciones básicas    | Gap DB-13 | 🔧 6-10d |    🔴 Blocker    |
+|  3  | CxC/CxP profesional     | Gap DB-16 | 🔧 6-10d |    🔴 Blocker    |
+|  4  | Dashboard Supervivencia |  ESC-001  | 🔧 6-10d | 🟡 Diferenciador |
+|  5  | Detector Gastos Hormiga |  ESC-003  | 🔨 3-5d  | 🟡 Diferenciador |
 
 ### FASE 1 (Ene-Mar 2026)
 
-| # | Item | Tipo | Esfuerzo |
-|:---:|:---|:---:|:---:|
-| 1 | Módulo Contable básico | Gap DB-01 a DB-08 | 🏛️ 30-45d |
-| 2 | Inventario básico | Gap DB-15 | 🏗️ 11-20d |
-| 3 | Simulador Escenarios | ESC-002 | 🏗️ 11-20d |
-| 4 | Optimizador Recortes | ESC-004 | 🔧 6-10d |
-| 5 | Fondo Emergencia | ESC-006 | 🔨 3-5d |
+|  #  | Item                   |       Tipo        | Esfuerzo  |
+| :-: | :--------------------- | :---------------: | :-------: |
+|  1  | Módulo Contable básico | Gap DB-01 a DB-08 | 🏛️ 30-45d |
+|  2  | Inventario básico      |     Gap DB-15     | 🏗️ 11-20d |
+|  3  | Simulador Escenarios   |      ESC-002      | 🏗️ 11-20d |
+|  4  | Optimizador Recortes   |      ESC-004      | 🔧 6-10d  |
+|  5  | Fondo Emergencia       |      ESC-006      |  🔨 3-5d  |
 
 ### FASE 2 (Abr-Jun 2026)
 
-| # | Item | Tipo |
-|:---:|:---|:---:|
-| 1 | Plantillas Factura personalizables | Gap-15 |
-| 2 | Portal de Clientes | Gap-06 |
-| 3 | Link de Pago en Factura | Gap-08 |
-| 4 | Monitor Macroeconómico | ESC-007 |
-| 5 | API Pública v1 | Gap-18 |
+|  #  | Item                               |  Tipo   |
+| :-: | :--------------------------------- | :-----: |
+|  1  | Plantillas Factura personalizables | Gap-15  |
+|  2  | Portal de Clientes                 | Gap-06  |
+|  3  | Link de Pago en Factura            | Gap-08  |
+|  4  | Monitor Macroeconómico             | ESC-007 |
+|  5  | API Pública v1                     | Gap-18  |
 
 ---
 
 ## 5.2 Métricas de Éxito
 
-| Métrica | Target Q1 2026 | Target Q2 2026 |
-|:---|:---:|:---:|
-| Usuarios que activan Escudo | 40% | 60% |
-| Ahorro promedio detectado/usuario | $2,000/mes | $3,500/mes |
-| Precisión predicción flujo | 75% | 85% |
-| Retención en crisis económica | 85% | 90% |
-| NPS de features IA | +30 | +50 |
+| Métrica                           | Target Q1 2026 | Target Q2 2026 |
+| :-------------------------------- | :------------: | :------------: |
+| Usuarios que activan Escudo       |      40%       |      60%       |
+| Ahorro promedio detectado/usuario |   $2,000/mes   |   $3,500/mes   |
+| Precisión predicción flujo        |      75%       |      85%       |
+| Retención en crisis económica     |      85%       |      90%       |
+| NPS de features IA                |      +30       |      +50       |
 
 ---
 

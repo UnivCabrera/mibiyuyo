@@ -1,4 +1,5 @@
 # 🎨 SISTEMA DE DISEÑO UX/UI - PSICOLOGÍA DEL COLOR
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Enfoque:** Anclaje Emocional, Persuasión Visual, Confianza  
 **Versión:** 2.0  
@@ -8,13 +9,14 @@
 
 ## 🔗 DOCUMENTOS COMPLEMENTARIOS
 
-| Documento | Descripción |
-|:---|:---|
+| Documento                                                   | Descripción                                          |
+| :---------------------------------------------------------- | :--------------------------------------------------- |
 | [04_NEUROFINANZAS_FRAMEWORK](04_NEUROFINANZAS_FRAMEWORK.md) | **🆕 Framework completo de neurociencias aplicadas** |
-| [02_CANVAS_DESIGN](02_CANVAS_DESIGN.md) | Canvas de diseño general |
-| [03_INTERFAZ_TANGRAM_SPEC](03_INTERFAZ_TANGRAM_SPEC.md) | Especificaciones de interfaz modular |
+| [02_CANVAS_DESIGN](02_CANVAS_DESIGN.md)                     | Canvas de diseño general                             |
+| [03_INTERFAZ_TANGRAM_SPEC](03_INTERFAZ_TANGRAM_SPEC.md)     | Especificaciones de interfaz modular                 |
 
 > **🧠 Integración Neurociencias:** Este documento aplica los principios del Framework Neuro-Financiero:
+>
 > - **Neurociencia Cognitiva:** Reducción de carga cognitiva mediante colores claros
 > - **Neurociencia Afectiva:** Activación de dopamina (verde éxito) y reducción de cortisol (evitar rojo)
 > - **Neuropsicología:** Fricción visual para decisiones importantes (ámbar advertencia)
@@ -74,24 +76,24 @@
 
 ### Emociones que Queremos Evocar (Base Neurocientífica)
 
-| Emoción | Color Asociado | Uso en App | Neurotransmisor |
-| :--- | :--- | :--- | :--- |
-| **Confianza** | Azul profundo | Header, CTAs principales | Serotonina ↑ |
-| **Seguridad** | Verde azulado (teal) | Estados positivos | Cortisol ↓ |
-| **Tranquilidad** | Azul claro, gris suave | Fondos, áreas de lectura | Cortisol ↓ |
-| **Prosperidad** | Verde esmeralda | Ganancias, ahorros | Dopamina ↑ |
-| **Urgencia controlada** | Ámbar cálido | Alertas no críticas | Sistema 2 activo |
-| **Éxito/Celebración** | Dorado suave | Logros, gamificación | Dopamina ↑↑ |
-| **Alerta** | Coral (no rojo puro) | Errores, gastos excesivos | Adrenalina controlada |
+| Emoción                 | Color Asociado         | Uso en App                | Neurotransmisor       |
+| :---------------------- | :--------------------- | :------------------------ | :-------------------- |
+| **Confianza**           | Azul profundo          | Header, CTAs principales  | Serotonina ↑          |
+| **Seguridad**           | Verde azulado (teal)   | Estados positivos         | Cortisol ↓            |
+| **Tranquilidad**        | Azul claro, gris suave | Fondos, áreas de lectura  | Cortisol ↓            |
+| **Prosperidad**         | Verde esmeralda        | Ganancias, ahorros        | Dopamina ↑            |
+| **Urgencia controlada** | Ámbar cálido           | Alertas no críticas       | Sistema 2 activo      |
+| **Éxito/Celebración**   | Dorado suave           | Logros, gamificación      | Dopamina ↑↑           |
+| **Alerta**              | Coral (no rojo puro)   | Errores, gastos excesivos | Adrenalina controlada |
 
 ### Lo que EVITAMOS
 
-| Color | Problema | Alternativa |
-| :--- | :--- | :--- |
-| 🔴 Rojo puro (#FF0000) | Genera pánico financiero | Coral suave (#E57373) |
-| ⚫ Negro puro (#000000) | Demasiado duro | Gris carbón (#1A1A2E) |
-| 🟡 Amarillo brillante | Cansa la vista | Ámbar cálido (#F5A623) |
-| 🟢 Verde neón | Poco profesional | Verde esmeralda (#10B981) |
+| Color                   | Problema                 | Alternativa               |
+| :---------------------- | :----------------------- | :------------------------ |
+| 🔴 Rojo puro (#FF0000)  | Genera pánico financiero | Coral suave (#E57373)     |
+| ⚫ Negro puro (#000000) | Demasiado duro           | Gris carbón (#1A1A2E)     |
+| 🟡 Amarillo brillante   | Cansa la vista           | Ámbar cálido (#F5A623)    |
+| 🟢 Verde neón           | Poco profesional         | Verde esmeralda (#10B981) |
 
 ---
 
@@ -102,28 +104,28 @@
 ```css
 :root {
   /* PRIMARIO - Azul Confianza */
-  --primary-50: #EEF2FF;   /* Fondos sutiles */
-  --primary-100: #E0E7FF;  /* Hover estados */
-  --primary-200: #C7D2FE;  /* Bordes activos */
-  --primary-300: #A5B4FC;  /* Iconos secundarios */
-  --primary-400: #818CF8;  /* Elementos interactivos */
-  --primary-500: #6366F1;  /* ★ COLOR PRINCIPAL - Indigo */
-  --primary-600: #4F46E5;  /* Hover principal */
-  --primary-700: #4338CA;  /* Active/pressed */
-  --primary-800: #3730A3;  /* Textos sobre claro */
-  --primary-900: #312E81;  /* Headers importantes */
+  --primary-50: #eef2ff; /* Fondos sutiles */
+  --primary-100: #e0e7ff; /* Hover estados */
+  --primary-200: #c7d2fe; /* Bordes activos */
+  --primary-300: #a5b4fc; /* Iconos secundarios */
+  --primary-400: #818cf8; /* Elementos interactivos */
+  --primary-500: #6366f1; /* ★ COLOR PRINCIPAL - Indigo */
+  --primary-600: #4f46e5; /* Hover principal */
+  --primary-700: #4338ca; /* Active/pressed */
+  --primary-800: #3730a3; /* Textos sobre claro */
+  --primary-900: #312e81; /* Headers importantes */
 
   /* SECUNDARIO - Teal Seguridad */
-  --secondary-50: #F0FDFA;
-  --secondary-100: #CCFBF1;
-  --secondary-200: #99F6E4;
-  --secondary-300: #5EEAD4;
-  --secondary-400: #2DD4BF;
-  --secondary-500: #14B8A6;  /* ★ COLOR SECUNDARIO - Teal */
-  --secondary-600: #0D9488;
-  --secondary-700: #0F766E;
-  --secondary-800: #115E59;
-  --secondary-900: #134E4A;
+  --secondary-50: #f0fdfa;
+  --secondary-100: #ccfbf1;
+  --secondary-200: #99f6e4;
+  --secondary-300: #5eead4;
+  --secondary-400: #2dd4bf;
+  --secondary-500: #14b8a6; /* ★ COLOR SECUNDARIO - Teal */
+  --secondary-600: #0d9488;
+  --secondary-700: #0f766e;
+  --secondary-800: #115e59;
+  --secondary-900: #134e4a;
 }
 ```
 
@@ -147,11 +149,11 @@ TEAL (Seguridad/Crecimiento)
 
 ### Por qué Indigo + Teal
 
-| Combinación | Razón Psicológica |
-| :--- | :--- |
-| **Indigo** | Combina la confianza del azul con la creatividad del violeta |
-| **Teal** | Une la calma del azul con la prosperidad del verde |
-| **Juntos** | Profesionalismo moderno sin ser corporativo frío |
+| Combinación | Razón Psicológica                                            |
+| :---------- | :----------------------------------------------------------- |
+| **Indigo**  | Combina la confianza del azul con la creatividad del violeta |
+| **Teal**    | Une la calma del azul con la prosperidad del verde           |
+| **Juntos**  | Profesionalismo moderno sin ser corporativo frío             |
 
 ---
 
@@ -162,65 +164,65 @@ TEAL (Seguridad/Crecimiento)
 ```css
 :root {
   /* ÉXITO - Verde Esmeralda (Ganancias, Metas cumplidas) */
-  --success-50: #ECFDF5;
-  --success-100: #D1FAE5;
-  --success-200: #A7F3D0;
-  --success-300: #6EE7B7;
-  --success-400: #34D399;
-  --success-500: #10B981;  /* ★ ÉXITO PRINCIPAL */
+  --success-50: #ecfdf5;
+  --success-100: #d1fae5;
+  --success-200: #a7f3d0;
+  --success-300: #6ee7b7;
+  --success-400: #34d399;
+  --success-500: #10b981; /* ★ ÉXITO PRINCIPAL */
   --success-600: #059669;
   --success-700: #047857;
-  --success-800: #065F46;
-  --success-900: #064E3B;
+  --success-800: #065f46;
+  --success-900: #064e3b;
 
   /* ADVERTENCIA - Ámbar Cálido (Alertas, Límites cercanos) */
-  --warning-50: #FFFBEB;
-  --warning-100: #FEF3C7;
-  --warning-200: #FDE68A;
-  --warning-300: #FCD34D;
-  --warning-400: #FBBF24;
-  --warning-500: #F59E0B;  /* ★ ADVERTENCIA PRINCIPAL */
-  --warning-600: #D97706;
-  --warning-700: #B45309;
-  --warning-800: #92400E;
-  --warning-900: #78350F;
+  --warning-50: #fffbeb;
+  --warning-100: #fef3c7;
+  --warning-200: #fde68a;
+  --warning-300: #fcd34d;
+  --warning-400: #fbbf24;
+  --warning-500: #f59e0b; /* ★ ADVERTENCIA PRINCIPAL */
+  --warning-600: #d97706;
+  --warning-700: #b45309;
+  --warning-800: #92400e;
+  --warning-900: #78350f;
 
   /* ERROR/GASTO - Coral Suave (NO rojo agresivo) */
-  --error-50: #FEF2F2;
-  --error-100: #FEE2E2;
-  --error-200: #FECACA;
-  --error-300: #FCA5A5;
-  --error-400: #F87171;
-  --error-500: #EF4444;  /* ★ ERROR PRINCIPAL */
-  --error-600: #DC2626;
-  --error-700: #B91C1C;
-  --error-800: #991B1B;
-  --error-900: #7F1D1D;
+  --error-50: #fef2f2;
+  --error-100: #fee2e2;
+  --error-200: #fecaca;
+  --error-300: #fca5a5;
+  --error-400: #f87171;
+  --error-500: #ef4444; /* ★ ERROR PRINCIPAL */
+  --error-600: #dc2626;
+  --error-700: #b91c1c;
+  --error-800: #991b1b;
+  --error-900: #7f1d1d;
 
   /* INFO - Azul Cielo (Información neutral) */
-  --info-50: #EFF6FF;
-  --info-100: #DBEAFE;
-  --info-200: #BFDBFE;
-  --info-300: #93C5FD;
-  --info-400: #60A5FA;
-  --info-500: #3B82F6;  /* ★ INFO PRINCIPAL */
-  --info-600: #2563EB;
-  --info-700: #1D4ED8;
-  --info-800: #1E40AF;
-  --info-900: #1E3A8A;
+  --info-50: #eff6ff;
+  --info-100: #dbeafe;
+  --info-200: #bfdbfe;
+  --info-300: #93c5fd;
+  --info-400: #60a5fa;
+  --info-500: #3b82f6; /* ★ INFO PRINCIPAL */
+  --info-600: #2563eb;
+  --info-700: #1d4ed8;
+  --info-800: #1e40af;
+  --info-900: #1e3a8a;
 }
 ```
 
 ### Aplicación Semántica en Finanzas
 
-| Contexto | Color | Ejemplo |
-| :--- | :---: | :--- |
-| Ingreso recibido | `--success-500` | "+$15,000 MXN" |
-| Ahorro aumentó | `--success-400` | "Meta 75% completada" |
-| Gasto registrado | `--error-400` | "-$500 MXN" (suave, no alarmante) |
-| Gasto excede presupuesto | `--error-500` | "Sobrepasaste alimentación" |
-| Fecha límite cercana | `--warning-500` | "Declaración en 3 días" |
-| Tip/Consejo | `--info-500` | "💡 Puedes deducir esto" |
+| Contexto                 |      Color      | Ejemplo                           |
+| :----------------------- | :-------------: | :-------------------------------- |
+| Ingreso recibido         | `--success-500` | "+$15,000 MXN"                    |
+| Ahorro aumentó           | `--success-400` | "Meta 75% completada"             |
+| Gasto registrado         |  `--error-400`  | "-$500 MXN" (suave, no alarmante) |
+| Gasto excede presupuesto |  `--error-500`  | "Sobrepasaste alimentación"       |
+| Fecha límite cercana     | `--warning-500` | "Declaración en 3 días"           |
+| Tip/Consejo              |  `--info-500`   | "💡 Puedes deducir esto"          |
 
 ---
 
@@ -233,35 +235,35 @@ TEAL (Seguridad/Crecimiento)
 ```css
 :root[data-theme="dark"] {
   /* FONDOS - Azul-gris profundo (no negro puro) */
-  --bg-primary: #0F0F1A;      /* Fondo principal */
-  --bg-secondary: #1A1A2E;    /* Cards, modales */
-  --bg-tertiary: #252542;     /* Hover, elementos elevados */
-  --bg-elevated: #2D2D4A;     /* Dropdowns, tooltips */
+  --bg-primary: #0f0f1a; /* Fondo principal */
+  --bg-secondary: #1a1a2e; /* Cards, modales */
+  --bg-tertiary: #252542; /* Hover, elementos elevados */
+  --bg-elevated: #2d2d4a; /* Dropdowns, tooltips */
 
   /* SUPERFICIES */
-  --surface-1: #16162A;
-  --surface-2: #1E1E36;
+  --surface-1: #16162a;
+  --surface-2: #1e1e36;
   --surface-3: #262642;
 
   /* TEXTO */
-  --text-primary: #F1F5F9;    /* Texto principal */
-  --text-secondary: #94A3B8;  /* Texto secundario */
-  --text-muted: #64748B;      /* Texto deshabilitado */
+  --text-primary: #f1f5f9; /* Texto principal */
+  --text-secondary: #94a3b8; /* Texto secundario */
+  --text-muted: #64748b; /* Texto deshabilitado */
 
   /* BORDES */
-  --border-subtle: #2D2D4A;
-  --border-default: #3D3D5C;
-  --border-strong: #4D4D6A;
+  --border-subtle: #2d2d4a;
+  --border-default: #3d3d5c;
+  --border-strong: #4d4d6a;
 
   /* PRIMARIO - Ajustado para oscuro */
-  --primary-500: #818CF8;     /* Más brillante en oscuro */
-  --primary-600: #6366F1;
+  --primary-500: #818cf8; /* Más brillante en oscuro */
+  --primary-600: #6366f1;
 
   /* ÉXITO - Ajustado */
-  --success-500: #34D399;     /* Más brillante */
+  --success-500: #34d399; /* Más brillante */
 
   /* ERROR - Ajustado (menos agresivo) */
-  --error-500: #F87171;       /* Coral más suave */
+  --error-500: #f87171; /* Coral más suave */
 }
 ```
 
@@ -453,13 +455,14 @@ MODO OSCURO (Noche)
 ```css
 :root {
   /* Principal - Inter (legibilidad, profesional, moderna) */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
   /* Monoespaciada - Para números y código */
-  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  
+  --font-mono: "JetBrains Mono", "Fira Code", Consolas, monospace;
+
   /* Display - Para headers grandes (opcional) */
-  --font-display: 'Plus Jakarta Sans', var(--font-sans);
+  --font-display: "Plus Jakarta Sans", var(--font-sans);
 }
 ```
 
@@ -468,15 +471,15 @@ MODO OSCURO (Noche)
 ```css
 :root {
   /* Tamaños - Escala modular 1.25 (Major Third) */
-  --text-xs: 0.75rem;     /* 12px - Labels pequeños */
-  --text-sm: 0.875rem;    /* 14px - Texto secundario */
-  --text-base: 1rem;      /* 16px - Texto base */
-  --text-lg: 1.125rem;    /* 18px - Texto destacado */
-  --text-xl: 1.25rem;     /* 20px - Subtítulos */
-  --text-2xl: 1.5rem;     /* 24px - Títulos sección */
-  --text-3xl: 1.875rem;   /* 30px - Títulos página */
-  --text-4xl: 2.25rem;    /* 36px - Heroes */
-  --text-5xl: 3rem;       /* 48px - Dashboard números */
+  --text-xs: 0.75rem; /* 12px - Labels pequeños */
+  --text-sm: 0.875rem; /* 14px - Texto secundario */
+  --text-base: 1rem; /* 16px - Texto base */
+  --text-lg: 1.125rem; /* 18px - Texto destacado */
+  --text-xl: 1.25rem; /* 20px - Subtítulos */
+  --text-2xl: 1.5rem; /* 24px - Títulos sección */
+  --text-3xl: 1.875rem; /* 30px - Títulos página */
+  --text-4xl: 2.25rem; /* 36px - Heroes */
+  --text-5xl: 3rem; /* 48px - Dashboard números */
 
   /* Pesos */
   --font-normal: 400;
@@ -518,16 +521,16 @@ Correcto:                    Incorrecto:
 
 ```css
 :root {
-  --space-1: 0.25rem;   /* 4px  - Mínimo */
-  --space-2: 0.5rem;    /* 8px  - Interno elementos */
-  --space-3: 0.75rem;   /* 12px - Separación cercana */
-  --space-4: 1rem;      /* 16px - Padding estándar */
-  --space-5: 1.25rem;   /* 20px - Separación media */
-  --space-6: 1.5rem;    /* 24px - Entre secciones */
-  --space-8: 2rem;      /* 32px - Separación grande */
-  --space-10: 2.5rem;   /* 40px - Entre bloques */
-  --space-12: 3rem;     /* 48px - Separación mayor */
-  --space-16: 4rem;     /* 64px - Entre secciones principales */
+  --space-1: 0.25rem; /* 4px  - Mínimo */
+  --space-2: 0.5rem; /* 8px  - Interno elementos */
+  --space-3: 0.75rem; /* 12px - Separación cercana */
+  --space-4: 1rem; /* 16px - Padding estándar */
+  --space-5: 1.25rem; /* 20px - Separación media */
+  --space-6: 1.5rem; /* 24px - Entre secciones */
+  --space-8: 2rem; /* 32px - Separación grande */
+  --space-10: 2.5rem; /* 40px - Entre bloques */
+  --space-12: 3rem; /* 48px - Separación mayor */
+  --space-16: 4rem; /* 64px - Entre secciones principales */
 }
 ```
 
@@ -535,12 +538,12 @@ Correcto:                    Incorrecto:
 
 ```css
 :root {
-  --radius-sm: 0.25rem;    /* 4px  - Inputs pequeños */
-  --radius-md: 0.375rem;   /* 6px  - Botones */
-  --radius-lg: 0.5rem;     /* 8px  - Cards */
-  --radius-xl: 0.75rem;    /* 12px - Modales */
-  --radius-2xl: 1rem;      /* 16px - Elementos grandes */
-  --radius-full: 9999px;   /* Círculos, pills */
+  --radius-sm: 0.25rem; /* 4px  - Inputs pequeños */
+  --radius-md: 0.375rem; /* 6px  - Botones */
+  --radius-lg: 0.5rem; /* 8px  - Cards */
+  --radius-xl: 0.75rem; /* 12px - Modales */
+  --radius-2xl: 1rem; /* 16px - Elementos grandes */
+  --radius-full: 9999px; /* Círculos, pills */
 }
 ```
 
@@ -553,7 +556,7 @@ Correcto:                    Incorrecto:
   --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
   --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-  
+
   /* Sombras con color (para hover en botones) */
   --shadow-primary: 0 4px 14px 0 rgb(99 102 241 / 0.4);
   --shadow-success: 0 4px 14px 0 rgb(16 185 129 / 0.4);
@@ -686,13 +689,13 @@ Correcto:                    Incorrecto:
 
 ### Requisitos WCAG 2.1 AA
 
-| Criterio | Requisito | Nuestro Valor |
-| :--- | :---: | :---: |
-| **Contraste texto normal** | ≥ 4.5:1 | 7.5:1 ✅ |
-| **Contraste texto grande** | ≥ 3:1 | 5.2:1 ✅ |
-| **Contraste elementos UI** | ≥ 3:1 | 4.1:1 ✅ |
-| **Focus visible** | Visible | Anillo 3px ✅ |
-| **Target size** | ≥ 44px | 48px ✅ |
+| Criterio                   | Requisito | Nuestro Valor |
+| :------------------------- | :-------: | :-----------: |
+| **Contraste texto normal** |  ≥ 4.5:1  |   7.5:1 ✅    |
+| **Contraste texto grande** |   ≥ 3:1   |   5.2:1 ✅    |
+| **Contraste elementos UI** |   ≥ 3:1   |   4.1:1 ✅    |
+| **Focus visible**          |  Visible  | Anillo 3px ✅ |
+| **Target size**            |  ≥ 44px   |    48px ✅    |
 
 ### Estados de Focus
 
@@ -732,9 +735,9 @@ NO solo color para estados:
 ```css
 @media (prefers-contrast: high) {
   :root {
-    --primary-500: #4338CA;  /* Más oscuro */
+    --primary-500: #4338ca; /* Más oscuro */
     --success-500: #047857;
-    --error-500: #B91C1C;
+    --error-500: #b91c1c;
     --border-default: #000;
   }
 }
@@ -748,10 +751,10 @@ NO solo color para estados:
 
 ```css
 :root {
-  --breakpoint-sm: 640px;   /* Mobile landscape */
-  --breakpoint-md: 768px;   /* Tablet */
-  --breakpoint-lg: 1024px;  /* Desktop */
-  --breakpoint-xl: 1280px;  /* Desktop grande */
+  --breakpoint-sm: 640px; /* Mobile landscape */
+  --breakpoint-md: 768px; /* Tablet */
+  --breakpoint-lg: 1024px; /* Desktop */
+  --breakpoint-xl: 1280px; /* Desktop grande */
   --breakpoint-2xl: 1536px; /* Pantalla grande */
 }
 ```
@@ -760,14 +763,20 @@ NO solo color para estados:
 
 ```css
 /* Mobile-first */
-h1 { font-size: var(--text-2xl); }  /* 24px mobile */
+h1 {
+  font-size: var(--text-2xl);
+} /* 24px mobile */
 
 @media (min-width: 768px) {
-  h1 { font-size: var(--text-3xl); }  /* 30px tablet */
+  h1 {
+    font-size: var(--text-3xl);
+  } /* 30px tablet */
 }
 
 @media (min-width: 1024px) {
-  h1 { font-size: var(--text-4xl); }  /* 36px desktop */
+  h1 {
+    font-size: var(--text-4xl);
+  } /* 36px desktop */
 }
 ```
 
@@ -783,57 +792,57 @@ h1 { font-size: var(--text-2xl); }  /* 24px mobile */
 
 :root {
   /* === COLORES PRIMITIVOS === */
-  
+
   /* Primario - Indigo (Confianza) */
-  --primary-50: #EEF2FF;
-  --primary-100: #E0E7FF;
-  --primary-200: #C7D2FE;
-  --primary-300: #A5B4FC;
-  --primary-400: #818CF8;
-  --primary-500: #6366F1;
-  --primary-600: #4F46E5;
-  --primary-700: #4338CA;
-  --primary-800: #3730A3;
-  --primary-900: #312E81;
+  --primary-50: #eef2ff;
+  --primary-100: #e0e7ff;
+  --primary-200: #c7d2fe;
+  --primary-300: #a5b4fc;
+  --primary-400: #818cf8;
+  --primary-500: #6366f1;
+  --primary-600: #4f46e5;
+  --primary-700: #4338ca;
+  --primary-800: #3730a3;
+  --primary-900: #312e81;
 
   /* Secundario - Teal (Seguridad) */
-  --secondary-50: #F0FDFA;
-  --secondary-500: #14B8A6;
-  --secondary-600: #0D9488;
-  --secondary-700: #0F766E;
+  --secondary-50: #f0fdfa;
+  --secondary-500: #14b8a6;
+  --secondary-600: #0d9488;
+  --secondary-700: #0f766e;
 
   /* Semánticos */
-  --success-50: #ECFDF5;
-  --success-500: #10B981;
+  --success-50: #ecfdf5;
+  --success-500: #10b981;
   --success-600: #059669;
-  
-  --warning-50: #FFFBEB;
-  --warning-500: #F59E0B;
-  --warning-600: #D97706;
-  
-  --error-50: #FEF2F2;
-  --error-400: #F87171;
-  --error-500: #EF4444;
-  
-  --info-50: #EFF6FF;
-  --info-500: #3B82F6;
+
+  --warning-50: #fffbeb;
+  --warning-500: #f59e0b;
+  --warning-600: #d97706;
+
+  --error-50: #fef2f2;
+  --error-400: #f87171;
+  --error-500: #ef4444;
+
+  --info-50: #eff6ff;
+  --info-500: #3b82f6;
 
   /* Neutros */
-  --gray-50: #F8FAFC;
-  --gray-100: #F1F5F9;
-  --gray-200: #E2E8F0;
-  --gray-300: #CBD5E1;
-  --gray-400: #94A3B8;
-  --gray-500: #64748B;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
   --gray-600: #475569;
   --gray-700: #334155;
-  --gray-800: #1E293B;
-  --gray-900: #0F172A;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
 
   /* === TIPOGRAFÍA === */
-  --font-sans: 'Inter', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-  
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;

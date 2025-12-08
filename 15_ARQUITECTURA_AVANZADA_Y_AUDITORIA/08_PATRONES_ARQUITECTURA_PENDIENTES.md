@@ -8,11 +8,11 @@
 
 ## 📊 Resumen Ejecutivo
 
-| Categoría | Cantidad | Estado |
-|:----------|:---------|:-------|
-| ✅ Ya implementado | 11 items | Mantener |
-| ⚠️ Verificar | 5 items | Auditar |
-| ❌ Por agregar | 9 items | Este documento |
+| Categoría          | Cantidad | Estado         |
+| :----------------- | :------- | :------------- |
+| ✅ Ya implementado | 11 items | Mantener       |
+| ⚠️ Verificar       | 5 items  | Auditar        |
+| ❌ Por agregar     | 9 items  | Este documento |
 
 ---
 
@@ -24,6 +24,7 @@
 Centraliza el acceso a datos en una capa dedicada, separando la lógica de negocio de las queries.
 
 **Beneficios:**
+
 - ✅ Testear sin tocar la DB real (mocks fáciles)
 - ✅ Cambiar motor de DB sin reescribir toda la app
 - ✅ Código más limpio y mantenible
@@ -31,6 +32,7 @@ Centraliza el acceso a datos en una capa dedicada, separando la lógica de negoc
 - ✅ Facilita auditorías de acceso a datos
 
 **Estructura de carpetas propuesta:**
+
 ```
 src/lib/server/
 ├── repositories/
@@ -48,11 +50,12 @@ src/lib/server/
 ```
 
 **Implementación con Drizzle ORM:**
+
 ```typescript
 // filepath: src/lib/server/repositories/base.repository.ts
-import { db } from '$lib/server/db';
-import type { PgTable } from 'drizzle-orm/pg-core';
-import { eq, and, desc, asc, sql } from 'drizzle-orm';
+import { db } from "$lib/server/db";
+import type { PgTable } from "drizzle-orm/pg-core";
+import { eq, and, desc, asc, sql } from "drizzle-orm";
 
 export abstract class BaseRepository<T extends PgTable> {
   protected table: T;
@@ -63,16 +66,18 @@ export abstract class BaseRepository<T extends PgTable> {
   }
 
   async findById(id: string) {
-    return this.db.query[this.table._.name as keyof typeof this.db.query]
-      .findFirst({ where: eq(this.table.id, id) });
+    return this.db.query[
+      this.table._.name as keyof typeof this.db.query
+    ].findFirst({ where: eq(this.table.id, id) });
   }
 
   async findAll(options?: { limit?: number; offset?: number }) {
-    return this.db.query[this.table._.name as keyof typeof this.db.query]
-      .findMany({
-        limit: options?.limit ?? 100,
-        offset: options?.offset ?? 0
-      });
+    return this.db.query[
+      this.table._.name as keyof typeof this.db.query
+    ].findMany({
+      limit: options?.limit ?? 100,
+      offset: options?.offset ?? 0,
+    });
   }
 
   async count() {
@@ -86,30 +91,30 @@ export abstract class BaseRepository<T extends PgTable> {
 
 ```typescript
 // filepath: src/lib/server/repositories/cliente.repository.ts
-import { db } from '$lib/server/db';
-import { clientes } from '$lib/server/db/schema';
-import { eq, like, and, desc } from 'drizzle-orm';
-import type { CreateClienteDTO, UpdateClienteDTO } from '$lib/types/cliente';
+import { db } from "$lib/server/db";
+import { clientes } from "$lib/server/db/schema";
+import { eq, like, and, desc } from "drizzle-orm";
+import type { CreateClienteDTO, UpdateClienteDTO } from "$lib/types/cliente";
 
 export class ClienteRepository {
   /**
    * Buscar cliente por ID
    */
   async findById(id: string) {
-    return db.query.clientes.findFirst({ 
-      where: eq(clientes.id, id) 
+    return db.query.clientes.findFirst({
+      where: eq(clientes.id, id),
     });
   }
-  
+
   /**
    * Buscar cliente por RFC (único en México)
    */
   async findByRfc(rfc: string) {
-    return db.query.clientes.findFirst({ 
-      where: eq(clientes.rfc, rfc.toUpperCase()) 
+    return db.query.clientes.findFirst({
+      where: eq(clientes.rfc, rfc.toUpperCase()),
     });
   }
-  
+
   /**
    * Listar clientes con filtros
    */
@@ -121,7 +126,7 @@ export class ClienteRepository {
     offset?: number;
   }) {
     const conditions = [];
-    
+
     if (filters?.tenantId) {
       conditions.push(eq(clientes.tenantId, filters.tenantId));
     }
@@ -131,49 +136,53 @@ export class ClienteRepository {
     if (filters?.search) {
       conditions.push(like(clientes.razonSocial, `%${filters.search}%`));
     }
-    
+
     return db.query.clientes.findMany({
       where: conditions.length > 0 ? and(...conditions) : undefined,
       orderBy: [desc(clientes.createdAt)],
       limit: filters?.limit ?? 50,
-      offset: filters?.offset ?? 0
+      offset: filters?.offset ?? 0,
     });
   }
-  
+
   /**
    * Crear nuevo cliente
    */
   async create(data: CreateClienteDTO) {
-    const [cliente] = await db.insert(clientes).values({
-      ...data,
-      rfc: data.rfc.toUpperCase(),
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }).returning();
+    const [cliente] = await db
+      .insert(clientes)
+      .values({
+        ...data,
+        rfc: data.rfc.toUpperCase(),
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      })
+      .returning();
     return cliente;
   }
-  
+
   /**
    * Actualizar cliente existente
    */
   async update(id: string, data: UpdateClienteDTO) {
-    const [updated] = await db.update(clientes)
+    const [updated] = await db
+      .update(clientes)
       .set({ ...data, updatedAt: new Date() })
       .where(eq(clientes.id, id))
       .returning();
     return updated;
   }
-  
+
   /**
    * Eliminar cliente (soft delete)
    */
   async softDelete(id: string) {
-    return this.update(id, { 
-      activo: false, 
-      deletedAt: new Date() 
+    return this.update(id, {
+      activo: false,
+      deletedAt: new Date(),
     });
   }
-  
+
   /**
    * Eliminar permanentemente (hard delete)
    */
@@ -187,33 +196,34 @@ export const clienteRepository = new ClienteRepository();
 ```
 
 **Uso en servicios:**
+
 ```typescript
 // filepath: src/lib/server/services/cliente.service.ts
-import { clienteRepository } from '$lib/server/repositories/cliente.repository';
-import { ValidationError, NotFoundError } from '$lib/errors';
-import { validarRFC } from '$lib/utils/mexico';
+import { clienteRepository } from "$lib/server/repositories/cliente.repository";
+import { ValidationError, NotFoundError } from "$lib/errors";
+import { validarRFC } from "$lib/utils/mexico";
 
 export class ClienteService {
   async crearCliente(data: CreateClienteDTO) {
     // 1. Validar RFC mexicano
     if (!validarRFC(data.rfc)) {
-      throw new ValidationError('RFC inválido');
+      throw new ValidationError("RFC inválido");
     }
-    
+
     // 2. Verificar unicidad
     const existente = await clienteRepository.findByRfc(data.rfc);
     if (existente) {
-      throw new ValidationError('Ya existe un cliente con este RFC');
+      throw new ValidationError("Ya existe un cliente con este RFC");
     }
-    
+
     // 3. Crear (repository maneja la DB)
     return clienteRepository.create(data);
   }
-  
+
   async obtenerCliente(id: string) {
     const cliente = await clienteRepository.findById(id);
     if (!cliente) {
-      throw new NotFoundError('Cliente no encontrado');
+      throw new NotFoundError("Cliente no encontrado");
     }
     return cliente;
   }
@@ -233,6 +243,7 @@ export class ClienteService {
 Sistema de publicación/suscripción para notificaciones en tiempo real sin polling.
 
 **Casos de uso en el proyecto:**
+
 - 📢 Notificaciones de nuevas facturas
 - ⚠️ Alertas SAT en tiempo real
 - 🔄 Sincronización multi-dispositivo
@@ -240,6 +251,7 @@ Sistema de publicación/suscripción para notificaciones en tiempo real sin poll
 - 💬 Chat de soporte interno
 
 **Arquitectura:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    REDIS PUB/SUB ARCHITECTURE                       │
@@ -261,11 +273,12 @@ Sistema de publicación/suscripción para notificaciones en tiempo real sin poll
 ```
 
 **Implementación:**
+
 ```typescript
 // filepath: src/lib/server/pubsub/redis-pubsub.ts
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
-const REDIS_URL = process.env.REDIS_URL || 'redis://localhost:6379';
+const REDIS_URL = process.env.REDIS_URL || "redis://localhost:6379";
 
 // Conexión para publicar
 export const publisher = new Redis(REDIS_URL);
@@ -275,20 +288,20 @@ export const subscriber = new Redis(REDIS_URL);
 
 // Canales disponibles
 export const CHANNELS = {
-  FACTURAS: 'facturas',
-  ALERTAS_SAT: 'alertas:sat',
-  DASHBOARD: 'dashboard:updates',
-  NOTIFICACIONES: 'notificaciones'
+  FACTURAS: "facturas",
+  ALERTAS_SAT: "alertas:sat",
+  DASHBOARD: "dashboard:updates",
+  NOTIFICACIONES: "notificaciones",
 } as const;
 
 // Helper para publicar
 export async function publish<T>(
-  channel: keyof typeof CHANNELS, 
-  data: T
+  channel: keyof typeof CHANNELS,
+  data: T,
 ): Promise<void> {
   const message = JSON.stringify({
     timestamp: new Date().toISOString(),
-    data
+    data,
   });
   await publisher.publish(CHANNELS[channel], message);
 }
@@ -296,10 +309,10 @@ export async function publish<T>(
 // Helper para suscribirse
 export function subscribe(
   channel: keyof typeof CHANNELS,
-  callback: (message: string) => void
+  callback: (message: string) => void,
 ): void {
   subscriber.subscribe(CHANNELS[channel]);
-  subscriber.on('message', (ch, message) => {
+  subscriber.on("message", (ch, message) => {
     if (ch === CHANNELS[channel]) {
       callback(message);
     }
@@ -308,38 +321,40 @@ export function subscribe(
 ```
 
 **Uso en API (publicar evento):**
+
 ```typescript
 // filepath: src/routes/api/facturas/+server.ts
-import { publish } from '$lib/server/pubsub/redis-pubsub';
+import { publish } from "$lib/server/pubsub/redis-pubsub";
 
 export async function POST({ request }) {
   const data = await request.json();
-  
+
   // Crear factura en DB...
   const factura = await facturaService.crear(data);
-  
+
   // Publicar evento para clientes conectados
-  await publish('FACTURAS', {
-    tipo: 'nueva',
+  await publish("FACTURAS", {
+    tipo: "nueva",
     facturaId: factura.id,
     clienteId: factura.clienteId,
-    monto: factura.total
+    monto: factura.total,
   });
-  
+
   return json({ success: true, factura });
 }
 ```
 
 **WebSocket handler (suscribirse):**
+
 ```typescript
 // filepath: src/lib/server/websocket/handler.ts
-import { subscribe } from '$lib/server/pubsub/redis-pubsub';
+import { subscribe } from "$lib/server/pubsub/redis-pubsub";
 
 export function setupWebSocketHandlers(wss: WebSocketServer) {
   // Suscribirse a canal de facturas
-  subscribe('FACTURAS', (message) => {
+  subscribe("FACTURAS", (message) => {
     const data = JSON.parse(message);
-    
+
     // Enviar a todos los clientes conectados del tenant
     wss.clients.forEach((client) => {
       if (client.tenantId === data.data.clienteId) {
@@ -347,12 +362,12 @@ export function setupWebSocketHandlers(wss: WebSocketServer) {
       }
     });
   });
-  
+
   // Suscribirse a alertas SAT
-  subscribe('ALERTAS_SAT', (message) => {
+  subscribe("ALERTAS_SAT", (message) => {
     // Broadcast a todos los admins
     wss.clients.forEach((client) => {
-      if (client.role === 'admin') {
+      if (client.role === "admin") {
         client.send(message);
       }
     });
@@ -360,22 +375,29 @@ export function setupWebSocketHandlers(wss: WebSocketServer) {
 }
 ```
 
-**⚠️ Importante:** 
+**⚠️ Importante:**
+
 - Redis Pub/Sub NO guarda historial (fire-and-forget)
 - Para persistencia usar **Redis Streams** (ver sección siguiente)
 - Cada suscriptor necesita su propia conexión Redis
 
 **Redis Streams (alternativa para persistencia):**
+
 ```typescript
 // Para casos donde necesitas historial de eventos
-await redis.xadd('stream:facturas', '*', 
-  'tipo', 'nueva',
-  'facturaId', factura.id,
-  'timestamp', Date.now().toString()
+await redis.xadd(
+  "stream:facturas",
+  "*",
+  "tipo",
+  "nueva",
+  "facturaId",
+  factura.id,
+  "timestamp",
+  Date.now().toString(),
 );
 
 // Leer últimos 10 eventos
-const events = await redis.xrevrange('stream:facturas', '+', '-', 'COUNT', 10);
+const events = await redis.xrevrange("stream:facturas", "+", "-", "COUNT", 10);
 ```
 
 **Estado:** ⏳ PENDIENTE  
@@ -389,6 +411,7 @@ const events = await redis.xrevrange('stream:facturas', '+', '-', 'COUNT', 10);
 
 **¿Qué es?**
 Capa de abstracción que encapsula llamadas a APIs externas (SAT, Banxico, PAC) con:
+
 - ⏱️ Timeouts configurables
 - 🔄 Reintentos automáticos con backoff exponencial
 - 💾 Fallbacks con caché
@@ -396,6 +419,7 @@ Capa de abstracción que encapsula llamadas a APIs externas (SAT, Banxico, PAC) 
 - 📊 Métricas de disponibilidad
 
 **Arquitectura:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
 │                    API WRAPPER ARCHITECTURE                         │
@@ -420,17 +444,18 @@ Capa de abstracción que encapsula llamadas a APIs externas (SAT, Banxico, PAC) 
 ```
 
 **Implementación base:**
+
 ```typescript
 // filepath: src/lib/server/integrations/base.wrapper.ts
-import Redis from 'ioredis';
+import Redis from "ioredis";
 
 interface WrapperConfig {
   name: string;
   baseUrl: string;
-  timeout: number;          // ms
+  timeout: number; // ms
   retries: number;
-  retryDelay: number;       // ms base (se multiplica exponencialmente)
-  cacheTTL: number;         // segundos
+  retryDelay: number; // ms base (se multiplica exponencialmente)
+  cacheTTL: number; // segundos
 }
 
 interface WrapperResponse<T> {
@@ -457,7 +482,7 @@ export abstract class BaseAPIWrapper {
    */
   protected async executeWithProtection<T>(
     cacheKey: string,
-    fetchFn: () => Promise<T>
+    fetchFn: () => Promise<T>,
   ): Promise<WrapperResponse<T>> {
     const startTime = Date.now();
 
@@ -465,7 +490,12 @@ export abstract class BaseAPIWrapper {
     if (this.isCircuitOpen()) {
       const cached = await this.getFromCache<T>(cacheKey);
       if (cached) {
-        return { data: cached, cached: true, stale: true, latency: Date.now() - startTime };
+        return {
+          data: cached,
+          cached: true,
+          stale: true,
+          latency: Date.now() - startTime,
+        };
       }
       throw new Error(`${this.config.name}: Circuit breaker abierto`);
     }
@@ -473,26 +503,35 @@ export abstract class BaseAPIWrapper {
     // 2. Buscar en caché fresco
     const cached = await this.getFromCache<T>(cacheKey);
     if (cached) {
-      return { data: cached, cached: true, stale: false, latency: Date.now() - startTime };
+      return {
+        data: cached,
+        cached: true,
+        stale: false,
+        latency: Date.now() - startTime,
+      };
     }
 
     // 3. Intentar fetch con reintentos
     try {
       const data = await this.fetchWithRetry(fetchFn);
-      
+
       // Guardar en caché
       await this.setCache(cacheKey, data);
-      
+
       // Reset circuit breaker
       this.failureCount = 0;
-      
-      return { data, cached: false, stale: false, latency: Date.now() - startTime };
-      
+
+      return {
+        data,
+        cached: false,
+        stale: false,
+        latency: Date.now() - startTime,
+      };
     } catch (error) {
       // Incrementar fallos
       this.failureCount++;
       this.lastFailure = Date.now();
-      
+
       // Abrir circuito si hay muchos fallos
       if (this.failureCount >= 5) {
         this.circuitOpen = true;
@@ -503,7 +542,12 @@ export abstract class BaseAPIWrapper {
       const staleKey = `${cacheKey}:stale`;
       const stale = await this.getFromCache<T>(staleKey);
       if (stale) {
-        return { data: stale, cached: true, stale: true, latency: Date.now() - startTime };
+        return {
+          data: stale,
+          cached: true,
+          stale: true,
+          latency: Date.now() - startTime,
+        };
       }
 
       throw error;
@@ -512,42 +556,41 @@ export abstract class BaseAPIWrapper {
 
   private async fetchWithRetry<T>(fn: () => Promise<T>): Promise<T> {
     let lastError: Error | null = null;
-    
+
     for (let attempt = 0; attempt <= this.config.retries; attempt++) {
       try {
         // Timeout
         const result = await Promise.race([
           fn(),
-          new Promise<never>((_, reject) => 
-            setTimeout(() => reject(new Error('Timeout')), this.config.timeout)
-          )
+          new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error("Timeout")), this.config.timeout),
+          ),
         ]);
         return result;
-        
       } catch (error) {
         lastError = error as Error;
-        
+
         if (attempt < this.config.retries) {
           // Backoff exponencial
           const delay = this.config.retryDelay * Math.pow(2, attempt);
-          await new Promise(resolve => setTimeout(resolve, delay));
+          await new Promise((resolve) => setTimeout(resolve, delay));
         }
       }
     }
-    
+
     throw lastError;
   }
 
   private isCircuitOpen(): boolean {
     if (!this.circuitOpen) return false;
-    
+
     // Auto-reset después de 5 minutos
     if (Date.now() - this.lastFailure > 5 * 60 * 1000) {
       this.circuitOpen = false;
       this.failureCount = 0;
       return false;
     }
-    
+
     return true;
   }
 
@@ -566,29 +609,33 @@ export abstract class BaseAPIWrapper {
 ```
 
 **Wrapper específico para SAT:**
+
 ```typescript
 // filepath: src/lib/server/integrations/sat.wrapper.ts
-import { BaseAPIWrapper } from './base.wrapper';
-import type Redis from 'ioredis';
+import { BaseAPIWrapper } from "./base.wrapper";
+import type Redis from "ioredis";
 
 interface ValidacionRFC {
   rfc: string;
   valido: boolean;
   nombre?: string;
-  estatus?: 'ACTIVO' | 'CANCELADO' | 'SUSPENDIDO';
+  estatus?: "ACTIVO" | "CANCELADO" | "SUSPENDIDO";
   regimen?: string;
 }
 
 export class SATWrapper extends BaseAPIWrapper {
   constructor(cache: Redis) {
-    super({
-      name: 'SAT',
-      baseUrl: 'https://portalsat.plataforma.sat.gob.mx',
-      timeout: 15000,      // SAT es lento
-      retries: 3,
-      retryDelay: 1000,
-      cacheTTL: 86400      // 24 horas (datos fiscales cambian poco)
-    }, cache);
+    super(
+      {
+        name: "SAT",
+        baseUrl: "https://portalsat.plataforma.sat.gob.mx",
+        timeout: 15000, // SAT es lento
+        retries: 3,
+        retryDelay: 1000,
+        cacheTTL: 86400, // 24 horas (datos fiscales cambian poco)
+      },
+      cache,
+    );
   }
 
   async validarRFC(rfc: string): Promise<ValidacionRFC> {
@@ -599,12 +646,12 @@ export class SATWrapper extends BaseAPIWrapper {
       // Aquí iría la llamada real al SAT
       // Por ahora simulamos con validación local
       const esValido = this.validarFormatoRFC(rfcNormalizado);
-      
+
       return {
         rfc: rfcNormalizado,
         valido: esValido,
         // En producción esto vendría del SAT
-        estatus: 'ACTIVO' as const
+        estatus: "ACTIVO" as const,
       };
     });
 
@@ -618,7 +665,7 @@ export class SATWrapper extends BaseAPIWrapper {
       const response = await this.executeWithProtection(cacheKey, async () => {
         // Llamada a API del SAT para obtener CSF
         // Esto requiere autenticación FIEL
-        throw new Error('Requiere implementación con FIEL');
+        throw new Error("Requiere implementación con FIEL");
       });
       return response.data as unknown as Buffer;
     } catch {
@@ -647,37 +694,47 @@ export function getSATWrapper(cache: Redis): SATWrapper {
 ```
 
 **Wrapper para PAC (Finkok):**
+
 ```typescript
 // filepath: src/lib/server/integrations/finkok.wrapper.ts
-import { BaseAPIWrapper } from './base.wrapper';
+import { BaseAPIWrapper } from "./base.wrapper";
 
 export class FinkokWrapper extends BaseAPIWrapper {
   constructor(cache: Redis) {
-    super({
-      name: 'Finkok',
-      baseUrl: 'https://facturacion.finkok.com',
-      timeout: 30000,      // Timbrado puede tardar
-      retries: 2,
-      retryDelay: 2000,
-      cacheTTL: 0          // No cachear timbrado
-    }, cache);
+    super(
+      {
+        name: "Finkok",
+        baseUrl: "https://facturacion.finkok.com",
+        timeout: 30000, // Timbrado puede tardar
+        retries: 2,
+        retryDelay: 2000,
+        cacheTTL: 0, // No cachear timbrado
+      },
+      cache,
+    );
   }
 
   async timbrar(cfdiXML: string): Promise<TimbradoResult> {
     // NO usar caché para timbrado (cada factura es única)
-    return this.executeWithProtection(`finkok:timbrar:${Date.now()}`, async () => {
-      const response = await fetch(`${this.config.baseUrl}/servicios/soap/stamp`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'text/xml' },
-        body: this.buildSOAPRequest(cfdiXML)
-      });
+    return this.executeWithProtection(
+      `finkok:timbrar:${Date.now()}`,
+      async () => {
+        const response = await fetch(
+          `${this.config.baseUrl}/servicios/soap/stamp`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "text/xml" },
+            body: this.buildSOAPRequest(cfdiXML),
+          },
+        );
 
-      if (!response.ok) {
-        throw new Error(`Finkok error: ${response.status}`);
-      }
+        if (!response.ok) {
+          throw new Error(`Finkok error: ${response.status}`);
+        }
 
-      return this.parseSOAPResponse(await response.text());
-    });
+        return this.parseSOAPResponse(await response.text());
+      },
+    );
   }
 }
 ```
@@ -697,12 +754,14 @@ export class FinkokWrapper extends BaseAPIWrapper {
 Separar operaciones de lectura (Query) y escritura (Command) para optimizar cada una independientemente.
 
 **Cuándo aplicar:**
+
 - 📊 Dashboard con muchas lecturas
 - 📈 Reportes pesados que no deben bloquear escrituras
 - 🔄 Operaciones de escritura que requieren consistencia fuerte
 - ⚡ Necesidad de cachear lecturas agresivamente
 
 **Implementación simplificada para el proyecto:**
+
 ```typescript
 // filepath: src/lib/server/cqrs/factura.commands.ts
 // COMANDOS: Modifican estado (escrituras)
@@ -713,24 +772,24 @@ export class FacturaCommands {
   async crear(data: CreateFacturaDTO): Promise<Factura> {
     // Validar
     await this.validar(data);
-    
+
     // Escribir a DB principal
     const factura = await this.repository.create(data);
-    
+
     // Emitir evento para invalidar caché
-    await this.eventBus.emit('factura:creada', { id: factura.id });
-    
+    await this.eventBus.emit("factura:creada", { id: factura.id });
+
     return factura;
   }
 
   async cancelar(uuid: string, motivo: string): Promise<void> {
-    await this.repository.update(uuid, { 
-      estatus: 'CANCELADA',
+    await this.repository.update(uuid, {
+      estatus: "CANCELADA",
       motivoCancelacion: motivo,
-      fechaCancelacion: new Date()
+      fechaCancelacion: new Date(),
     });
-    
-    await this.eventBus.emit('factura:cancelada', { uuid });
+
+    await this.eventBus.emit("factura:cancelada", { uuid });
   }
 }
 ```
@@ -744,77 +803,76 @@ export class FacturaQueries {
 
   async obtenerDashboard(tenantId: string): Promise<DashboardData> {
     const cacheKey = `dashboard:${tenantId}`;
-    
+
     // 1. Buscar en Redis
     const cached = await this.cache.get(cacheKey);
     if (cached) {
       return JSON.parse(cached);
     }
-    
+
     // 2. Si no hay caché, consultar DB
     const data = await this.buildDashboardData(tenantId);
-    
+
     // 3. Guardar en caché (5 minutos)
     await this.cache.setex(cacheKey, 300, JSON.stringify(data));
-    
+
     return data;
   }
 
-  async buscarFacturas(filters: FacturaFilters): Promise<PaginatedResult<Factura>> {
+  async buscarFacturas(
+    filters: FacturaFilters,
+  ): Promise<PaginatedResult<Factura>> {
     // Para búsquedas, podemos usar réplica de lectura
     return this.db.replica.query.facturas.findMany({
       where: this.buildWhereClause(filters),
       limit: filters.limit,
-      offset: filters.offset
+      offset: filters.offset,
     });
   }
 
   private async buildDashboardData(tenantId: string): Promise<DashboardData> {
-    const [
-      totalFacturado,
-      facturasPendientes,
-      facturasMes,
-      topClientes
-    ] = await Promise.all([
-      this.getTotalFacturado(tenantId),
-      this.getFacturasPendientes(tenantId),
-      this.getFacturasMesActual(tenantId),
-      this.getTopClientes(tenantId)
-    ]);
+    const [totalFacturado, facturasPendientes, facturasMes, topClientes] =
+      await Promise.all([
+        this.getTotalFacturado(tenantId),
+        this.getFacturasPendientes(tenantId),
+        this.getFacturasMesActual(tenantId),
+        this.getTopClientes(tenantId),
+      ]);
 
     return {
       totalFacturado,
       facturasPendientes,
       facturasMes,
       topClientes,
-      generatedAt: new Date().toISOString()
+      generatedAt: new Date().toISOString(),
     };
   }
 }
 ```
 
 **Invalidación de caché con eventos:**
+
 ```typescript
 // filepath: src/lib/server/cqrs/cache-invalidator.ts
 export class CacheInvalidator {
   constructor(
     private cache: Redis,
-    private eventBus: EventBus
+    private eventBus: EventBus,
   ) {
     this.setupListeners();
   }
 
   private setupListeners() {
     // Cuando se crea factura, invalidar dashboard del tenant
-    this.eventBus.on('factura:creada', async ({ tenantId }) => {
+    this.eventBus.on("factura:creada", async ({ tenantId }) => {
       await this.cache.del(`dashboard:${tenantId}`);
     });
 
     // Cuando se cancela, invalidar múltiples cachés
-    this.eventBus.on('factura:cancelada', async ({ tenantId, clienteId }) => {
+    this.eventBus.on("factura:cancelada", async ({ tenantId, clienteId }) => {
       await Promise.all([
         this.cache.del(`dashboard:${tenantId}`),
-        this.cache.del(`cliente:${clienteId}:facturas`)
+        this.cache.del(`cliente:${clienteId}:facturas`),
       ]);
     });
   }
@@ -834,18 +892,20 @@ export class CacheInvalidator {
 Patrón para coordinar operaciones que afectan múltiples servicios/sistemas con compensación automática si algo falla.
 
 **Ejemplo: Flujo de Creación de Factura CFDI**
+
 ```
 1. Validar datos del cliente ─────────► Si falla → Terminar
-2. Generar XML CFDI ──────────────────► Si falla → Terminar  
+2. Generar XML CFDI ──────────────────► Si falla → Terminar
 3. Enviar a PAC para timbrado ────────► Si falla → Rollback XML
 4. Guardar en DB ─────────────────────► Si falla → Cancelar en PAC + Rollback XML
 5. Enviar notificación al cliente ────► Si falla → Log (no crítico, no rollback)
 ```
 
 **Implementación con patrón Saga Coreografiada:**
+
 ```typescript
 // filepath: src/lib/server/sagas/factura.saga.ts
-import { EventBus } from '$lib/server/events';
+import { EventBus } from "$lib/server/events";
 
 interface SagaContext {
   facturaId: string;
@@ -874,105 +934,115 @@ export class FacturaSaga {
     const context: SagaContext = {
       facturaId: crypto.randomUUID(),
       clienteId: data.clienteId,
-      pasoActual: 'inicio',
-      errores: []
+      pasoActual: "inicio",
+      errores: [],
     };
 
     // Paso 1: Validar
-    await this.eventBus.emit('saga:factura:validar', { context, data });
-    
+    await this.eventBus.emit("saga:factura:validar", { context, data });
+
     return context;
   }
 
   private setupListeners() {
     // Paso 1: Validar cliente
-    this.eventBus.on('saga:factura:validar', async ({ context, data }) => {
+    this.eventBus.on("saga:factura:validar", async ({ context, data }) => {
       try {
-        context.pasoActual = 'validacion';
+        context.pasoActual = "validacion";
         await this.validarCliente(data.clienteId);
-        await this.eventBus.emit('saga:factura:generar_xml', { context, data });
+        await this.eventBus.emit("saga:factura:generar_xml", { context, data });
       } catch (error) {
         await this.handleError(context, error);
       }
     });
 
     // Paso 2: Generar XML
-    this.eventBus.on('saga:factura:generar_xml', async ({ context, data }) => {
+    this.eventBus.on("saga:factura:generar_xml", async ({ context, data }) => {
       try {
-        context.pasoActual = 'generacion_xml';
+        context.pasoActual = "generacion_xml";
         context.xmlGenerado = await this.generarXML(data);
-        await this.eventBus.emit('saga:factura:timbrar', { context });
+        await this.eventBus.emit("saga:factura:timbrar", { context });
       } catch (error) {
         await this.handleError(context, error);
       }
     });
 
     // Paso 3: Timbrar en PAC
-    this.eventBus.on('saga:factura:timbrar', async ({ context }) => {
+    this.eventBus.on("saga:factura:timbrar", async ({ context }) => {
       try {
-        context.pasoActual = 'timbrado';
+        context.pasoActual = "timbrado";
         const resultado = await this.timbrarEnPAC(context.xmlGenerado!);
         context.uuidTimbrado = resultado.uuid;
-        await this.eventBus.emit('saga:factura:guardar', { context });
+        await this.eventBus.emit("saga:factura:guardar", { context });
       } catch (error) {
         await this.handleError(context, error);
       }
     });
 
     // Paso 4: Guardar en DB
-    this.eventBus.on('saga:factura:guardar', async ({ context }) => {
+    this.eventBus.on("saga:factura:guardar", async ({ context }) => {
       try {
-        context.pasoActual = 'persistencia';
+        context.pasoActual = "persistencia";
         await this.guardarEnDB(context);
-        await this.eventBus.emit('saga:factura:notificar', { context });
+        await this.eventBus.emit("saga:factura:notificar", { context });
       } catch (error) {
         await this.handleError(context, error);
       }
     });
 
     // Paso 5: Notificar (no crítico)
-    this.eventBus.on('saga:factura:notificar', async ({ context }) => {
+    this.eventBus.on("saga:factura:notificar", async ({ context }) => {
       try {
-        context.pasoActual = 'notificacion';
+        context.pasoActual = "notificacion";
         await this.notificarCliente(context);
-        await this.eventBus.emit('saga:factura:completada', { context });
+        await this.eventBus.emit("saga:factura:completada", { context });
       } catch (error) {
         // No fallar la saga por notificación
-        console.error('Notificación falló (no crítico):', error);
-        await this.eventBus.emit('saga:factura:completada', { context });
+        console.error("Notificación falló (no crítico):", error);
+        await this.eventBus.emit("saga:factura:completada", { context });
       }
     });
   }
 
   private setupCompensations() {
     // Compensación para timbrado: cancelar en PAC
-    this.compensations.set('timbrado', async (ctx) => {
+    this.compensations.set("timbrado", async (ctx) => {
       if (ctx.uuidTimbrado) {
         await this.cancelarEnPAC(ctx.uuidTimbrado);
       }
     });
 
     // Compensación para XML: limpiar archivos temporales
-    this.compensations.set('generacion_xml', async (ctx) => {
+    this.compensations.set("generacion_xml", async (ctx) => {
       if (ctx.xmlGenerado) {
         await this.limpiarXMLTemporal(ctx.facturaId);
       }
     });
 
     // Compensación para persistencia: eliminar registro
-    this.compensations.set('persistencia', async (ctx) => {
+    this.compensations.set("persistencia", async (ctx) => {
       await this.eliminarFacturaDB(ctx.facturaId);
     });
   }
 
-  private async handleError(context: SagaContext, error: unknown): Promise<void> {
-    const errorMsg = error instanceof Error ? error.message : 'Error desconocido';
+  private async handleError(
+    context: SagaContext,
+    error: unknown,
+  ): Promise<void> {
+    const errorMsg =
+      error instanceof Error ? error.message : "Error desconocido";
     context.errores.push(`${context.pasoActual}: ${errorMsg}`);
 
     console.error(`Saga falló en paso ${context.pasoActual}:`, error);
 
     // Ejecutar compensaciones en orden inverso
-    const pasos = ['notificacion', 'persistencia', 'timbrado', 'generacion_xml', 'validacion'];
+    const pasos = [
+      "notificacion",
+      "persistencia",
+      "timbrado",
+      "generacion_xml",
+      "validacion",
+    ];
     const indexActual = pasos.indexOf(context.pasoActual);
 
     for (let i = indexActual; i < pasos.length; i++) {
@@ -988,7 +1058,7 @@ export class FacturaSaga {
       }
     }
 
-    await this.eventBus.emit('saga:factura:fallida', { context });
+    await this.eventBus.emit("saga:factura:fallida", { context });
   }
 }
 ```
@@ -1003,6 +1073,7 @@ export class FacturaSaga {
 ### 6. Blue-Green / Canary Deployments
 
 **¿Qué es?**
+
 - **Blue-Green:** Dos entornos idénticos, cambio instantáneo de tráfico
 - **Canary:** Despliegue gradual (10% → 50% → 100%)
 
@@ -1017,9 +1088,9 @@ http:
       weighted:
         services:
           - name: app-blue
-            weight: 90    # 90% del tráfico
+            weight: 90 # 90% del tráfico
           - name: app-green
-            weight: 10    # 10% del tráfico (canary)
+            weight: 10 # 10% del tráfico (canary)
 
     app-blue:
       loadBalancer:
@@ -1042,6 +1113,7 @@ http:
 ```
 
 **Script de deployment canary:**
+
 ```bash
 #!/bin/bash
 # filepath: scripts/canary-deploy.sh
@@ -1079,6 +1151,7 @@ echo "📊 Monitorear métricas antes de promocionar..."
 ```
 
 **Promoción completa:**
+
 ```bash
 #!/bin/bash
 # filepath: scripts/promote-canary.sh
@@ -1116,6 +1189,7 @@ echo "✅ v${NEW_VERSION} ahora es producción"
 ### 7. Sharding de Base de Datos
 
 **¿Cuándo necesitarlo?**
+
 - 📊 +1 millón de usuarios activos
 - 💾 +100GB de datos en una tabla
 - ⏱️ Queries lentas a pesar de índices y optimizaciones
@@ -1124,6 +1198,7 @@ echo "✅ v${NEW_VERSION} ahora es producción"
 **NO necesario actualmente.** El proyecto puede manejar 50,000+ usuarios con PostgreSQL single-node optimizado.
 
 **Estrategia futura (si escala masiva):**
+
 - Shard por `tenant_id` (arquitectura multi-tenant)
 - Usar PostgreSQL con **Citus** (extensión nativa)
 - O migrar a **Vitess** (usado por YouTube)
@@ -1146,6 +1221,7 @@ SELECT * FROM facturas WHERE tenant_id = 'abc123';
 ### 8. Service Mesh
 
 **¿Cuándo necesitarlo?**
+
 - 🔗 +20 microservicios independientes
 - 🔒 Necesidad de mTLS entre todos los servicios
 - 📊 Observabilidad a nivel de red
@@ -1154,6 +1230,7 @@ SELECT * FROM facturas WHERE tenant_id = 'abc123';
 **NO aplica actualmente.** El proyecto usa arquitectura modular monolítica, no microservicios.
 
 **Si algún día se necesita:**
+
 - **Linkerd** (ligero, fácil)
 - **Istio** (potente, complejo)
 
@@ -1168,17 +1245,20 @@ SELECT * FROM facturas WHERE tenant_id = 'abc123';
 El documento menciona monorepos como estrategia para equipos que comparten código entre múltiples proyectos.
 
 **Estado actual del proyecto:**
+
 - ✅ Single repo (SvelteKit fullstack)
 - ✅ Frontend y Backend en mismo proyecto
 - ✅ Shared types via TypeScript
 
 **¿Necesitamos monorepo?**
 **NO actualmente.** Monorepo es útil cuando:
+
 - Tienes múltiples apps independientes (web, mobile, admin)
 - Equipos separados trabajan en paralelo
 - Quieres compartir librerías entre proyectos
 
 **Si crecemos a múltiples apps:**
+
 - **TurboRepo:** Más simple, menos opinión
 - **NX:** Más estructura, mejores generadores
 
@@ -1190,9 +1270,11 @@ El documento menciona monorepos como estrategia para equipos que comparten códi
 ### 10. Microfrontends
 
 **Del análisis de `ideas_encontradas.md`:**
+
 > "Si estás haciendo un panel administrativo, una app pequeña o un dashboard: No invoques demonios innecesarios."
 
 **Conclusión para este proyecto:**
+
 - ❌ **NO implementar microfrontends**
 - ✅ Usar componentes Svelte modulares
 - ✅ Lazy loading de rutas (ya incluido en SvelteKit)
@@ -1203,19 +1285,19 @@ El documento menciona monorepos como estrategia para equipos que comparten códi
 
 ## ✅ YA IMPLEMENTADO (Verificar Funcionamiento)
 
-| Patrón | Ubicación | Estado | Verificar |
-|:-------|:----------|:-------|:----------|
-| Rate Limiting | ElysiaJS middleware | ✅ | Config en `src/middleware/` |
-| Migraciones DB | Drizzle ORM | ✅ | `drizzle/migrations/` |
-| Clean Architecture | Estructura carpetas | ✅ | `src/lib/server/` |
-| Cache con Redis | Configurado | ✅ | `.env` y servicios |
-| TypeScript Strict | tsconfig.json | ✅ | `"strict": true` |
-| Validación RFC | Regex mexicano | ✅ | `src/lib/utils/mexico.ts` |
-| Backups automáticos | Dokploy → S3 | ✅ | Panel Dokploy |
-| SSL automático | Traefik | ✅ | Let's Encrypt |
-| Health checks | `/health` endpoint | ✅ | API routes |
-| Graceful shutdown | BullMQ + Elysia | ⚠️ | **VERIFICAR** |
-| Circuit breakers | API Wrappers | ❌ | **PENDIENTE** |
+| Patrón              | Ubicación           | Estado | Verificar                   |
+| :------------------ | :------------------ | :----- | :-------------------------- |
+| Rate Limiting       | ElysiaJS middleware | ✅     | Config en `src/middleware/` |
+| Migraciones DB      | Drizzle ORM         | ✅     | `drizzle/migrations/`       |
+| Clean Architecture  | Estructura carpetas | ✅     | `src/lib/server/`           |
+| Cache con Redis     | Configurado         | ✅     | `.env` y servicios          |
+| TypeScript Strict   | tsconfig.json       | ✅     | `"strict": true`            |
+| Validación RFC      | Regex mexicano      | ✅     | `src/lib/utils/mexico.ts`   |
+| Backups automáticos | Dokploy → S3        | ✅     | Panel Dokploy               |
+| SSL automático      | Traefik             | ✅     | Let's Encrypt               |
+| Health checks       | `/health` endpoint  | ✅     | API routes                  |
+| Graceful shutdown   | BullMQ + Elysia     | ⚠️     | **VERIFICAR**               |
+| Circuit breakers    | API Wrappers        | ❌     | **PENDIENTE**               |
 
 ---
 
@@ -1246,6 +1328,7 @@ FUTURO (Año 2+):
 ## 📝 Checklist de Implementación
 
 ### V1 - Prioridad Alta
+
 - [ ] Crear estructura `src/lib/server/repositories/`
 - [ ] Implementar `BaseRepository` con Drizzle
 - [ ] Migrar queries existentes a repositories
@@ -1257,6 +1340,7 @@ FUTURO (Año 2+):
 - [ ] Agregar tests para wrappers
 
 ### V2 - Prioridad Media
+
 - [ ] Separar Commands y Queries
 - [ ] Implementar invalidación de caché
 - [ ] Crear Saga para facturación
@@ -1266,6 +1350,6 @@ FUTURO (Año 2+):
 
 ---
 
-*Última actualización: 7 Diciembre 2025*  
-*Fuente: ideas_al_aire/ideas_encontradas.md*  
-*Versión del documento: 1.0*
+_Última actualización: 7 Diciembre 2025_  
+_Fuente: ideas_al_aire/ideas_encontradas.md_  
+_Versión del documento: 1.0_

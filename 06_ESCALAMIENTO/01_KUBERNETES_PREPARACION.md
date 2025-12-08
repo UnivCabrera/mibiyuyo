@@ -1,4 +1,5 @@
 # 🚀 ESTRATEGIA DE ESCALAMIENTO - DOKPLOY → SWARM → K8s
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Fase Actual:** Dokploy (Single Node)  
 **Trigger Fase 2:** ~6 meses o VPS al 85% de capacidad  
@@ -47,14 +48,14 @@
 
 ### ¿Por qué Dokploy antes que K8s directamente?
 
-| Criterio | Dokploy (Swarm) | Kubernetes |
-| :--- | :--- | :--- |
-| **Curva de aprendizaje** | ✅ Mínima (ya sabes Docker) | ❌ Alta (nuevos conceptos) |
-| **Costo operacional** | ✅ Solo VPS | ❌ Requiere expertise DevOps |
-| **Para <50k usuarios** | ✅ Más que suficiente | ❌ Overkill |
-| **Migrabilidad** | ✅ Swarm → K8s es directo | - |
-| **Debugging** | ✅ Logs visuales | ❌ `kubectl` obligatorio |
-| **Tiempo productivo** | ✅ Enfocado en código | ❌ Enfocado en infra |
+| Criterio                 | Dokploy (Swarm)             | Kubernetes                   |
+| :----------------------- | :-------------------------- | :--------------------------- |
+| **Curva de aprendizaje** | ✅ Mínima (ya sabes Docker) | ❌ Alta (nuevos conceptos)   |
+| **Costo operacional**    | ✅ Solo VPS                 | ❌ Requiere expertise DevOps |
+| **Para <50k usuarios**   | ✅ Más que suficiente       | ❌ Overkill                  |
+| **Migrabilidad**         | ✅ Swarm → K8s es directo   | -                            |
+| **Debugging**            | ✅ Logs visuales            | ❌ `kubectl` obligatorio     |
+| **Tiempo productivo**    | ✅ Enfocado en código       | ❌ Enfocado en infra         |
 
 ---
 
@@ -95,18 +96,19 @@
 
 ### Capacidad Estimada (Fase 1)
 
-| Métrica | Capacidad | Nota |
-| :--- | :--- | :--- |
-| Usuarios Concurrentes | ~500-1000 | Con cache Redis agresivo |
-| Usuarios Registrados | ~10,000 | Antes de saturar recursos |
-| Requests/segundo | ~300-500 | Bun es extremadamente rápido |
-| Almacenamiento | ~150GB usables | Dejando 50GB para sistema |
+| Métrica               | Capacidad      | Nota                         |
+| :-------------------- | :------------- | :--------------------------- |
+| Usuarios Concurrentes | ~500-1000      | Con cache Redis agresivo     |
+| Usuarios Registrados  | ~10,000        | Antes de saturar recursos    |
+| Requests/segundo      | ~300-500       | Bun es extremadamente rápido |
+| Almacenamiento        | ~150GB usables | Dejando 50GB para sistema    |
 
 ---
 
 ## 🔄 FASE 2: DOKPLOY MULTI-SERVER (Docker Swarm)
 
 ### Cuándo activar Fase 2 (Checklist)
+
 - [ ] CPU promedio > 70% por 7+ días
 - [ ] RAM promedio > 75% por 7+ días
 - [ ] Latencia p95 > 200ms
@@ -165,20 +167,21 @@
 
 En el panel de Dokploy, por cada servicio:
 
-| Servicio | Réplicas Fase 1 | Réplicas Fase 2 | Estrategia |
-| :--- | :---: | :---: | :--- |
-| frontend | 1 | 4 | Distribución en todos los workers |
-| backend | 2 | 6 | Distribución uniforme |
-| embedding | 1 | 2 | Solo en nodos con GPU (futuro) o más RAM |
-| postgres | 1 | 1 | Stateful en Manager (backups S3) |
-| redis | 1 | 1 | Stateful en Manager |
-| bullmq-worker | 1 | 3 | Workers dedicados |
+| Servicio      | Réplicas Fase 1 | Réplicas Fase 2 | Estrategia                               |
+| :------------ | :-------------: | :-------------: | :--------------------------------------- |
+| frontend      |        1        |        4        | Distribución en todos los workers        |
+| backend       |        2        |        6        | Distribución uniforme                    |
+| embedding     |        1        |        2        | Solo en nodos con GPU (futuro) o más RAM |
+| postgres      |        1        |        1        | Stateful en Manager (backups S3)         |
+| redis         |        1        |        1        | Stateful en Manager                      |
+| bullmq-worker |        1        |        3        | Workers dedicados                        |
 
 ---
 
 ## ☸️ FASE 3: KUBERNETES (OPCIONAL)
 
 ### Cuándo considerar Kubernetes
+
 - [ ] +50,000 usuarios activos
 - [ ] Necesidad de auto-scaling agresivo
 - [ ] Equipo con experiencia K8s
@@ -220,24 +223,26 @@ En el panel de Dokploy, por cada servicio:
 Con la arquitectura actual (Bun + Elysia + Svelte), el rendimiento es tan alto que:
 
 | Usuarios | Servidores Necesarios (Swarm) | Costo Estimado |
-| :--- | :--- | :--- |
-| 10,000 | 1 VPS | $40/mes |
-| 30,000 | 2 VPS | $80/mes |
-| 50,000 | 3 VPS | $120/mes |
-| 100,000 | 5-6 VPS | $200-240/mes |
+| :------- | :---------------------------- | :------------- |
+| 10,000   | 1 VPS                         | $40/mes        |
+| 30,000   | 2 VPS                         | $80/mes        |
+| 50,000   | 3 VPS                         | $120/mes       |
+| 100,000  | 5-6 VPS                       | $200-240/mes   |
 
 **Nota:** Muchas startups con 100k+ usuarios siguen usando Docker Swarm. K8s es para casos específicos (multi-región, compliance enterprise, auto-scaling extremo).
 
 ---
-│  │  │                     DATA LAYER                          │  │ │
-│  │  └─────────────────────────────────────────────────────────┘  │ │
-│  │                                                                │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-│                                                                     │
-│  Volúmenes: /data/postgres, /data/redis, /data/backups            │
-│                                                                     │
+
+│ │ │ DATA LAYER │ │ │
+│ │ └─────────────────────────────────────────────────────────┘ │ │
+│ │ │ │
+│ └────────────────────────────────────────────────────────────────┘ │
+│ │
+│ Volúmenes: /data/postgres, /data/redis, /data/backups │
+│ │
 └─────────────────────────────────────────────────────────────────────┘
-```
+
+````
 
 ### docker-compose.yml Actual (Referencia)
 
@@ -285,7 +290,7 @@ services:
 volumes:
   postgres_data:
   redis_data:
-```
+````
 
 ---
 
@@ -327,13 +332,13 @@ volumes:
 
 ### Por qué K3s (no K8s completo)
 
-| Aspecto | K3s | K8s Full |
-| :--- | :--- | :--- |
-| **RAM mínima** | 512MB | 2GB+ |
-| **Binario** | ~50MB | ~300MB |
-| **Instalación** | 30 segundos | 30+ minutos |
-| **Para VPS** | ✅ Ideal | ❌ Overkill |
-| **Single-node** | ✅ Funciona | ⚠️ Complejo |
+| Aspecto            | K3s         | K8s Full         |
+| :----------------- | :---------- | :--------------- |
+| **RAM mínima**     | 512MB       | 2GB+             |
+| **Binario**        | ~50MB       | ~300MB           |
+| **Instalación**    | 30 segundos | 30+ minutos      |
+| **Para VPS**       | ✅ Ideal    | ❌ Overkill      |
+| **Single-node**    | ✅ Funciona | ⚠️ Complejo      |
 | **SQLite backend** | ✅ Incluido | ❌ Requiere etcd |
 
 ---
@@ -396,13 +401,13 @@ FASE 2: MULTI-NODE (Cuando necesitemos más recursos)
 
 Dokploy muestra métricas en tiempo real por cada servicio. Configura alertas en Grafana para estos umbrales:
 
-| Recurso | Warning (Amarillo) | Crítico (Rojo) | Acción |
-| :--- | :---: | :---: | :--- |
-| **CPU Total** | 65% sostenido 3 días | **80%** sostenido 7 días | Agregar Worker VPS |
-| **RAM Total** | 70% sostenido 3 días | **85%** sostenido 7 días | Agregar Worker VPS |
-| **Disco** | 60% usado | **75%** usado | Expandir o limpiar |
-| **Latencia p95** | >150ms | **>300ms** | Revisar queries / cache |
-| **Error Rate** | >0.5% | **>2%** | Debugging urgente |
+| Recurso          |  Warning (Amarillo)  |      Crítico (Rojo)      | Acción                  |
+| :--------------- | :------------------: | :----------------------: | :---------------------- |
+| **CPU Total**    | 65% sostenido 3 días | **80%** sostenido 7 días | Agregar Worker VPS      |
+| **RAM Total**    | 70% sostenido 3 días | **85%** sostenido 7 días | Agregar Worker VPS      |
+| **Disco**        |      60% usado       |      **75%** usado       | Expandir o limpiar      |
+| **Latencia p95** |        >150ms        |        **>300ms**        | Revisar queries / cache |
+| **Error Rate**   |        >0.5%         |         **>2%**          | Debugging urgente       |
 
 ### Métricas de Negocio → Infraestructura
 
@@ -445,7 +450,7 @@ groups:
         annotations:
           summary: "CPU alto en {{ $labels.name }}"
           description: "Considerar agregar réplicas o nuevo VPS"
-          
+
       - alert: CriticalCPUUsage
         expr: avg(rate(container_cpu_usage_seconds_total[5m])) by (name) > 0.85
         for: 1d
@@ -453,7 +458,7 @@ groups:
           severity: critical
         annotations:
           summary: "CPU CRÍTICO - Escalar AHORA"
-          
+
       - alert: HighMemoryUsage
         expr: container_memory_usage_bytes / container_spec_memory_limit_bytes > 0.85
         for: 1d
@@ -461,7 +466,7 @@ groups:
           severity: critical
         annotations:
           summary: "Memoria alta en {{ $labels.name }}"
-          
+
       - alert: HighLatency
         expr: histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m])) > 0.3
         for: 30m
@@ -474,6 +479,7 @@ groups:
 ### Dashboard Grafana Recomendado
 
 Importar dashboards:
+
 - **Node Exporter Full:** ID 1860 (métricas de sistema)
 - **Docker Container:** ID 893 (métricas por contenedor)
 - **Traefik:** ID 4475 (métricas de reverse proxy)
@@ -485,6 +491,7 @@ Importar dashboards:
 ### Antes de agregar segundo VPS (Fase 2)
 
 **Técnico:**
+
 - [ ] Backup completo de Dokploy exportado
 - [ ] Dump de PostgreSQL verificado en S3
 - [ ] Variables de entorno documentadas
@@ -492,6 +499,7 @@ Importar dashboards:
 - [ ] Firewall del nuevo VPS: solo puertos 2377, 7946, 4789 abiertos al Manager
 
 **Negocio:**
+
 - [ ] Presupuesto aprobado ($40/mes adicional)
 - [ ] Ventana de mantenimiento comunicada (aunque downtime mínimo)
 
@@ -516,18 +524,18 @@ Importar dashboards:
 
 ## 📚 REFERENCIA: MANIFIESTOS K8s (Para Fase 3 futura)
 
-> **NOTA:** Estos manifiestos son para referencia futura si decides migrar a Kubernetes. 
+> **NOTA:** Estos manifiestos son para referencia futura si decides migrar a Kubernetes.
 > Por ahora, Dokploy genera la configuración equivalente automáticamente.
 
 ### Por qué K3s si llegas a necesitar K8s
 
-| Aspecto | K3s | K8s Full |
-| :--- | :--- | :--- |
-| **RAM mínima** | 512MB | 2GB+ |
-| **Binario** | ~50MB | ~300MB |
-| **Instalación** | 30 segundos | 30+ minutos |
-| **Para VPS** | ✅ Ideal | ❌ Overkill |
-| **Single-node** | ✅ Funciona | ⚠️ Complejo |
+| Aspecto            | K3s         | K8s Full         |
+| :----------------- | :---------- | :--------------- |
+| **RAM mínima**     | 512MB       | 2GB+             |
+| **Binario**        | ~50MB       | ~300MB           |
+| **Instalación**    | 30 segundos | 30+ minutos      |
+| **Para VPS**       | ✅ Ideal    | ❌ Overkill      |
+| **Single-node**    | ✅ Funciona | ⚠️ Complejo      |
 | **SQLite backend** | ✅ Incluido | ❌ Requiere etcd |
 
 ### ConfigMap
@@ -867,7 +875,7 @@ spec:
             severity: critical
           annotations:
             summary: "CPU > 85% - Considerar migración K8s multi-node"
-        
+
         # RAM > 85%
         - alert: HighMemoryUsage
           expr: |
@@ -877,7 +885,7 @@ spec:
             severity: critical
           annotations:
             summary: "RAM > 85% - Considerar migración K8s multi-node"
-        
+
         # Pod restarts
         - alert: PodRestartingFrequently
           expr: |
@@ -895,12 +903,12 @@ spec:
 
 ### Hostinger VPS (Escenarios)
 
-| Escenario | Nodos | Specs | Costo/mes | Usuarios Est. |
-| :--- | :---: | :--- | :---: | :---: |
-| **Actual** | 1 | 4vCPU/16GB/200GB | $15 USD | ~5,000 |
-| **K8s 2 nodos** | 2 | 4vCPU/16GB cada uno | $30 USD | ~15,000 |
-| **K8s 4 nodos** | 4 | 4vCPU/16GB cada uno | $60 USD | ~40,000 |
-| **Cloud K8s** | Managed | DigitalOcean/Vultr | $100+ USD | ~100,000+ |
+| Escenario       |  Nodos  | Specs               | Costo/mes | Usuarios Est. |
+| :-------------- | :-----: | :------------------ | :-------: | :-----------: |
+| **Actual**      |    1    | 4vCPU/16GB/200GB    |  $15 USD  |    ~5,000     |
+| **K8s 2 nodos** |    2    | 4vCPU/16GB cada uno |  $30 USD  |    ~15,000    |
+| **K8s 4 nodos** |    4    | 4vCPU/16GB cada uno |  $60 USD  |    ~40,000    |
+| **Cloud K8s**   | Managed | DigitalOcean/Vultr  | $100+ USD |   ~100,000+   |
 
 ### Costo vs Ingreso
 
@@ -966,6 +974,7 @@ Margen: $5,440 USD (98.9%)
 ### ¿Qué es Sharding?
 
 Sharding es dividir tu base de datos en partes más pequeñas (shards), distribuidas en varios servidores. Cada servidor responde solo lo que le toca:
+
 - ✅ Usuarios en un shard
 - ✅ Facturas en otro
 - ✅ Métricas en otro
@@ -974,12 +983,12 @@ Sharding es dividir tu base de datos en partes más pequeñas (shards), distribu
 
 ### ¿Cuándo Necesitarlo?
 
-| Trigger | Umbral | Acción |
-|:--------|:-------|:-------|
-| Usuarios activos | > 1 millón | Evaluar sharding |
-| Tamaño de tabla | > 100GB | Particionar o shard |
-| Latencia p95 | > 500ms | Optimizar primero, luego shard |
-| Conexiones | > 10,000 concurrentes | PgBouncer + considerar shard |
+| Trigger          | Umbral                | Acción                         |
+| :--------------- | :-------------------- | :----------------------------- |
+| Usuarios activos | > 1 millón            | Evaluar sharding               |
+| Tamaño de tabla  | > 100GB               | Particionar o shard            |
+| Latencia p95     | > 500ms               | Optimizar primero, luego shard |
+| Conexiones       | > 10,000 concurrentes | PgBouncer + considerar shard   |
 
 ### ⚠️ Por Qué NO Implementarlo Ahora
 
@@ -991,6 +1000,7 @@ Sharding es dividir tu base de datos en partes más pequeñas (shards), distribu
 ### Estrategia Futura (Si Escala Masiva)
 
 **Opción 1: Citus (Extensión PostgreSQL)**
+
 ```sql
 -- Convertir tabla a distribuida
 SELECT create_distributed_table('facturas', 'tenant_id');
@@ -1003,11 +1013,13 @@ SELECT * FROM facturas WHERE tenant_id = 'abc123';
 ```
 
 **Ventajas de Citus:**
+
 - ✅ Compatible con PostgreSQL (mismo código)
 - ✅ Sharding automático por tenant_id
 - ✅ Usado por empresas grandes (Algolia, Heap)
 
 **Opción 2: Vitess**
+
 - Usado por YouTube, Slack, GitHub
 - Más complejo pero más escalable
 - Requiere cambios en la aplicación
@@ -1037,6 +1049,7 @@ CREATE TABLE facturas_2026 PARTITION OF facturas
 ```
 
 **Beneficios del particionamiento:**
+
 - ✅ Queries más rápidas (solo escanea partición relevante)
 - ✅ Backups más eficientes (por partición)
 - ✅ Eliminación de datos antiguos trivial
@@ -1067,17 +1080,17 @@ FASE 5 (1M+ usuarios):
 
 ## 🎯 RESUMEN
 
-| Pregunta | Respuesta |
-| :--- | :--- |
-| **¿Cuándo migrar?** | Cuando CPU/RAM > 85% sostenido |
-| **¿Qué Kubernetes?** | K3s (ligero, ideal para VPS) |
-| **¿Cuánto cuesta?** | $15-60 USD/mes (1-4 nodos) |
-| **¿Cuánto tiempo?** | ~4 semanas (planificado) |
-| **¿Downtime?** | ~15-30 minutos (con planificación) |
-| **¿Sharding cuándo?** | +1M usuarios o +100GB datos |
-| **¿Qué sharding?** | Citus primero, Vitess si escala más |
+| Pregunta              | Respuesta                           |
+| :-------------------- | :---------------------------------- |
+| **¿Cuándo migrar?**   | Cuando CPU/RAM > 85% sostenido      |
+| **¿Qué Kubernetes?**  | K3s (ligero, ideal para VPS)        |
+| **¿Cuánto cuesta?**   | $15-60 USD/mes (1-4 nodos)          |
+| **¿Cuánto tiempo?**   | ~4 semanas (planificado)            |
+| **¿Downtime?**        | ~15-30 minutos (con planificación)  |
+| **¿Sharding cuándo?** | +1M usuarios o +100GB datos         |
+| **¿Qué sharding?**    | Citus primero, Vitess si escala más |
 
 ---
 
 **Documento de Escalamiento v2.0 - PRO_FINAN_CONTA_PYM**  
-*Actualizado: 7 Diciembre 2025 - Agregada sección de Sharding*
+_Actualizado: 7 Diciembre 2025 - Agregada sección de Sharding_

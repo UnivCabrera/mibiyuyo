@@ -5,26 +5,34 @@ Esta guía te llevará a través del proceso de instalación y configuración de
 ## 1. Preparación del VPS
 
 ### 1.1. Selección del Proveedor de VPS
+
 Elige un proveedor de VPS como DigitalOcean, AWS, Linode o Vultr. Crea una cuenta y lanza una nueva instancia de VPS con las siguientes especificaciones mínimas:
+
 - **Sistema Operativo**: Ubuntu 22.04 LTS
 - **CPU**: 2 vCPUs
 - **RAM**: 4 GB
 - **Almacenamiento**: 20 GB SSD
 
 ### 1.2. Acceso al VPS
+
 Accede a tu VPS mediante SSH:
+
 ```bash
 ssh usuario@ip_del_vps
 ```
 
 ### 1.3. Actualización del Sistema
+
 Actualiza los paquetes del sistema:
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
 
 ### 1.4. Instalación de Dependencias
+
 Instala las dependencias necesarias:
+
 ```bash
 sudo apt install -y curl git
 ```
@@ -32,7 +40,9 @@ sudo apt install -y curl git
 ## 2. Instalación de Docker y Docker Compose
 
 ### 2.1. Instalación de Docker
+
 Ejecuta los siguientes comandos para instalar Docker:
+
 ```bash
 sudo apt install -y apt-transport-https ca-certificates curl software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
@@ -42,14 +52,18 @@ sudo apt install -y docker-ce
 ```
 
 ### 2.2. Instalación de Docker Compose
+
 Instala Docker Compose:
+
 ```bash
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 
 ### 2.3. Verificación de Instalación
+
 Verifica que Docker y Docker Compose estén instalados correctamente:
+
 ```bash
 docker --version
 docker-compose --version
@@ -58,6 +72,7 @@ docker-compose --version
 ## 3. Estructura del Proyecto
 
 Crea la estructura de carpetas para tu proyecto:
+
 ```bash
 mkdir -p ~/proyecto-cfdi/backend ~/proyecto-cfdi/frontend
 cd ~/proyecto-cfdi
@@ -66,7 +81,9 @@ cd ~/proyecto-cfdi
 ## 4. Configuración del Backend (Bun)
 
 ### 4.1. Dockerfile para Backend
+
 Crea un archivo `Dockerfile` en la carpeta `backend`:
+
 ```dockerfile
 # backend/Dockerfile
 FROM oven/bun:latest
@@ -81,9 +98,11 @@ CMD ["bun", "run", "start"]
 ```
 
 ### 4.2. Configuración de Docker Compose
+
 Crea un archivo `docker-compose.yml` en la raíz del proyecto:
+
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
@@ -100,7 +119,9 @@ services:
 ## 5. Configuración del Frontend (SvelteKit)
 
 ### 5.1. Dockerfile para Frontend
+
 Crea un archivo `Dockerfile` en la carpeta `frontend`:
+
 ```dockerfile
 # frontend/Dockerfile
 FROM node:16
@@ -118,9 +139,11 @@ CMD ["npm", "run", "preview"]
 ```
 
 ### 5.2. Actualización del Docker Compose
+
 Actualiza el archivo `docker-compose.yml` para incluir el frontend:
+
 ```yaml
-version: '3.8'
+version: "3.8"
 
 services:
   backend:
@@ -145,6 +168,7 @@ services:
 ## 6. Scripts de Utilidad
 
 Crea un script para facilitar el despliegue:
+
 ```bash
 # deploy.sh
 #!/bin/bash
@@ -152,7 +176,9 @@ Crea un script para facilitar el despliegue:
 docker-compose down
 docker-compose up --build -d
 ```
+
 Hazlo ejecutable:
+
 ```bash
 chmod +x deploy.sh
 ```
@@ -160,10 +186,13 @@ chmod +x deploy.sh
 ## 7. Configuración de Webhooks para Despliegue Automático
 
 ### 7.1. Configuración de un Webhook
+
 Puedes usar un servicio como GitHub Actions o GitLab CI/CD para configurar un webhook que ejecute el script `deploy.sh` cada vez que se haga un push a la rama principal.
 
 ### 7.2. Ejemplo de GitHub Actions
+
 Crea un archivo `.github/workflows/deploy.yml` en tu repositorio:
+
 ```yaml
 name: Deploy
 
@@ -187,7 +216,7 @@ jobs:
           key: ${{ secrets.VPS_SSH_KEY }}
           source: "."
           target: "/home/usuario/proyecto-cfdi"
-      
+
       - name: Run deploy script
         run: ssh -i ${{ secrets.VPS_SSH_KEY }} ${{ secrets.VPS_USER }}@${{ secrets.VPS_IP }} 'bash -s' < deploy.sh
 ```
@@ -195,11 +224,13 @@ jobs:
 ## 8. Guía de Troubleshooting
 
 ### 8.1. Problemas Comunes
+
 - **Error de conexión a la base de datos**: Verifica las credenciales y la configuración de la base de datos.
 - **Contenedor no se inicia**: Revisa los logs del contenedor con `docker-compose logs`.
 - **Problemas de permisos**: Asegúrate de que los archivos en el VPS tengan los permisos correctos.
 
 ### 8.2. Comandos Útiles
+
 - Ver el estado de los contenedores:
   ```bash
   docker-compose ps

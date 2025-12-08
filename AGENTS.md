@@ -70,6 +70,7 @@ Find specific components by name or functionality.
 Add components using simple conversational prompts like "add a login form".
 
 **Note**: For shadcn-svelte, ensure the registry is configured in `components.json`:
+
 ```json
 {
   "registries": {
@@ -139,67 +140,108 @@ List events associated with an issue.
 
 ---
 
+## 📝 Herramientas de Calidad de Documentación
+
+### markdownlint (Configurado ✅)
+
+Linter de Markdown para mantener consistencia en la documentación.
+
+**Archivos de configuración:**
+
+- `.markdownlint.jsonc` - Reglas del linter
+- `.markdownlint-cli2.jsonc` - Config para CLI y CI/CD
+- `.vscode/settings.json` - Integración VS Code
+
+**Comandos útiles:**
+
+```bash
+# Lint todo el workspace
+npx markdownlint-cli2
+
+# Lint archivo específico
+npx markdownlint-cli2 "AGENTS.md"
+
+# Lint y auto-fix
+npx markdownlint-cli2 --fix
+```
+
+**En VS Code:**
+
+- `Ctrl+Shift+P` → `markdownlint: Lint Workspace`
+- Auto-fix al guardar: Habilitado
+- Focus mode: 2 líneas (no muestra warnings cerca del cursor)
+
+**Reglas desactivadas para este proyecto:**
+
+- MD013 (line length) - Documentos con tablas extensas
+- MD025 (multiple H1) - Estructura flexible
+- MD033 (inline HTML) - Necesario para formateo especial
+- MD041 (first line H1) - Metadatos antes del título
+
+---
+
 ## 📚 Recursos con llms.txt (usar documentación directa)
 
-| Tecnología | llms.txt URL |
-|------------|--------------|
-| Svelte 5 | https://svelte.dev/llms.txt |
-| Vite | https://vite.dev/llms.txt |
-| shadcn-svelte | https://shadcn-svelte.com/llms.txt |
-| Redis | https://redis.io/docs/latest/llms.txt |
-| Zod | https://zod.dev/llms.txt |
-| Bun | https://bun.sh/llms.txt |
-| ElysiaJS | https://elysiajs.com/llms.txt |
-| Bits UI | https://bits-ui.com/llms.txt |
-| Better Auth | https://better-auth.com/llms.txt |
+| Tecnología    | llms.txt URL                          |
+| ------------- | ------------------------------------- |
+| Svelte 5      | https://svelte.dev/llms.txt           |
+| Vite          | https://vite.dev/llms.txt             |
+| shadcn-svelte | https://shadcn-svelte.com/llms.txt    |
+| Redis         | https://redis.io/docs/latest/llms.txt |
+| Zod           | https://zod.dev/llms.txt              |
+| Bun           | https://bun.sh/llms.txt               |
+| ElysiaJS      | https://elysiajs.com/llms.txt         |
+| Bits UI       | https://bits-ui.com/llms.txt          |
+| Better Auth   | https://better-auth.com/llms.txt      |
 
 ## 📚 Recursos sin llms.txt (documentación estándar)
 
-| Tecnología | Recurso |
-|------------|---------|
-| Lucide Icons | https://lucide.dev/icons/ |
-| Superforms | https://superforms.rocks/ |
-| TanStack Table | https://tanstack.com/table/ |
-| Chart.js | https://www.chartjs.org/docs/ |
-| Sonner | NPM package docs |
-| Traefik | https://doc.traefik.io/ |
-| BetterStack | https://betterstack.com/docs |
-| PdfMake | https://pdfmake.github.io/docs/ |
-| Linear Developers | https://linear.app/developers |
+| Tecnología        | Recurso                         |
+| ----------------- | ------------------------------- |
+| Lucide Icons      | https://lucide.dev/icons/       |
+| Superforms        | https://superforms.rocks/       |
+| TanStack Table    | https://tanstack.com/table/     |
+| Chart.js          | https://www.chartjs.org/docs/   |
+| Sonner            | NPM package docs                |
+| Traefik           | https://doc.traefik.io/         |
+| BetterStack       | https://betterstack.com/docs    |
+| PdfMake           | https://pdfmake.github.io/docs/ |
+| Linear Developers | https://linear.app/developers   |
 
 ## 🇲🇽 México - Implementaciones Manuales
 
-| Concepto | Implementación |
-|----------|----------------|
-| RFC Validation | Regex: `/^[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}$/` |
+| Concepto        | Implementación                                   |
+| --------------- | ------------------------------------------------ |
+| RFC Validation  | Regex: `/^[A-ZÑ&]{3,4}\d{6}[A-Z0-9]{3}$/`        |
 | CURP Validation | Regex: `/^[A-Z]{4}\d{6}[HM][A-Z]{5}[A-Z0-9]\d$/` |
-| SAT/CFDI | Referencia: https://www.sat.gob.mx/ |
+| SAT/CFDI        | Referencia: https://www.sat.gob.mx/              |
 
 ## 📋 Reglas Específicas del Proyecto
 
 ### Stack Tecnológico (NO NEGOCIABLE)
 
-| Categoría | Tecnología | Versión |
-|-----------|------------|---------|
-| Runtime | Bun | 1.3.3+ |
-| Framework Backend | ElysiaJS | 1.4.16+ |
-| Framework Frontend | Svelte 5 + SvelteKit | 5.x / 2.x |
-| ORM | Drizzle ORM | 0.38+ |
-| Base de Datos | PostgreSQL | 16.x+ |
-| Cache | Redis | 7.x+ |
-| Styling | CSS Nativo + Open Props | ❌ NO TAILWIND |
-| UI Components | shadcn-svelte + Bits UI | Latest |
-| TypeScript | Strict Mode | 5.9+ |
+| Categoría          | Tecnología              | Versión        |
+| ------------------ | ----------------------- | -------------- |
+| Runtime            | Bun                     | 1.3.3+         |
+| Framework Backend  | ElysiaJS                | 1.4.16+        |
+| Framework Frontend | Svelte 5 + SvelteKit    | 5.x / 2.x      |
+| ORM                | Drizzle ORM             | 0.38+          |
+| Base de Datos      | PostgreSQL              | 16.x+          |
+| Cache              | Redis                   | 7.x+           |
+| Styling            | CSS Nativo + Open Props | ❌ NO TAILWIND |
+| UI Components      | shadcn-svelte + Bits UI | Latest         |
+| TypeScript         | Strict Mode             | 5.9+           |
 
 ### Reglas de Código Svelte 5
 
 1. **SIEMPRE usar Runes** (nuevo sistema de reactividad):
+
    ```svelte
    <!-- ✅ CORRECTO - Svelte 5 -->
    <script lang="ts">
      let count = $state(0);
      let doubled = $derived(count * 2);
-     
+
      $effect(() => {
        console.log('Count changed:', count);
      });
@@ -215,6 +257,7 @@ List events associated with an issue.
    ```
 
 2. **Props con $props()**:
+
    ```svelte
    <!-- ✅ CORRECTO -->
    <script lang="ts">
@@ -223,21 +266,23 @@ List events associated with an issue.
    ```
 
 3. **Event Handlers sin on:**:
+
    ```svelte
    <!-- ✅ CORRECTO - Svelte 5 -->
    <button onclick={() => count++}>Click</button>
-   
+
    <!-- ❌ INCORRECTO - Svelte 4 -->
    <button on:click={() => count++}>Click</button>
    ```
 
 4. **Snippets en lugar de slots**:
+
    ```svelte
    <!-- ✅ CORRECTO - Svelte 5 -->
    {#snippet header()}
      <h1>Title</h1>
    {/snippet}
-   
+
    <Card {header}>Content</Card>
    ```
 
@@ -313,12 +358,12 @@ Antes de entregar cualquier código Svelte:
 
 El proyecto aplica 4 pilares de neurociencia en todo el UX/UI:
 
-| Pilar | Aplicación |
-|:---|:---|
-| **Neurociencia Cognitiva** | Ley de Miller (7±2 chunks), reducción de carga mental |
-| **Neurociencia Afectiva** | Activación dopamina, reducción cortisol, balance serotonina |
-| **Neurociencia del Desarrollo** | Scaffolding (metas progresivas) |
-| **Neuropsicología** | Fricción para Sistema 2, prevención de impulsos |
+| Pilar                           | Aplicación                                                  |
+| :------------------------------ | :---------------------------------------------------------- |
+| **Neurociencia Cognitiva**      | Ley de Miller (7±2 chunks), reducción de carga mental       |
+| **Neurociencia Afectiva**       | Activación dopamina, reducción cortisol, balance serotonina |
+| **Neurociencia del Desarrollo** | Scaffolding (metas progresivas)                             |
+| **Neuropsicología**             | Fricción para Sistema 2, prevención de impulsos             |
 
 Ver documento completo: `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md`
 
@@ -326,27 +371,28 @@ Ver documento completo: `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md`
 
 ## 💰 Precios Oficiales (UNIFICADOS)
 
-| Plan | Precio |
-|:---:|:---:|
-| GRATIS | $0/mes |
-| PRO | $149/mes |
-| FAMILIA | $249/mes |
-| NEGOCIO | $299/mes |
-| BUSINESS | $499/mes |
+|    Plan    |    Precio     |
+| :--------: | :-----------: |
+|   GRATIS   |    $0/mes     |
+|    PRO     |   $149/mes    |
+|  FAMILIA   |   $249/mes    |
+|  NEGOCIO   |   $299/mes    |
+|  BUSINESS  |   $499/mes    |
 | ENTERPRISE | Personalizado |
 
 ---
 
-*Última actualización: 8 Diciembre 2025*
-*Versión Stack: v5.0*
-*MCPs Configurados: 22 (Svelte, Vite, shadcn, PostgreSQL, Redis, SQLite, Sentry, Playwright, Zod, CSS, Lucide, GitHub, Firebase, Cloudflare, Docker, OpenAI, Resend, Fetch, Filesystem, Linear, Dokploy, MinIO)*
-*llms.txt Verificados: 9 URLs*
-*Tecnologías Investigadas: 61/61 (100%)*
-*Cobertura MCP + llms.txt: 49% (30/61)*
+_Última actualización: 8 Diciembre 2025_
+_Versión Stack: v5.0_
+_MCPs Configurados: 22 (Svelte, Vite, shadcn, PostgreSQL, Redis, SQLite, Sentry, Playwright, Zod, CSS, Lucide, GitHub, Firebase, Cloudflare, Docker, OpenAI, Resend, Fetch, Filesystem, Linear, Dokploy, MinIO)_
+_llms.txt Verificados: 9 URLs_
+_Tecnologías Investigadas: 61/61 (100%)_
+_Cobertura MCP + llms.txt: 49% (30/61)_
 
 ## 📚 Documentación Clave
 
 ### Nuevos documentos (Diciembre 2025):
+
 - `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md` - Framework neurociencias
 - `03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md` - 40 perfiles expandidos
 - `03_MERCADO_COMPETENCIA/07_100_NECESIDADES_DIARIAS_NO_RESUELTAS.md` - Necesidades mercado
@@ -355,6 +401,7 @@ Ver documento completo: `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md`
 - `DOCUMENTACION_MAESTRA/ESTRATEGIA_NEURO_FINANCIERA_2025_2026.md` - Estrategia master
 
 ### MCPs:
+
 - `16_MCP_CONFIGURACION/00_RESUMEN_EJECUTIVO_MCP.md` - Resumen rápido
 - `16_MCP_CONFIGURACION/INVESTIGACION_MCP_STACK.md` - Documentación completa
 - `.vscode/mcp.json` - Configuración de MCPs

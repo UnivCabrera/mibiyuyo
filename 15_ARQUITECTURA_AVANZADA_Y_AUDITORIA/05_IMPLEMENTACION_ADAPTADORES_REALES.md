@@ -1,4 +1,5 @@
 # 💻 IMPLEMENTACIÓN REAL DE ADAPTADORES (SNIPPETS)
+
 ## Código Funcional para Infraestructura Crítica
 
 Aquí transformamos los "placeholders" en código real, seguro y listo para producción.
@@ -19,24 +20,31 @@ import { User } from "../../../../domain/entities/User";
 
 export class PostgresUserRepository implements UserRepository {
   async findById(id: string): Promise<User | null> {
-    const result = await db.select().from(users).where(eq(users.id, id)).limit(1);
-    
+    const result = await db
+      .select()
+      .from(users)
+      .where(eq(users.id, id))
+      .limit(1);
+
     if (result.length === 0) return null;
-    
+
     const row = result[0];
     return new User(row.id, row.email, row.role);
   }
 
   async save(user: User): Promise<void> {
-    await db.insert(users).values({
-      id: user.id,
-      email: user.email,
-      role: user.role,
-      updatedAt: new Date()
-    }).onConflictDoUpdate({
-      target: users.id,
-      set: { role: user.role, updatedAt: new Date() }
-    });
+    await db
+      .insert(users)
+      .values({
+        id: user.id,
+        email: user.email,
+        role: user.role,
+        updatedAt: new Date(),
+      })
+      .onConflictDoUpdate({
+        target: users.id,
+        set: { role: user.role, updatedAt: new Date() },
+      });
   }
 }
 ```
@@ -56,7 +64,7 @@ export class SecureFileSystemSATRepository implements SATCredentialRepository {
 
   async getCredentialContent(id: string, type: "key" | "cer"): Promise<Buffer> {
     // 🛡️ SECURITY: Path Traversal Prevention
-    const safeId = id.replace(/[^a-zA-Z0-9-]/g, ""); 
+    const safeId = id.replace(/[^a-zA-Z0-9-]/g, "");
     const filePath = `${this.BASE_PATH}/${safeId}.${type}`;
 
     try {
@@ -72,7 +80,7 @@ export class SecureFileSystemSATRepository implements SATCredentialRepository {
   async findById(id: string): Promise<SATCredential | null> {
     const safeId = id.replace(/[^a-zA-Z0-9-]/g, "");
     const path = `${this.BASE_PATH}/${safeId}.cer`;
-    
+
     try {
       await access(path, constants.F_OK);
       return new SATCredential(id, path, "CIEC"); // Simplificado
@@ -102,7 +110,7 @@ export class WazuhLogger implements AuditPort {
       action: action,
       metadata: metadata,
       // 🛡️ SECURITY: Masking sensitive data
-      source_ip: metadata.ip || "unknown"
+      source_ip: metadata.ip || "unknown",
     };
 
     // Escribir a stdout (Docker logs -> Wazuh Agent)
@@ -148,6 +156,6 @@ const auditLogger = new WazuhLogger();
 const getSATCredentials = new GetSATCredentials(satRepo, auditLogger);
 
 export const container = {
-  getSATCredentials
+  getSATCredentials,
 };
 ```

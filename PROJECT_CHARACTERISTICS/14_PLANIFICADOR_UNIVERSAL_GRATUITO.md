@@ -39,15 +39,15 @@
 
 ### 1.2 Principios Fundacionales
 
-| # | Principio | Descripción |
-|:---:|:---|:---|
-| 1 | **Gratuito real** | No hay "trial", no hay "límites que frustren" |
-| 2 | **Offline-first** | Funciona sin internet, sincroniza cuando hay |
-| 3 | **Sin cuenta obligatoria** | Usar desde día 1 sin registro |
-| 4 | **Datos del usuario** | Guardados localmente, exportables, eliminables |
-| 5 | **Diseño mexicano** | Quincenas, efectivo, tandas, aguinaldo |
-| 6 | **Neurociencia aplicada** | Cada elemento reduce fricción y ansiedad |
-| 7 | **Accesible** | WCAG 2.1 AA, lectura fácil, alto contraste |
+|  #  | Principio                  | Descripción                                    |
+| :-: | :------------------------- | :--------------------------------------------- |
+|  1  | **Gratuito real**          | No hay "trial", no hay "límites que frustren"  |
+|  2  | **Offline-first**          | Funciona sin internet, sincroniza cuando hay   |
+|  3  | **Sin cuenta obligatoria** | Usar desde día 1 sin registro                  |
+|  4  | **Datos del usuario**      | Guardados localmente, exportables, eliminables |
+|  5  | **Diseño mexicano**        | Quincenas, efectivo, tandas, aguinaldo         |
+|  6  | **Neurociencia aplicada**  | Cada elemento reduce fricción y ansiedad       |
+|  7  | **Accesible**              | WCAG 2.1 AA, lectura fácil, alto contraste     |
 
 ### 1.3 ¿Por Qué Gratis?
 
@@ -76,6 +76,7 @@
 ```
 
 **Upsell natural (no forzado):**
+
 - ✅ Planificador funciona perfecto gratis
 - 💫 PRO: Sincronización multi-dispositivo
 - 💫 PRO: IA Coach personalizado
@@ -88,13 +89,13 @@
 
 ### 2.1 Stack Tecnológico
 
-| Capa | Tecnología | Razón |
-|:---|:---|:---|
-| **Framework** | Svelte 5 + SvelteKit | Rendimiento, tamaño mínimo |
+| Capa              | Tecnología               | Razón                        |
+| :---------------- | :----------------------- | :--------------------------- |
+| **Framework**     | Svelte 5 + SvelteKit     | Rendimiento, tamaño mínimo   |
 | **Storage Local** | IndexedDB (via Dexie.js) | Offline, capacidad ilimitada |
-| **Sync Opcional** | Redis + PostgreSQL | Solo si usuario tiene cuenta |
-| **PWA** | Service Worker | Funciona como app nativa |
-| **Cálculos** | Web Workers | No bloquear UI |
+| **Sync Opcional** | Redis + PostgreSQL       | Solo si usuario tiene cuenta |
+| **PWA**           | Service Worker           | Funciona como app nativa     |
+| **Cálculos**      | Web Workers              | No bloquear UI               |
 
 ### 2.2 Modelo de Datos Local
 
@@ -107,11 +108,11 @@ interface LocalFinanceDB {
   budgets: Budget[];
   goals: Goal[];
   debts: Debt[];
-  
+
   // Metadata
   settings: UserSettings;
   analytics: LocalAnalytics;
-  
+
   // Sincronización
   syncQueue: PendingSync[];
   lastSyncTimestamp: number;
@@ -120,13 +121,13 @@ interface LocalFinanceDB {
 interface Transaction {
   id: string; // UUID generado localmente
   amount: number;
-  type: 'income' | 'expense';
+  type: "income" | "expense";
   categoryId: string;
   date: string; // ISO 8601
   note?: string;
   isRecurring: boolean;
-  recurringPattern?: 'daily' | 'weekly' | 'biweekly' | 'monthly';
-  paymentMethod: 'cash' | 'card' | 'transfer' | 'other';
+  recurringPattern?: "daily" | "weekly" | "biweekly" | "monthly";
+  paymentMethod: "cash" | "card" | "transfer" | "other";
   emotionalState?: 1 | 2 | 3 | 4 | 5; // Para mapa emocional
   createdAt: string;
   updatedAt: string;
@@ -139,22 +140,22 @@ interface Goal {
   targetAmount: number;
   currentAmount: number;
   deadline?: string;
-  savingsFrequency: 'daily' | 'weekly' | 'biweekly' | 'monthly';
+  savingsFrequency: "daily" | "weekly" | "biweekly" | "monthly";
   savingsAmount: number;
-  status: 'active' | 'completed' | 'paused';
+  status: "active" | "completed" | "paused";
   celebrationShown: boolean;
 }
 ```
 
 ### 2.3 Tamaño y Performance
 
-| Métrica | Target | Razón |
-|:---|:---:|:---|
-| **Bundle Size** | <100KB gzip | Cargar rápido en 3G |
-| **First Paint** | <1.5s | Percepción de velocidad |
-| **TTI** | <3s | Interactividad rápida |
-| **Lighthouse Score** | >90 | SEO + UX |
-| **Offline Ready** | 100% | Funcionar sin internet |
+| Métrica              |   Target    | Razón                   |
+| :------------------- | :---------: | :---------------------- |
+| **Bundle Size**      | <100KB gzip | Cargar rápido en 3G     |
+| **First Paint**      |    <1.5s    | Percepción de velocidad |
+| **TTI**              |     <3s     | Interactividad rápida   |
+| **Lighthouse Score** |     >90     | SEO + UX                |
+| **Offline Ready**    |    100%     | Funcionar sin internet  |
 
 ---
 
@@ -188,17 +189,17 @@ interface Goal {
 
 ### 3.2 Módulos Gratuitos vs PRO
 
-| Módulo | GRATIS | PRO |
-|:---|:---:|:---:|
-| Wallet Mexicano Inteligente | ✅ Completo | ✅ + OCR ilimitado |
-| Planificador Quincenal | ✅ Completo | ✅ + Predicciones IA |
-| Control de Deudas | ✅ 3 deudas | ✅ Ilimitadas |
-| Metas Inteligentes | ✅ 3 metas | ✅ Ilimitadas |
-| Tu Dinero Hoy | ✅ Completo | ✅ + Proyecciones |
-| Mapa Emocional | ✅ 30 días | ✅ Histórico completo |
-| Modo Anti-Gasto | ✅ Completo | ✅ + Patrones IA |
-| Exportar datos | ✅ CSV | ✅ + PDF + Google Sheets |
-| Sincronización | ❌ Local only | ✅ Multi-dispositivo |
+| Módulo                      |    GRATIS     |           PRO            |
+| :-------------------------- | :-----------: | :----------------------: |
+| Wallet Mexicano Inteligente |  ✅ Completo  |    ✅ + OCR ilimitado    |
+| Planificador Quincenal      |  ✅ Completo  |   ✅ + Predicciones IA   |
+| Control de Deudas           |  ✅ 3 deudas  |      ✅ Ilimitadas       |
+| Metas Inteligentes          |  ✅ 3 metas   |      ✅ Ilimitadas       |
+| Tu Dinero Hoy               |  ✅ Completo  |    ✅ + Proyecciones     |
+| Mapa Emocional              |  ✅ 30 días   |  ✅ Histórico completo   |
+| Modo Anti-Gasto             |  ✅ Completo  |     ✅ + Patrones IA     |
+| Exportar datos              |    ✅ CSV     | ✅ + PDF + Google Sheets |
+| Sincronización              | ❌ Local only |   ✅ Multi-dispositivo   |
 
 ---
 
@@ -244,17 +245,17 @@ interface Goal {
 
 #### 4.2.2 Categorías Mexicanas Pre-configuradas
 
-| Categoría | Emoji | Subcategorías Mexicanas |
-|:---|:---:|:---|
-| **Comida** | 🍔 | Tacos, comida corrida, antojitos, restaurante, café |
-| **Transporte** | 🚗 | Uber/Didi, Metro/Metrobús, Gasolina, Estacionamiento |
-| **Casa** | 🏠 | Renta, Luz (CFE), Agua, Gas, Internet, Predial |
-| **Compras** | 🛒 | Super, OXXO, Farmacia, Ropa, Amazon/ML |
-| **Entretenimiento** | 🎬 | Netflix/Spotify, Salidas, Conciertos, Viajes |
-| **Salud** | 💊 | Doctor, Medicinas, Gym, IMSS/ISSSTE |
-| **Educación** | 📚 | Colegiaturas, Cursos, Libros, Materiales |
-| **Trabajo** | 💼 | Comidas trabajo, Papelería, Coworking |
-| **Otros** | ✨ | Regalos, Mascotas, Propinas, Tandas |
+| Categoría           | Emoji | Subcategorías Mexicanas                              |
+| :------------------ | :---: | :--------------------------------------------------- |
+| **Comida**          |  🍔   | Tacos, comida corrida, antojitos, restaurante, café  |
+| **Transporte**      |  🚗   | Uber/Didi, Metro/Metrobús, Gasolina, Estacionamiento |
+| **Casa**            |  🏠   | Renta, Luz (CFE), Agua, Gas, Internet, Predial       |
+| **Compras**         |  🛒   | Super, OXXO, Farmacia, Ropa, Amazon/ML               |
+| **Entretenimiento** |  🎬   | Netflix/Spotify, Salidas, Conciertos, Viajes         |
+| **Salud**           |  💊   | Doctor, Medicinas, Gym, IMSS/ISSSTE                  |
+| **Educación**       |  📚   | Colegiaturas, Cursos, Libros, Materiales             |
+| **Trabajo**         |  💼   | Comidas trabajo, Papelería, Coworking                |
+| **Otros**           |  ✨   | Regalos, Mascotas, Propinas, Tandas                  |
 
 #### 4.2.3 Detección Inteligente
 
@@ -262,25 +263,29 @@ interface Goal {
 // Lógica de sugerencia de categoría
 function suggestCategory(amount: number, time: Date): Category {
   const hour = time.getHours();
-  
+
   // Patrones mexicanos
   if (hour >= 7 && hour <= 9 && amount < 100) {
-    return 'desayuno'; // Torta, tamal, café
+    return "desayuno"; // Torta, tamal, café
   }
   if (hour >= 13 && hour <= 15 && amount >= 80 && amount <= 200) {
-    return 'comida_corrida'; // Almuerzo típico
+    return "comida_corrida"; // Almuerzo típico
   }
   if (hour >= 20 && hour <= 23 && amount >= 100 && amount <= 300) {
-    return 'cena_salida'; // Tacos, cena fuera
+    return "cena_salida"; // Tacos, cena fuera
   }
   if (amount === 25 || amount === 30) {
-    return 'transporte_metro'; // Precio del metro
+    return "transporte_metro"; // Precio del metro
   }
-  if (amount >= 80 && amount <= 250 && (hour >= 7 && hour <= 9 || hour >= 17 && hour <= 20)) {
-    return 'uber_didi'; // Horario rush
+  if (
+    amount >= 80 &&
+    amount <= 250 &&
+    ((hour >= 7 && hour <= 9) || (hour >= 17 && hour <= 20))
+  ) {
+    return "uber_didi"; // Horario rush
   }
-  
-  return 'otros';
+
+  return "otros";
 }
 ```
 
@@ -344,13 +349,13 @@ function suggestCategory(amount: number, time: Date): Category {
 
 ### 5.3 Neuro-Features
 
-| Feature | Principio Neuro | Implementación |
-|:---|:---|:---|
-| **Sin rojo** | Reducir cortisol | Solo verde/amarillo, nunca rojo |
-| **Día a día** | Chunk pequeño | "Puedes gastar $285 HOY" |
-| **Celebración** | Dopamina | "+$200 de sobra esta quincena 🎉" |
-| **Proyección** | Anticipación | "Si sigues así..." positivo |
-| **Comparación** | Progreso | "Vs quincena pasada: +15% ahorro" |
+| Feature         | Principio Neuro  | Implementación                    |
+| :-------------- | :--------------- | :-------------------------------- |
+| **Sin rojo**    | Reducir cortisol | Solo verde/amarillo, nunca rojo   |
+| **Día a día**   | Chunk pequeño    | "Puedes gastar $285 HOY"          |
+| **Celebración** | Dopamina         | "+$200 de sobra esta quincena 🎉" |
+| **Proyección**  | Anticipación     | "Si sigues así..." positivo       |
+| **Comparación** | Progreso         | "Vs quincena pasada: +15% ahorro" |
 
 ### 5.4 Modo Anti-Estrés
 
@@ -388,12 +393,12 @@ Cuando el usuario está en "zona amarilla" (gastó más de lo planeado):
 
 **Tradicional vs Neuro:**
 
-| Tradicional | Neuro-Optimizado |
-|:---|:---|
-| "Deudas: $45,000" | "Tu camino a la libertad: 67% completado" |
-| "Te faltan $15,000" | "Solo $15,000 más para ser libre" |
-| "Llevas 18 meses de 36" | "¡Ya pasaste la mitad! 🎉" |
-| "Intereses: $5,000" | "Cada pago te acerca a ahorrar en intereses" |
+| Tradicional             | Neuro-Optimizado                             |
+| :---------------------- | :------------------------------------------- |
+| "Deudas: $45,000"       | "Tu camino a la libertad: 67% completado"    |
+| "Te faltan $15,000"     | "Solo $15,000 más para ser libre"            |
+| "Llevas 18 meses de 36" | "¡Ya pasaste la mitad! 🎉"                   |
+| "Intereses: $5,000"     | "Cada pago te acerca a ahorrar en intereses" |
 
 ### 6.3 Vista Principal
 
@@ -440,11 +445,11 @@ Cuando el usuario está en "zona amarilla" (gastó más de lo planeado):
 
 ### 6.4 Estrategias de Pago
 
-| Estrategia | Descripción | Mejor Para |
-|:---|:---|:---|
-| **Avalancha** | Mayor tasa de interés primero | Ahorrar más en intereses |
-| **Bola de Nieve** | Menor saldo primero | Victorias rápidas (dopamina) |
-| **Híbrida** | Mezcla de ambas | Balance motivación/ahorro |
+| Estrategia        | Descripción                   | Mejor Para                   |
+| :---------------- | :---------------------------- | :--------------------------- |
+| **Avalancha**     | Mayor tasa de interés primero | Ahorrar más en intereses     |
+| **Bola de Nieve** | Menor saldo primero           | Victorias rápidas (dopamina) |
+| **Híbrida**       | Mezcla de ambas               | Balance motivación/ahorro    |
 
 ### 6.5 Celebraciones de Deuda
 
@@ -481,14 +486,14 @@ Cuando el usuario está en "zona amarilla" (gastó más de lo planeado):
 
 **Progresión de dificultad:**
 
-| Nivel | Duración Meta | Monto Típico | Ejemplo |
-|:---:|:---:|:---:|:---|
-| 1️⃣ | 7 días | $100-500 | "Ahorra para unos tacos" |
-| 2️⃣ | 14 días | $500-1,500 | "Ahorra para un regalo" |
-| 3️⃣ | 30 días | $1,000-3,000 | "Ahorra para algo especial" |
-| 4️⃣ | 90 días | $3,000-10,000 | "Ahorra para tecnología" |
-| 5️⃣ | 6 meses | $10,000-30,000 | "Ahorra para vacaciones" |
-| 6️⃣ | 12 meses | $30,000+ | "Ahorra para auto/casa" |
+| Nivel | Duración Meta |  Monto Típico  | Ejemplo                     |
+| :---: | :-----------: | :------------: | :-------------------------- |
+|  1️⃣   |    7 días     |    $100-500    | "Ahorra para unos tacos"    |
+|  2️⃣   |    14 días    |   $500-1,500   | "Ahorra para un regalo"     |
+|  3️⃣   |    30 días    |  $1,000-3,000  | "Ahorra para algo especial" |
+|  4️⃣   |    90 días    | $3,000-10,000  | "Ahorra para tecnología"    |
+|  5️⃣   |    6 meses    | $10,000-30,000 | "Ahorra para vacaciones"    |
+|  6️⃣   |   12 meses    |    $30,000+    | "Ahorra para auto/casa"     |
 
 ### 7.3 Flujo de Creación de Meta
 
@@ -605,38 +610,39 @@ Paso 4: Compromiso Público (Opcional)
 function calculateMoneyToday(user: User): TodayMoney {
   const today = new Date();
   const daysUntilPayday = calculateDaysUntilPayday(today, user.paydayPattern);
-  
+
   // 1. Dinero total disponible
   const totalBalance = user.accounts.reduce((sum, acc) => sum + acc.balance, 0);
-  
+
   // 2. Restar compromisos fijos pendientes
   const pendingFixed = user.fixedExpenses
-    .filter(exp => exp.dueDate >= today && exp.dueDate <= user.nextPayday)
+    .filter((exp) => exp.dueDate >= today && exp.dueDate <= user.nextPayday)
     .reduce((sum, exp) => sum + exp.amount, 0);
-  
+
   // 3. Restar ahorro comprometido
   const pendingSavings = user.goals
-    .filter(goal => goal.status === 'active')
+    .filter((goal) => goal.status === "active")
     .reduce((sum, goal) => sum + goal.nextContribution, 0);
-  
+
   // 4. Restar deudas pendientes
   const pendingDebts = user.debts
-    .filter(debt => debt.nextPaymentDate <= user.nextPayday)
+    .filter((debt) => debt.nextPaymentDate <= user.nextPayday)
     .reduce((sum, debt) => sum + debt.nextPayment, 0);
-  
+
   // 5. Calcular disponible real
-  const realAvailable = totalBalance - pendingFixed - pendingSavings - pendingDebts;
-  
+  const realAvailable =
+    totalBalance - pendingFixed - pendingSavings - pendingDebts;
+
   // 6. Dividir entre días restantes
   const dailyBudget = realAvailable / daysUntilPayday;
-  
+
   // 7. Restar lo gastado hoy
   const spentToday = user.transactions
-    .filter(t => isToday(t.date) && t.type === 'expense')
+    .filter((t) => isToday(t.date) && t.type === "expense")
     .reduce((sum, t) => sum + t.amount, 0);
-  
+
   const availableToday = dailyBudget - spentToday;
-  
+
   return {
     totalBalance,
     committed: pendingFixed + pendingSavings + pendingDebts,
@@ -644,7 +650,7 @@ function calculateMoneyToday(user: User): TodayMoney {
     dailyBudget,
     spentToday,
     availableToday,
-    daysUntilPayday
+    daysUntilPayday,
   };
 }
 ```
@@ -756,13 +762,13 @@ Después de cada gasto importante (>$500 o categoría "impulsivo"):
 
 ### 10.2 Triggers de Activación
 
-| Trigger | Condición | Acción |
-|:---|:---|:---|
-| **Monto alto** | Gasto > promedio × 3 | Pausa obligatoria |
-| **Categoría riesgo** | Compras, entretenimiento nocturno | Pregunta de reflexión |
-| **Hora sospechosa** | 23:00 - 03:00 | "¿Seguro que no es mejor mañana?" |
-| **Estado emocional** | Marcó 😢 o 😕 recientemente | Alerta empática |
-| **Fin de quincena** | <3 días para cobrar, saldo bajo | Friction extra |
+| Trigger              | Condición                         | Acción                            |
+| :------------------- | :-------------------------------- | :-------------------------------- |
+| **Monto alto**       | Gasto > promedio × 3              | Pausa obligatoria                 |
+| **Categoría riesgo** | Compras, entretenimiento nocturno | Pregunta de reflexión             |
+| **Hora sospechosa**  | 23:00 - 03:00                     | "¿Seguro que no es mejor mañana?" |
+| **Estado emocional** | Marcó 😢 o 😕 recientemente       | Alerta empática                   |
+| **Fin de quincena**  | <3 días para cobrar, saldo bajo   | Friction extra                    |
 
 ### 10.3 Pantalla de Pausa
 
@@ -825,12 +831,12 @@ Después de cada gasto importante (>$500 o categoría "impulsivo"):
 
 ### 11.1 Exportar Datos (Gratis)
 
-| Formato | Disponibilidad | Contenido |
-|:---|:---:|:---|
-| **CSV** | ✅ GRATIS | Transacciones, categorías, fechas |
-| **JSON** | ✅ GRATIS | Backup completo (portable) |
-| **PDF** | 💎 PRO | Reportes visuales |
-| **Google Sheets** | 💎 PRO | Sync bidireccional |
+| Formato           | Disponibilidad | Contenido                         |
+| :---------------- | :------------: | :-------------------------------- |
+| **CSV**           |   ✅ GRATIS    | Transacciones, categorías, fechas |
+| **JSON**          |   ✅ GRATIS    | Backup completo (portable)        |
+| **PDF**           |     💎 PRO     | Reportes visuales                 |
+| **Google Sheets** |     💎 PRO     | Sync bidireccional                |
 
 ### 11.2 Sincronización Multi-Dispositivo (PRO)
 
@@ -862,48 +868,52 @@ Después de cada gasto importante (>$500 o categoría "impulsivo"):
 
 ### 12.1 KPIs del Planificador
 
-| Métrica | Target Mes 1 | Target Mes 6 | Target Año 1 |
-|:---|:---:|:---:|:---:|
-| **Usuarios registrados** | 5,000 | 50,000 | 200,000 |
-| **DAU/MAU** | 20% | 35% | 45% |
-| **Retención D7** | 40% | 55% | 65% |
-| **Retención D30** | 25% | 40% | 50% |
-| **Conversión a PRO** | 2% | 5% | 8% |
-| **NPS** | 30 | 50 | 60 |
+| Métrica                  | Target Mes 1 | Target Mes 6 | Target Año 1 |
+| :----------------------- | :----------: | :----------: | :----------: |
+| **Usuarios registrados** |    5,000     |    50,000    |   200,000    |
+| **DAU/MAU**              |     20%      |     35%      |     45%      |
+| **Retención D7**         |     40%      |     55%      |     65%      |
+| **Retención D30**        |     25%      |     40%      |     50%      |
+| **Conversión a PRO**     |      2%      |      5%      |      8%      |
+| **NPS**                  |      30      |      50      |      60      |
 
 ### 12.2 Métricas de Impacto
 
-| Métrica | Cómo Medir | Target |
-|:---|:---|:---:|
-| **Gastos registrados/usuario** | Promedio semanal | 15+ |
-| **Metas creadas** | % usuarios con 1+ meta | 60% |
-| **Metas completadas** | % metas terminadas vs creadas | 40% |
-| **Gastos evitados** | Suma de "salvadas" | $1,000/usuario/mes |
-| **Tiempo en app** | Sesión promedio | 4+ minutos |
+| Métrica                        | Cómo Medir                    |       Target       |
+| :----------------------------- | :---------------------------- | :----------------: |
+| **Gastos registrados/usuario** | Promedio semanal              |        15+         |
+| **Metas creadas**              | % usuarios con 1+ meta        |        60%         |
+| **Metas completadas**          | % metas terminadas vs creadas |        40%         |
+| **Gastos evitados**            | Suma de "salvadas"            | $1,000/usuario/mes |
+| **Tiempo en app**              | Sesión promedio               |     4+ minutos     |
 
 ---
 
 ## 🚀 ROADMAP DE IMPLEMENTACIÓN
 
 ### Fase 1: MVP (4 semanas)
+
 - [ ] Wallet Mexicano (registro básico)
 - [ ] Planificador Quincenal
 - [ ] Tu Dinero Hoy
 - [ ] Storage local (IndexedDB)
 
 ### Fase 2: Core Completo (8 semanas)
+
 - [ ] Metas Inteligentes
 - [ ] Control de Deudas
 - [ ] Modo Anti-Gasto
 - [ ] Gamificación básica
 
 ### Fase 3: Premium (12 semanas)
+
 - [ ] Mapa Emocional
 - [ ] OCR para tickets
 - [ ] Sincronización cloud
 - [ ] Exportación avanzada
 
 ### Fase 4: IA (16 semanas)
+
 - [ ] Predicciones de gasto
 - [ ] Coach financiero
 - [ ] Patrones de comportamiento
@@ -911,4 +921,4 @@ Después de cada gasto importante (>$500 o categoría "impulsivo"):
 
 ---
 
-*Documento vivo - Actualizar conforme se implementa*
+_Documento vivo - Actualizar conforme se implementa_

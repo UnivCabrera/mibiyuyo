@@ -1,0 +1,16 @@
+{
+  "name": "pro-finan-conta-pym",
+  "version": "0.1.0",
+  "description": "FinTech SaaS para PyMEs Mexicanas",
+  "private": true,
+  "scripts": {
+    "lint:md": "markdownlint-cli2",
+    "lint:md:fix": "markdownlint-cli2 --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "markdownlint-cli2": "^0.20.0",
+    "prettier": "^3.7.4"
+  }
+}

@@ -1,4 +1,5 @@
 # 🔨 ROADMAP DE CONSTRUCCIÓN PASO A PASO
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Para:** Desarrolladores que empiezan desde cero  
 **Nivel:** Desde preparatoria hasta senior  
@@ -21,11 +22,13 @@ Este roadmap te guiará paso a paso para construir el proyecto completo, empezan
 ## 📋 REQUISITOS PREVIOS
 
 ### Hardware Mínimo
+
 - **RAM:** 8GB (16GB recomendado)
 - **Disco:** 50GB libres
 - **SO:** Linux (Ubuntu/Fedora), macOS, o Windows con WSL2
 
 ### Conocimientos Básicos (Opcional pero útil)
+
 - [ ] Saber usar la terminal/línea de comandos
 - [ ] Conceptos básicos de programación
 - [ ] Entender qué es una base de datos
@@ -65,6 +68,7 @@ Este roadmap te guiará paso a paso para construir el proyecto completo, empezan
 ## Día 1 (Lunes): Instalación de Herramientas Base
 
 ### Paso 1.1: Instalar Git
+
 ```bash
 # Linux (Ubuntu/Debian)
 sudo apt update
@@ -75,12 +79,14 @@ git --version  # Debería mostrar: git version 2.x.x
 ```
 
 ### Paso 1.2: Configurar Git
+
 ```bash
 git config --global user.name "Tu Nombre"
 git config --global user.email "tu@email.com"
 ```
 
 ### Paso 1.3: Instalar nvm (Node Version Manager)
+
 ```bash
 # Descargar e instalar nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
@@ -93,6 +99,7 @@ nvm --version  # Debería mostrar: 0.40.3
 ```
 
 ### Paso 1.4: Instalar Node.js 24 LTS
+
 ```bash
 # Instalar Node.js 24 (última LTS)
 nvm install 24
@@ -103,6 +110,7 @@ npm -v   # Debería mostrar: 11.6.2
 ```
 
 ### Paso 1.5: Instalar Bun (Runtime principal)
+
 ```bash
 # Instalar Bun
 curl -fsSL https://bun.sh/install | bash
@@ -115,6 +123,7 @@ bun --version  # Debería mostrar: 1.x.x
 ```
 
 ### Paso 1.6: Instalar Docker
+
 ```bash
 # Linux (Ubuntu)
 sudo apt install docker.io docker-compose-v2 -y
@@ -131,6 +140,7 @@ docker compose version  # Debería mostrar: v2.x
 ```
 
 ### Paso 1.7: Instalar VS Code
+
 ```bash
 # Descargar desde: https://code.visualstudio.com/
 # O via snap (Linux)
@@ -138,6 +148,7 @@ sudo snap install code --classic
 ```
 
 ### ✅ Checklist Día 1
+
 - [ ] Git instalado y configurado
 - [ ] nvm instalado
 - [ ] Node.js 24.11.1 instalado
@@ -151,6 +162,7 @@ sudo snap install code --classic
 ## Día 2 (Martes): Extensiones VS Code y Herramientas
 
 ### Paso 2.1: Extensiones Esenciales de VS Code
+
 ```
 Abrir VS Code → Ctrl+Shift+X (Extensiones) → Buscar e instalar:
 
@@ -175,6 +187,7 @@ RECOMENDADAS:
 ```
 
 ### Paso 2.2: Configurar VS Code Settings
+
 ```json
 // Archivo: .vscode/settings.json (se crea en el proyecto)
 {
@@ -189,6 +202,7 @@ RECOMENDADAS:
 ```
 
 ### Paso 2.3: Instalar PostgreSQL (Local para desarrollo)
+
 ```bash
 # Opción 1: Docker (RECOMENDADO)
 docker run --name postgres-dev \
@@ -206,6 +220,7 @@ sudo apt install postgresql postgresql-contrib -y
 ```
 
 ### Paso 2.4: Instalar Redis (Local para desarrollo)
+
 ```bash
 # Usando Docker
 docker run --name redis-dev \
@@ -217,6 +232,7 @@ docker ps  # Debería mostrar redis-dev corriendo
 ```
 
 ### ✅ Checklist Día 2
+
 - [ ] Extensiones VS Code instaladas
 - [ ] Settings de VS Code configurados
 - [ ] PostgreSQL corriendo en Docker (puerto 5432)
@@ -227,6 +243,7 @@ docker ps  # Debería mostrar redis-dev corriendo
 ## Día 3 (Miércoles): Clonar y Entender el Proyecto
 
 ### Paso 3.1: Clonar el Repositorio
+
 ```bash
 # Crear carpeta de proyectos
 mkdir -p ~/proyectos
@@ -241,6 +258,7 @@ cd /home/red/Documents/PRO_FINAN_CONTA_PYM
 ```
 
 ### Paso 3.2: Entender la Estructura
+
 ```bash
 # Ver estructura
 tree -L 2 -d
@@ -262,9 +280,10 @@ tree -L 2 -d
 ```
 
 ### Paso 3.3: Leer Documentación Base
+
 ```bash
 # Tiempo estimado: 2 horas
-# 
+#
 # Leer en este orden:
 # 1. DOCUMENTACION_MAESTRA/00_GUIA_LECTURA_PROYECTO.md
 # 2. 00_ARQUITECTURA_CENTRAL/03_STACK_TECNOLOGICO_DEFINITIVO.md
@@ -272,6 +291,7 @@ tree -L 2 -d
 ```
 
 ### ✅ Checklist Día 3
+
 - [ ] Proyecto clonado/accesible
 - [ ] Estructura de carpetas entendida
 - [ ] Documentación base leída (mínimo 3 documentos)
@@ -281,6 +301,7 @@ tree -L 2 -d
 ## Día 4-5 (Jueves-Viernes): Crear Estructura del Código
 
 ### Paso 4.1: Crear Estructura de Aplicación
+
 ```bash
 cd ~/proyectos/pro-finan-conta-pym/Prototipo
 
@@ -292,6 +313,7 @@ mkdir -p packages/ui
 ```
 
 ### Paso 4.2: Inicializar Backend con Bun
+
 ```bash
 cd apps/backend
 
@@ -306,29 +328,32 @@ bun add -d drizzle-kit typescript @types/bun
 ```
 
 ### Paso 4.3: Crear Archivo Principal del Backend
+
 ```typescript
 // apps/backend/src/index.ts
-import { Elysia } from 'elysia';
-import { cors } from '@elysiajs/cors';
-import { swagger } from '@elysiajs/swagger';
+import { Elysia } from "elysia";
+import { cors } from "@elysiajs/cors";
+import { swagger } from "@elysiajs/swagger";
 
 const app = new Elysia()
   .use(cors())
-  .use(swagger({
-    documentation: {
-      info: {
-        title: 'PRO_FINAN_CONTA_PYM API',
-        version: '1.0.0',
-        description: 'API para la mejor app de finanzas PyME de México'
-      }
-    }
+  .use(
+    swagger({
+      documentation: {
+        info: {
+          title: "PRO_FINAN_CONTA_PYM API",
+          version: "1.0.0",
+          description: "API para la mejor app de finanzas PyME de México",
+        },
+      },
+    }),
+  )
+  .get("/", () => ({
+    message: "¡Bienvenido a PRO_FINAN_CONTA_PYM!",
+    status: "healthy",
+    timestamp: new Date().toISOString(),
   }))
-  .get('/', () => ({ 
-    message: '¡Bienvenido a PRO_FINAN_CONTA_PYM!',
-    status: 'healthy',
-    timestamp: new Date().toISOString()
-  }))
-  .get('/health', () => ({ status: 'ok' }))
+  .get("/health", () => ({ status: "ok" }))
   .listen(4000);
 
 console.log(`
@@ -340,6 +365,7 @@ export type App = typeof app;
 ```
 
 ### Paso 4.4: Inicializar Frontend con SvelteKit
+
 ```bash
 cd ../frontend
 
@@ -355,6 +381,7 @@ bun add -d @sveltejs/adapter-node
 ```
 
 ### Paso 4.5: Verificar que Todo Funciona
+
 ```bash
 # Terminal 1: Backend
 cd apps/backend
@@ -373,6 +400,7 @@ bun dev
 ```
 
 ### ✅ Checklist Semana 1
+
 - [ ] Todas las herramientas instaladas
 - [ ] Estructura de carpetas creada
 - [ ] Backend Elysia funcionando en :4000
@@ -387,86 +415,109 @@ bun dev
 ## Día 6-7: Configurar Base de Datos
 
 ### Paso 6.1: Crear Schema de Drizzle
+
 ```typescript
 // apps/backend/src/db/schema.ts
-import { pgTable, uuid, varchar, timestamp, decimal, boolean, text, integer } from 'drizzle-orm/pg-core';
+import {
+  pgTable,
+  uuid,
+  varchar,
+  timestamp,
+  decimal,
+  boolean,
+  text,
+  integer,
+} from "drizzle-orm/pg-core";
 
 // Usuarios
-export const users = pgTable('users', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  email: varchar('email', { length: 255 }).notNull().unique(),
-  name: varchar('name', { length: 255 }),
-  passwordHash: varchar('password_hash', { length: 255 }),
-  emailVerified: timestamp('email_verified'),
-  image: varchar('image', { length: 500 }),
-  plan: varchar('plan', { length: 50 }).default('free'), // free, pro, enterprise
-  createdAt: timestamp('created_at').defaultNow().notNull(),
-  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+export const users = pgTable("users", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  email: varchar("email", { length: 255 }).notNull().unique(),
+  name: varchar("name", { length: 255 }),
+  passwordHash: varchar("password_hash", { length: 255 }),
+  emailVerified: timestamp("email_verified"),
+  image: varchar("image", { length: 500 }),
+  plan: varchar("plan", { length: 50 }).default("free"), // free, pro, enterprise
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  updatedAt: timestamp("updated_at").defaultNow().notNull(),
 });
 
 // Cuentas (bancarias, efectivo, etc.)
-export const accounts = pgTable('accounts', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
-  name: varchar('name', { length: 100 }).notNull(),
-  type: varchar('type', { length: 50 }).notNull(), // bank, cash, credit_card, investment
-  currency: varchar('currency', { length: 3 }).default('MXN'),
-  balance: decimal('balance', { precision: 15, scale: 2 }).default('0'),
-  color: varchar('color', { length: 7 }),
-  icon: varchar('icon', { length: 50 }),
-  isActive: boolean('is_active').default(true),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+export const accounts = pgTable("accounts", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .references(() => users.id)
+    .notNull(),
+  name: varchar("name", { length: 100 }).notNull(),
+  type: varchar("type", { length: 50 }).notNull(), // bank, cash, credit_card, investment
+  currency: varchar("currency", { length: 3 }).default("MXN"),
+  balance: decimal("balance", { precision: 15, scale: 2 }).default("0"),
+  color: varchar("color", { length: 7 }),
+  icon: varchar("icon", { length: 50 }),
+  isActive: boolean("is_active").default(true),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 // Categorías
-export const categories = pgTable('categories', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id),
-  name: varchar('name', { length: 100 }).notNull(),
-  type: varchar('type', { length: 20 }).notNull(), // income, expense
-  icon: varchar('icon', { length: 50 }),
-  color: varchar('color', { length: 7 }),
-  parentId: uuid('parent_id'),
-  isSystem: boolean('is_system').default(false),
+export const categories = pgTable("categories", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id").references(() => users.id),
+  name: varchar("name", { length: 100 }).notNull(),
+  type: varchar("type", { length: 20 }).notNull(), // income, expense
+  icon: varchar("icon", { length: 50 }),
+  color: varchar("color", { length: 7 }),
+  parentId: uuid("parent_id"),
+  isSystem: boolean("is_system").default(false),
 });
 
 // Transacciones
-export const transactions = pgTable('transactions', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
-  accountId: uuid('account_id').references(() => accounts.id).notNull(),
-  categoryId: uuid('category_id').references(() => categories.id),
-  type: varchar('type', { length: 20 }).notNull(), // income, expense, transfer
-  amount: decimal('amount', { precision: 15, scale: 2 }).notNull(),
-  description: text('description'),
-  date: timestamp('date').notNull(),
-  notes: text('notes'),
-  isRecurring: boolean('is_recurring').default(false),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+export const transactions = pgTable("transactions", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .references(() => users.id)
+    .notNull(),
+  accountId: uuid("account_id")
+    .references(() => accounts.id)
+    .notNull(),
+  categoryId: uuid("category_id").references(() => categories.id),
+  type: varchar("type", { length: 20 }).notNull(), // income, expense, transfer
+  amount: decimal("amount", { precision: 15, scale: 2 }).notNull(),
+  description: text("description"),
+  date: timestamp("date").notNull(),
+  notes: text("notes"),
+  isRecurring: boolean("is_recurring").default(false),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
 // Metas de ahorro
-export const savingsGoals = pgTable('savings_goals', {
-  id: uuid('id').primaryKey().defaultRandom(),
-  userId: uuid('user_id').references(() => users.id).notNull(),
-  name: varchar('name', { length: 100 }).notNull(),
-  targetAmount: decimal('target_amount', { precision: 15, scale: 2 }).notNull(),
-  currentAmount: decimal('current_amount', { precision: 15, scale: 2 }).default('0'),
-  targetDate: timestamp('target_date'),
-  color: varchar('color', { length: 7 }),
-  icon: varchar('icon', { length: 50 }),
-  createdAt: timestamp('created_at').defaultNow().notNull(),
+export const savingsGoals = pgTable("savings_goals", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  userId: uuid("user_id")
+    .references(() => users.id)
+    .notNull(),
+  name: varchar("name", { length: 100 }).notNull(),
+  targetAmount: decimal("target_amount", { precision: 15, scale: 2 }).notNull(),
+  currentAmount: decimal("current_amount", { precision: 15, scale: 2 }).default(
+    "0",
+  ),
+  targetDate: timestamp("target_date"),
+  color: varchar("color", { length: 7 }),
+  icon: varchar("icon", { length: 50 }),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 ```
 
 ### Paso 6.2: Configurar Conexión a BD
+
 ```typescript
 // apps/backend/src/db/index.ts
-import { drizzle } from 'drizzle-orm/postgres-js';
-import postgres from 'postgres';
-import * as schema from './schema';
+import { drizzle } from "drizzle-orm/postgres-js";
+import postgres from "postgres";
+import * as schema from "./schema";
 
-const connectionString = process.env.DATABASE_URL || 'postgresql://finanzas:dev123@localhost:5432/finanzas_dev';
+const connectionString =
+  process.env.DATABASE_URL ||
+  "postgresql://finanzas:dev123@localhost:5432/finanzas_dev";
 
 const client = postgres(connectionString);
 export const db = drizzle(client, { schema });
@@ -475,21 +526,25 @@ export { schema };
 ```
 
 ### Paso 6.3: Configurar Drizzle Kit
+
 ```typescript
 // apps/backend/drizzle.config.ts
-import { defineConfig } from 'drizzle-kit';
+import { defineConfig } from "drizzle-kit";
 
 export default defineConfig({
-  schema: './src/db/schema.ts',
-  out: './drizzle',
-  dialect: 'postgresql',
+  schema: "./src/db/schema.ts",
+  out: "./drizzle",
+  dialect: "postgresql",
   dbCredentials: {
-    url: process.env.DATABASE_URL || 'postgresql://finanzas:dev123@localhost:5432/finanzas_dev',
+    url:
+      process.env.DATABASE_URL ||
+      "postgresql://finanzas:dev123@localhost:5432/finanzas_dev",
   },
 });
 ```
 
 ### Paso 6.4: Ejecutar Migraciones
+
 ```bash
 cd apps/backend
 
@@ -505,6 +560,7 @@ bunx drizzle-kit studio
 ```
 
 ### ✅ Checklist Día 6-7
+
 - [ ] Schema de Drizzle creado
 - [ ] Conexión a BD funcionando
 - [ ] Migraciones ejecutadas
@@ -515,103 +571,121 @@ bunx drizzle-kit studio
 ## Día 8-10: Sistema de Autenticación
 
 ### Paso 8.1: Crear Endpoints de Auth
+
 ```typescript
 // apps/backend/src/routes/auth.ts
-import { Elysia, t } from 'elysia';
-import { db, schema } from '../db';
-import { eq } from 'drizzle-orm';
+import { Elysia, t } from "elysia";
+import { db, schema } from "../db";
+import { eq } from "drizzle-orm";
 
-export const authRoutes = new Elysia({ prefix: '/auth' })
-  
+export const authRoutes = new Elysia({ prefix: "/auth" })
+
   // Registro
-  .post('/register', async ({ body }) => {
-    const { email, password, name } = body;
-    
-    // Verificar si usuario existe
-    const existing = await db.select()
-      .from(schema.users)
-      .where(eq(schema.users.email, email))
-      .limit(1);
-    
-    if (existing.length > 0) {
-      return { error: 'El email ya está registrado' };
-    }
-    
-    // Hash de contraseña (usar Bun.password)
-    const passwordHash = await Bun.password.hash(password);
-    
-    // Crear usuario
-    const [user] = await db.insert(schema.users)
-      .values({ email, passwordHash, name })
-      .returning();
-    
-    return { 
-      success: true, 
-      user: { id: user.id, email: user.email, name: user.name } 
-    };
-  }, {
-    body: t.Object({
-      email: t.String({ format: 'email' }),
-      password: t.String({ minLength: 8 }),
-      name: t.String({ minLength: 2 })
-    })
-  })
-  
+  .post(
+    "/register",
+    async ({ body }) => {
+      const { email, password, name } = body;
+
+      // Verificar si usuario existe
+      const existing = await db
+        .select()
+        .from(schema.users)
+        .where(eq(schema.users.email, email))
+        .limit(1);
+
+      if (existing.length > 0) {
+        return { error: "El email ya está registrado" };
+      }
+
+      // Hash de contraseña (usar Bun.password)
+      const passwordHash = await Bun.password.hash(password);
+
+      // Crear usuario
+      const [user] = await db
+        .insert(schema.users)
+        .values({ email, passwordHash, name })
+        .returning();
+
+      return {
+        success: true,
+        user: { id: user.id, email: user.email, name: user.name },
+      };
+    },
+    {
+      body: t.Object({
+        email: t.String({ format: "email" }),
+        password: t.String({ minLength: 8 }),
+        name: t.String({ minLength: 2 }),
+      }),
+    },
+  )
+
   // Login
-  .post('/login', async ({ body }) => {
-    const { email, password } = body;
-    
-    const [user] = await db.select()
-      .from(schema.users)
-      .where(eq(schema.users.email, email))
-      .limit(1);
-    
-    if (!user || !user.passwordHash) {
-      return { error: 'Credenciales inválidas' };
-    }
-    
-    const validPassword = await Bun.password.verify(password, user.passwordHash);
-    
-    if (!validPassword) {
-      return { error: 'Credenciales inválidas' };
-    }
-    
-    // TODO: Generar JWT token
-    return { 
-      success: true, 
-      user: { id: user.id, email: user.email, name: user.name }
-    };
-  }, {
-    body: t.Object({
-      email: t.String({ format: 'email' }),
-      password: t.String()
-    })
-  });
+  .post(
+    "/login",
+    async ({ body }) => {
+      const { email, password } = body;
+
+      const [user] = await db
+        .select()
+        .from(schema.users)
+        .where(eq(schema.users.email, email))
+        .limit(1);
+
+      if (!user || !user.passwordHash) {
+        return { error: "Credenciales inválidas" };
+      }
+
+      const validPassword = await Bun.password.verify(
+        password,
+        user.passwordHash,
+      );
+
+      if (!validPassword) {
+        return { error: "Credenciales inválidas" };
+      }
+
+      // TODO: Generar JWT token
+      return {
+        success: true,
+        user: { id: user.id, email: user.email, name: user.name },
+      };
+    },
+    {
+      body: t.Object({
+        email: t.String({ format: "email" }),
+        password: t.String(),
+      }),
+    },
+  );
 ```
 
 ### Paso 8.2: Agregar Rutas al App Principal
+
 ```typescript
 // apps/backend/src/index.ts (actualizado)
-import { Elysia } from 'elysia';
-import { cors } from '@elysiajs/cors';
-import { swagger } from '@elysiajs/swagger';
-import { authRoutes } from './routes/auth';
+import { Elysia } from "elysia";
+import { cors } from "@elysiajs/cors";
+import { swagger } from "@elysiajs/swagger";
+import { authRoutes } from "./routes/auth";
 
 const app = new Elysia()
   .use(cors())
-  .use(swagger({
-    documentation: {
-      info: {
-        title: 'PRO_FINAN_CONTA_PYM API',
-        version: '1.0.0'
-      }
-    }
+  .use(
+    swagger({
+      documentation: {
+        info: {
+          title: "PRO_FINAN_CONTA_PYM API",
+          version: "1.0.0",
+        },
+      },
+    }),
+  )
+  .get("/", () => ({
+    message: "¡Bienvenido a PRO_FINAN_CONTA_PYM!",
+    status: "healthy",
   }))
-  .get('/', () => ({ 
-    message: '¡Bienvenido a PRO_FINAN_CONTA_PYM!',
-    status: 'healthy'
-  }))
-  .get('/health', () => ({ status: 'ok' }))
+  .get("/health", () => ({ status: "ok" }))
   .use(authRoutes) // Agregar rutas de auth
   .listen(4000);
 
@@ -619,6 +693,7 @@ console.log(`🚀 Backend en http://localhost:${app.server?.port}`);
 ```
 
 ### ✅ Checklist Semana 2
+
 - [ ] Base de datos configurada
 - [ ] Schema de tablas creado
 - [ ] Migraciones ejecutadas
@@ -630,13 +705,14 @@ console.log(`🚀 Backend en http://localhost:${app.server?.port}`);
 # 📅 SEMANA 3-4: DESARROLLO DE FEATURES CORE
 
 ## Objetivos:
+
 1. CRUD completo de transacciones
 2. CRUD de cuentas
 3. CRUD de categorías
 4. Dashboard básico
 5. Reportes simples
 
-*(El documento continúa con las semanas 3-8 con el mismo nivel de detalle)*
+_(El documento continúa con las semanas 3-8 con el mismo nivel de detalle)_
 
 ---
 
@@ -672,6 +748,7 @@ bun test --watch                   # Tests en modo watch
 # 🎯 SIGUIENTE PASO DESPUÉS DE ESTE ROADMAP
 
 Una vez completadas las 8 semanas:
+
 1. **Beta privada** con 5-10 usuarios
 2. **Feedback** y corrección de bugs
 3. **Lanzamiento público** gradual
@@ -682,4 +759,4 @@ Una vez completadas las 8 semanas:
 
 **¡Éxito en tu desarrollo!** 🚀
 
-*PRO_FINAN_CONTA_PYM - La mejor app de finanzas para PyMEs mexicanas*
+_PRO_FINAN_CONTA_PYM - La mejor app de finanzas para PyMEs mexicanas_

@@ -20,7 +20,7 @@ PEP 734: Multiple interpreters in the standard library
 
 PEP 750: Template strings
 
-PEP 758: Allow except and except* expressions without brackets
+PEP 758: Allow except and except\* expressions without brackets
 
 PEP 765: Control flow in finally blocks
 
@@ -64,7 +64,7 @@ Binary releases for Android are now provided
 
 New features
 PEP 649 & PEP 749: Deferred evaluation of annotations
-The annotations on functions, classes, and modules are no longer evaluated eagerly. Instead, annotations are stored in special-purpose annotate functions and evaluated only when necessary (except if from __future__ import annotations is used).
+The annotations on functions, classes, and modules are no longer evaluated eagerly. Instead, annotations are stored in special-purpose annotate functions and evaluated only when necessary (except if from **future** import annotations is used).
 
 This change is designed to improve performance and usability of annotations in Python in most circumstances. The runtime cost for defining annotations is minimized, but it remains possible to introspect annotations at runtime. It is no longer necessary to enclose annotations in strings if they contain forward references.
 
@@ -74,10 +74,10 @@ This example shows how these formats behave:
 
 from annotationlib import get_annotations, Format
 def func(arg: Undefined):
-    pass
+pass
 get_annotations(func, format=Format.VALUE)
 Traceback (most recent call last):
-  ...
+...
 NameError: name 'Undefined' is not defined
 get_annotations(func, format=Format.FORWARDREF)
 {'arg': ForwardRef('Undefined', owner=<function func at 0x...>)}
@@ -156,14 +156,14 @@ It’s easy to write (or call) code to process Template instances. For example, 
 from string.templatelib import Interpolation
 
 def lower_upper(template):
-    """Render static parts lowercase and interpolations uppercase."""
-    parts = []
-    for part in template:
-        if isinstance(part, Interpolation):
-            parts.append(str(part.value).upper())
-        else:
-            parts.append(part.lower())
-    return ''.join(parts)
+"""Render static parts lowercase and interpolations uppercase."""
+parts = []
+for part in template:
+if isinstance(part, Interpolation):
+parts.append(str(part.value).upper())
+else:
+parts.append(part.lower())
+return ''.join(parts)
 
 name = 'Wenslydale'
 template = t'Mister {name}'
@@ -191,10 +191,11 @@ import sys
 from tempfile import NamedTemporaryFile
 
 with NamedTemporaryFile(mode='w', suffix='.py', delete=False) as f:
-    script_path = f.name
-    f.write(f'import my_debugger; my_debugger.connect({os.getpid()})')
+script_path = f.name
+f.write(f'import my_debugger; my_debugger.connect({os.getpid()})')
 
 # Execute in process with PID 1234
+
 print('Behold! An offering:')
 sys.remote_exec(1234, script_path)
 This function allows sending Python code to be executed in a target process at the next safe execution point. However, tool authors can also implement the protocol directly as described in the PEP, which details the underlying mechanisms used to safely attach to running processes.
@@ -237,40 +238,40 @@ Improved error messages
 The interpreter now provides helpful suggestions when it detects typos in Python keywords. When a word that closely resembles a Python keyword is encountered, the interpreter will suggest the correct keyword in the error message. This feature helps programmers quickly identify and fix common typing mistakes. For example:
 
 whille True:
-    pass
+pass
 Traceback (most recent call last):
-  File "<stdin>", line 1
-    whille True:
-    ^^^^^^
+File "<stdin>", line 1
+whille True:
+^^^^^^
 SyntaxError: invalid syntax. Did you mean 'while'?
 While the feature focuses on the most common cases, some variations of misspellings may still result in regular syntax errors. (Contributed by Pablo Galindo in gh-132449.)
 
 elif statements that follow an else block now have a specific error message. (Contributed by Steele Farnsworth in gh-129902.)
 
 if who == "me":
-    print("It's me!")
+print("It's me!")
 else:
-    print("It's not me!")
+print("It's not me!")
 elif who is None:
-    print("Who is it?")
+print("Who is it?")
 File "<stdin>", line 5
-  elif who is None:
-  ^^^^
+elif who is None:
+^^^^
 SyntaxError: 'elif' block follows an 'else' block
 If a statement is passed to the Conditional expressions after else, or one of pass, break, or continue is passed before if, then the error message highlights where the expression is required. (Contributed by Sergey Miryanov in gh-129515.)
 
 x = 1 if True else pass
 Traceback (most recent call last):
-  File "<string>", line 1
-    x = 1 if True else pass
-                       ^^^^
+File "<string>", line 1
+x = 1 if True else pass
+^^^^
 SyntaxError: expected expression after 'else', but statement is given
 
 x = continue if True else break
 Traceback (most recent call last):
-  File "<string>", line 1
-    x = continue if True else break
-        ^^^^^^^^
+File "<string>", line 1
+x = continue if True else break
+^^^^^^^^
 SyntaxError: expected expression before 'if', but statement is given
 When incorrectly closed strings are detected, the error message suggests that the string may be intended to be part of the string. (Contributed by Pablo Galindo in gh-88535.)
 
@@ -280,9 +281,9 @@ SyntaxError: invalid syntax. Is this intended to be part of the string?
 When strings have incompatible prefixes, the error now shows which prefixes are incompatible. (Contributed by Nikita Sobolev in gh-133197.)
 
 ub'abc'
-  File "<python-input-0>", line 1
-    ub'abc'
-    ^^
+File "<python-input-0>", line 1
+ub'abc'
+^^
 SyntaxError: 'u' and 'b' prefixes are incompatible
 Improved error messages when using as with incompatible targets in:
 
@@ -301,17 +302,18 @@ Improved error message when trying to add an instance of an unhashable type to a
 s = set()
 s.add({'pages': 12, 'grade': 'A'})
 Traceback (most recent call last):
-  File "<python-input-1>", line 1, in <module>
-    s.add({'pages': 12, 'grade': 'A'})
-    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+File "<python-input-1>", line 1, in <module>
+s.add({'pages': 12, 'grade': 'A'})
+
+```^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: cannot use 'dict' as a set element (unhashable type: 'dict')
 d = {}
 l = [1, 2, 3]
 d[l] = 12
 Traceback (most recent call last):
-  File "<python-input-4>", line 1, in <module>
-    d[l] = 12
-    ~^^^
+File "<python-input-4>", line 1, in <module>
+d[l] = 12
+~^^^
 TypeError: cannot use 'list' as a dict key (unhashable type: 'list')
 Improved error message when an object supporting the synchronous context manager protocol is entered using async with instead of with, and vice versa for the asynchronous context manager protocol. (Contributed by Bénédikt Tran in gh-128398.)
 
@@ -325,7 +327,7 @@ Here’s an example of using the new module to compress some data:
 from compression import zstd
 import math
 
-data = str(math.pi).encode() * 20
+data = str(math.pi).encode() \* 20
 compressed = zstd.compress(data)
 ratio = len(compressed) / len(data)
 print(f"Achieved compression ratio of {ratio}")
@@ -346,66 +348,66 @@ For example given this code:
 import asyncio
 
 async def play_track(track):
-    await asyncio.sleep(5)
-    print(f'🎵 Finished: {track}')
+await asyncio.sleep(5)
+print(f'🎵 Finished: {track}')
 
 async def play_album(name, tracks):
-    async with asyncio.TaskGroup() as tg:
-        for track in tracks:
-            tg.create_task(play_track(track), name=track)
+async with asyncio.TaskGroup() as tg:
+for track in tracks:
+tg.create_task(play_track(track), name=track)
 
 async def main():
-    async with asyncio.TaskGroup() as tg:
-        tg.create_task(
-          play_album('Sundowning', ['TNDNBTG', 'Levitate']),
-          name='Sundowning')
-        tg.create_task(
-          play_album('TMBTE', ['DYWTYLM', 'Aqua Regia']),
-          name='TMBTE')
+async with asyncio.TaskGroup() as tg:
+tg.create_task(
+play_album('Sundowning', ['TNDNBTG', 'Levitate']),
+name='Sundowning')
+tg.create_task(
+play_album('TMBTE', ['DYWTYLM', 'Aqua Regia']),
+name='TMBTE')
 
-if __name__ == '__main__':
-    asyncio.run(main())
+if **name** == '**main**':
+asyncio.run(main())
 Executing the new tool on the running process will yield a table like this:
 
 python -m asyncio ps 12345
 
-tid        task id              task name            coroutine stack                                    awaiter chain                                      awaiter name    awaiter id
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-1935500    0x7fc930c18050       Task-1               TaskGroup._aexit -> TaskGroup.__aexit__ -> main                                                                       0x0
-1935500    0x7fc930c18230       Sundowning           TaskGroup._aexit -> TaskGroup.__aexit__ -> album   TaskGroup._aexit -> TaskGroup.__aexit__ -> main    Task-1          0x7fc930c18050
-1935500    0x7fc93173fa50       TMBTE                TaskGroup._aexit -> TaskGroup.__aexit__ -> album   TaskGroup._aexit -> TaskGroup.__aexit__ -> main    Task-1          0x7fc930c18050
-1935500    0x7fc93173fdf0       TNDNBTG              sleep -> play                                      TaskGroup._aexit -> TaskGroup.__aexit__ -> album   Sundowning      0x7fc930c18230
-1935500    0x7fc930d32510       Levitate             sleep -> play                                      TaskGroup._aexit -> TaskGroup.__aexit__ -> album   Sundowning      0x7fc930c18230
-1935500    0x7fc930d32890       DYWTYLM              sleep -> play                                      TaskGroup._aexit -> TaskGroup.__aexit__ -> album   TMBTE           0x7fc93173fa50
-1935500    0x7fc93161ec30       Aqua Regia           sleep -> play                                      TaskGroup._aexit -> TaskGroup.__aexit__ -> album   TMBTE           0x7fc93173fa50
+## tid task id task name coroutine stack awaiter chain awaiter name awaiter id
+
+1935500 0x7fc930c18050 Task-1 TaskGroup.\_aexit -> TaskGroup.**aexit** -> main 0x0
+1935500 0x7fc930c18230 Sundowning TaskGroup.\_aexit -> TaskGroup.**aexit** -> album TaskGroup.\_aexit -> TaskGroup.**aexit** -> main Task-1 0x7fc930c18050
+1935500 0x7fc93173fa50 TMBTE TaskGroup.\_aexit -> TaskGroup.**aexit** -> album TaskGroup.\_aexit -> TaskGroup.**aexit** -> main Task-1 0x7fc930c18050
+1935500 0x7fc93173fdf0 TNDNBTG sleep -> play TaskGroup.\_aexit -> TaskGroup.**aexit** -> album Sundowning 0x7fc930c18230
+1935500 0x7fc930d32510 Levitate sleep -> play TaskGroup.\_aexit -> TaskGroup.**aexit** -> album Sundowning 0x7fc930c18230
+1935500 0x7fc930d32890 DYWTYLM sleep -> play TaskGroup.\_aexit -> TaskGroup.**aexit** -> album TMBTE 0x7fc93173fa50
+1935500 0x7fc93161ec30 Aqua Regia sleep -> play TaskGroup.\_aexit -> TaskGroup.**aexit** -> album TMBTE 0x7fc93173fa50
 or a tree like this:
 
 python -m asyncio pstree 12345
 
 └── (T) Task-1
-    └──  main example.py:13
-        └──  TaskGroup.__aexit__ Lib/asyncio/taskgroups.py:72
-            └──  TaskGroup._aexit Lib/asyncio/taskgroups.py:121
-                ├── (T) Sundowning
-                │   └──  album example.py:8
-                │       └──  TaskGroup.__aexit__ Lib/asyncio/taskgroups.py:72
-                │           └──  TaskGroup._aexit Lib/asyncio/taskgroups.py:121
-                │               ├── (T) TNDNBTG
-                │               │   └──  play example.py:4
-                │               │       └──  sleep Lib/asyncio/tasks.py:702
-                │               └── (T) Levitate
-                │                   └──  play example.py:4
-                │                       └──  sleep Lib/asyncio/tasks.py:702
-                └── (T) TMBTE
-                    └──  album example.py:8
-                        └──  TaskGroup.__aexit__ Lib/asyncio/taskgroups.py:72
-                            └──  TaskGroup._aexit Lib/asyncio/taskgroups.py:121
-                                ├── (T) DYWTYLM
-                                │   └──  play example.py:4
-                                │       └──  sleep Lib/asyncio/tasks.py:702
-                                └── (T) Aqua Regia
-                                    └──  play example.py:4
-                                        └──  sleep Lib/asyncio/tasks.py:702
+└── main example.py:13
+└── TaskGroup.**aexit** Lib/asyncio/taskgroups.py:72
+└── TaskGroup.\_aexit Lib/asyncio/taskgroups.py:121
+├── (T) Sundowning
+│ └── album example.py:8
+│ └── TaskGroup.**aexit** Lib/asyncio/taskgroups.py:72
+│ └── TaskGroup.\_aexit Lib/asyncio/taskgroups.py:121
+│ ├── (T) TNDNBTG
+│ │ └── play example.py:4
+│ │ └── sleep Lib/asyncio/tasks.py:702
+│ └── (T) Levitate
+│ └── play example.py:4
+│ └── sleep Lib/asyncio/tasks.py:702
+└── (T) TMBTE
+└── album example.py:8
+└── TaskGroup.**aexit** Lib/asyncio/taskgroups.py:72
+└── TaskGroup.\_aexit Lib/asyncio/taskgroups.py:121
+├── (T) DYWTYLM
+│ └── play example.py:4
+│ └── sleep Lib/asyncio/tasks.py:702
+└── (T) Aqua Regia
+└── play example.py:4
+└── sleep Lib/asyncio/tasks.py:702
 If a cycle is detected in the async await graph (which could indicate a programming issue), the tool raises an error and lists the cycle paths that prevent tree construction:
 
 python -m asyncio pstree 12345
@@ -425,7 +427,7 @@ All Windows code pages are now supported as ‘cpXXX’ codecs on Windows. (Cont
 
 Implement mixed-mode arithmetic rules combining real and complex numbers as specified by the C standard since C99. (Contributed by Sergey B Kirpichev in gh-69639.)
 
-More syntax errors are now detected regardless of optimisation and the -O command-line option. This includes writes to __debug__, incorrect use of await, and asynchronous comprehensions outside asynchronous functions. For example, python -O -c 'assert (__debug__ := 1)' or python -O -c 'assert await 1' now produce SyntaxErrors. (Contributed by Irit Katriel and Jelle Zijlstra in gh-122245 & gh-121637.)
+More syntax errors are now detected regardless of optimisation and the -O command-line option. This includes writes to **debug**, incorrect use of await, and asynchronous comprehensions outside asynchronous functions. For example, python -O -c 'assert (**debug** := 1)' or python -O -c 'assert await 1' now produce SyntaxErrors. (Contributed by Irit Katriel and Jelle Zijlstra in gh-122245 & gh-121637.)
 
 When subclassing a pure C type, the C slots for the new type are no longer replaced with a wrapped version on class creation if they are not explicitly overridden in the subclass. (Contributed by Tomasz Pytel in gh-132284.)
 
@@ -436,7 +438,7 @@ Add class methods float.from_number() and complex.from_number() to convert a num
 
 Support underscore and comma as thousands separators in the fractional part for floating-point presentation types of the new-style string formatting (with format() or f-strings). (Contributed by Sergey B Kirpichev in gh-87790.)
 
-The int() function no longer delegates to __trunc__(). Classes that want to support conversion to int() must implement either __int__() or __index__(). (Contributed by Mark Dickinson in gh-119743.)
+The int() function no longer delegates to **trunc**(). Classes that want to support conversion to int() must implement either **int**() or **index**(). (Contributed by Mark Dickinson in gh-119743.)
 
 The map() function now has an optional keyword-only strict flag like zip() to check that all the iterables are of equal length. (Contributed by Wannes Boeykens in gh-119793.)
 
@@ -444,7 +446,7 @@ The memoryview type now supports subscription, making it a generic type. (Contri
 
 Using NotImplemented in a boolean context will now raise a TypeError. This has raised a DeprecationWarning since Python 3.9. (Contributed by Jelle Zijlstra in gh-118767.)
 
-Three-argument pow() now tries calling __rpow__() if necessary. Previously it was only called in two-argument pow() and the binary power operator. (Contributed by Serhiy Storchaka in gh-130104.)
+Three-argument pow() now tries calling **rpow**() if necessary. Previously it was only called in two-argument pow() and the binary power operator. (Contributed by Serhiy Storchaka in gh-130104.)
 
 super objects are now copyable and pickleable. (Contributed by Serhiy Storchaka in gh-125767.)
 
@@ -463,9 +465,9 @@ PEP 758: Allow except and except* expressions without brackets
 The except and except* expressions now allow brackets to be omitted when there are multiple exception types and the as clause is not used. For example:
 
 try:
-    connect_to_server()
+connect_to_server()
 except TimeoutError, ConnectionRefusedError:
-    print('The network has ceased to be!')
+print('The network has ceased to be!')
 (Contributed by Pablo Galindo and Brett Cannon in PEP 758 and gh-131831.)
 
 PEP 765: Control flow in finally blocks
@@ -493,7 +495,7 @@ Other calls to gc.collect() are unchanged.
 Default interactive shell
 The default interactive shell now highlights Python syntax. The feature is enabled by default, save if PYTHON_BASIC_REPL or any other environment variable that disables colour is set. See Controlling color for details.
 
-The default color theme for syntax highlighting strives for good contrast and exclusively uses the 4-bit VGA standard ANSI color codes for maximum compatibility. The theme can be customized using an experimental API _colorize.set_theme(). This can be called interactively or in the PYTHONSTARTUP script. Note that this function has no stability guarantees, and may change or be removed.
+The default color theme for syntax highlighting strives for good contrast and exclusively uses the 4-bit VGA standard ANSI color codes for maximum compatibility. The theme can be customized using an experimental API \_colorize.set_theme(). This can be called interactively or in the PYTHONSTARTUP script. Note that this function has no stability guarantees, and may change or be removed.
 
 (Contributed by Łukasz Langa in gh-131507.)
 
@@ -510,7 +512,7 @@ string.templatelib: Support for template string literals (t-strings). See PEP 75
 
 Improved modules
 argparse
-The default value of the program name for argparse.ArgumentParser now reflects the way the Python interpreter was instructed to find the __main__ module code. (Contributed by Serhiy Storchaka and Alyssa Coghlan in gh-66436.)
+The default value of the program name for argparse.ArgumentParser now reflects the way the Python interpreter was instructed to find the **main** module code. (Contributed by Serhiy Storchaka and Alyssa Coghlan in gh-66436.)
 
 Introduced the optional suggest_on_error parameter to argparse.ArgumentParser, enabling suggestions for argument choices and subparser names if mistyped by the user. (Contributed by Savannah Ostrowski in gh-124456.)
 
@@ -581,7 +583,7 @@ Complex types, c_float_complex, c_double_complex, and c_longdouble_complex, are 
 
 Add ctypes.util.dllist() for listing the shared libraries loaded by the current process. (Contributed by Brian Ward in gh-119349.)
 
-Move ctypes.POINTER() types cache from a global internal cache (_pointer_type_cache) to the _CData.__pointer_type__ attribute of the corresponding ctypes types. This will stop the cache from growing without limits in some situations. (Contributed by Sergey Miryanov in gh-100926.)
+Move ctypes.POINTER() types cache from a global internal cache (\_pointer_type_cache) to the \_CData.**pointer_type** attribute of the corresponding ctypes types. This will stop the cache from growing without limits in some situations. (Contributed by Sergey Miryanov in gh-100926.)
 
 The py_object type now supports subscription, making it a generic type. (Contributed by Brian Schubert in gh-132168.)
 
@@ -660,7 +662,7 @@ heapreplace_max()
 heappushpop_max()
 
 hmac
-Add a built-in implementation for HMAC (RFC 2104) using formally verified code from the HACL* project. This implementation is used as a fallback when the OpenSSL implementation of HMAC is not available. (Contributed by Bénédikt Tran in gh-99108.)
+Add a built-in implementation for HMAC (RFC 2104) using formally verified code from the HACL\* project. This implementation is used as a fallback when the OpenSSL implementation of HMAC is not available. (Contributed by Bénédikt Tran in gh-99108.)
 
 http
 Directory lists and error pages generated by the http.server module allow the browser to apply its default dark mode. (Contributed by Yorik Hansen in gh-123430.)
@@ -866,7 +868,7 @@ Inline breakpoints like breakpoint() or pdb.set_trace() will always stop the pro
 
 Auto-indent is introduced in pdb multi-line input. It will either keep the indentation of the last line or insert a 4-space indentation when it detects a new code block. (Contributed by Tian Gao in gh-133350.)
 
-$_asynctask is added to access the current asyncio task if applicable. (Contributed by Tian Gao in gh-124367.)
+$\_asynctask is added to access the current asyncio task if applicable. (Contributed by Tian Gao in gh-124367.)
 
 pdb.set_trace_async() is added to support debugging asyncio coroutines. await statements are supported with this function. (Contributed by Tian Gao in gh-132576.)
 
@@ -927,15 +929,15 @@ is_free_class()
 sys
 The previously undocumented special function sys.getobjects(), which only exists in specialized builds of Python, may now return objects from other interpreters than the one it’s called in. (Contributed by Eric Snow in gh-125286.)
 
-Add sys._is_immortal() for determining if an object is immortal. (Contributed by Peter Bierma in gh-128509.)
+Add sys.\_is_immortal() for determining if an object is immortal. (Contributed by Peter Bierma in gh-128509.)
 
 On FreeBSD, sys.platform no longer contains the major version number. It is always 'freebsd', instead of 'freebsd13' or 'freebsd14'. (Contributed by Michael Osipov in gh-129393.)
 
-Raise DeprecationWarning for sys._clear_type_cache(). This function was deprecated in Python 3.13 but it didn’t raise a runtime warning.
+Raise DeprecationWarning for sys.\_clear_type_cache(). This function was deprecated in Python 3.13 but it didn’t raise a runtime warning.
 
 Add sys.remote_exec() to implement the new external debugger interface. See PEP 768 for details. (Contributed by Pablo Galindo Salgado, Matt Wozniski, and Ivona Stojanovic in gh-131591.)
 
-Add the sys._jit namespace, containing utilities for introspecting just-in-time compilation. (Contributed by Brandt Bucher in gh-133231.)
+Add the sys.\_jit namespace, containing utilities for introspecting just-in-time compilation. (Contributed by Brandt Bucher in gh-133231.)
 
 sys.monitoring
 Add two new monitoring events, BRANCH_LEFT and BRANCH_RIGHT. These replace and deprecate the BRANCH event. (Contributed by Mark Shannon in gh-122548.)
@@ -973,11 +975,11 @@ Both syntaxes for creating a union now produce the same string representation in
 
 Unions created using the old syntax are no longer cached. Previously, running Union[int, str] multiple times would return the same object (Union[int, str] is Union[int, str] would be True), but now it will return two different objects. Use == to compare unions for equality, not is. New-style unions have never been cached this way. This change could increase memory usage for some programs that use a large number of unions created by subscripting typing.Union. However, several factors offset this cost: unions used in annotations are no longer evaluated by default in Python 3.14 because of PEP 649; an instance of types.UnionType is itself much smaller than the object returned by Union[] was on prior Python versions; and removing the cache also saves some space. It is therefore unlikely that this change will cause a significant increase in memory usage for most users.
 
-Previously, old-style unions were implemented using the private class typing._UnionGenericAlias. This class is no longer needed for the implementation, but it has been retained for backward compatibility, with removal scheduled for Python 3.17. Users should use documented introspection helpers like get_origin() and typing.get_args() instead of relying on private implementation details.
+Previously, old-style unions were implemented using the private class typing.\_UnionGenericAlias. This class is no longer needed for the implementation, but it has been retained for backward compatibility, with removal scheduled for Python 3.17. Users should use documented introspection helpers like get_origin() and typing.get_args() instead of relying on private implementation details.
 
 It is now possible to use typing.Union itself in isinstance() checks. For example, isinstance(int | str, typing.Union) will return True; previously this raised TypeError.
 
-The __args__ attribute of typing.Union objects is no longer writable.
+The **args** attribute of typing.Union objects is no longer writable.
 
 It is no longer possible to set any attributes on Union objects. This only ever worked for dunder attributes on previous versions, was never documented to work, and was subtly broken in many cases.
 
@@ -1043,7 +1045,7 @@ Names in the BROWSER environment variable can now refer to already registered br
 This makes it possible to set BROWSER to the value of one of the supported browsers on macOS.
 
 zipfile
-Added ZipInfo._for_archive, a method to resolve suitable defaults for a ZipInfo object as used by ZipFile.writestr. (Contributed by Bénédikt Tran in gh-123424.)
+Added ZipInfo.\_for_archive, a method to resolve suitable defaults for a ZipInfo object as used by ZipFile.writestr. (Contributed by Bénédikt Tran in gh-123424.)
 
 ZipFile.writestr() now respects the SOURCE_DATE_EPOCH environment variable in order to better support reproducible builds. (Contributed by Jiahao Li in gh-91279.)
 
@@ -1171,18 +1173,17 @@ If you’re running an async function, simply use asyncio.run().
 Before:
 
 async def main():
-    ...
-
+...
 
 loop = asyncio.get_event_loop()
 try:
-    loop.run_until_complete(main())
+loop.run_until_complete(main())
 finally:
-    loop.close()
+loop.close()
 After:
 
 async def main():
-    ...
+...
 
 asyncio.run(main())
 If you need to start something, for example, a server listening on a socket and then run forever, use asyncio.run() and an asyncio.Event.
@@ -1193,17 +1194,17 @@ def start_server(loop): ...
 
 loop = asyncio.get_event_loop()
 try:
-    start_server(loop)
-    loop.run_forever()
+start_server(loop)
+loop.run_forever()
 finally:
-    loop.close()
+loop.close()
 After:
 
 def start_server(loop): ...
 
 async def main():
-    start_server(asyncio.get_running_loop())
-    await asyncio.Event().wait()
+start_server(asyncio.get_running_loop())
+await asyncio.Event().wait()
 
 asyncio.run(main())
 If you need to run something in an event loop, then run some blocking code around it, use asyncio.Runner.
@@ -1216,11 +1217,11 @@ async def operation_two(): ...
 
 loop = asyncio.get_event_loop()
 try:
-    loop.run_until_complete(operation_one())
-    blocking_code()
-    loop.run_until_complete(operation_two())
+loop.run_until_complete(operation_one())
+blocking_code()
+loop.run_until_complete(operation_two())
 finally:
-    loop.close()
+loop.close()
 After:
 
 async def operation_one(): ...
@@ -1228,9 +1229,9 @@ def blocking_code(): ...
 async def operation_two(): ...
 
 with asyncio.Runner() as runner:
-    runner.run(operation_one())
-    blocking_code()
-    runner.run(operation_two())
+runner.run(operation_one())
+blocking_code()
+runner.run(operation_two())
 email
 Remove email.utils.localtime()’s isdst parameter, which was deprecated in and has been ignored since Python 3.12. (Contributed by Hugo van Kemenade in gh-118798.)
 
@@ -1306,7 +1307,7 @@ For example, to use asyncio.SelectorEventLoop on Windows:
 import asyncio
 
 async def main():
-    ...
+...
 
 asyncio.run(main(), loop_factory=asyncio.SelectorEventLoop)
 (Contributed by Kumar Aditya in gh-127949.)
@@ -1317,7 +1318,7 @@ ctypes:
 
 On non-Windows platforms, setting Structure._pack_ to use a MSVC-compatible default memory layout is now deprecated in favor of setting Structure._layout_ to 'ms', and will be removed in Python 3.19. (Contributed by Petr Viktorin in gh-131747.)
 
-Calling ctypes.POINTER() on a string is now deprecated. Use incomplete types for self-referential structures. Also, the internal ctypes._pointer_type_cache is deprecated. See ctypes.POINTER() for updated implementation details. (Contributed by Sergey Myrianov in gh-100926.)
+Calling ctypes.POINTER() on a string is now deprecated. Use incomplete types for self-referential structures. Also, the internal ctypes.\_pointer_type_cache is deprecated. See ctypes.POINTER() for updated implementation details. (Contributed by Sergey Myrianov in gh-100926.)
 
 functools: Calling the Python implementation of functools.reduce() with function or sequence as keyword arguments is now deprecated; the parameters will be made positional-only in Python 3.16. (Contributed by Kirill Podoprigora in gh-121676.)
 
@@ -1327,7 +1328,7 @@ mimetypes: Valid extensions are either empty or must start with ‘.’ for mime
 
 nturl2path: This module is now deprecated. Call urllib.request.url2pathname() and pathname2url() instead. (Contributed by Barney Gale in gh-125866.)
 
-os: The os.popen() and os.spawn* functions are now soft deprecated. They should no longer be used to write new code. The subprocess module is recommended instead. (Contributed by Victor Stinner in gh-120743.)
+os: The os.popen() and os.spawn\* functions are now soft deprecated. They should no longer be used to write new code. The subprocess module is recommended instead. (Contributed by Victor Stinner in gh-120743.)
 
 pathlib: pathlib.PurePath.as_uri() is now deprecated and scheduled for removal in Python 3.19. Use pathlib.Path.as_uri() instead. (Contributed by Barney Gale in gh-123599.)
 
@@ -1342,9 +1343,9 @@ urllib.parse: Accepting objects with false values (like 0 and []) except empty s
 Pending removal in Python 3.15
 The import system:
 
-Setting __cached__ on a module while failing to set __spec__.cached is deprecated. In Python 3.15, __cached__ will cease to be set or take into consideration by the import system or standard library. (gh-97879)
+Setting **cached** on a module while failing to set **spec**.cached is deprecated. In Python 3.15, **cached** will cease to be set or take into consideration by the import system or standard library. (gh-97879)
 
-Setting __package__ on a module while failing to set __spec__.parent is deprecated. In Python 3.15, __package__ will cease to be set or take into consideration by the import system or standard library. (gh-97879)
+Setting **package** on a module while failing to set **spec**.parent is deprecated. In Python 3.15, **package** will cease to be set or take into consideration by the import system or standard library. (gh-97879)
 
 ctypes:
 
@@ -1403,7 +1404,7 @@ load_module() has been deprecated since Python 3.10. Use exec_module() instead. 
 Pending removal in Python 3.16
 The import system:
 
-Setting __loader__ on a module while failing to set __spec__.loader is deprecated. In Python 3.16, __loader__ will cease to be set or taken into consideration by the import system or the standard library.
+Setting **loader** on a module while failing to set **spec**.loader is deprecated. In Python 3.16, **loader** will cease to be set or taken into consideration by the import system or the standard library.
 
 array:
 
@@ -1434,7 +1435,7 @@ For example, to use asyncio.SelectorEventLoop on Windows:
 import asyncio
 
 async def main():
-    ...
+...
 
 asyncio.run(main(), loop_factory=asyncio.SelectorEventLoop)
 (Contributed by Kumar Aditya in gh-127949.)
@@ -1465,7 +1466,7 @@ The Class.get_methods method has been deprecated since Python 3.14.
 
 sys:
 
-The _enablelegacywindowsfsencoding() function has been deprecated since Python 3.13. Use the PYTHONLEGACYWINDOWSFSENCODING environment variable instead.
+The \_enablelegacywindowsfsencoding() function has been deprecated since Python 3.13. Use the PYTHONLEGACYWINDOWSFSENCODING environment variable instead.
 
 sysconfig:
 
@@ -1488,7 +1489,7 @@ See PEP 688 for more details. (Contributed by Shantanu Jain in gh-91896.)
 
 typing:
 
-Before Python 3.14, old-style unions were implemented using the private class typing._UnionGenericAlias. This class is no longer needed for the implementation, but it has been retained for backward compatibility, with removal scheduled for Python 3.17. Users should use documented introspection helpers like typing.get_origin() and typing.get_args() instead of relying on private implementation details.
+Before Python 3.14, old-style unions were implemented using the private class typing.\_UnionGenericAlias. This class is no longer needed for the implementation, but it has been retained for backward compatibility, with removal scheduled for Python 3.17. Users should use documented introspection helpers like typing.get_origin() and typing.get_args() instead of relying on private implementation details.
 
 typing.ByteString, deprecated since Python 3.9, is scheduled for removal in Python 3.17.
 
@@ -1520,13 +1521,13 @@ Generators: throw(type, exc, tb) and athrow(type, exc, tb) signature is deprecat
 
 Currently Python accepts numeric literals immediately followed by keywords, for example 0in x, 1or x, 0if 1else 2. It allows confusing and ambiguous expressions like [0x1for x in y] (which can be interpreted as [0x1 for x in y] or [0x1f or x in y]). A syntax warning is raised if the numeric literal is immediately followed by one of keywords and, else, for, if, in, is and or. In a future release it will be changed to a syntax error. (gh-87999)
 
-Support for __index__() and __int__() method returning non-int type: these methods will be required to return an instance of a strict subclass of int.
+Support for **index**() and **int**() method returning non-int type: these methods will be required to return an instance of a strict subclass of int.
 
-Support for __float__() method returning a strict subclass of float: these methods will be required to return an instance of float.
+Support for **float**() method returning a strict subclass of float: these methods will be required to return an instance of float.
 
-Support for __complex__() method returning a strict subclass of complex: these methods will be required to return an instance of complex.
+Support for **complex**() method returning a strict subclass of complex: these methods will be required to return an instance of complex.
 
-Delegation of int() to __trunc__() method.
+Delegation of int() to **trunc**() method.
 
 Passing a complex number as the real or imag argument in the complex() constructor is now deprecated; it should only be passed as a single positional argument. (Contributed by Serhiy Storchaka in gh-109218.)
 
@@ -1574,9 +1575,9 @@ ssl.SSLContext without protocol argument is deprecated.
 
 ssl.SSLContext: set_npn_protocols() and selected_npn_protocol() are deprecated: use ALPN instead.
 
-ssl.OP_NO_SSL* options
+ssl.OP_NO_SSL\* options
 
-ssl.OP_NO_TLS* options
+ssl.OP_NO_TLS\* options
 
 ssl.PROTOCOL_SSLv3
 
@@ -1610,7 +1611,7 @@ threading.activeCount(): use threading.active_count().
 
 typing.Text (gh-92332).
 
-The internal class typing._UnionGenericAlias is no longer used to implement typing.Union. To preserve compatibility with users using this private class, a compatibility shim will be provided until at least Python 3.17. (Contributed by Jelle Zijlstra in gh-105499.)
+The internal class typing.\_UnionGenericAlias is no longer used to implement typing.Union. To preserve compatibility with users using this private class, a compatibility shim will be provided until at least Python 3.17. (Contributed by Jelle Zijlstra in gh-105499.)
 
 unittest.IsolatedAsyncioTestCase: it is deprecated to return a value that is not None from a test case.
 
@@ -1642,7 +1643,7 @@ wsgiref: SimpleHandler.stdout.write() should not do partial writes.
 
 xml.etree.ElementTree: Testing the truth value of an Element is deprecated. In a future release it will always return True. Prefer explicit len(elem) or elem is not None tests instead.
 
-sys._clear_type_cache() is deprecated: use sys._clear_internal_caches() instead.
+sys.\_clear_type_cache() is deprecated: use sys.\_clear_internal_caches() instead.
 
 CPython bytecode changes
 Replaced the opcode BINARY_SUBSCR by the BINARY_OP opcode with the NB_SUBSCR oparg. (Contributed by Irit Katriel in gh-100239.)
@@ -1826,7 +1827,7 @@ PyUnicodeWriter_WriteWideChar()
 
 (Contributed by Victor Stinner in gh-119182.)
 
-The k and K formats in PyArg_ParseTuple() and similar functions now use __index__() if available, like all other integer formats. (Contributed by Serhiy Storchaka in gh-112068.)
+The k and K formats in PyArg_ParseTuple() and similar functions now use **index**() if available, like all other integer formats. (Contributed by Serhiy Storchaka in gh-112068.)
 
 Add support for a new p format unit in Py_BuildValue() that produces a Python bool object from a C integer. (Contributed by Pablo Galindo in bpo-45325.)
 
@@ -1848,7 +1849,7 @@ Creating immutable types with mutable bases was deprecated in Python 3.12, and n
 
 Remove PyDictObject.ma_version_tag member, which was deprecated in Python 3.12. Use the PyDict_AddWatcher() API instead. (Contributed by Sam Gross in gh-124296.)
 
-Remove the private _Py_InitializeMain() function. It was a provisional API added to Python 3.8 by PEP 587. (Contributed by Victor Stinner in gh-129033.)
+Remove the private \_Py_InitializeMain() function. It was a provisional API added to Python 3.8 by PEP 587. (Contributed by Victor Stinner in gh-129033.)
 
 Remove the undocumented APIs Py_C_RECURSION_LIMIT and PyThreadState.c_recursion_remaining. These were added in 3.13 and have been removed without deprecation. Use Py_EnterRecursiveCall() to guard against runaway recursion in C code. (Removed by Petr Viktorin in gh-133079, see also gh-130396.)
 
@@ -1859,7 +1860,7 @@ The Py_IS_NAN, Py_IS_INFINITY, and Py_IS_FINITE macros are now soft deprecated. 
 
 Non-tuple sequences are now deprecated as argument for the (items) format unit in PyArg_ParseTuple() and other argument parsing functions if items contains format units which store a borrowed buffer or a borrowed reference. (Contributed by Serhiy Storchaka in gh-50333.)
 
-The _PyMonitoring_FireBranchEvent function is now deprecated and should be replaced with calls to PyMonitoring_FireBranchLeftEvent() and PyMonitoring_FireBranchRightEvent().
+The \_PyMonitoring_FireBranchEvent function is now deprecated and should be replaced with calls to PyMonitoring_FireBranchLeftEvent() and PyMonitoring_FireBranchRightEvent().
 
 The previously undocumented function PySequence_In() is now soft deprecated. Use PySequence_Contains() instead. (Contributed by Yuki Kobayashi in gh-127896.)
 
@@ -1958,43 +1959,43 @@ The bundled copy of libmpdec.
 Pending removal in Python 3.18
 The following private functions are deprecated and planned for removal in Python 3.18:
 
-_PyBytes_Join(): use PyBytes_Join().
+\_PyBytes_Join(): use PyBytes_Join().
 
-_PyDict_GetItemStringWithError(): use PyDict_GetItemStringRef().
+\_PyDict_GetItemStringWithError(): use PyDict_GetItemStringRef().
 
-_PyDict_Pop(): use PyDict_Pop().
+\_PyDict_Pop(): use PyDict_Pop().
 
-_PyLong_Sign(): use PyLong_GetSign().
+\_PyLong_Sign(): use PyLong_GetSign().
 
-_PyLong_FromDigits() and _PyLong_New(): use PyLongWriter_Create().
+\_PyLong_FromDigits() and \_PyLong_New(): use PyLongWriter_Create().
 
-_PyThreadState_UncheckedGet(): use PyThreadState_GetUnchecked().
+\_PyThreadState_UncheckedGet(): use PyThreadState_GetUnchecked().
 
-_PyUnicode_AsString(): use PyUnicode_AsUTF8().
+\_PyUnicode_AsString(): use PyUnicode_AsUTF8().
 
-_PyUnicodeWriter_Init(): replace _PyUnicodeWriter_Init(&writer) with writer = PyUnicodeWriter_Create(0).
+\_PyUnicodeWriter_Init(): replace \_PyUnicodeWriter_Init(&writer) with writer = PyUnicodeWriter_Create(0).
 
-_PyUnicodeWriter_Finish(): replace _PyUnicodeWriter_Finish(&writer) with PyUnicodeWriter_Finish(writer).
+\_PyUnicodeWriter_Finish(): replace \_PyUnicodeWriter_Finish(&writer) with PyUnicodeWriter_Finish(writer).
 
-_PyUnicodeWriter_Dealloc(): replace _PyUnicodeWriter_Dealloc(&writer) with PyUnicodeWriter_Discard(writer).
+\_PyUnicodeWriter_Dealloc(): replace \_PyUnicodeWriter_Dealloc(&writer) with PyUnicodeWriter_Discard(writer).
 
-_PyUnicodeWriter_WriteChar(): replace _PyUnicodeWriter_WriteChar(&writer, ch) with PyUnicodeWriter_WriteChar(writer, ch).
+\_PyUnicodeWriter_WriteChar(): replace \_PyUnicodeWriter_WriteChar(&writer, ch) with PyUnicodeWriter_WriteChar(writer, ch).
 
-_PyUnicodeWriter_WriteStr(): replace _PyUnicodeWriter_WriteStr(&writer, str) with PyUnicodeWriter_WriteStr(writer, str).
+\_PyUnicodeWriter_WriteStr(): replace \_PyUnicodeWriter_WriteStr(&writer, str) with PyUnicodeWriter_WriteStr(writer, str).
 
-_PyUnicodeWriter_WriteSubstring(): replace _PyUnicodeWriter_WriteSubstring(&writer, str, start, end) with PyUnicodeWriter_WriteSubstring(writer, str, start, end).
+\_PyUnicodeWriter_WriteSubstring(): replace \_PyUnicodeWriter_WriteSubstring(&writer, str, start, end) with PyUnicodeWriter_WriteSubstring(writer, str, start, end).
 
-_PyUnicodeWriter_WriteASCIIString(): replace _PyUnicodeWriter_WriteASCIIString(&writer, str) with PyUnicodeWriter_WriteASCII(writer, str).
+\_PyUnicodeWriter_WriteASCIIString(): replace \_PyUnicodeWriter_WriteASCIIString(&writer, str) with PyUnicodeWriter_WriteASCII(writer, str).
 
-_PyUnicodeWriter_WriteLatin1String(): replace _PyUnicodeWriter_WriteLatin1String(&writer, str) with PyUnicodeWriter_WriteUTF8(writer, str).
+\_PyUnicodeWriter_WriteLatin1String(): replace \_PyUnicodeWriter_WriteLatin1String(&writer, str) with PyUnicodeWriter_WriteUTF8(writer, str).
 
-_PyUnicodeWriter_Prepare(): (no replacement).
+\_PyUnicodeWriter_Prepare(): (no replacement).
 
-_PyUnicodeWriter_PrepareKind(): (no replacement).
+\_PyUnicodeWriter_PrepareKind(): (no replacement).
 
-_Py_HashPointer(): use Py_HashPointer().
+\_Py_HashPointer(): use Py_HashPointer().
 
-_Py_fopen_obj(): use Py_fopen().
+\_Py_fopen_obj(): use Py_fopen().
 
 The pythoncapi-compat project can be used to get these new public functions on Python 3.13 and older. (Contributed by Victor Stinner in gh-128863.)
 
@@ -2019,7 +2020,7 @@ PyUnicode_READY(): Unneeded since Python 3.12
 
 PyErr_Display(): Use PyErr_DisplayException() instead.
 
-_PyErr_ChainExceptions(): Use _PyErr_ChainExceptions1() instead.
+\_PyErr_ChainExceptions(): Use \_PyErr_ChainExceptions1() instead.
 
 PyBytesObject.ob_shash member: call PyObject_Hash() instead.
 
@@ -2046,7 +2047,7 @@ GNU Autoconf 2.72 is now required to generate configure. (Contributed by Erlend 
 
 wasm32-unknown-emscripten is now a PEP 11 tier 3 platform. (Contributed by R. Hood Chatham in gh-127146, gh-127683, and gh-136931.)
 
-#pragma-based linking with python3*.lib can now be switched off with Py_NO_LINK_LIB. (Contributed by Jean-Christophe Fillion-Robin in gh-82909.)
+#pragma-based linking with python3\*.lib can now be switched off with Py_NO_LINK_LIB. (Contributed by Jean-Christophe Fillion-Robin in gh-82909.)
 
 CPython now enables a set of recommended compiler options by default for improved security. Use the --disable-safety configure option to disable them, or the --enable-slower-safety option for a larger set of compiler options, albeit with a performance cost.
 
@@ -2086,7 +2087,7 @@ PEP 779’s acceptance
 Binary releases for the experimental just-in-time compiler
 The official macOS and Windows release binaries now include an experimental just-in-time (JIT) compiler. Although it is not recommended for production use, it can be tested by setting PYTHON_JIT=1 as an environment variable. Downstream source builds and redistributors can use the --enable-experimental-jit=yes-off configuration option for similar behavior.
 
-The JIT is at an early stage and still in active development. As such, the typical performance impact of enabling it can range from 10% slower to 20% faster, depending on workload. To aid in testing and evaluation, a set of introspection functions has been provided in the sys._jit namespace. sys._jit.is_available() can be used to determine if the current executable supports JIT compilation, while sys._jit.is_enabled() can be used to tell if JIT compilation has been enabled for the current process.
+The JIT is at an early stage and still in active development. As such, the typical performance impact of enabling it can range from 10% slower to 20% faster, depending on workload. To aid in testing and evaluation, a set of introspection functions has been provided in the sys.\_jit namespace. sys.\_jit.is_available() can be used to determine if the current executable supports JIT compilation, while sys.\_jit.is_enabled() can be used to tell if JIT compilation has been enabled for the current process.
 
 Currently, the most significant missing functionality is that native debuggers and profilers like gdb and perf are unable to unwind through JIT frames (Python debuggers and profilers, like pdb or profile, continue to work without modification). Free-threaded builds do not support JIT compilation.
 
@@ -2133,26 +2134,26 @@ In the majority of cases, working code from older versions of Python will not re
 Implications for annotated code
 If you define annotations in your code (for example, for use with a static type checker), then this change probably does not affect you: you can keep writing annotations the same way you did with previous versions of Python.
 
-You will likely be able to remove quoted strings in annotations, which are frequently used for forward references. Similarly, if you use from __future__ import annotations to avoid having to write strings in annotations, you may well be able to remove that import once you support only Python 3.14 and newer. However, if you rely on third-party libraries that read annotations, those libraries may need changes to support unquoted annotations before they work as expected.
+You will likely be able to remove quoted strings in annotations, which are frequently used for forward references. Similarly, if you use from **future** import annotations to avoid having to write strings in annotations, you may well be able to remove that import once you support only Python 3.14 and newer. However, if you rely on third-party libraries that read annotations, those libraries may need changes to support unquoted annotations before they work as expected.
 
-Implications for readers of __annotations__
-If your code reads the __annotations__ attribute on objects, you may want to make changes in order to support code that relies on deferred evaluation of annotations. For example, you may want to use annotationlib.get_annotations() with the FORWARDREF format, as the dataclasses module now does.
+Implications for readers of **annotations**
+If your code reads the **annotations** attribute on objects, you may want to make changes in order to support code that relies on deferred evaluation of annotations. For example, you may want to use annotationlib.get_annotations() with the FORWARDREF format, as the dataclasses module now does.
 
 The external typing_extensions package provides partial backports of some of the functionality of the annotationlib module, such as the Format enum and the get_annotations() function. These can be used to write cross-version code that takes advantage of the new behavior in Python 3.14.
 
 Related changes
-The changes in Python 3.14 are designed to rework how __annotations__ works at runtime while minimizing breakage to code that contains annotations in source code and to code that reads __annotations__. However, if you rely on undocumented details of the annotation behavior or on private functions in the standard library, there are many ways in which your code may not work in Python 3.14. To safeguard your code against future changes, only use the documented functionality of the annotationlib module.
+The changes in Python 3.14 are designed to rework how **annotations** works at runtime while minimizing breakage to code that contains annotations in source code and to code that reads **annotations**. However, if you rely on undocumented details of the annotation behavior or on private functions in the standard library, there are many ways in which your code may not work in Python 3.14. To safeguard your code against future changes, only use the documented functionality of the annotationlib module.
 
 In particular, do not read annotations directly from the namespace dictionary attribute of type objects. Use annotationlib.get_annotate_from_class_namespace() during class construction and annotationlib.get_annotations() afterwards.
 
 In previous releases, it was sometimes possible to access class annotations from an instance of an annotated class. This behavior was undocumented and accidental, and will no longer work in Python 3.14.
 
-from __future__ import annotations
-In Python 3.7, PEP 563 introduced the from __future__ import annotations future statement, which turns all annotations into strings.
+from **future** import annotations
+In Python 3.7, PEP 563 introduced the from **future** import annotations future statement, which turns all annotations into strings.
 
 However, this statement is now deprecated and it is expected to be removed in a future version of Python. This removal will not happen until after Python 3.13 reaches its end of life in 2029, being the last version of Python without support for deferred evaluation of annotations.
 
-In Python 3.14, the behavior of code using from __future__ import annotations is unchanged.
+In Python 3.14, the behavior of code using from **future** import annotations is unchanged.
 
 Changes in the C API
 Py_Finalize() now deletes all interned strings. This is backwards incompatible to any C extension that holds onto an interned string after a call to Py_Finalize() and is then reused after a call to Py_Initialize(). Any issues arising from this behavior will normally result in crashes during the execution of the subsequent call to Py_Initialize() from accessing uninitialized memory. To fix, use an address sanitizer to identify any use-after-free coming from an interned string and deallocate it during module shutdown. (Contributed by Eddie Elizondo in gh-113601.)
@@ -2163,41 +2164,41 @@ The interpreter internally avoids some reference count modifications when loadin
 
 Private functions promoted to public C APIs:
 
-_PyBytes_Join(): PyBytes_Join()
+\_PyBytes_Join(): PyBytes_Join()
 
-_PyLong_IsNegative(): PyLong_IsNegative()
+\_PyLong_IsNegative(): PyLong_IsNegative()
 
-_PyLong_IsPositive(): PyLong_IsPositive()
+\_PyLong_IsPositive(): PyLong_IsPositive()
 
-_PyLong_IsZero(): PyLong_IsZero()
+\_PyLong_IsZero(): PyLong_IsZero()
 
-_PyLong_Sign(): PyLong_GetSign()
+\_PyLong_Sign(): PyLong_GetSign()
 
-_PyUnicodeWriter_Dealloc(): PyUnicodeWriter_Discard()
+\_PyUnicodeWriter_Dealloc(): PyUnicodeWriter_Discard()
 
-_PyUnicodeWriter_Finish(): PyUnicodeWriter_Finish()
+\_PyUnicodeWriter_Finish(): PyUnicodeWriter_Finish()
 
-_PyUnicodeWriter_Init(): use PyUnicodeWriter_Create()
+\_PyUnicodeWriter_Init(): use PyUnicodeWriter_Create()
 
-_PyUnicodeWriter_Prepare(): (no replacement)
+\_PyUnicodeWriter_Prepare(): (no replacement)
 
-_PyUnicodeWriter_PrepareKind(): (no replacement)
+\_PyUnicodeWriter_PrepareKind(): (no replacement)
 
-_PyUnicodeWriter_WriteChar(): PyUnicodeWriter_WriteChar()
+\_PyUnicodeWriter_WriteChar(): PyUnicodeWriter_WriteChar()
 
-_PyUnicodeWriter_WriteStr(): PyUnicodeWriter_WriteStr()
+\_PyUnicodeWriter_WriteStr(): PyUnicodeWriter_WriteStr()
 
-_PyUnicodeWriter_WriteSubstring(): PyUnicodeWriter_WriteSubstring()
+\_PyUnicodeWriter_WriteSubstring(): PyUnicodeWriter_WriteSubstring()
 
-_PyUnicode_EQ(): PyUnicode_Equal()
+\_PyUnicode_EQ(): PyUnicode_Equal()
 
-_PyUnicode_Equal(): PyUnicode_Equal()
+\_PyUnicode_Equal(): PyUnicode_Equal()
 
-_Py_GetConfig(): PyConfig_Get() and PyConfig_GetInt()
+\_Py_GetConfig(): PyConfig_Get() and PyConfig_GetInt()
 
-_Py_HashBytes(): Py_HashBuffer()
+\_Py_HashBytes(): Py_HashBuffer()
 
-_Py_fopen_obj(): Py_fopen()
+\_Py_fopen_obj(): Py_fopen()
 
 PyMutex_IsLocked() : PyMutex_IsLocked()
 
@@ -2205,3 +2206,4 @@ The pythoncapi-compat project can be used to get most of these new functions on 
 
 Notable changes in 3.14.1
 Add PyUnstable_ThreadState_SetStackProtection() and PyUnstable_ThreadState_ResetStackProtection() functions to set the stack protection base address and stack protection size of a Python thread state. (Contributed by Victor Stinner in gh-139653.)
+```

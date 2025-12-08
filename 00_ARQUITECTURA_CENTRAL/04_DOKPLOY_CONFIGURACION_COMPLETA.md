@@ -1,4 +1,5 @@
 # 🚀 DOKPLOY - CONFIGURACIÓN COMPLETA Y MEJORES PRÁCTICAS
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Versión:** 1.0  
 **Fecha:** 1 Diciembre 2025  
@@ -25,6 +26,7 @@
 ## 🔧 INSTALACIÓN INICIAL
 
 ### Requisitos del VPS
+
 - **OS:** Ubuntu 22.04/24.04 LTS
 - **RAM:** Mínimo 2GB (recomendado 4GB+)
 - **CPU:** 2 vCPU mínimo
@@ -74,6 +76,7 @@ nano /etc/ssh/sshd_config
 ```
 
 Cambiar/verificar estas líneas:
+
 ```
 Port 2222                          # Cambiar puerto por defecto
 PermitRootLogin no                 # Deshabilitar login root
@@ -111,6 +114,7 @@ sudo ufw status verbose
 ```
 
 **Resultado esperado:**
+
 ```
 Status: active
 
@@ -129,6 +133,7 @@ sudo nano /etc/fail2ban/jail.local
 ```
 
 Contenido:
+
 ```ini
 [DEFAULT]
 bantime = 3600
@@ -161,6 +166,7 @@ curl -sSL https://dokploy.com/install.sh | sh
 ```
 
 Esperar ~3-5 minutos. Al terminar verás:
+
 ```
 Dokploy installed successfully!
 Access your panel at: http://TU_IP:3000
@@ -203,6 +209,7 @@ Region: us-west-000
 Si ya pagas por Google Drive (ej. 2TB), es más económico usarlo en lugar de pagar otro servicio.
 
 **Paso 1: Instalar rclone**
+
 ```bash
 # Instalar rclone
 curl https://rclone.org/install.sh | sudo bash
@@ -212,6 +219,7 @@ rclone version
 ```
 
 **Paso 2: Configurar Google Drive en rclone**
+
 ```bash
 # Iniciar configuración interactiva
 rclone config
@@ -232,6 +240,7 @@ rclone config
 ```
 
 **Paso 3: Verificar conexión**
+
 ```bash
 # Listar contenido de tu Drive
 rclone ls gdrive-backups:
@@ -243,6 +252,7 @@ rclone mkdir gdrive-backups:dokploy-backups
 **Paso 4: Configurar Dokploy para backups locales**
 
 En Dokploy, configura los backups para que se guarden en una carpeta local:
+
 ```
 Database → postgres-main → Backups → Settings
 Destination: Local
@@ -252,12 +262,14 @@ Retention: 7 days (local)
 ```
 
 **Paso 5: Crear sync automático a Google Drive**
+
 ```bash
 # Crear script de sincronización
 sudo nano /opt/scripts/sync-backups-gdrive.sh
 ```
 
 Contenido del script:
+
 ```bash
 #!/bin/bash
 # Sincronizar backups de Dokploy a Google Drive
@@ -290,6 +302,7 @@ rclone ls gdrive-backups:dokploy-backups
 ```
 
 **Paso 6: Programar ejecución automática (Cron)**
+
 ```bash
 # Editar crontab
 sudo crontab -e
@@ -299,6 +312,7 @@ sudo crontab -e
 ```
 
 **Paso 7: Monitorear sincronización**
+
 ```bash
 # Ver logs
 tail -f /var/log/gdrive-sync.log
@@ -309,12 +323,12 @@ rclone size gdrive-backups:dokploy-backups
 
 #### Resumen de Backups
 
-| Componente | Frecuencia Local | Sync a Google Drive | Retención |
-| :--- | :--- | :--- | :--- |
-| PostgreSQL | Cada 4 horas | Cada 6 horas | 30 días en Drive |
-| Redis | Diario | Cada 6 horas | 30 días en Drive |
-| Volúmenes | Diario | Cada 6 horas | 30 días en Drive |
-| Config Dokploy | Semanal (manual) | Manual | Permanente |
+| Componente     | Frecuencia Local | Sync a Google Drive | Retención        |
+| :------------- | :--------------- | :------------------ | :--------------- |
+| PostgreSQL     | Cada 4 horas     | Cada 6 horas        | 30 días en Drive |
+| Redis          | Diario           | Cada 6 horas        | 30 días en Drive |
+| Volúmenes      | Diario           | Cada 6 horas        | 30 días en Drive |
+| Config Dokploy | Semanal (manual) | Manual              | Permanente       |
 
 ### Paso 9: Verificación Final
 
@@ -366,6 +380,7 @@ sudo ufw allow 4789/udp   # Overlay network
 ### Placement Constraints (Solo con 2+ nodos)
 
 Cuando tengas múltiples VPS, podrás configurar en Dokploy:
+
 - Frontend → `node.labels.role == app`
 - Backend → `node.labels.role == app`
 - Workers → `node.labels.role == worker`
@@ -412,6 +427,7 @@ cloudflared tunnel route dns dokploy-panel dokploy.profinanconta.mx
 ```
 
 Archivo de configuración `/etc/cloudflared/config.yml`:
+
 ```yaml
 tunnel: <TUNNEL-ID>
 credentials-file: /root/.cloudflared/<TUNNEL-ID>.json
@@ -532,7 +548,7 @@ sudo systemctl restart fail2ban
 Repository: github.com/tu-org/profinanconta-frontend
 Branch: main
 Build Path: /
-Dockerfile Path: ./Dockerfile  # O usar Nixpacks
+Dockerfile Path: ./Dockerfile # O usar Nixpacks
 
 # Resources
 CPU Limit: 0.5
@@ -550,6 +566,7 @@ Timeout: 10s
 ```
 
 **Dockerfile para SvelteKit + Bun:**
+
 ```dockerfile
 FROM oven/bun:1.3.3 AS builder
 WORKDIR /app
@@ -595,6 +612,7 @@ Interval: 15s
 ```
 
 **Dockerfile para Backend Bun:**
+
 ```dockerfile
 FROM oven/bun:1.3.3
 WORKDIR /app
@@ -709,7 +727,6 @@ aws s3 ls s3://profinanconta-backups/postgres/ --endpoint-url=https://s3.us-west
    ```
    Service → Settings → Webhooks → Generate Webhook URL
    ```
-   
 2. Copiar URL (ejemplo): `https://dokploy.profinanconta.mx/api/deploy/abc123xyz`
 
 3. En GitHub Actions:
@@ -772,6 +789,7 @@ Auto-delete on merge: ✅
 ```
 
 **Resultado:**
+
 - PR #123 crea automáticamente: `pr-123.preview.profinanconta.mx`
 - Se destruye al mergear el PR
 - QA puede probar features aisladas
@@ -781,6 +799,7 @@ Auto-delete on merge: ✅
 ## 🌐 MULTI-SERVER (DOCKER SWARM)
 
 ### Cuándo Activar
+
 - CPU/RAM > 70% sostenido
 - ~8,000-10,000 usuarios
 - Necesidad de zero-downtime real
@@ -788,6 +807,7 @@ Auto-delete on merge: ✅
 ### Proceso (5 minutos)
 
 **En Dokploy Panel:**
+
 ```
 Settings → Servers → Add Server
 
@@ -799,6 +819,7 @@ SSH Port: 22
 Dokploy genera un comando único.
 
 **En el nuevo VPS:**
+
 ```bash
 # Pegar el comando generado
 curl -sSL https://dokploy.com/join.sh | sh -s -- \
@@ -807,11 +828,13 @@ curl -sSL https://dokploy.com/join.sh | sh -s -- \
 ```
 
 **Verificar:**
+
 ```
 Settings → Servers → worker-01 debería mostrar "Connected"
 ```
 
 **Distribuir réplicas:**
+
 ```
 Service → Settings → Replicas: 4
 Service → Settings → Placement: Spread across all nodes
@@ -824,6 +847,7 @@ Service → Settings → Placement: Spread across all nodes
 ### Métricas Built-in
 
 Dokploy muestra por cada servicio:
+
 - CPU %
 - Memory usage
 - Network I/O
@@ -834,6 +858,7 @@ Dokploy muestra por cada servicio:
 Deploy como servicios en Dokploy:
 
 **Prometheus:**
+
 ```yaml
 # docker-compose snippet para importar
 services:
@@ -842,10 +867,11 @@ services:
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
+      - "--config.file=/etc/prometheus/prometheus.yml"
 ```
 
 **Grafana:**
+
 ```yaml
 services:
   grafana:
@@ -899,16 +925,19 @@ services:
 ## 📅 MANTENIMIENTO PROGRAMADO
 
 ### Semanal
+
 - [ ] Verificar que backups se ejecutaron (revisar S3)
 - [ ] Revisar métricas de recursos
 - [ ] Revisar logs de errores
 
 ### Mensual
+
 - [ ] Actualizar Dokploy (Settings → Updates)
 - [ ] Rotar credenciales de bases de datos
 - [ ] Revisar y limpiar imágenes Docker antiguas
 
 ### Trimestral
+
 - [ ] Test de restauración de backup (en staging)
 - [ ] Revisión de seguridad (puertos, firewall)
 - [ ] Evaluar necesidad de escalamiento

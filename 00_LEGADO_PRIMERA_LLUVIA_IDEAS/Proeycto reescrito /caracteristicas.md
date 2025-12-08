@@ -217,11 +217,11 @@ Dashboard de KPIs financieros
 Alertas de desviación de forecast
 Reporte ejecutivo de gobernanza
 📊 RESUMEN POR FASE
-Fase	Duración	Características	Enfoque Principal
-MVP	6 meses	80 características	Fundación sólida + Diferenciadores México
-V1	6 meses	70 características	IA + Monetización + Inversiones
-V2	6 meses	35 características	Empresarial + Innovación + Liderazgo
-TOTAL	18 meses	185 características	Plataforma completa líder LATAM
+Fase Duración Características Enfoque Principal
+MVP 6 meses 80 características Fundación sólida + Diferenciadores México
+V1 6 meses 70 características IA + Monetización + Inversiones
+V2 6 meses 35 características Empresarial + Innovación + Liderazgo
+TOTAL 18 meses 185 características Plataforma completa líder LATAM
 🎯 FILOSOFÍA DEL PROYECTO
 "Mejorar la calidad de vida de las personas a través de la inteligencia financiera accesible, sostenible y tecnológicamente avanzada."
 
@@ -233,16 +233,15 @@ Sostenibilidad: Impacto positivo ambiental y social
 Innovación: Tecnología de punta al servicio del usuario
 Educación: Empoderar con conocimiento, no solo herramientas
 
-
 💰 ESTRATEGIA DE PRICING MVP (Análisis de Mercado México)
 🔍 ANÁLISIS COMPETITIVO MÉXICO 2024-2025
-Competidor	Tipo	Precio Mensual	Limitaciones
-Finerio	Personal	$0 - $99 MXN	Sin fiscalización SAT
-Clarity Money	Personal	$0	Solo USA
-QuickBooks México	Negocio	$299 - $799 MXN	Complejo, no personal
-Aspel COI	Negocio	$3,500+ MXN	Solo empresarial
-Contpaqi	Negocio	$2,800+ MXN	Curva aprendizaje alta
-OPORTUNIDAD	Híbrido	❓	Personal + Fiscal + Negocio
+Competidor Tipo Precio Mensual Limitaciones
+Finerio Personal $0 - $99 MXN Sin fiscalización SAT
+Clarity Money Personal $0 Solo USA
+QuickBooks México Negocio $299 - $799 MXN Complejo, no personal
+Aspel COI Negocio $3,500+ MXN Solo empresarial
+Contpaqi Negocio $2,800+ MXN Curva aprendizaje alta
+OPORTUNIDAD Híbrido ❓ Personal + Fiscal + Negocio
 🎯 SEGMENTACIÓN ESTRATÉGICA (2 SEGMENTOS)
 Segmento 1: Finanzas Personales + Fiscal
 Empleados formales
@@ -357,13 +356,13 @@ Negocio:
 "Ahorra 20 horas/mes de contabilidad manual = $299/mes vs $2,500 contador tradicional"
 
 📊 PROYECCIÓN INGRESOS MVP (6 meses)
-Mes	Gratis	Personal Pro	Negocio	MRR
-1	500	100 ($99)	20 ($199)	$13,880
-2	1,000	300 ($99)	50 ($199)	$39,650
-3	2,000	600 ($129)	100 ($249)	$102,300
-4	3,500	1,000 ($129)	180 ($249)	$173,820
-5	5,000	1,500 ($149)	300 ($299)	$313,200
-6	7,000	2,200 ($149)	450 ($299)	$462,350
+Mes Gratis Personal Pro Negocio MRR
+1 500 100 ($99) 20 ($199) $13,880
+2 1,000 300 ($99) 50 ($199) $39,650
+3 2,000 600 ($129) 100 ($249) $102,300
+4 3,500 1,000 ($129) 180 ($249) $173,820
+5 5,000 1,500 ($149) 300 ($299) $313,200
+6 7,000 2,200 ($149) 450 ($299) $462,350
 Proyección 6 meses: ~$1.1M MXN ingresos acumulados
 
 🎯 RECOMENDACIÓN FINAL
@@ -378,7 +377,8 @@ CTA Principal:
 
 "Prueba 30 días gratis Personal Pro. Sin tarjeta de crédito."
 
---------------------------------------------------------------------------------------------------------------------------------------------------------
+---
+
 🌐 ANÁLISIS: CARACTERÍSTICAS VIABLES PARA IMPLEMENTACIÓN WEB
 Excelente pregunta. Después de analizar exhaustivamente las tendencias globales y tu stack tecnológico actual, he identificado 25 características adaptables a web que:
 
@@ -387,36 +387,39 @@ Excelente pregunta. Después de analizar exhaustivamente las tendencias globales
 ✅ Tienen sentido para México 2026
 ✅ Un programador puede implementarlas
 📊 MATRIZ DE VIABILIDAD WEB (25 CARACTERÍSTICAS)
-#	Característica	Web Viable	Complejidad	Prioridad	Diferenciador
-1	Dashboard ESG Score	✅ 100%	Media	🔴 ALTA	⭐⭐⭐⭐⭐
-2	Calculadora Huella Carbono	✅ 100%	Baja	🟡 MEDIA	⭐⭐⭐⭐
-3	Simulador What-If Financiero	✅ 100%	Media	🔴 ALTA	⭐⭐⭐⭐⭐
-4	Rolling Forecasts (Presupuestos Continuos)	✅ 100%	Media	🔴 ALTA	⭐⭐⭐⭐
-5	Pre-Auditoría Fiscal SAT	✅ 100%	Alta	🔴 CRÍTICA	⭐⭐⭐⭐⭐
-6	Validación Proveedores (Listas Negras)	✅ 100%	Media	🔴 CRÍTICA	⭐⭐⭐⭐⭐
-7	Marketplace Productos Financieros	✅ 100%	Media	🟡 MEDIA	⭐⭐⭐⭐
-8	Comparador Tarjetas Crédito IA	✅ 100%	Media	🟡 MEDIA	⭐⭐⭐⭐
-9	Detector Suscripciones Zombies	✅ 100%	Baja	🟡 ALTA	⭐⭐⭐⭐
-10	Asistente IA Financiero (Chat)	✅ 100%	Alta	🟡 MEDIA	⭐⭐⭐⭐⭐
-11	Análisis Forense Gastos (IA)	✅ 100%	Media	🟡 MEDIA	⭐⭐⭐⭐
-12	Optimizador Deducciones Fiscales	✅ 100%	Alta	🔴 ALTA	⭐⭐⭐⭐⭐
-13	Calculadora Retiro/Jubilación	✅ 100%	Media	🟡 MEDIA	⭐⭐⭐⭐
-14	Simulador Créditos (Automotriz/Hipoteca)	✅ 100%	Media	🟡 MEDIA	⭐⭐⭐⭐
-15	Dashboard Open Banking	✅ 95%	Alta	🟡 ALTA	⭐⭐⭐⭐⭐
-16	Tesorería Cripto (Stablecoins)	✅ 90%	Alta	🟢 BAJA	⭐⭐⭐⭐⭐
-17	Factoring Automatizado	✅ 100%	Alta	🟡 MEDIA	⭐⭐⭐⭐⭐
-18	Hedging Automático Divisas	✅ 100%	Alta	🟢 BAJA	⭐⭐⭐⭐
-19	Smart Wills (Testamento Digital)	✅ 100%	Media	🟢 BAJA	⭐⭐⭐
-20	Retos Financieros Gamificados	✅ 100%	Media	🟡 ALTA	⭐⭐⭐⭐
-21	Leaderboard Ahorradores	✅ 100%	Baja	🟡 MEDIA	⭐⭐⭐
-22	Certificados ESG Personales	✅ 100%	Baja	🟡 MEDIA	⭐⭐⭐
-23	Análisis Cadena Suministro (B2B)	✅ 100%	Alta	🟢 BAJA	⭐⭐⭐⭐
-24	Conciliación Fiscal Automática	✅ 100%	Alta	🔴 ALTA	⭐⭐⭐⭐⭐
-25	Reportes ESG Empresariales	✅ 100%	Alta	🟢 BAJA	⭐⭐⭐⭐
+
+# Característica Web Viable Complejidad Prioridad Diferenciador
+
+1 Dashboard ESG Score ✅ 100% Media 🔴 ALTA ⭐⭐⭐⭐⭐
+2 Calculadora Huella Carbono ✅ 100% Baja 🟡 MEDIA ⭐⭐⭐⭐
+3 Simulador What-If Financiero ✅ 100% Media 🔴 ALTA ⭐⭐⭐⭐⭐
+4 Rolling Forecasts (Presupuestos Continuos) ✅ 100% Media 🔴 ALTA ⭐⭐⭐⭐
+5 Pre-Auditoría Fiscal SAT ✅ 100% Alta 🔴 CRÍTICA ⭐⭐⭐⭐⭐
+6 Validación Proveedores (Listas Negras) ✅ 100% Media 🔴 CRÍTICA ⭐⭐⭐⭐⭐
+7 Marketplace Productos Financieros ✅ 100% Media 🟡 MEDIA ⭐⭐⭐⭐
+8 Comparador Tarjetas Crédito IA ✅ 100% Media 🟡 MEDIA ⭐⭐⭐⭐
+9 Detector Suscripciones Zombies ✅ 100% Baja 🟡 ALTA ⭐⭐⭐⭐
+10 Asistente IA Financiero (Chat) ✅ 100% Alta 🟡 MEDIA ⭐⭐⭐⭐⭐
+11 Análisis Forense Gastos (IA) ✅ 100% Media 🟡 MEDIA ⭐⭐⭐⭐
+12 Optimizador Deducciones Fiscales ✅ 100% Alta 🔴 ALTA ⭐⭐⭐⭐⭐
+13 Calculadora Retiro/Jubilación ✅ 100% Media 🟡 MEDIA ⭐⭐⭐⭐
+14 Simulador Créditos (Automotriz/Hipoteca) ✅ 100% Media 🟡 MEDIA ⭐⭐⭐⭐
+15 Dashboard Open Banking ✅ 95% Alta 🟡 ALTA ⭐⭐⭐⭐⭐
+16 Tesorería Cripto (Stablecoins) ✅ 90% Alta 🟢 BAJA ⭐⭐⭐⭐⭐
+17 Factoring Automatizado ✅ 100% Alta 🟡 MEDIA ⭐⭐⭐⭐⭐
+18 Hedging Automático Divisas ✅ 100% Alta 🟢 BAJA ⭐⭐⭐⭐
+19 Smart Wills (Testamento Digital) ✅ 100% Media 🟢 BAJA ⭐⭐⭐
+20 Retos Financieros Gamificados ✅ 100% Media 🟡 ALTA ⭐⭐⭐⭐
+21 Leaderboard Ahorradores ✅ 100% Baja 🟡 MEDIA ⭐⭐⭐
+22 Certificados ESG Personales ✅ 100% Baja 🟡 MEDIA ⭐⭐⭐
+23 Análisis Cadena Suministro (B2B) ✅ 100% Alta 🟢 BAJA ⭐⭐⭐⭐
+24 Conciliación Fiscal Automática ✅ 100% Alta 🔴 ALTA ⭐⭐⭐⭐⭐
+25 Reportes ESG Empresariales ✅ 100% Alta 🟢 BAJA ⭐⭐⭐⭐
 🚀 TOP 15 PARA IMPLEMENTACIÓN WEB INMEDIATA
 TIER S - MÁXIMA PRIORIDAD WEB (5 características)
+
 1. Dashboard ESG Score Personal (8 días)
-¿Por qué es perfecto para web?
+   ¿Por qué es perfecto para web?
 
 Visualización intensiva (gráficas, indicadores)
 No requiere geolocalización ni cámara
@@ -430,8 +433,7 @@ Ventajas Web:
 ✅ Gráficas interactivas complejas (Chart.js fácil de implementar)
 ✅ Comparativas visuales (pantalla grande ideal)
 ✅ No requiere permisos especiales del navegador
-✅ Fácil de compartir (URL pública para mostrar score en redes sociales)
-2. Simulador What-If Financiero (6 días)
+✅ Fácil de compartir (URL pública para mostrar score en redes sociales) 2. Simulador What-If Financiero (6 días)
 ¿Por qué es perfecto para web?
 
 Interfaz con sliders/controles complejos
@@ -462,6 +464,7 @@ Implementa estas 10 en orden de prioridad:
 ✅ Calculadora Huella Carbono (MEDIA - ESG personal)
 ¿Quieres que profundice en la implementación técnica completa de alguna característica específica?
 y con un poco de codigo mira esto:<!-- pages/dashboard/esg-score.vue (Nuxt 3) -->
+
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
@@ -580,6 +583,7 @@ onMounted(async () => {
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -712,7 +716,6 @@ onMounted(async () => {
 }
 </style>
 
-
 Pero tengo esto tambien:🚀 ANÁLISIS INTEGRAL: NUEVAS CARACTERÍSTICAS PARA PROYECTO DE FINANZAS MÉXICO 2026
 📊 RESUMEN EJECUTIVO
 Después de analizar exhaustivamente todos los documentos proporcionados y las tendencias globales identificadas, he identificado 40+ características adicionales estratégicas que podrían integrarse al proyecto, priorizadas según:
@@ -726,7 +729,7 @@ Impacto en propuesta de valor (diferenciación competitiva)
 Estas son críticas para diferenciación y técnicamente viables con tu stack actual:
 
 1. Facturación Electrónica 4.0 con Pre-Auditoría Automática
-¿Qué es?
+   ¿Qué es?
 
 Motor de validación automática antes de timbrar (evita rechazos)
 Detección de errores comunes: RFC inválido, uso CFDI incorrecto, montos inconsistentes
@@ -738,37 +741,36 @@ Te diferencia de competencia (nadie valida antes de enviar al PAC)
 Implementación con tu stack:
 // services/cfdi/pre-audit.service.ts
 interface PreAuditResult {
-  score: number; // 0-100
-  errors: ValidationError[];
-  warnings: ValidationWarning[];
-  suggestions: string[];
+score: number; // 0-100
+errors: ValidationError[];
+warnings: ValidationWarning[];
+suggestions: string[];
 }
 
 async function preAuditCFDI(draft: CFDIDraft): Promise<PreAuditResult> {
-  // 1. Validar RFC contra padrón SAT (caché Redis 24h)
-  const rfcValid = await validateRFC(draft.receptor.rfc);
+// 1. Validar RFC contra padrón SAT (caché Redis 24h)
+const rfcValid = await validateRFC(draft.receptor.rfc);
 
-  // 2. Validar uso CFDI según giro del receptor
-  const usoCFDIValid = await validateUsoCFDI(draft.usoCFDI, draft.receptor);
+// 2. Validar uso CFDI según giro del receptor
+const usoCFDIValid = await validateUsoCFDI(draft.usoCFDI, draft.receptor);
 
-  // 3. Validar coherencia de montos (subtotal + impuestos = total)
-  const montosValid = validateAmounts(draft);
+// 3. Validar coherencia de montos (subtotal + impuestos = total)
+const montosValid = validateAmounts(draft);
 
-  // 4. Validar catálogos SAT (productos, unidades, formas de pago)
-  const catalogsValid = await validateAgainstSATCatalogs(draft);
+// 4. Validar catálogos SAT (productos, unidades, formas de pago)
+const catalogsValid = await validateAgainstSATCatalogs(draft);
 
-  return {
-    score: calculateScore([rfcValid, usoCFDIValid, montosValid, catalogsValid]),
-    errors: [...],
-    warnings: [...],
-    suggestions: ["Cambiar UsoCFDI de G03 a G02 para este receptor"]
-  };
+return {
+score: calculateScore([rfcValid, usoCFDIValid, montosValid, catalogsValid]),
+errors: [...],
+warnings: [...],
+suggestions: ["Cambiar UsoCFDI de G03 a G02 para este receptor"]
+};
 }
 
 Esfuerzo: 5-7 días
 Prioridad: 🔴 CRÍTICA
-Ventaja competitiva: ⭐⭐⭐⭐⭐ (nadie más lo tiene):
-2. Dashboard de "Salud Fiscal" con Scoring SAT
+Ventaja competitiva: ⭐⭐⭐⭐⭐ (nadie más lo tiene): 2. Dashboard de "Salud Fiscal" con Scoring SAT
 ¿Qué es?
 
 Indicador visual (0-100) del "riesgo fiscal" del usuario
@@ -781,36 +783,36 @@ Gamificación positiva (el usuario quiere mejorar su score)
 Implementación con tu stack:
 // services/fiscal-health/score.service.ts
 interface FiscalHealthScore {
-  overall: number; // 0-100
-  factors: {
-    declaraciones: { score: number; peso: 0.25 };
-    facturasRecibidas: { score: number; peso: 0.20 };
-    proveedoresRiesgo: { score: number; peso: 0.30 };
-    deduciblesRegistrados: { score: number; peso: 0.15 };
-    actualizacionCatalogos: { score: number; peso: 0.10 };
-  };
-  alertas: Alert[];
-  recomendaciones: string[];
+overall: number; // 0-100
+factors: {
+declaraciones: { score: number; peso: 0.25 };
+facturasRecibidas: { score: number; peso: 0.20 };
+proveedoresRiesgo: { score: number; peso: 0.30 };
+deduciblesRegistrados: { score: number; peso: 0.15 };
+actualizacionCatalogos: { score: number; peso: 0.10 };
+};
+alertas: Alert[];
+recomendaciones: string[];
 }
 
 async function calculateFiscalHealth(userId: string): Promise<FiscalHealthScore> {
-  // Caché en Redis por 6 horas (recalcular solo si hay cambios)
-  const cached = await redis.get(`fiscal_health:${userId}`);
-  if (cached) return JSON.parse(cached);
+// Caché en Redis por 6 horas (recalcular solo si hay cambios)
+const cached = await redis.get(`fiscal_health:${userId}`);
+if (cached) return JSON.parse(cached);
 
-  const declaraciones = await checkDeclaracionesStatus(userId);
-  const facturas = await checkPendingInvoices(userId);
-  const proveedores = await checkProvidersRisk(userId);
+const declaraciones = await checkDeclaracionesStatus(userId);
+const facturas = await checkPendingInvoices(userId);
+const proveedores = await checkProvidersRisk(userId);
 
-  const score = {
-    overall: weightedAverage([...]),
-    factors: { ... },
-    alertas: generateAlerts([...]),
-    recomendaciones: generateRecommendations([...])
-  };
+const score = {
+overall: weightedAverage([...]),
+factors: { ... },
+alertas: generateAlerts([...]),
+recomendaciones: generateRecommendations([...])
+};
 
-  await redis.setex(`fiscal_health:${userId}`, 21600, JSON.stringify(score));
-  return score;
+await redis.setex(`fiscal_health:${userId}`, 21600, JSON.stringify(score));
+return score;
 }
 
 🚀 ANÁLISIS INTEGRAL: NUEVAS CARACTERÍSTICAS PARA PROYECTO DE FINANZAS MÉXICO 2026
@@ -826,7 +828,7 @@ Impacto en propuesta de valor (diferenciación competitiva)
 Estas son críticas para diferenciación y técnicamente viables con tu stack actual:
 
 1. Facturación Electrónica 4.0 con Pre-Auditoría Automática
-¿Qué es?
+   ¿Qué es?
 
 Motor de validación automática antes de timbrar (evita rechazos)
 Detección de errores comunes: RFC inválido, uso CFDI incorrecto, montos inconsistentes
@@ -842,7 +844,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐ (nadie más lo tiene)
 
 2. Dashboard de "Salud Fiscal" con Scoring SAT
-¿Qué es?
+   ¿Qué es?
 
 Indicador visual (0-100) del "riesgo fiscal" del usuario
 Factores: declaraciones a tiempo, facturas sin aceptar/rechazar, proveedores en listas negras
@@ -858,7 +860,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 3. Modo "Quincena Segura" con Proyección de Sobrevivencia
-¿Qué es? (Ya lo mencionaste anteriormente, pero lo formalizo)
+   ¿Qué es? (Ya lo mencionaste anteriormente, pero lo formalizo)
 
 Dashboard que muestra: "Te quedan 7 días, $2,450 disponibles, $280/día promedio"
 Semáforo: Verde (vas bien), Amarillo (ajusta gastos), Rojo (riesgo de quedarte sin dinero)
@@ -870,50 +872,50 @@ Ansiedad financiera es problema #1 (esta feature la resuelve)
 Implementación:
 // services/cashflow/quincena-segura.service.ts
 interface QuincenaSegura {
-  diasRestantes: number;
-  saldoDisponible: number;
-  gastoPromedioXDia: number;
-  proyeccion: {
-    alcanzaParaQuincena: boolean;
-    sobrante: number; // Puede ser negativo
-    mensaje: string;
-    semaforo: "verde" | "amarillo" | "rojo";
-  };
-  consejos: string[];
+diasRestantes: number;
+saldoDisponible: number;
+gastoPromedioXDia: number;
+proyeccion: {
+alcanzaParaQuincena: boolean;
+sobrante: number; // Puede ser negativo
+mensaje: string;
+semaforo: "verde" | "amarillo" | "rojo";
+};
+consejos: string[];
 }
 
 async function calcularQuincenaSegura(userId: string): Promise<QuincenaSegura> {
-  const hoy = new Date();
-  const proximaQuincena = getNextPayday(hoy);
-  const diasRestantes = differenceInDays(proximaQuincena, hoy);
+const hoy = new Date();
+const proximaQuincena = getNextPayday(hoy);
+const diasRestantes = differenceInDays(proximaQuincena, hoy);
 
-  const saldoDisponible = await getAvailableBalance(userId);
-  const gastoPromedioXDia = await getAvgDailySpending(userId, 15); // últimos 15 días
+const saldoDisponible = await getAvailableBalance(userId);
+const gastoPromedioXDia = await getAvgDailySpending(userId, 15); // últimos 15 días
 
-  const proyeccionGasto = gastoPromedioXDia * diasRestantes;
-  const sobrante = saldoDisponible - proyeccionGasto;
+const proyeccionGasto = gastoPromedioXDia \* diasRestantes;
+const sobrante = saldoDisponible - proyeccionGasto;
 
-  return {
-    diasRestantes,
-    saldoDisponible,
-    gastoPromedioXDia,
-    proyeccion: {
-      alcanzaParaQuincena: sobrante >= 0,
-      sobrante,
-      mensaje: sobrante >= 0
-        ? `✅ Vas bien. Te sobrarán $${sobrante.toFixed(2)}`
-        : `⚠️ Te faltarán $${Math.abs(sobrante).toFixed(2)}. Reduce gastos.`,
-      semaforo: sobrante > 500 ? "verde" : sobrante >= 0 ? "amarillo" : "rojo"
-    },
-    consejos: generateSurvivalTips(sobrante, diasRestantes)
-  };
+return {
+diasRestantes,
+saldoDisponible,
+gastoPromedioXDia,
+proyeccion: {
+alcanzaParaQuincena: sobrante >= 0,
+sobrante,
+mensaje: sobrante >= 0
+? `✅ Vas bien. Te sobrarán $${sobrante.toFixed(2)}`
+: `⚠️ Te faltarán $${Math.abs(sobrante).toFixed(2)}. Reduce gastos.`,
+semaforo: sobrante > 500 ? "verde" : sobrante >= 0 ? "amarillo" : "rojo"
+},
+consejos: generateSurvivalTips(sobrante, diasRestantes)
+};
 }
 Esfuerzo: 3-4 días
 Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 4. Validación Proactiva de Proveedores (Listas Negras SAT)
-¿Qué es?
+   ¿Qué es?
 
 Antes de timbrar a un proveedor, sistema verifica:
 Lista EFOS (Empresas que Facturan Operaciones Simuladas)
@@ -928,53 +930,53 @@ Nadie valida antes de timbrar (solo después del daño)
 Implementación:
 // services/sat/listas-negras.service.ts
 interface RiskAssessment {
-  rfc: string;
-  razonSocial: string;
-  enListaEFOS: boolean;
-  enListaEDOS: boolean;
-  enLista69B: boolean;
-  enListaIncumplidos: boolean;
-  nivelRiesgo: "bajo" | "medio" | "alto" | "critico";
-  recomendacion: string;
-  fechaUltimaActualizacion: Date;
+rfc: string;
+razonSocial: string;
+enListaEFOS: boolean;
+enListaEDOS: boolean;
+enLista69B: boolean;
+enListaIncumplidos: boolean;
+nivelRiesgo: "bajo" | "medio" | "alto" | "critico";
+recomendacion: string;
+fechaUltimaActualizacion: Date;
 }
 
 async function validateProveedor(rfc: string): Promise<RiskAssessment> {
-  // 1. Check caché Redis (TTL 24h)
-  const cached = await redis.get(`proveedor_risk:${rfc}`);
-  if (cached) return JSON.parse(cached);
+// 1. Check caché Redis (TTL 24h)
+const cached = await redis.get(`proveedor_risk:${rfc}`);
+if (cached) return JSON.parse(cached);
 
-  // 2. Query listas negras (actualizadas semanalmente desde SAT)
-  const [efos, edos, lista69B, incumplidos] = await Promise.all([
-    db.query(`SELECT * FROM lista_efos WHERE rfc = $1`, [rfc]),
-    db.query(`SELECT * FROM lista_edos WHERE rfc = $1`, [rfc]),
-    db.query(`SELECT * FROM lista_69b WHERE rfc = $1`, [rfc]),
-    db.query(`SELECT * FROM lista_incumplidos WHERE rfc = $1`, [rfc])
-  ]);
+// 2. Query listas negras (actualizadas semanalmente desde SAT)
+const [efos, edos, lista69B, incumplidos] = await Promise.all([
+db.query(`SELECT * FROM lista_efos WHERE rfc = $1`, [rfc]),
+db.query(`SELECT * FROM lista_edos WHERE rfc = $1`, [rfc]),
+db.query(`SELECT * FROM lista_69b WHERE rfc = $1`, [rfc]),
+db.query(`SELECT * FROM lista_incumplidos WHERE rfc = $1`, [rfc])
+]);
 
-  const assessment = {
-    rfc,
-    razonSocial: await getRazonSocial(rfc),
-    enListaEFOS: efos.rows.length > 0,
-    enListaEDOS: edos.rows.length > 0,
-    enLista69B: lista69B.rows.length > 0,
-    enListaIncumplidos: incumplidos.rows.length > 0,
-    nivelRiesgo: calculateRisk([...]),
-    recomendacion: generateRecommendation([...]),
-    fechaUltimaActualizacion: new Date()
-  };
+const assessment = {
+rfc,
+razonSocial: await getRazonSocial(rfc),
+enListaEFOS: efos.rows.length > 0,
+enListaEDOS: edos.rows.length > 0,
+enLista69B: lista69B.rows.length > 0,
+enListaIncumplidos: incumplidos.rows.length > 0,
+nivelRiesgo: calculateRisk([...]),
+recomendacion: generateRecommendation([...]),
+fechaUltimaActualizacion: new Date()
+};
 
-  // 3. Cache por 24h
-  await redis.setex(`proveedor_risk:${rfc}`, 86400, JSON.stringify(assessment));
+// 3. Cache por 24h
+await redis.setex(`proveedor_risk:${rfc}`, 86400, JSON.stringify(assessment));
 
-  return assessment;
+return assessment;
 }
 Esfuerzo: 6-8 días (incluye job semanal para actualizar listas)
 Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 5. Asistente de Deducciones Personales con IA (Maximizador de Devoluciones)
-¿Qué es?
+   ¿Qué es?
 
 IA identifica automáticamente gastos deducibles: médico, escuela, seguros, lentes, etc.
 Simulador: "Si registras $5K más en médico, tu devolución sube de $8K a $10K"
@@ -987,52 +989,51 @@ Implementación:
 
 // services/tax/deducibles.service.ts
 interface DeduccionesAnalysis {
-  gastosDeduciblesDetectados: {
-    honorariosMedicos: { monto: number; tope: number; disponible: number };
-    colegiaturas: { monto: number; tope: number; excedente: number };
-    seguros: { monto: number; tope: "Sin límite" };
-    // ... otros
-  };
-  simuladorDevoluciones: {
-    escenarioActual: { ingresos: number; isr: number; deducciones: number; devolucion: number };
-    escenarioOptimizado: { devolucion: number; incremento: string };
-  };
-  recomendaciones: string[];
+gastosDeduciblesDetectados: {
+honorariosMedicos: { monto: number; tope: number; disponible: number };
+colegiaturas: { monto: number; tope: number; excedente: number };
+seguros: { monto: number; tope: "Sin límite" };
+// ... otros
+};
+simuladorDevoluciones: {
+escenarioActual: { ingresos: number; isr: number; deducciones: number; devolucion: number };
+escenarioOptimizado: { devolucion: number; incremento: string };
+};
+recomendaciones: string[];
 }
 
 async function analizarDeducibles(userId: string, year: number): Promise<DeduccionesAnalysis> {
-  // 1. Obtener ingresos y retenciones del año
-  const ingresos = await getIngresos(userId, year);
-  const isrRetenido = await getISRRetenido(userId, year);
+// 1. Obtener ingresos y retenciones del año
+const ingresos = await getIngresos(userId, year);
+const isrRetenido = await getISRRetenido(userId, year);
 
-  // 2. Identificar gastos deducibles (por RFC emisor + categoría)
-  const gastos = await getGastosDeducibles(userId, year);
+// 2. Identificar gastos deducibles (por RFC emisor + categoría)
+const gastos = await getGastosDeducibles(userId, year);
 
-  // 3. Calcular topes según ingresos
-  const topes = calcularTopes(ingresos);
+// 3. Calcular topes según ingresos
+const topes = calcularTopes(ingresos);
 
-  // 4. Simulador
-  const devolucionActual = calcularDevolucion(ingresos, isrRetenido, 0);
-  const devolucionOptimizada = calcularDevolucion(ingresos, isrRetenido, gastos.total);
+// 4. Simulador
+const devolucionActual = calcularDevolucion(ingresos, isrRetenido, 0);
+const devolucionOptimizada = calcularDevolucion(ingresos, isrRetenido, gastos.total);
 
-  return {
-    gastosDeduciblesDetectados: { ... },
-    simuladorDevoluciones: {
-      escenarioActual: { devolucion: devolucionActual },
-      escenarioOptimizado: {
-        devolucion: devolucionOptimizada,
-        incremento: `+${((devolucionOptimizada - devolucionActual) / devolucionActual * 100).toFixed(1)}%`
-      }
-    },
-    recomendaciones: generateTaxTips(gastos, topes)
-  };
+return {
+gastosDeduciblesDetectados: { ... },
+simuladorDevoluciones: {
+escenarioActual: { devolucion: devolucionActual },
+escenarioOptimizado: {
+devolucion: devolucionOptimizada,
+incremento: `+${((devolucionOptimizada - devolucionActual) / devolucionActual * 100).toFixed(1)}%`
+}
+},
+recomendaciones: generateTaxTips(gastos, topes)
+};
 }
 Esfuerzo: 7-10 días (incluye lógica fiscal compleja)
 Prioridad: 🟡 ALTA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
-✅ TIER A - IMPLEMENTAR EN V+ (Mes 3-6)
-6. Open Finance / Agregación Bancaria (Integración Belvo/Finerio)
+✅ TIER A - IMPLEMENTAR EN V+ (Mes 3-6) 6. Open Finance / Agregación Bancaria (Integración Belvo/Finerio)
 ¿Qué es?
 
 Conexión automática con bancos mexicanos (BBVA, Santander, Banorte, etc.)
@@ -1047,43 +1048,43 @@ Implementación:
 import { Belvo } from 'belvo';
 
 const belvo = new Belvo(
-  process.env.BELVO_SECRET_ID!,
-  process.env.BELVO_SECRET_PASSWORD!,
-  'sandbox' // cambiar a 'production'
+process.env.BELVO_SECRET_ID!,
+process.env.BELVO_SECRET_PASSWORD!,
+'sandbox' // cambiar a 'production'
 );
 
 async function connectBank(userId: string, institution: string, credentials: BankCredentials) {
-  // 1. Crear Link (sesión de autenticación con banco)
-  const link = await belvo.links.register({
-    institution,
-    username: credentials.username,
-    password: credentials.password
-  });
+// 1. Crear Link (sesión de autenticación con banco)
+const link = await belvo.links.register({
+institution,
+username: credentials.username,
+password: credentials.password
+});
 
-  // 2. Guardar link_id en DB
-  await db.query(
-    `INSERT INTO bank_connections (user_id, link_id, institution) VALUES ($1, $2, $3)`,
-    [userId, link.id, institution]
-  );
+// 2. Guardar link_id en DB
+await db.query(
+`INSERT INTO bank_connections (user_id, link_id, institution) VALUES ($1, $2, $3)`,
+[userId, link.id, institution]
+);
 
-  // 3. Obtener transacciones (últimos 90 días)
-  const transactions = await belvo.transactions.retrieve({
-    link: link.id,
-    date_from: subDays(new Date(), 90).toISOString().split('T')[0],
-    date_to: new Date().toISOString().split('T')[0]
-  });
+// 3. Obtener transacciones (últimos 90 días)
+const transactions = await belvo.transactions.retrieve({
+link: link.id,
+date_from: subDays(new Date(), 90).toISOString().split('T')[0],
+date_to: new Date().toISOString().split('T')[0]
+});
 
-  // 4. Importar transacciones
-  await importTransactions(userId, transactions);
+// 4. Importar transacciones
+await importTransactions(userId, transactions);
 
-  return { success: true, transactionsImported: transactions.length };
+return { success: true, transactionsImported: transactions.length };
 }
 Esfuerzo: 10-14 días
 Prioridad: 🟡 ALTA
 Costo: Belvo cobra $0.015 USD por transacción descargada (económico)
 
 7. Retos Financieros Semanales con Gamificación
-¿Qué es?
+   ¿Qué es?
 
 Retos como "Semana Sin Uber" (reduce transporte privado 80%)
 Premios: descuentos en suscripción, badges coleccionables, sorteos
@@ -1095,39 +1096,39 @@ Reduce churn en 40% (usuarios con retos activos cancelan menos)
 Implementación:
 // services/gamification/retos.service.ts
 interface Reto {
-  id: string;
-  nombre: string;
-  descripcion: string;
-  meta: { metrica: string; operador: string; valor: number };
-  premio: { tipo: "CASHBACK" | "BADGE" | "SORTEO"; monto?: number; badge?: string };
-  participantes: number;
-  progreso: { actual: number; porcentaje: number; mensaje: string };
+id: string;
+nombre: string;
+descripcion: string;
+meta: { metrica: string; operador: string; valor: number };
+premio: { tipo: "CASHBACK" | "BADGE" | "SORTEO"; monto?: number; badge?: string };
+participantes: number;
+progreso: { actual: number; porcentaje: number; mensaje: string };
 }
 
 const retosSemanales: Reto[] = [
-  {
-    id: "semana-sin-uber",
-    nombre: "Semana Sin Uber",
-    descripcion: "Usa transporte público o camina esta semana",
-    meta: { metrica: "gastos_transporte_privado", operador: "<=", valor: 200 },
-    premio: { tipo: "CASHBACK", monto: 100 }, // 100 MXN descuento
-    participantes: 234
-  },
-  {
-    id: "cocinero-del-mes",
-    nombre: "Cocinero del Mes",
-    descripcion: "Reduce gastos en restaurantes 50%",
-    meta: { metrica: "gastos_restaurantes", operador: "<=", valor: 800 },
-    premio: { tipo: "BADGE", badge: "🍳 Chef Ahorrativo" }
-  }
-  // ... 10 retos más
+{
+id: "semana-sin-uber",
+nombre: "Semana Sin Uber",
+descripcion: "Usa transporte público o camina esta semana",
+meta: { metrica: "gastos_transporte_privado", operador: "<=", valor: 200 },
+premio: { tipo: "CASHBACK", monto: 100 }, // 100 MXN descuento
+participantes: 234
+},
+{
+id: "cocinero-del-mes",
+nombre: "Cocinero del Mes",
+descripcion: "Reduce gastos en restaurantes 50%",
+meta: { metrica: "gastos_restaurantes", operador: "<=", valor: 800 },
+premio: { tipo: "BADGE", badge: "🍳 Chef Ahorrativo" }
+}
+// ... 10 retos más
 ];
 Esfuerzo: 8-12 días
 Prioridad: 🟡 ALTA
 Ventaja competitiva: ⭐⭐⭐⭐
 
 8. Comparador de Productos Financieros (Tarjetas, Seguros)
-¿Qué es?
+   ¿Qué es?
 
 Basado en perfil de gasto real del usuario, recomienda mejores tarjetas de crédito
 "Si cambias a Tarjeta X, ahorras $1,200/año en comisiones"
@@ -1135,37 +1136,37 @@ Afiliación: comisión por referido ($500-2,000 MXN por tarjeta aprobada)
 Implementación:
 // services/marketplace/comparador.service.ts
 interface ProductoFinanciero {
-  tipo: "TARJETA_CREDITO" | "SEGURO" | "INVERSION";
-  nombre: string;
-  institucion: string;
-  comisionAnual: number;
-  beneficios: string[];
-  ahorroEstimado: number; // vs tarjeta actual del usuario
-  linkAfiliado: string;
+tipo: "TARJETA_CREDITO" | "SEGURO" | "INVERSION";
+nombre: string;
+institucion: string;
+comisionAnual: number;
+beneficios: string[];
+ahorroEstimado: number; // vs tarjeta actual del usuario
+linkAfiliado: string;
 }
 
 async function recomendarTarjeta(userId: string): Promise<ProductoFinanciero[]> {
-  // 1. Analizar perfil de gasto del usuario
-  const perfil = await analizarPerfilGasto(userId);
+// 1. Analizar perfil de gasto del usuario
+const perfil = await analizarPerfilGasto(userId);
 
-  // 2. Consultar catálogo de productos (API externa o DB propia)
-  const tarjetas = await getTarjetasDisponibles();
+// 2. Consultar catálogo de productos (API externa o DB propia)
+const tarjetas = await getTarjetasDisponibles();
 
-  // 3. Calcular ahorro potencial para cada tarjeta
-  const recomendaciones = tarjetas.map(tarjeta => ({
-    ...tarjeta,
-    ahorroEstimado: calcularAhorro(perfil, tarjeta)
-  }));
+// 3. Calcular ahorro potencial para cada tarjeta
+const recomendaciones = tarjetas.map(tarjeta => ({
+...tarjeta,
+ahorroEstimado: calcularAhorro(perfil, tarjeta)
+}));
 
-  // 4. Ordenar por ahorro (descendente)
-  return recomendaciones.sort((a, b) => b.ahorroEstimado - a.ahorroEstimado).slice(0, 3);
+// 4. Ordenar por ahorro (descendente)
+return recomendaciones.sort((a, b) => b.ahorroEstimado - a.ahorroEstimado).slice(0, 3);
 }
 Esfuerzo: 6-8 días
 Prioridad: 🟡 ALTA
 Monetización: Ingresos adicionales sin cobrar al usuario
 
 9. Modo "Familia" con Perfiles de Dependientes
-¿Qué es?
+   ¿Qué es?
 
 Cuenta familiar compartida (mamá, papá, hijos mayores)
 Asignaciones semanales: "Domingo: $500 MXN para Luis (hijo)"
@@ -1182,43 +1183,42 @@ interface PerfilFamiliar {
 }
 
 async function asignarDinero(perfilId: string, monto: number, concepto: string) {
-  // 1. Verificar saldo disponible en cuenta familiar
-  const saldoFamiliar = await getSaldoFamiliar();
-  if (saldoFamiliar < monto) throw new Error("Saldo insuficiente");
+// 1. Verificar saldo disponible en cuenta familiar
+const saldoFamiliar = await getSaldoFamiliar();
+if (saldoFamiliar < monto) throw new Error("Saldo insuficiente");
 
-  // 2. Crear transacción
-  await db.query(
-    `INSERT INTO transacciones (perfil_id, tipo, monto, concepto, fecha) VALUES ($1, 'ASIGNACION', $2, $3, NOW())`,
-    [perfilId, monto, concepto]
-  );
+// 2. Crear transacción
+await db.query(
+`INSERT INTO transacciones (perfil_id, tipo, monto, concepto, fecha) VALUES ($1, 'ASIGNACION', $2, $3, NOW())`,
+[perfilId, monto, concepto]
+);
 
-  // 3. Notificar al dependiente
-  await sendNotification(perfilId, `Recibiste $${monto} MXN para ${concepto}`);
+// 3. Notificar al dependiente
+await sendNotification(perfilId, `Recibiste $${monto} MXN para ${concepto}`);
 }
 Esfuerzo: 10-14 días
 Prioridad: 🟡 ALTA
 Pricing: Plan Familia $299/mes (vs $199 individual)
 
 10. Detector de Suscripciones Zombies
-¿Qué es?
+    ¿Qué es?
 
 IA identifica cobros recurrentes que el usuario NO usa
 "No has usado Netflix en 2 meses. ¿Cancelar? Ahorras $7,188/año"
 Link directo para cancelar suscripción
 Implementación:// services/subscriptions/detector-zombies.service.ts
 interface SuscripcionZombie {
-  servicio: string;
-  cargo: number;
-  frecuencia: "mensual" | "anual";
-  ultimoUso: Date | null;
-  ahorroPotencial: number;
-  recomendacion: string;
+servicio: string;
+cargo: number;
+frecuencia: "mensual" | "anual";
+ultimoUso: Date | null;
+ahorroPotencial: number;
+recomendacion: string;
 }
 
 async function detectarZombies(userId: string): Promise<SuscripcionZombie[]> {
-  // 1. Identificar cobros recurrentes (mismo monto, misma fecha, mismo comercio)
-  const suscripciones = await db.query(`
-    SELECT comercio, AVG(monto) as cargo, COUNT(*) as frecuencia
+// 1. Identificar cobros recurrentes (mismo monto, misma fecha, mismo comercio)
+const suscripciones = await db.query(`     SELECT comercio, AVG(monto) as cargo, COUNT(*) as frecuencia
     FROM transacciones
     WHERE user_id = $1 AND tipo = 'EGRESO'
       AND fecha >= NOW() - INTERVAL '6 months'
@@ -1226,18 +1226,18 @@ async function detectarZombies(userId: string): Promise<SuscripcionZombie[]> {
     HAVING COUNT(*) >= 3
   `, [userId]);
 
-  // 2. Cruzar con actividad del usuario (ej: si es Netflix, ¿usa la cuenta?)
-  // (requiere integración API servicios o análisis patrones)
+// 2. Cruzar con actividad del usuario (ej: si es Netflix, ¿usa la cuenta?)
+// (requiere integración API servicios o análisis patrones)
 
-  // 3. Generar recomendaciones
-  return suscripciones.rows.map(sub => ({
-    servicio: sub.comercio,
-    cargo: sub.cargo,
-    frecuencia: "mensual",
-    ultimoUso: null, // TODO: implementar tracking de uso
-    ahorroPotencial: sub.cargo * 12,
-    recomendacion: `⚠️ No has usado ${sub.comercio} en 2 meses. Ahorra $${(sub.cargo * 12).toFixed(2)}/año cancelando.`
-  }));
+// 3. Generar recomendaciones
+return suscripciones.rows.map(sub => ({
+servicio: sub.comercio,
+cargo: sub.cargo,
+frecuencia: "mensual",
+ultimoUso: null, // TODO: implementar tracking de uso
+ahorroPotencial: sub.cargo _ 12,
+recomendacion: `⚠️ No has usado ${sub.comercio} en 2 meses. Ahorra $${(sub.cargo _ 12).toFixed(2)}/año cancelando.`
+}));
 }
 
 🚀 ANÁLISIS INTEGRAL: NUEVAS CARACTERÍSTICAS PARA PROYECTO DE FINANZAS MÉXICO 2026
@@ -1253,7 +1253,7 @@ Impacto en propuesta de valor (diferenciación competitiva)
 Estas son críticas para diferenciación y técnicamente viables con tu stack actual:
 
 1. Facturación Electrónica 4.0 con Pre-Auditoría Automática
-¿Qué es?
+   ¿Qué es?
 
 Motor de validación automática antes de timbrar (evita rechazos)
 Detección de errores comunes: RFC inválido, uso CFDI incorrecto, montos inconsistentes
@@ -1269,7 +1269,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐ (nadie más lo tiene)
 
 2. Dashboard de "Salud Fiscal" con Scoring SAT
-¿Qué es?
+   ¿Qué es?
 
 Indicador visual (0-100) del "riesgo fiscal" del usuario
 Factores: declaraciones a tiempo, facturas sin aceptar/rechazar, proveedores en listas negras
@@ -1285,7 +1285,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 3. Modo "Quincena Segura" con Proyección de Sobrevivencia
-¿Qué es? (Ya lo mencionaste anteriormente, pero lo formalizo)
+   ¿Qué es? (Ya lo mencionaste anteriormente, pero lo formalizo)
 
 Dashboard que muestra: "Te quedan 7 días, $2,450 disponibles, $280/día promedio"
 Semáforo: Verde (vas bien), Amarillo (ajusta gastos), Rojo (riesgo de quedarte sin dinero)
@@ -1301,7 +1301,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 4. Validación Proactiva de Proveedores (Listas Negras SAT)
-¿Qué es?
+   ¿Qué es?
 
 Antes de timbrar a un proveedor, sistema verifica:
 Lista EFOS (Empresas que Facturan Operaciones Simuladas)
@@ -1320,7 +1320,7 @@ Prioridad: 🔴 CRÍTICA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
 5. Asistente de Deducciones Personales con IA (Maximizador de Devoluciones)
-¿Qué es?
+   ¿Qué es?
 
 IA identifica automáticamente gastos deducibles: médico, escuela, seguros, lentes, etc.
 Simulador: "Si registras $5K más en médico, tu devolución sube de $8K a $10K"
@@ -1335,8 +1335,7 @@ Esfuerzo: 7-10 días (incluye lógica fiscal compleja)
 Prioridad: 🟡 ALTA
 Ventaja competitiva: ⭐⭐⭐⭐⭐
 
-✅ TIER A - IMPLEMENTAR EN V+ (Mes 3-6)
-6. Open Finance / Agregación Bancaria (Integración Belvo/Finerio)
+✅ TIER A - IMPLEMENTAR EN V+ (Mes 3-6) 6. Open Finance / Agregación Bancaria (Integración Belvo/Finerio)
 ¿Qué es?
 
 Conexión automática con bancos mexicanos (BBVA, Santander, Banorte, etc.)
@@ -1353,7 +1352,7 @@ Prioridad: 🟡 ALTA
 Costo: Belvo cobra $0.015 USD por transacción descargada (económico)
 
 7. Retos Financieros Semanales con Gamificación
-¿Qué es?
+   ¿Qué es?
 
 Retos como "Semana Sin Uber" (reduce transporte privado 80%)
 Premios: descuentos en suscripción, badges coleccionables, sorteos
@@ -1369,7 +1368,7 @@ Prioridad: 🟡 ALTA
 Ventaja competitiva: ⭐⭐⭐⭐
 
 8. Comparador de Productos Financieros (Tarjetas, Seguros)
-¿Qué es?
+   ¿Qué es?
 
 Basado en perfil de gasto real del usuario, recomienda mejores tarjetas de crédito
 "Si cambias a Tarjeta X, ahorras $1,200/año en comisiones"
@@ -1381,7 +1380,7 @@ Prioridad: 🟡 ALTA
 Monetización: Ingresos adicionales sin cobrar al usuario
 
 9. Modo "Familia" con Perfiles de Dependientes
-¿Qué es?
+   ¿Qué es?
 
 Cuenta familiar compartida (mamá, papá, hijos mayores)
 Asignaciones semanales: "Domingo: $500 MXN para Luis (hijo)"
@@ -1393,7 +1392,7 @@ Prioridad: 🟡 ALTA
 Pricing: Plan Familia $299/mes (vs $199 individual)
 
 10. Detector de Suscripciones Zombies
-¿Qué es?
+    ¿Qué es?
 
 IA identifica cobros recurrentes que el usuario NO usa
 "No has usado Netflix en 2 meses. ¿Cancelar? Ahorras $7,188/año"
@@ -1479,752 +1478,753 @@ PARTE III: ANÁLISIS E INTELIGENCIA (25 características)
 PARTE IV: SEGURIDAD Y PRIVACIDAD (20 características)
 PARTE V: EXPERIENCIA DE USUARIO (20 características)
 PARTE I: GESTIÓN FINANCIERA CORE
+
 1. Módulo de Transacciones (15 características)
-CAR-001: Registro Manual de Ingresos
-Descripción: Permite registrar ingresos con todos los atributos necesarios
-Campos: Monto, fecha, cuenta, categoría, etiquetas, notas, adjuntos
-Validaciones: Monto > 0, fecha válida, categoría obligatoria
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-002: Registro Manual de Egresos
-Descripción: Registro de gastos con detalles completos
-Campos: Igual que ingresos + método de pago
-Validaciones: Validar saldo disponible (opcional)
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-003: Categorización Inteligente
-Descripción: Sistema de categorías jerárquicas (padre-hijo-nieto)
-Niveles: Hasta 3 niveles de profundidad
-Predefinidas: 20+ categorías precargadas adaptadas a México
-Personalizables: Usuario puede crear ilimitadas
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-004: Sistema de Etiquetas (Tags)
-Descripción: Clasificación cruzada con etiquetas personalizables
-Límite: 100 etiquetas por usuario
-Multi-tag: Una transacción puede tener múltiples etiquetas
-Búsqueda: Filtrado rápido por etiquetas
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-005: Adjuntar Recibos/Comprobantes
-Descripción: Permite adjuntar imágenes de recibos
-Formatos: JPG, PNG, PDF
-Límite: 5MB por archivo
-OCR: Extracción automática de monto, fecha, comercio
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-006: Gestión de Múltiples Cuentas
-Descripción: Usuario puede tener varias cuentas financieras
-Tipos: Efectivo, Banco, Inversión, Cripto, Tarjeta Crédito, Ahorro
-Límite: 50 cuentas por usuario
-Balance: Calculado automáticamente en tiempo real
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-007: Transferencias Entre Cuentas
-Descripción: Mover dinero entre cuentas propias
-Validación: Cuenta origen ≠ destino
-Neutral: No afecta balance total
-Auditoría: Registro completo de transferencias
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-008: Transacciones Recurrentes
-Descripción: Automatización de transacciones periódicas
-Frecuencias: Diaria, Semanal, Quincenal, Mensual, Anual
-Motor: pg-boss para job scheduling
-Control: Pausar/reanudar/eliminar
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-009: Soporte Multi-Moneda
-Descripción: Manejo de transacciones en diferentes monedas
-Monedas: MXN (principal), USD, EUR
-Conversión: Automática usando API de tipos de cambio
-Actualización: Diaria
-Prioridad: 🟢 MEDIA (Mes 3-6)
-CAR-010: Búsqueda y Filtrado Avanzado
-Descripción: Localizar transacciones rápidamente
-Filtros: Fecha, monto, categoría, cuenta, etiquetas, texto
-Búsqueda: Full-text search en descripción/notas
-Performance: Índices PostgreSQL optimizados
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-011: Importación CSV/Excel
-Descripción: Importar transacciones masivamente
-Formatos: CSV, XLSX
-Validación: Detección de duplicados, formato incorrecto
-Preview: Vista previa antes de confirmar
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-012: Exportación de Datos
-Descripción: Exportar transacciones filtradas
-Formatos: CSV, Excel, PDF
-Configuración: Selección de columnas, rango fechas
-Marca de agua: En PDF (personalizable)
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-013: Edición Masiva
-Descripción: Modificar múltiples transacciones simultáneamente
-Acciones: Cambiar categoría, agregar etiquetas, mover a cuenta
-Selección: Checkboxes en listado
-Confirmación: Diálogo antes de aplicar
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-014: Historial de Cambios (Audit Trail)
-Descripción: Registro inmutable de modificaciones
-Datos: Quién, qué, cuándo cambió
-Reversión: Posibilidad de revertir cambios
-Retención: Permanente
-Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
-CAR-015: Papelera de Reciclaje
-Descripción: Soft delete con recuperación temporal
-Retención: 30 días
-Recuperación: Un clic para restaurar
-Purga: Automática después de 30 días
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-001: Registro Manual de Ingresos
+   Descripción: Permite registrar ingresos con todos los atributos necesarios
+   Campos: Monto, fecha, cuenta, categoría, etiquetas, notas, adjuntos
+   Validaciones: Monto > 0, fecha válida, categoría obligatoria
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-002: Registro Manual de Egresos
+   Descripción: Registro de gastos con detalles completos
+   Campos: Igual que ingresos + método de pago
+   Validaciones: Validar saldo disponible (opcional)
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-003: Categorización Inteligente
+   Descripción: Sistema de categorías jerárquicas (padre-hijo-nieto)
+   Niveles: Hasta 3 niveles de profundidad
+   Predefinidas: 20+ categorías precargadas adaptadas a México
+   Personalizables: Usuario puede crear ilimitadas
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-004: Sistema de Etiquetas (Tags)
+   Descripción: Clasificación cruzada con etiquetas personalizables
+   Límite: 100 etiquetas por usuario
+   Multi-tag: Una transacción puede tener múltiples etiquetas
+   Búsqueda: Filtrado rápido por etiquetas
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-005: Adjuntar Recibos/Comprobantes
+   Descripción: Permite adjuntar imágenes de recibos
+   Formatos: JPG, PNG, PDF
+   Límite: 5MB por archivo
+   OCR: Extracción automática de monto, fecha, comercio
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-006: Gestión de Múltiples Cuentas
+   Descripción: Usuario puede tener varias cuentas financieras
+   Tipos: Efectivo, Banco, Inversión, Cripto, Tarjeta Crédito, Ahorro
+   Límite: 50 cuentas por usuario
+   Balance: Calculado automáticamente en tiempo real
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-007: Transferencias Entre Cuentas
+   Descripción: Mover dinero entre cuentas propias
+   Validación: Cuenta origen ≠ destino
+   Neutral: No afecta balance total
+   Auditoría: Registro completo de transferencias
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-008: Transacciones Recurrentes
+   Descripción: Automatización de transacciones periódicas
+   Frecuencias: Diaria, Semanal, Quincenal, Mensual, Anual
+   Motor: pg-boss para job scheduling
+   Control: Pausar/reanudar/eliminar
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-009: Soporte Multi-Moneda
+   Descripción: Manejo de transacciones en diferentes monedas
+   Monedas: MXN (principal), USD, EUR
+   Conversión: Automática usando API de tipos de cambio
+   Actualización: Diaria
+   Prioridad: 🟢 MEDIA (Mes 3-6)
+   CAR-010: Búsqueda y Filtrado Avanzado
+   Descripción: Localizar transacciones rápidamente
+   Filtros: Fecha, monto, categoría, cuenta, etiquetas, texto
+   Búsqueda: Full-text search en descripción/notas
+   Performance: Índices PostgreSQL optimizados
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-011: Importación CSV/Excel
+   Descripción: Importar transacciones masivamente
+   Formatos: CSV, XLSX
+   Validación: Detección de duplicados, formato incorrecto
+   Preview: Vista previa antes de confirmar
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-012: Exportación de Datos
+   Descripción: Exportar transacciones filtradas
+   Formatos: CSV, Excel, PDF
+   Configuración: Selección de columnas, rango fechas
+   Marca de agua: En PDF (personalizable)
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-013: Edición Masiva
+   Descripción: Modificar múltiples transacciones simultáneamente
+   Acciones: Cambiar categoría, agregar etiquetas, mover a cuenta
+   Selección: Checkboxes en listado
+   Confirmación: Diálogo antes de aplicar
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-014: Historial de Cambios (Audit Trail)
+   Descripción: Registro inmutable de modificaciones
+   Datos: Quién, qué, cuándo cambió
+   Reversión: Posibilidad de revertir cambios
+   Retención: Permanente
+   Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
+   CAR-015: Papelera de Reciclaje
+   Descripción: Soft delete con recuperación temporal
+   Retención: 30 días
+   Recuperación: Un clic para restaurar
+   Purga: Automática después de 30 días
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
 2. Módulo de Presupuestos (10 características)
-CAR-016: Creación de Presupuestos por Categoría
-Descripción: Establecer límites de gasto por categoría
-Periodos: Mensual, Trimestral, Anual
-Múltiples: Varios presupuestos activos simultáneamente
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-017: Seguimiento en Tiempo Real
-Descripción: Ver progreso del presupuesto actualizado
-Indicadores: Barra de progreso, porcentaje, monto restante
-Colores: Verde (<80%), Amarillo (80-100%), Rojo (>100%)
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-018: Alertas de Presupuesto
-Descripción: Notificaciones automáticas al alcanzar límites
-Umbrales: 80% (warning), 100% (excedido)
-Canales: Email + notificaciones in-app
-Configuración: Usuario puede activar/desactivar
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-019: Presupuestos Flexibles (Rolling)
-Descripción: Sobrante del mes se transfiere al siguiente
-Configuración: Por presupuesto individual
-Cálculo: Automático al finalizar periodo
-Prioridad: 🟢 MEDIA (Mes 3-6)
-CAR-020: Presupuesto Global
-Descripción: Límite total de gastos del periodo
-Cálculo: Suma de todos los egresos
-Prioridad sobre categorías: Alerta si global se excede
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-021: Comparación Real vs Presupuestado
-Descripción: Dashboard visual de varianzas
-Métricas: Monto absoluto y porcentaje de desviación
-Gráficas: Barras comparativas
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-022: Sugerencias de Ajuste
-Descripción: IA sugiere ajustes basados en patrones
-Análisis: Últimos 3-6 meses de datos
-Recomendaciones: Aumentar/reducir presupuestos específicos
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-023: Copiar Presupuesto
-Descripción: Duplicar presupuesto de un periodo a otro
-Ajustes: Opción de aplicar inflación/cambios
-Rapidez: Setup de presupuesto en segundos
-Prioridad: 🟢 MEDIA (Mes 3-6)
-CAR-024: Presupuesto por Proyecto
-Descripción: Para freelancers/empresas con múltiples proyectos
-Asignación: Gastos específicos a cada proyecto
-Tracking: Balance individual por proyecto
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-025: Historial de Presupuestos
-Descripción: Ver evolución de presupuestos en el tiempo
-Análisis: Identificar tendencias, estacionalidad
-Comparativas: Año vs año
-Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-016: Creación de Presupuestos por Categoría
+   Descripción: Establecer límites de gasto por categoría
+   Periodos: Mensual, Trimestral, Anual
+   Múltiples: Varios presupuestos activos simultáneamente
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-017: Seguimiento en Tiempo Real
+   Descripción: Ver progreso del presupuesto actualizado
+   Indicadores: Barra de progreso, porcentaje, monto restante
+   Colores: Verde (<80%), Amarillo (80-100%), Rojo (>100%)
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-018: Alertas de Presupuesto
+   Descripción: Notificaciones automáticas al alcanzar límites
+   Umbrales: 80% (warning), 100% (excedido)
+   Canales: Email + notificaciones in-app
+   Configuración: Usuario puede activar/desactivar
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-019: Presupuestos Flexibles (Rolling)
+   Descripción: Sobrante del mes se transfiere al siguiente
+   Configuración: Por presupuesto individual
+   Cálculo: Automático al finalizar periodo
+   Prioridad: 🟢 MEDIA (Mes 3-6)
+   CAR-020: Presupuesto Global
+   Descripción: Límite total de gastos del periodo
+   Cálculo: Suma de todos los egresos
+   Prioridad sobre categorías: Alerta si global se excede
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-021: Comparación Real vs Presupuestado
+   Descripción: Dashboard visual de varianzas
+   Métricas: Monto absoluto y porcentaje de desviación
+   Gráficas: Barras comparativas
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-022: Sugerencias de Ajuste
+   Descripción: IA sugiere ajustes basados en patrones
+   Análisis: Últimos 3-6 meses de datos
+   Recomendaciones: Aumentar/reducir presupuestos específicos
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-023: Copiar Presupuesto
+   Descripción: Duplicar presupuesto de un periodo a otro
+   Ajustes: Opción de aplicar inflación/cambios
+   Rapidez: Setup de presupuesto en segundos
+   Prioridad: 🟢 MEDIA (Mes 3-6)
+   CAR-024: Presupuesto por Proyecto
+   Descripción: Para freelancers/empresas con múltiples proyectos
+   Asignación: Gastos específicos a cada proyecto
+   Tracking: Balance individual por proyecto
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-025: Historial de Presupuestos
+   Descripción: Ver evolución de presupuestos en el tiempo
+   Análisis: Identificar tendencias, estacionalidad
+   Comparativas: Año vs año
+   Prioridad: 🟢 MEDIA (Mes 6-12)
 3. Módulo de Metas de Ahorro (8 características)
-CAR-026: Creación de Metas
-Descripción: Establecer objetivos de ahorro específicos
-Atributos: Nombre, monto objetivo, fecha límite, cuenta destino
-Múltiples: Varias metas simultáneas
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-027: Progreso Visual
-Descripción: Seguimiento del avance hacia la meta
-Indicadores: Barra de progreso, porcentaje, monto acumulado
-Proyección: Fecha estimada de cumplimiento
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-028: Aportes Manuales
-Descripción: Transferir fondos manualmente a la meta
-Origen: Cualquier cuenta del usuario
-Registro: Historial de aportes
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-029: Aportes Automáticos
-Descripción: Transferencias programadas a la meta
-Configuración: X% de ingresos o monto fijo
-Frecuencia: Semanal, quincenal, mensual
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-030: Calculadora de Meta
-Descripción: Calcula cuánto ahorrar para alcanzar meta
-Inputs: Monto objetivo, fecha límite, ahorro actual
-Output: Ahorro mensual/semanal requerido
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-031: Metas con Hitos
-Descripción: Subdividir meta grande en hitos menores
-Ejemplo: Meta $100K dividida en $10K, $20K, $50K, $100K
-Celebración: Notificación al completar cada hito
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-032: Sugerencias de Metas
-Descripción: IA sugiere metas basadas en perfil
-Ejemplos: Emergency fund (6 meses gastos), Vacaciones, Retiro
-Personalización: Ajuste según ingresos/gastos
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-033: Timeline de Metas
-Descripción: Vista cronológica de todas las metas
-Visualización: Roadmap temporal
-Priorización: Indicadores de urgencia
-Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-026: Creación de Metas
+   Descripción: Establecer objetivos de ahorro específicos
+   Atributos: Nombre, monto objetivo, fecha límite, cuenta destino
+   Múltiples: Varias metas simultáneas
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-027: Progreso Visual
+   Descripción: Seguimiento del avance hacia la meta
+   Indicadores: Barra de progreso, porcentaje, monto acumulado
+   Proyección: Fecha estimada de cumplimiento
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-028: Aportes Manuales
+   Descripción: Transferir fondos manualmente a la meta
+   Origen: Cualquier cuenta del usuario
+   Registro: Historial de aportes
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-029: Aportes Automáticos
+   Descripción: Transferencias programadas a la meta
+   Configuración: X% de ingresos o monto fijo
+   Frecuencia: Semanal, quincenal, mensual
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-030: Calculadora de Meta
+   Descripción: Calcula cuánto ahorrar para alcanzar meta
+   Inputs: Monto objetivo, fecha límite, ahorro actual
+   Output: Ahorro mensual/semanal requerido
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-031: Metas con Hitos
+   Descripción: Subdividir meta grande en hitos menores
+   Ejemplo: Meta $100K dividida en $10K, $20K, $50K, $100K
+   Celebración: Notificación al completar cada hito
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-032: Sugerencias de Metas
+   Descripción: IA sugiere metas basadas en perfil
+   Ejemplos: Emergency fund (6 meses gastos), Vacaciones, Retiro
+   Personalización: Ajuste según ingresos/gastos
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-033: Timeline de Metas
+   Descripción: Vista cronológica de todas las metas
+   Visualización: Roadmap temporal
+   Priorización: Indicadores de urgencia
+   Prioridad: 🟢 MEDIA (Mes 6-12)
 4. Módulo de Deudas (7 características)
-CAR-034: Registro de Deudas
-Descripción: Capturar información completa de préstamos
-Datos: Acreedor, monto, tasa, plazo, fecha inicio
-Tipos: Tarjeta crédito, préstamo personal, hipoteca, otros
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-035: Tabla de Amortización
-Descripción: Cálculo automático de pagos mensuales
-Desglose: Capital + intereses por periodo
-Actualización: Recalcula al registrar pagos adelantados
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-036: Dashboard de Deudas
-Descripción: Vista consolidada de todas las deudas
-KPIs: Total pendiente, próximo pago, fecha liquidación
-Alertas: Pagos próximos a vencer (7 días antes)
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-037: Estrategias de Pago
-Descripción: Sugerencias para optimizar pagos
-Métodos: Avalancha (mayor interés primero), Bola de nieve (menor saldo)
-Simulación: Ver ahorro en intereses
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-038: Ratio Deuda/Ingreso
-Descripción: Cálculo de salud financiera
-Fórmula: Total deudas / Ingresos mensuales
-Indicadores: Semáforo según ratio (sano, riesgoso, crítico)
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-039: Notificaciones de Vencimiento
-Descripción: Recordatorios automáticos de pagos
-Anticipación: 7 días, 3 días, día mismo
-Canales: Email + in-app
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-040: Liquidación Automática
-Descripción: Marcar deuda como pagada al completarse
-Celebración: Notificación de logro
-Historial: Registro de deudas liquidadas
-Prioridad: 🟢 MEDIA (Mes 6-12)
-PARTE II: CONTABILIDAD Y COMPLIANCE SAT
+   CAR-034: Registro de Deudas
+   Descripción: Capturar información completa de préstamos
+   Datos: Acreedor, monto, tasa, plazo, fecha inicio
+   Tipos: Tarjeta crédito, préstamo personal, hipoteca, otros
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-035: Tabla de Amortización
+   Descripción: Cálculo automático de pagos mensuales
+   Desglose: Capital + intereses por periodo
+   Actualización: Recalcula al registrar pagos adelantados
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-036: Dashboard de Deudas
+   Descripción: Vista consolidada de todas las deudas
+   KPIs: Total pendiente, próximo pago, fecha liquidación
+   Alertas: Pagos próximos a vencer (7 días antes)
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-037: Estrategias de Pago
+   Descripción: Sugerencias para optimizar pagos
+   Métodos: Avalancha (mayor interés primero), Bola de nieve (menor saldo)
+   Simulación: Ver ahorro en intereses
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-038: Ratio Deuda/Ingreso
+   Descripción: Cálculo de salud financiera
+   Fórmula: Total deudas / Ingresos mensuales
+   Indicadores: Semáforo según ratio (sano, riesgoso, crítico)
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-039: Notificaciones de Vencimiento
+   Descripción: Recordatorios automáticos de pagos
+   Anticipación: 7 días, 3 días, día mismo
+   Canales: Email + in-app
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-040: Liquidación Automática
+   Descripción: Marcar deuda como pagada al completarse
+   Celebración: Notificación de logro
+   Historial: Registro de deudas liquidadas
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   PARTE II: CONTABILIDAD Y COMPLIANCE SAT
 5. Módulo CFDI 4.0 (12 características)
-CAR-041: Timbrado de Facturas CFDI 4.0
-Descripción: Emisión de facturas electrónicas válidas ante SAT
-PAC: Integración con Facturapi (circuit breaker)
-Validaciones: RFC, UsoCFDI, FormaPago, conceptos
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-042: Validación Proactiva de RFC
-Descripción: Verificar RFC contra padrón SAT antes de timbrar
-API: Servicio de ValidaRFC.mx (con cache Redis 7 días)
-Estados: ACTIVO, INACTIVO, LISTA_NEGRA_69B
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-043: Catálogos SAT Actualizados
-Descripción: Mantener catálogos oficiales del SAT
-Incluye: UsoCFDI, FormaPago, ClaveProdServ, ClaveUnidad
-Actualización: Semanal (job automatizado)
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-044: Complementos de Pago (REP)
-Descripción: Generación automática al conciliar pagos PPD
-Validaciones: Saldo insoluto, fecha pago, forma pago
-Trigger: Conciliación de pago con factura PPD
-Prioridad: 🟡 ALTA (Mes 6-12)
-CAR-045: Descarga Masiva SAT
-Descripción: Descarga automática de CFDI desde SAT
-Método: Web Service oficial (no scraping)
-Frecuencia: Diaria (2 AM)
-Capacidad: Hasta 200,000 XML por solicitud
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-046: Workflow Aceptación/Rechazo
-Descripción: Cumplimiento Regla 2.7.1.21 SAT
-Timeline: Notificaciones en 0h, 24h, 48h, 72h
-Auto-aceptación: Después de 72h sin respuesta
-Motivos rechazo: Catálogo oficial SAT
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-047: Validación Listas Negras
-Descripción: Verificar contra EFOS, EDOS, 69-B
-Momento: Al registrar proveedor y antes de timbrar
-Alertas: Notificación si RFC está en lista negra
-Dashboard: Panel de proveedores de riesgo
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-048: Cancelación de CFDI
-Descripción: Proceso de cancelación conforme Artículo 29-A CFF
-Requisitos: Motivo (01-04), UUID relacionado (si aplica)
-Flujo: Solicitud → Aceptación receptor → Cancelación
-Restricción: No cancelar CFDI con complemento pago
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-049: Almacenamiento WORM (7 años)
-Descripción: Retención inmutable de XML según CFF
-Storage: MinIO con política WORM
-Retención: 7 años desde emisión
-Purga: Automática después de 7 años
-Prioridad: 🔴 CRÍTICA (PMV - Compliance)
-CAR-050: Generación de PDF Personalizable
-Descripción: Representación impresa del CFDI
-Plantillas: 3 diseños (clásico, moderno, minimalista)
-Marca de agua: Logo del usuario (opcional)
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-051: Envío Automático por Email
-Descripción: Enviar XML + PDF al receptor
-Trigger: Al timbrar exitosamente
-Template: Personalizable
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-052: Dashboard de Facturación
-Descripción: Vista consolidada de facturación
-Métricas: Facturas emitidas/mes, monto total, pendientes PPD
-Gráficas: Evolución temporal
-Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-041: Timbrado de Facturas CFDI 4.0
+   Descripción: Emisión de facturas electrónicas válidas ante SAT
+   PAC: Integración con Facturapi (circuit breaker)
+   Validaciones: RFC, UsoCFDI, FormaPago, conceptos
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-042: Validación Proactiva de RFC
+   Descripción: Verificar RFC contra padrón SAT antes de timbrar
+   API: Servicio de ValidaRFC.mx (con cache Redis 7 días)
+   Estados: ACTIVO, INACTIVO, LISTA_NEGRA_69B
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-043: Catálogos SAT Actualizados
+   Descripción: Mantener catálogos oficiales del SAT
+   Incluye: UsoCFDI, FormaPago, ClaveProdServ, ClaveUnidad
+   Actualización: Semanal (job automatizado)
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-044: Complementos de Pago (REP)
+   Descripción: Generación automática al conciliar pagos PPD
+   Validaciones: Saldo insoluto, fecha pago, forma pago
+   Trigger: Conciliación de pago con factura PPD
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   CAR-045: Descarga Masiva SAT
+   Descripción: Descarga automática de CFDI desde SAT
+   Método: Web Service oficial (no scraping)
+   Frecuencia: Diaria (2 AM)
+   Capacidad: Hasta 200,000 XML por solicitud
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-046: Workflow Aceptación/Rechazo
+   Descripción: Cumplimiento Regla 2.7.1.21 SAT
+   Timeline: Notificaciones en 0h, 24h, 48h, 72h
+   Auto-aceptación: Después de 72h sin respuesta
+   Motivos rechazo: Catálogo oficial SAT
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-047: Validación Listas Negras
+   Descripción: Verificar contra EFOS, EDOS, 69-B
+   Momento: Al registrar proveedor y antes de timbrar
+   Alertas: Notificación si RFC está en lista negra
+   Dashboard: Panel de proveedores de riesgo
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-048: Cancelación de CFDI
+   Descripción: Proceso de cancelación conforme Artículo 29-A CFF
+   Requisitos: Motivo (01-04), UUID relacionado (si aplica)
+   Flujo: Solicitud → Aceptación receptor → Cancelación
+   Restricción: No cancelar CFDI con complemento pago
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-049: Almacenamiento WORM (7 años)
+   Descripción: Retención inmutable de XML según CFF
+   Storage: MinIO con política WORM
+   Retención: 7 años desde emisión
+   Purga: Automática después de 7 años
+   Prioridad: 🔴 CRÍTICA (PMV - Compliance)
+   CAR-050: Generación de PDF Personalizable
+   Descripción: Representación impresa del CFDI
+   Plantillas: 3 diseños (clásico, moderno, minimalista)
+   Marca de agua: Logo del usuario (opcional)
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-051: Envío Automático por Email
+   Descripción: Enviar XML + PDF al receptor
+   Trigger: Al timbrar exitosamente
+   Template: Personalizable
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-052: Dashboard de Facturación
+   Descripción: Vista consolidada de facturación
+   Métricas: Facturas emitidas/mes, monto total, pendientes PPD
+   Gráficas: Evolución temporal
+   Prioridad: 🟡 ALTA (Mes 3-6)
 6. Módulo CFDI 5.0 (8 características - Preparación)
-CAR-053: Arquitectura Multi-Versión
-Descripción: Soporte dual CFDI 4.0 y 5.0 simultáneo
-UI: Secciones separadas con feature flags
-Estado: 4.0 activo, 5.0 preparado (inactivo hasta Q2 2026)
-Prioridad: 🔴 CRÍTICA (Preparación Mes 0-3)
-CAR-054: Analizador de Diferencias 4.0 vs 5.0
-Descripción: Herramienta para entender cambios
-Features: Comparativa lado a lado, resaltado de diferencias
-Educación: Guía interactiva
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-055: Migrador de Datos 4.0 a 5.0
-Descripción: Convertir facturas existentes al nuevo formato
-Validación: Verificar compatibilidad antes de migrar
-Rollback: Posibilidad de revertir
-Prioridad: 🟡 ALTA (Q2 2026)
-CAR-056: Catálogos CFDI 5.0
-Descripción: Nuevos catálogos simplificados
-Reducción: De 47 a ~30 catálogos
-Actualización: Automática desde SAT
-Prioridad: 🟡 ALTA (Q2 2026)
-CAR-057: Validador CFDI 5.0
-Descripción: Validación contra nuevo schema XSD
-Pre-timbrado: Verificar antes de enviar a PAC
-Prioridad: 🟡 ALTA (Q2 2026)
-CAR-058: Factura Lite (Negocios Pequeños)
-Descripción: Versión simplificada de CFDI 5.0
-Campos: Menos obligatorios
-Target: RIF, RESICO
-Prioridad: 🟢 MEDIA (Q3 2026)
-CAR-059: API RESTful para CFDI 5.0
-Descripción: Soporte nuevas APIs del SAT
-Reemplazo: Gradual de SOAP Web Services
-Prioridad: 🟡 ALTA (Q2-Q3 2026)
-CAR-060: Modo Transición Dual
-Descripción: Permitir emisión en ambas versiones
-Periodo: Q3 2026 - Q1 2027
-Usuario elige: Qué versión usar por factura
-Prioridad: 🔴 CRÍTICA (Q3 2026)
+   CAR-053: Arquitectura Multi-Versión
+   Descripción: Soporte dual CFDI 4.0 y 5.0 simultáneo
+   UI: Secciones separadas con feature flags
+   Estado: 4.0 activo, 5.0 preparado (inactivo hasta Q2 2026)
+   Prioridad: 🔴 CRÍTICA (Preparación Mes 0-3)
+   CAR-054: Analizador de Diferencias 4.0 vs 5.0
+   Descripción: Herramienta para entender cambios
+   Features: Comparativa lado a lado, resaltado de diferencias
+   Educación: Guía interactiva
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-055: Migrador de Datos 4.0 a 5.0
+   Descripción: Convertir facturas existentes al nuevo formato
+   Validación: Verificar compatibilidad antes de migrar
+   Rollback: Posibilidad de revertir
+   Prioridad: 🟡 ALTA (Q2 2026)
+   CAR-056: Catálogos CFDI 5.0
+   Descripción: Nuevos catálogos simplificados
+   Reducción: De 47 a ~30 catálogos
+   Actualización: Automática desde SAT
+   Prioridad: 🟡 ALTA (Q2 2026)
+   CAR-057: Validador CFDI 5.0
+   Descripción: Validación contra nuevo schema XSD
+   Pre-timbrado: Verificar antes de enviar a PAC
+   Prioridad: 🟡 ALTA (Q2 2026)
+   CAR-058: Factura Lite (Negocios Pequeños)
+   Descripción: Versión simplificada de CFDI 5.0
+   Campos: Menos obligatorios
+   Target: RIF, RESICO
+   Prioridad: 🟢 MEDIA (Q3 2026)
+   CAR-059: API RESTful para CFDI 5.0
+   Descripción: Soporte nuevas APIs del SAT
+   Reemplazo: Gradual de SOAP Web Services
+   Prioridad: 🟡 ALTA (Q2-Q3 2026)
+   CAR-060: Modo Transición Dual
+   Descripción: Permitir emisión en ambas versiones
+   Periodo: Q3 2026 - Q1 2027
+   Usuario elige: Qué versión usar por factura
+   Prioridad: 🔴 CRÍTICA (Q3 2026)
 7. Módulo de Conciliación (8 características)
-CAR-061: Motor de Reglas Configurable
-Descripción: Conciliación automática basada en reglas
-Criterios: Monto, fecha, proveedor, cuenta
-Personalización: Usuario define sus propias reglas
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-062: Sugerencias con IA (Explicable)
-Descripción: Machine learning para sugerir matches
-Modelo: EmbeddingGemma-300M (local)
-Explicabilidad: Breakdown de score (texto 85%, monto 100%, etc.)
-Prioridad: 🟡 ALTA (Mes 6-12)
-CAR-063: Conciliación Manual Asistida
-Descripción: UI drag-and-drop para relacionar manualmente
-Vista: Dos columnas (movimientos bancarios | facturas)
-Filtros: Por monto, fecha, proveedor
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-064: Dashboard de Conciliación
-Descripción: Vista del estado de conciliación
-Métricas: % conciliado, pendientes, discrepancias
-Alertas: Items sin conciliar >30 días
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-065: Reentrenamiento del Modelo IA
-Descripción: Mejora continua del modelo con feedback
-Frecuencia: Cada 1,000 conciliaciones manuales
-Datos: Solo del usuario (aislamiento cliente_id)
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-066: Detección de Discrepancias
-Descripción: Identificar diferencias entre banco y facturas
-Tipos: Monto no coincide, fecha desfasada, duplicados
-Reportes: Lista de discrepancias con sugerencias
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-067: Historial de Conciliaciones
-Descripción: Registro de todas las conciliaciones realizadas
-Audit: Quién, cuándo, qué concilió
-Reversión: Posibilidad de deshacer conciliación
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-068: Exportación de Reporte de Conciliación
-Descripción: Generar reporte para contador/auditoría
-Formatos: Excel, PDF
-Contenido: Resumen + detalle + discrepancias
-Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-061: Motor de Reglas Configurable
+   Descripción: Conciliación automática basada en reglas
+   Criterios: Monto, fecha, proveedor, cuenta
+   Personalización: Usuario define sus propias reglas
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-062: Sugerencias con IA (Explicable)
+   Descripción: Machine learning para sugerir matches
+   Modelo: EmbeddingGemma-300M (local)
+   Explicabilidad: Breakdown de score (texto 85%, monto 100%, etc.)
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   CAR-063: Conciliación Manual Asistida
+   Descripción: UI drag-and-drop para relacionar manualmente
+   Vista: Dos columnas (movimientos bancarios | facturas)
+   Filtros: Por monto, fecha, proveedor
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-064: Dashboard de Conciliación
+   Descripción: Vista del estado de conciliación
+   Métricas: % conciliado, pendientes, discrepancias
+   Alertas: Items sin conciliar >30 días
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-065: Reentrenamiento del Modelo IA
+   Descripción: Mejora continua del modelo con feedback
+   Frecuencia: Cada 1,000 conciliaciones manuales
+   Datos: Solo del usuario (aislamiento cliente_id)
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-066: Detección de Discrepancias
+   Descripción: Identificar diferencias entre banco y facturas
+   Tipos: Monto no coincide, fecha desfasada, duplicados
+   Reportes: Lista de discrepancias con sugerencias
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-067: Historial de Conciliaciones
+   Descripción: Registro de todas las conciliaciones realizadas
+   Audit: Quién, cuándo, qué concilió
+   Reversión: Posibilidad de deshacer conciliación
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-068: Exportación de Reporte de Conciliación
+   Descripción: Generar reporte para contador/auditoría
+   Formatos: Excel, PDF
+   Contenido: Resumen + detalle + discrepancias
+   Prioridad: 🟢 MEDIA (Mes 6-12)
 8. Módulo de Reportes Fiscales (7 características)
-CAR-069: Reporte Fiscal Simplificado
-Descripción: Resumen de ingresos/deducciones para declaración
-Secciones: Ingresos totales, deducciones autorizadas, ISR estimado
-Periodo: Mensual, anual
-Prioridad: 🟡 ALTA (Mes 6-12)
-CAR-070: Identificación de Deducciones
-Descripción: Marcar automáticamente gastos deducibles
-Criterios: Reglas fiscales mexicanas
-Validación: Usuario confirma
-Prioridad: 🟡 ALTA (Mes 6-12)
-CAR-071: Cálculo ISR Estimado
-Descripción: Proyección de impuesto a pagar/favor
-Inputs: Ingresos, deducciones, retenciones
-Régimen: Asalariado, RIF, RESICO, Actividad Empresarial
-Prioridad: 🟢 MEDIA (Mes 12-18)
-CAR-072: Integración Buzón Tributario
-Descripción: Descargar notificaciones SAT automáticamente
-Método: Scraping con e.firma (hasta API oficial disponible)
-Frecuencia: Cada 12 horas
-Clasificación: Críticas vs informativas
-Prioridad: 🟡 ALTA (Mes 6-12)
-CAR-073: Reporte DIOT
-Descripción: Declaración Informativa de Operaciones con Terceros
-Generación: Automática desde facturas registradas
-Validación: Contra layout oficial SAT
-Prioridad: 🟢 MEDIA (Mes 12-18)
-CAR-074: Pre-llenado Declaración Anual
-Descripción: Generar XML pre-llenado para portal SAT
-Campos: Los que la plataforma conoce
-Disclaimer: Usuario debe revisar/complementar
-Prioridad: 🟢 MEDIA (Mes 12-18)
-CAR-075: Dashboard Fiscal
-Descripción: Vista panorámica de obligaciones fiscales
-KPIs: Próximas declaraciones, pagos pendientes, cumplimiento
-Alertas: Deadlines cercanos
-Prioridad: 🟡 ALTA (Mes 6-12)
-PARTE III: ANÁLISIS E INTELIGENCIA
+   CAR-069: Reporte Fiscal Simplificado
+   Descripción: Resumen de ingresos/deducciones para declaración
+   Secciones: Ingresos totales, deducciones autorizadas, ISR estimado
+   Periodo: Mensual, anual
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   CAR-070: Identificación de Deducciones
+   Descripción: Marcar automáticamente gastos deducibles
+   Criterios: Reglas fiscales mexicanas
+   Validación: Usuario confirma
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   CAR-071: Cálculo ISR Estimado
+   Descripción: Proyección de impuesto a pagar/favor
+   Inputs: Ingresos, deducciones, retenciones
+   Régimen: Asalariado, RIF, RESICO, Actividad Empresarial
+   Prioridad: 🟢 MEDIA (Mes 12-18)
+   CAR-072: Integración Buzón Tributario
+   Descripción: Descargar notificaciones SAT automáticamente
+   Método: Scraping con e.firma (hasta API oficial disponible)
+   Frecuencia: Cada 12 horas
+   Clasificación: Críticas vs informativas
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   CAR-073: Reporte DIOT
+   Descripción: Declaración Informativa de Operaciones con Terceros
+   Generación: Automática desde facturas registradas
+   Validación: Contra layout oficial SAT
+   Prioridad: 🟢 MEDIA (Mes 12-18)
+   CAR-074: Pre-llenado Declaración Anual
+   Descripción: Generar XML pre-llenado para portal SAT
+   Campos: Los que la plataforma conoce
+   Disclaimer: Usuario debe revisar/complementar
+   Prioridad: 🟢 MEDIA (Mes 12-18)
+   CAR-075: Dashboard Fiscal
+   Descripción: Vista panorámica de obligaciones fiscales
+   KPIs: Próximas declaraciones, pagos pendientes, cumplimiento
+   Alertas: Deadlines cercanos
+   Prioridad: 🟡 ALTA (Mes 6-12)
+   PARTE III: ANÁLISIS E INTELIGENCIA
 9. Módulo de Dashboards (10 características)
-CAR-076: Dashboard Principal (Home)
-Descripción: Vista general de finanzas del usuario
-KPIs: Balance actual, ingresos mes, egresos mes, ahorro
-Gráficas: Evolución balance, distribución gastos
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-077: Gráfica Evolución de Balance
-Descripción: Línea temporal del balance histórico
-Interactividad: Zoom, pan, tooltips
-Periodos: 1 mes, 3 meses, 6 meses, 1 año, todo
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-078: Gráfica Distribución de Gastos
-Descripción: Pie chart de gastos por categoría
-Drill-down: Click para ver subcategorías
-Filtros: Por cuenta, periodo
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-079: Comparativa Ingresos vs Egresos
-Descripción: Barras agrupadas por mes
-Análisis: Identificar meses con déficit/superávit
-Proyección: Estimación mes actual
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-080: Dashboard de Patrimonio (Net Worth)
-Descripción: Activos - Pasivos = Patrimonio neto
-Componentes: Cuentas, inversiones, deudas
-Histórico: Evolución del patrimonio
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-081: Dashboard de Presupuestos
-Descripción: Vista consolidada de todos los presupuestos
-Estado: Por categoría con semáforos
-Gráficas: Progreso individual
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-082: Dashboard de Metas
-Descripción: Timeline de metas de ahorro
-Progreso: Barras visuales por meta
-Proyecciones: Fecha estimada de cumplimiento
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-083: Dashboard del Contador
-Descripción: Vista multi-cliente para contadores
-Tabla: Todos los clientes con KPIs principales
-Alertas: Clientes con issues (facturas pendientes, etc.)
-Drill-down: Acceso rápido al dashboard de cada cliente
-Prioridad: 🔴 CRÍTICA (Mes 3-6 - Network Effects)
-CAR-084: Widgets Personalizables
-Descripción: Usuario elige qué widgets ver en dashboard
-Drag & drop: Reordenar posición
-Tamaños: Pequeño, mediano, grande
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-085: Modo Comparativo (YoY, MoM)
-Descripción: Comparar periodos fácilmente
-Tipos: Año vs año, mes vs mes, mes vs mismo mes año anterior
-Indicadores: Porcentaje de cambio con flechas
-Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-076: Dashboard Principal (Home)
+   Descripción: Vista general de finanzas del usuario
+   KPIs: Balance actual, ingresos mes, egresos mes, ahorro
+   Gráficas: Evolución balance, distribución gastos
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-077: Gráfica Evolución de Balance
+   Descripción: Línea temporal del balance histórico
+   Interactividad: Zoom, pan, tooltips
+   Periodos: 1 mes, 3 meses, 6 meses, 1 año, todo
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-078: Gráfica Distribución de Gastos
+   Descripción: Pie chart de gastos por categoría
+   Drill-down: Click para ver subcategorías
+   Filtros: Por cuenta, periodo
+   Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+   CAR-079: Comparativa Ingresos vs Egresos
+   Descripción: Barras agrupadas por mes
+   Análisis: Identificar meses con déficit/superávit
+   Proyección: Estimación mes actual
+   Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+   CAR-080: Dashboard de Patrimonio (Net Worth)
+   Descripción: Activos - Pasivos = Patrimonio neto
+   Componentes: Cuentas, inversiones, deudas
+   Histórico: Evolución del patrimonio
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-081: Dashboard de Presupuestos
+   Descripción: Vista consolidada de todos los presupuestos
+   Estado: Por categoría con semáforos
+   Gráficas: Progreso individual
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-082: Dashboard de Metas
+   Descripción: Timeline de metas de ahorro
+   Progreso: Barras visuales por meta
+   Proyecciones: Fecha estimada de cumplimiento
+   Prioridad: 🟡 ALTA (Mes 3-6)
+   CAR-083: Dashboard del Contador
+   Descripción: Vista multi-cliente para contadores
+   Tabla: Todos los clientes con KPIs principales
+   Alertas: Clientes con issues (facturas pendientes, etc.)
+   Drill-down: Acceso rápido al dashboard de cada cliente
+   Prioridad: 🔴 CRÍTICA (Mes 3-6 - Network Effects)
+   CAR-084: Widgets Personalizables
+   Descripción: Usuario elige qué widgets ver en dashboard
+   Drag & drop: Reordenar posición
+   Tamaños: Pequeño, mediano, grande
+   Prioridad: 🟢 MEDIA (Mes 6-12)
+   CAR-085: Modo Comparativo (YoY, MoM)
+   Descripción: Comparar periodos fácilmente
+   Tipos: Año vs año, mes vs mes, mes vs mismo mes año anterior
+   Indicadores: Porcentaje de cambio con flechas
+   Prioridad: 🟡 ALTA (Mes 3-6)
 10. Módulo de Reportes (8 características)
-CAR-086: Reporte Mensual Automático
-Descripción: Generación y envío automático cada mes
-Contenido: Resumen ejecutivo + gráficas + top gastos
-Envío: Email (opt-in)
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-087: Reporte Personalizado
-Descripción: Usuario configura su propio reporte
-Configuración: Periodo, cuentas, categorías, formato
-Formatos: PDF, Excel, CSV
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-088: Reporte de Flujo de Caja
-Descripción: Análisis detallado de cash flow
-Secciones: Ingresos operativos, egresos operativos, balance neto
-Periodos: Mensual, trimestral, anual
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-089: Reporte de Tendencias
-Descripción: Identificar patrones y tendencias
-Análisis: Crecimiento de gastos por categoría, estacionalidad
-Gráficas: Líneas de tendencia, proyecciones
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-090: Reporte Comparativo (YoY)
-Descripción: Comparar año actual vs año anterior
-Métricas: Ingresos, gastos, ahorro, por categoría
-Insights: Cambios significativos resaltados
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-091: Reporte de Gastos Anómalos
-Descripción: Detectar outliers estadísticos
-Método: Desviación estándar >2σ
-Alertas: Gastos inusuales que requieren atención
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-092: Compartir Reporte Seguro
-Descripción: Generar link temporal para compartir
-Seguridad: Protección con password opcional
-Expiración: 7 días
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-093: Programación de Reportes
-Descripción: Automatizar generación/envío de reportes
-Frecuencia: Semanal, mensual, trimestral
-Destinatarios: Email configurables
-Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-086: Reporte Mensual Automático
+    Descripción: Generación y envío automático cada mes
+    Contenido: Resumen ejecutivo + gráficas + top gastos
+    Envío: Email (opt-in)
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-087: Reporte Personalizado
+    Descripción: Usuario configura su propio reporte
+    Configuración: Periodo, cuentas, categorías, formato
+    Formatos: PDF, Excel, CSV
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-088: Reporte de Flujo de Caja
+    Descripción: Análisis detallado de cash flow
+    Secciones: Ingresos operativos, egresos operativos, balance neto
+    Periodos: Mensual, trimestral, anual
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-089: Reporte de Tendencias
+    Descripción: Identificar patrones y tendencias
+    Análisis: Crecimiento de gastos por categoría, estacionalidad
+    Gráficas: Líneas de tendencia, proyecciones
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-090: Reporte Comparativo (YoY)
+    Descripción: Comparar año actual vs año anterior
+    Métricas: Ingresos, gastos, ahorro, por categoría
+    Insights: Cambios significativos resaltados
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-091: Reporte de Gastos Anómalos
+    Descripción: Detectar outliers estadísticos
+    Método: Desviación estándar >2σ
+    Alertas: Gastos inusuales que requieren atención
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-092: Compartir Reporte Seguro
+    Descripción: Generar link temporal para compartir
+    Seguridad: Protección con password opcional
+    Expiración: 7 días
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-093: Programación de Reportes
+    Descripción: Automatizar generación/envío de reportes
+    Frecuencia: Semanal, mensual, trimestral
+    Destinatarios: Email configurables
+    Prioridad: 🟢 MEDIA (Mes 6-12)
 11. Módulo de Análisis Avanzado (7 características)
-CAR-094: Análisis de Hábitos de Consumo
-Descripción: Identificar patrones de gasto
-Métricas: Promedio por categoría, día semana, mes
-Insights: "Gastas 30% más los viernes"
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-095: Detección de Gastos Hormiga
-Descripción: Micro-gastos que suman mucho
-Definición: Gastos <$200 MXN frecuentes
-Análisis: Total acumulado, categorías principales
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-096: Score de Salud Financiera
-Descripción: Calificación 0-100 de finanzas
-Factores: Tasa ahorro, ratio deuda, cumplimiento presupuesto
-Evolución: Histórico del score
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-097: Proyecciones de Ahorro
-Descripción: Estimar ahorro futuro basado en patrones
-Inputs: Ingresos promedio, gastos promedio, metas
-Output: Proyección 3, 6, 12 meses
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-098: Análisis de Estacionalidad
-Descripción: Identificar gastos estacionales
-Ejemplo: "Diciembre gastas 40% más (fiestas)"
-Aplicación: Ajustar presupuestos anticipadamente
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-099: Benchmarking Anónimo
-Descripción: Comparar con usuarios similares (opt-in)
-Segmentos: Edad, ingresos, ubicación
-Privacidad: Datos agregados y anonimizados
-Prioridad: 🟢 MEDIA (Mes 12-18)
-CAR-100: Recomendaciones Personalizadas
-Descripción: Sugerencias basadas en análisis
-Ejemplos: "Reduce gastos en restaurantes 15%", "Aumenta fondo emergencia"
-IA: Machine learning entrenado con datos usuario
-Prioridad: 🟢 MEDIA (Mes 12-18)
-PARTE IV: SEGURIDAD Y PRIVACIDAD
+    CAR-094: Análisis de Hábitos de Consumo
+    Descripción: Identificar patrones de gasto
+    Métricas: Promedio por categoría, día semana, mes
+    Insights: "Gastas 30% más los viernes"
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-095: Detección de Gastos Hormiga
+    Descripción: Micro-gastos que suman mucho
+    Definición: Gastos <$200 MXN frecuentes
+    Análisis: Total acumulado, categorías principales
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-096: Score de Salud Financiera
+    Descripción: Calificación 0-100 de finanzas
+    Factores: Tasa ahorro, ratio deuda, cumplimiento presupuesto
+    Evolución: Histórico del score
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-097: Proyecciones de Ahorro
+    Descripción: Estimar ahorro futuro basado en patrones
+    Inputs: Ingresos promedio, gastos promedio, metas
+    Output: Proyección 3, 6, 12 meses
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-098: Análisis de Estacionalidad
+    Descripción: Identificar gastos estacionales
+    Ejemplo: "Diciembre gastas 40% más (fiestas)"
+    Aplicación: Ajustar presupuestos anticipadamente
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-099: Benchmarking Anónimo
+    Descripción: Comparar con usuarios similares (opt-in)
+    Segmentos: Edad, ingresos, ubicación
+    Privacidad: Datos agregados y anonimizados
+    Prioridad: 🟢 MEDIA (Mes 12-18)
+    CAR-100: Recomendaciones Personalizadas
+    Descripción: Sugerencias basadas en análisis
+    Ejemplos: "Reduce gastos en restaurantes 15%", "Aumenta fondo emergencia"
+    IA: Machine learning entrenado con datos usuario
+    Prioridad: 🟢 MEDIA (Mes 12-18)
+    PARTE IV: SEGURIDAD Y PRIVACIDAD
 12. Módulo de Autenticación (10 características)
-CAR-101: Registro con Email y Contraseña
-Descripción: Creación de cuenta nueva
-Validaciones: Email válido, password seguro
-Confirmación: Email de verificación
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-102: Login con JWT
-Descripción: Autenticación con access + refresh tokens
-Expiración: Access 15 min, Refresh 7 días
-Rotación: Refresh token rota en cada uso
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-103: Recuperación de Contraseña
-Descripción: Proceso seguro de reseteo
-Token: Temporal con expiración 1 hora
-Validación: Link único de un solo uso
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-104: Cambio de Contraseña
-Descripción: Usuario puede modificar su password
-Validación: Requiere password actual
-Forzado: Cada 90 días (configurable)
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-105: Autenticación de Dos Factores (2FA)
-Descripción: Capa adicional de seguridad
-Método: TOTP (Google Authenticator compatible)
-Backup: 10 códigos de recuperación
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-106: Gestión de Sesiones
-Descripción: Ver y controlar sesiones activas
-Información: Device, IP, ubicación, fecha
-Acción: Cerrar sesiones remotas
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-107: Notificación Login Nuevo Dispositivo
-Descripción: Alerta de acceso sospechoso
-Trigger: Login desde dispositivo/IP desconocido
-Canal: Email inmediato
-Prioridad: 🟡 ALTA (PMV - Seguridad)
-CAR-108: Rate Limiting de Login
-Descripción: Prevención de ataques de fuerza bruta
-Límite: 5 intentos fallidos → bloqueo 15 min
-Escalada: Bloqueo más largo en reintentos
-Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
-CAR-109: Detección de Acceso Sospechoso
-Descripción: IA identifica patrones anormales
-Ejemplo: Login desde 2 países en <1 hora
-Acción: Bloquear y requerir verificación adicional
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-110: Single Sign-On (SSO)
-Descripción: Login con Google/Facebook (futuro)
-OAuth2: Flujo estándar
-Privacidad: Solo email, no otros datos
-Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-101: Registro con Email y Contraseña
+    Descripción: Creación de cuenta nueva
+    Validaciones: Email válido, password seguro
+    Confirmación: Email de verificación
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-102: Login con JWT
+    Descripción: Autenticación con access + refresh tokens
+    Expiración: Access 15 min, Refresh 7 días
+    Rotación: Refresh token rota en cada uso
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-103: Recuperación de Contraseña
+    Descripción: Proceso seguro de reseteo
+    Token: Temporal con expiración 1 hora
+    Validación: Link único de un solo uso
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-104: Cambio de Contraseña
+    Descripción: Usuario puede modificar su password
+    Validación: Requiere password actual
+    Forzado: Cada 90 días (configurable)
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-105: Autenticación de Dos Factores (2FA)
+    Descripción: Capa adicional de seguridad
+    Método: TOTP (Google Authenticator compatible)
+    Backup: 10 códigos de recuperación
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-106: Gestión de Sesiones
+    Descripción: Ver y controlar sesiones activas
+    Información: Device, IP, ubicación, fecha
+    Acción: Cerrar sesiones remotas
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-107: Notificación Login Nuevo Dispositivo
+    Descripción: Alerta de acceso sospechoso
+    Trigger: Login desde dispositivo/IP desconocido
+    Canal: Email inmediato
+    Prioridad: 🟡 ALTA (PMV - Seguridad)
+    CAR-108: Rate Limiting de Login
+    Descripción: Prevención de ataques de fuerza bruta
+    Límite: 5 intentos fallidos → bloqueo 15 min
+    Escalada: Bloqueo más largo en reintentos
+    Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
+    CAR-109: Detección de Acceso Sospechoso
+    Descripción: IA identifica patrones anormales
+    Ejemplo: Login desde 2 países en <1 hora
+    Acción: Bloquear y requerir verificación adicional
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-110: Single Sign-On (SSO)
+    Descripción: Login con Google/Facebook (futuro)
+    OAuth2: Flujo estándar
+    Privacidad: Solo email, no otros datos
+    Prioridad: 🟢 MEDIA (Mes 6-12)
 13. Módulo de Privacidad y Datos (10 características)
-CAR-111: Cifrado en Tránsito (TLS 1.3)
-Descripción: Todas las comunicaciones cifradas
-Certificado: Let's Encrypt con renovación automática
-Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
-CAR-112: Cifrado en Reposo (AES-256)
-Descripción: Datos sensibles cifrados en BD
-Campos: Contraseñas (bcrypt), tokens, claves API
-Rotación: Claves de cifrado cada 90 días
-Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
-CAR-113: Audit Log Inmutable
-Descripción: Registro completo de accesos/cambios
-Datos: Quién, qué, cuándo, desde dónde
-Retención: Permanente (7 años mínimo)
-Prioridad: 🔴 CRÍTICA (PMV - Compliance)
-CAR-114: Derechos ARCO
-Descripción: Cumplimiento LFPDPPP
-Acceso: Descargar todos los datos
-Rectificación: Editar información personal
-Cancelación: Eliminar cuenta
-Oposición: Opt-out de comunicaciones
-Prioridad: 🔴 CRÍTICA (PMV - Legal)
-CAR-115: Portabilidad de Datos
-Descripción: Exportar todos los datos del usuario
-Formato: JSON + CSV (legible)
-Contenido: Transacciones, facturas, configuración
-Prioridad: 🔴 CRÍTICA (PMV - Compliance)
-CAR-116: Eliminación de Cuenta
-Descripción: Usuario puede borrar su cuenta
-Confirmación: Doble verificación (escribir "ELIMINAR")
-Soft delete: 30 días de gracia para revertir
-Purga: Eliminación permanente después de 30 días
-Prioridad: 🔴 CRÍTICA (PMV - Legal)
-CAR-117: Aviso de Privacidad
-Descripción: Documento legal accesible
-Contenido: Uso de datos, derechos, contacto
-Aceptación: Checkbox obligatorio en registro
-Prioridad: 🔴 CRÍTICA (PMV - Legal)
-CAR-118: Data Processing Agreement (DPA)
-Descripción: Para Plan Contador (maneja datos de terceros)
-Contenido: Responsabilidades, sub-procesadores
-Firma: Electrónica
-Prioridad: 🟡 ALTA (Mes 3-6 - Plan Contador)
-CAR-119: Consentimiento Granular
-Descripción: Usuario controla qué datos se usan
-Opciones: Emails marketing, análisis de uso, benchmarking
-Revocable: En cualquier momento
-Prioridad: 🟡 ALTA (PMV - Privacidad)
-CAR-120: Notificación de Breach
-Descripción: Proceso ante violación de seguridad
-Timeline: Notificar a usuarios en 72h
-Contenido: Qué pasó, datos afectados, acciones tomadas
-Prioridad: 🔴 CRÍTICA (Plan de Contingencia)
-PARTE V: EXPERIENCIA DE USUARIO
+    CAR-111: Cifrado en Tránsito (TLS 1.3)
+    Descripción: Todas las comunicaciones cifradas
+    Certificado: Let's Encrypt con renovación automática
+    Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
+    CAR-112: Cifrado en Reposo (AES-256)
+    Descripción: Datos sensibles cifrados en BD
+    Campos: Contraseñas (bcrypt), tokens, claves API
+    Rotación: Claves de cifrado cada 90 días
+    Prioridad: 🔴 CRÍTICA (PMV - Seguridad)
+    CAR-113: Audit Log Inmutable
+    Descripción: Registro completo de accesos/cambios
+    Datos: Quién, qué, cuándo, desde dónde
+    Retención: Permanente (7 años mínimo)
+    Prioridad: 🔴 CRÍTICA (PMV - Compliance)
+    CAR-114: Derechos ARCO
+    Descripción: Cumplimiento LFPDPPP
+    Acceso: Descargar todos los datos
+    Rectificación: Editar información personal
+    Cancelación: Eliminar cuenta
+    Oposición: Opt-out de comunicaciones
+    Prioridad: 🔴 CRÍTICA (PMV - Legal)
+    CAR-115: Portabilidad de Datos
+    Descripción: Exportar todos los datos del usuario
+    Formato: JSON + CSV (legible)
+    Contenido: Transacciones, facturas, configuración
+    Prioridad: 🔴 CRÍTICA (PMV - Compliance)
+    CAR-116: Eliminación de Cuenta
+    Descripción: Usuario puede borrar su cuenta
+    Confirmación: Doble verificación (escribir "ELIMINAR")
+    Soft delete: 30 días de gracia para revertir
+    Purga: Eliminación permanente después de 30 días
+    Prioridad: 🔴 CRÍTICA (PMV - Legal)
+    CAR-117: Aviso de Privacidad
+    Descripción: Documento legal accesible
+    Contenido: Uso de datos, derechos, contacto
+    Aceptación: Checkbox obligatorio en registro
+    Prioridad: 🔴 CRÍTICA (PMV - Legal)
+    CAR-118: Data Processing Agreement (DPA)
+    Descripción: Para Plan Contador (maneja datos de terceros)
+    Contenido: Responsabilidades, sub-procesadores
+    Firma: Electrónica
+    Prioridad: 🟡 ALTA (Mes 3-6 - Plan Contador)
+    CAR-119: Consentimiento Granular
+    Descripción: Usuario controla qué datos se usan
+    Opciones: Emails marketing, análisis de uso, benchmarking
+    Revocable: En cualquier momento
+    Prioridad: 🟡 ALTA (PMV - Privacidad)
+    CAR-120: Notificación de Breach
+    Descripción: Proceso ante violación de seguridad
+    Timeline: Notificar a usuarios en 72h
+    Contenido: Qué pasó, datos afectados, acciones tomadas
+    Prioridad: 🔴 CRÍTICA (Plan de Contingencia)
+    PARTE V: EXPERIENCIA DE USUARIO
 14. Módulo de Onboarding (5 características)
-CAR-121: Wizard de Configuración Inicial
-Descripción: Guía paso a paso para nuevos usuarios
-Pasos: Perfil → Cuentas → Categorías → Primer ingreso/egreso
-Duración: ~5 minutos
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-122: Tooltips Contextuales
-Descripción: Ayuda inline en campos complejos
-Activación: Hover o click en ícono "?"
-Contenido: Explicaciones breves + ejemplos
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-123: Tour Interactivo
-Descripción: Recorrido guiado de funcionalidades
-Opcional: Usuario puede saltar o pausar
-Etapas: Dashboard → Transacciones → Presupuestos → Reportes
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-124: Videos Tutoriales Embebidos
-Descripción: Clips cortos (1-3 min) en puntos clave
-Temas: Cómo crear presupuesto, cómo timbrar, etc.
-Hosting: YouTube (canal propio)
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-125: Base de Conocimientos (FAQ)
-Descripción: Centro de ayuda con búsqueda
-Artículos: 50+ en Mes 3, 100+ en Mes 6
-Categorías: Primeros pasos, Facturación, Reportes, Cuenta
-Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-121: Wizard de Configuración Inicial
+    Descripción: Guía paso a paso para nuevos usuarios
+    Pasos: Perfil → Cuentas → Categorías → Primer ingreso/egreso
+    Duración: ~5 minutos
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-122: Tooltips Contextuales
+    Descripción: Ayuda inline en campos complejos
+    Activación: Hover o click en ícono "?"
+    Contenido: Explicaciones breves + ejemplos
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-123: Tour Interactivo
+    Descripción: Recorrido guiado de funcionalidades
+    Opcional: Usuario puede saltar o pausar
+    Etapas: Dashboard → Transacciones → Presupuestos → Reportes
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-124: Videos Tutoriales Embebidos
+    Descripción: Clips cortos (1-3 min) en puntos clave
+    Temas: Cómo crear presupuesto, cómo timbrar, etc.
+    Hosting: YouTube (canal propio)
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-125: Base de Conocimientos (FAQ)
+    Descripción: Centro de ayuda con búsqueda
+    Artículos: 50+ en Mes 3, 100+ en Mes 6
+    Categorías: Primeros pasos, Facturación, Reportes, Cuenta
+    Prioridad: 🟡 ALTA (Mes 3-6)
 15. Módulo de Notificaciones (8 características)
-CAR-126: Notificaciones In-App
-Descripción: Campana en navbar con contador
-Tipos: Transacciones, presupuestos, metas, alertas sistema
-Estados: No leída, leída, archivada
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-127: Notificaciones por Email
-Descripción: Envío de alertas por correo
-Configuración: Usuario elige qué notificaciones recibir
-Frecuencia: Inmediata, diaria, semanal
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-128: Notificaciones Push (PWA)
-Descripción: Push notifications desde navegador
-Permiso: Usuario debe autorizar
-Casos: Alertas críticas (breach, pago vencido)
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-129: Notificaciones de Presupuesto
-Descripción: Alertas al acercarse/exceder límites
-Umbrales: 80%, 100%
-Canales: In-app + email
-Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
-CAR-130: Notificaciones de Metas
-Descripción: Celebración al cumplir objetivos
-Animación: Confetti en UI
-Email: Mensaje de felicitación
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-131: Notificaciones de Vencimientos
-Descripción: Recordatorios de pagos/facturas
-Anticipación: 7 días, 3 días, día mismo
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-132: Resumen Semanal/Mensual
-Descripción: Email con recap de actividad
-Contenido: Ingresos, gastos, ahorro, progreso metas
-Opt-in: Usuario activa si desea
-Prioridad: 🟡 ALTA (Mes 3-6)
-CAR-133: Centro de Notificaciones
-Descripción: Historial completo de notificaciones
-Filtros: Por tipo, fecha, estado
-Acciones: Marcar leída, archivar, eliminar
-Prioridad: 🟢 MEDIA (Mes 3-6)
+    CAR-126: Notificaciones In-App
+    Descripción: Campana en navbar con contador
+    Tipos: Transacciones, presupuestos, metas, alertas sistema
+    Estados: No leída, leída, archivada
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-127: Notificaciones por Email
+    Descripción: Envío de alertas por correo
+    Configuración: Usuario elige qué notificaciones recibir
+    Frecuencia: Inmediata, diaria, semanal
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-128: Notificaciones Push (PWA)
+    Descripción: Push notifications desde navegador
+    Permiso: Usuario debe autorizar
+    Casos: Alertas críticas (breach, pago vencido)
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-129: Notificaciones de Presupuesto
+    Descripción: Alertas al acercarse/exceder límites
+    Umbrales: 80%, 100%
+    Canales: In-app + email
+    Prioridad: 🔴 CRÍTICA (PMV - Mes 0-3)
+    CAR-130: Notificaciones de Metas
+    Descripción: Celebración al cumplir objetivos
+    Animación: Confetti en UI
+    Email: Mensaje de felicitación
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-131: Notificaciones de Vencimientos
+    Descripción: Recordatorios de pagos/facturas
+    Anticipación: 7 días, 3 días, día mismo
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-132: Resumen Semanal/Mensual
+    Descripción: Email con recap de actividad
+    Contenido: Ingresos, gastos, ahorro, progreso metas
+    Opt-in: Usuario activa si desea
+    Prioridad: 🟡 ALTA (Mes 3-6)
+    CAR-133: Centro de Notificaciones
+    Descripción: Historial completo de notificaciones
+    Filtros: Por tipo, fecha, estado
+    Acciones: Marcar leída, archivar, eliminar
+    Prioridad: 🟢 MEDIA (Mes 3-6)
 16. Módulo de Personalización (7 características)
-CAR-134: Modo Oscuro/Claro
-Descripción: Tema visual seleccionable
-Persistencia: Preferencia guardada en BD
-Automático: Detectar preferencia SO (opcional)
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-135: Configuración de Idioma
-Descripción: Español México (default), preparación inglés
-i18n: Arquitectura lista, traducciones en Fase 2
-Prioridad: 🟢 MEDIA (Preparación Mes 0-3)
-CAR-136: Formato de Números
-Descripción: Separador de miles, decimales
-México: 1,234.56 (default)
-Configuración: Usuario puede cambiar
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-137: Formato de Fechas
-Descripción: Orden día/mes/año
-México: DD/MM/AAAA (default)
-Opciones: MM/DD/AAAA, AAAA-MM-DD
-Prioridad: 🟢 MEDIA (Mes 6-12)
-CAR-138: Moneda Principal
-Descripción: Usuario elige moneda default
-Opciones: MXN, USD, EUR
-Conversión: Automática en reportes multi-moneda
-Prioridad: 🟡 ALTA (PMV - Mes 0-3)
-CAR-139: Día de Inicio de Mes Fiscal
-Descripción: Configurar cuando empieza "el mes"
-Casos: Día 1 (default) o día de pago (ej: 15)
-Aplicación: Reportes mensuales, presupuestos
-Prioridad: 🟢 MEDIA (Mes 3-6)
-CAR-140: Avatar y Perfil Personalizado
-Descripción: Foto de perfil, nombre completo
-Límite: Imagen 2MB, JPG/PNG
-Redimensión: Automática a 200x200px
-Prioridad: 🟢 MEDIA (PMV - Mes 0-3)
-RESUMEN EJECUTIVO DE CARACTERÍSTICAS
-Por Prioridad
-Prioridad	Cantidad	Descripción
-🔴 CRÍTICA (PMV - Mes 0-3)	62	Features esenciales para lanzamiento
-🟡 ALTA (Mes 3-6)	48	Features importantes para diferenciación
-🟢 MEDIA (Mes 6-12)	30	Features complementarias para madurez
-TOTAL: 140 características documentadas
+    CAR-134: Modo Oscuro/Claro
+    Descripción: Tema visual seleccionable
+    Persistencia: Preferencia guardada en BD
+    Automático: Detectar preferencia SO (opcional)
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-135: Configuración de Idioma
+    Descripción: Español México (default), preparación inglés
+    i18n: Arquitectura lista, traducciones en Fase 2
+    Prioridad: 🟢 MEDIA (Preparación Mes 0-3)
+    CAR-136: Formato de Números
+    Descripción: Separador de miles, decimales
+    México: 1,234.56 (default)
+    Configuración: Usuario puede cambiar
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-137: Formato de Fechas
+    Descripción: Orden día/mes/año
+    México: DD/MM/AAAA (default)
+    Opciones: MM/DD/AAAA, AAAA-MM-DD
+    Prioridad: 🟢 MEDIA (Mes 6-12)
+    CAR-138: Moneda Principal
+    Descripción: Usuario elige moneda default
+    Opciones: MXN, USD, EUR
+    Conversión: Automática en reportes multi-moneda
+    Prioridad: 🟡 ALTA (PMV - Mes 0-3)
+    CAR-139: Día de Inicio de Mes Fiscal
+    Descripción: Configurar cuando empieza "el mes"
+    Casos: Día 1 (default) o día de pago (ej: 15)
+    Aplicación: Reportes mensuales, presupuestos
+    Prioridad: 🟢 MEDIA (Mes 3-6)
+    CAR-140: Avatar y Perfil Personalizado
+    Descripción: Foto de perfil, nombre completo
+    Límite: Imagen 2MB, JPG/PNG
+    Redimensión: Automática a 200x200px
+    Prioridad: 🟢 MEDIA (PMV - Mes 0-3)
+    RESUMEN EJECUTIVO DE CARACTERÍSTICAS
+    Por Prioridad
+    Prioridad Cantidad Descripción
+    🔴 CRÍTICA (PMV - Mes 0-3) 62 Features esenciales para lanzamiento
+    🟡 ALTA (Mes 3-6) 48 Features importantes para diferenciación
+    🟢 MEDIA (Mes 6-12) 30 Features complementarias para madurez
+    TOTAL: 140 características documentadas
 
 PRÓXIMOS DOCUMENTOS PENDIENTES
 Tienes razón, esto es solo el primer documento de características. Aún faltan entregar:
@@ -2412,13 +2412,13 @@ Respuesta: SÍ, tu arquitectura está diseñada para ser SAT-First y Future-Proo
 
 📐 Evidencia en 02_ARQUITECTURA_TECNICA.md:
 🎯 Ventajas de tu Arquitectura SAT-First:
-Aspecto	Implementación	Beneficio
-Versionado CFDI	Módulos independientes 4.0/5.0	Activar sin refactorizar
-Proveedores PAC	Adapter Pattern	Cambiar PAC sin romper código
-Catálogos SAT	Auto-sincronización	Compliance automático
-Reglas Fiscales	JSON externalizados	Actualizar sin deploy
-Feature Flags	Activación gradual	Rollout controlado
-Multi-Tenant RLS	Aislamiento por cliente	Seguridad garantizada
+Aspecto Implementación Beneficio
+Versionado CFDI Módulos independientes 4.0/5.0 Activar sin refactorizar
+Proveedores PAC Adapter Pattern Cambiar PAC sin romper código
+Catálogos SAT Auto-sincronización Compliance automático
+Reglas Fiscales JSON externalizados Actualizar sin deploy
+Feature Flags Activación gradual Rollout controlado
+Multi-Tenant RLS Aislamiento por cliente Seguridad garantizada
 🚀 Escenarios de Adaptación Real:
 Escenario 1: SAT Lanza CFDI 5.1 (2027)
 
@@ -2472,13 +2472,13 @@ Gestión de Compromisos Personales Financieros ⭐
 Feature nicho, no crítico para PMV
 Implementación: Extensión módulo Metas de Ahorro
 🎯 Respuesta Directa a tus Preguntas:
+
 1. ¿Existen otras ideas en los archivos que podamos tomar?
-SÍ, identifiqué 12 características adicionales no explícitas en las 100 originales:
+   SÍ, identifiqué 12 características adicionales no explícitas en las 100 originales:
 
 ✅ 4 críticas para PMV (Catálogos SAT, QR Auto-Eliminación, etc.)
 ⚠️ 5 alta prioridad Fase V+ (Dashboard Contador, Retenciones, etc.)
-⚠️ 3 diferenciación Fase 2 (Alertas Preventivas, Psicología Conductual, etc.)
-2. ¿La app está especializada para adaptarse intrínsecamente al SAT?
+⚠️ 3 diferenciación Fase 2 (Alertas Preventivas, Psicología Conductual, etc.) 2. ¿La app está especializada para adaptarse intrínsecamente al SAT?
 SÍ, tu arquitectura es SAT-First con:
 
 ✅ Versionado CFDI multi-versión (4.0, 5.0 ready, 5.1 preparado)
@@ -2489,17 +2489,17 @@ SÍ, tu arquitectura es SAT-First con:
 Ventaja competitiva: Competencia tardará 6-12 meses en replicar esta flexibilidad.
 
 3. ¿Estructura fácil de entender y manejar vinculación SAT?
-SÍ, arquitectura modular y documentada:
+   SÍ, arquitectura modular y documentada:
 
 Documentación completa en 02_ARQUITECTURA_TECNICA.md garantiza onboarding rápido de nuevos devs.
 
 📊 Resumen Ejecutivo Final
-Aspecto	Estado	Acción Recomendada
-Características Originales (100+)	✅ Cubiertas	Mantener priorización actual
-Características Adicionales (12)	🆕 Identificadas	Integrar según prioridad
-Arquitectura SAT-First	✅ Sólida	Documentar Adapter Patterns
-Adaptabilidad Regulatoria	✅ Future-Proof	Mantener feature flags
-Ventaja Competitiva	🚀 Sostenible	Ejecutar rápido (PMV Mes 3)
+Aspecto Estado Acción Recomendada
+Características Originales (100+) ✅ Cubiertas Mantener priorización actual
+Características Adicionales (12) 🆕 Identificadas Integrar según prioridad
+Arquitectura SAT-First ✅ Sólida Documentar Adapter Patterns
+Adaptabilidad Regulatoria ✅ Future-Proof Mantener feature flags
+Ventaja Competitiva 🚀 Sostenible Ejecutar rápido (PMV Mes 3)
 Tu proyecto tiene fundamentos sólidos para dominar el nicho contabilidad/finanzas personales México con compliance SAT nativo. 🎯
 
 ¿Quieres que profundice en alguna de las 12 características adicionales o en cómo implementar específicamente la arquitectura SAT-First?
@@ -2604,46 +2604,56 @@ Estado: ⚠️ FASE 2 (Insights Avanzados)
 Respuesta: SÍ, tu arquitectura está diseñada para ser SAT-First y Future-Proof.
 
 📐 Evidencia en 02_ARQUITECTURA_TECNICA.md
+
 # Patrón de Adaptadores (Design Pattern)
+
 Adapter Pattern SAT:
-  - CFDIVersionManager (maneja múltiples versiones CFDI)
-  - PACAdapter (abstrae proveedores PAC - Facturapi, Finkok, etc.)
-  - SATWebServiceAdapter (Web Services oficiales SAT)
-  - CatalogManager (actualización automática catálogos SAT)
+
+- CFDIVersionManager (maneja múltiples versiones CFDI)
+- PACAdapter (abstrae proveedores PAC - Facturapi, Finkok, etc.)
+- SATWebServiceAdapter (Web Services oficiales SAT)
+- CatalogManager (actualización automática catálogos SAT)
 
 # Feature Flags para Activación Gradual
+
 Feature Flags:
-  - CFDI_5_0_ENABLED: false (activar Q2-Q3 2026)
-  - BUZÓN_TRIBUTARIO_ENABLED: false (Fase 2)
-  - COMPLEMENTO_PAGOS_REP_ENABLED: true (Mes 6-12)
-  - VALIDACIÓN_LISTAS_NEGRAS_ENABLED: true (PMV)
+
+- CFDI_5_0_ENABLED: false (activar Q2-Q3 2026)
+- BUZÓN_TRIBUTARIO_ENABLED: false (Fase 2)
+- COMPLEMENTO_PAGOS_REP_ENABLED: true (Mes 6-12)
+- VALIDACIÓN_LISTAS_NEGRAS_ENABLED: true (PMV)
 
 # Sistema de Validaciones Dinámicas
+
 Validaciones SAT:
-  - Carga desde archivos JSON actualizables
-  - Catálogos sincronizados con API SAT cada 24-48h
-  - Reglas de negocio separadas de código (fácil actualizar)
+
+- Carga desde archivos JSON actualizables
+- Catálogos sincronizados con API SAT cada 24-48h
+- Reglas de negocio separadas de código (fácil actualizar)
   🎯 Ventajas de tu Arquitectura SAT-First:
-Aspecto	Implementación	Beneficio
-Versionado CFDI	Módulos independientes 4.0/5.0	Activar sin refactorizar
-Proveedores PAC	Adapter Pattern	Cambiar PAC sin romper código
-Catálogos SAT	Auto-sincronización	Compliance automático
-Reglas Fiscales	JSON externalizados	Actualizar sin deploy
-Feature Flags	Activación gradual	Rollout controlado
-Multi-Tenant RLS	Aislamiento por cliente	Seguridad garantizada
-🚀 Escenarios de Adaptación Real:
-Escenario 1: SAT Lanza CFDI 5.1 (2027)
+  Aspecto Implementación Beneficio
+  Versionado CFDI Módulos independientes 4.0/5.0 Activar sin refactorizar
+  Proveedores PAC Adapter Pattern Cambiar PAC sin romper código
+  Catálogos SAT Auto-sincronización Compliance automático
+  Reglas Fiscales JSON externalizados Actualizar sin deploy
+  Feature Flags Activación gradual Rollout controlado
+  Multi-Tenant RLS Aislamiento por cliente Seguridad garantizada
+  🚀 Escenarios de Adaptación Real:
+  Escenario 1: SAT Lanza CFDI 5.1 (2027)
+
 # Tu equipo solo necesita:
+
 1. Crear nuevo módulo `cfdi_5_1.service.ts`
 2. Actualizar `CFDIVersionManager` con nuevo case
 3. Agregar feature flag `CFDI_5_1_ENABLED`
 4. Deploy sin downtime (usuarios 5.0 siguen trabajando)
 
 # Tiempo estimado: 2-3 semanas vs 6 meses refactorización completa (competencia)
+
 Escenario 2: SAT Modifica Catálogo Formas de Pago
 
-
 # Sistema automático:
+
 1. CronJob detecta cambio en API SAT cada 24h
 2. Descarga nuevo catálogo JSON
 3. Actualiza tabla `sat_formas_pago` en PostgreSQL
@@ -2651,10 +2661,11 @@ Escenario 2: SAT Modifica Catálogo Formas de Pago
 5. Frontend recibe catálogo actualizado automáticamente
 
 # Intervención manual: CERO
+
 Escenario 3: Nueva Regla SAT sobre Deducibilidad
 
-
 # Actualización sin deploy:
+
 1. Contador/Administrador edita regla en dashboard admin
 2. Regla se guarda en tabla `business_rules` (PostgreSQL)
 3. Motor de validación lee reglas dinámicamente
@@ -2708,13 +2719,13 @@ Gestión de Compromisos Personales Financieros ⭐
 Feature nicho, no crítico para PMV
 Implementación: Extensión módulo Metas de Ahorro
 🎯 Respuesta Directa a tus Preguntas:
+
 1. ¿Existen otras ideas en los archivos que podamos tomar?
-SÍ, identifiqué 12 características adicionales no explícitas en las 100 originales:
+   SÍ, identifiqué 12 características adicionales no explícitas en las 100 originales:
 
 ✅ 4 críticas para PMV (Catálogos SAT, QR Auto-Eliminación, etc.)
 ⚠️ 5 alta prioridad Fase V+ (Dashboard Contador, Retenciones, etc.)
-⚠️ 3 diferenciación Fase 2 (Alertas Preventivas, Psicología Conductual, etc.)
-2. ¿La app está especializada para adaptarse intrínsecamente al SAT?
+⚠️ 3 diferenciación Fase 2 (Alertas Preventivas, Psicología Conductual, etc.) 2. ¿La app está especializada para adaptarse intrínsecamente al SAT?
 SÍ, tu arquitectura es SAT-First con:
 
 ✅ Versionado CFDI multi-versión (4.0, 5.0 ready, 5.1 preparado)
@@ -2725,29 +2736,29 @@ SÍ, tu arquitectura es SAT-First con:
 Ventaja competitiva: Competencia tardará 6-12 meses en replicar esta flexibilidad.
 
 3. ¿Estructura fácil de entender y manejar vinculación SAT?
-SÍ, arquitectura modular y documentada:
+   SÍ, arquitectura modular y documentada:
 
 Documentación completa en 02_ARQUITECTURA_TECNICA.md garantiza onboarding rápido de nuevos devs.
 // Ejemplo estructura clara SAT-First
 /src
-  /services
-    /sat
-      /cfdi-v4.0
-      /cfdi-v5.0          // Preparado, no activo
-      /catalogs-manager   // Auto-sync catálogos
-      /validators         // Reglas dinámicas
-      /pac-adapter        // Abstracción PACs
-  /database
-    /schemas
-      /sat-catalogs.sql   // Catálogos oficiales
-      /business-rules.sql // Reglas fiscales
+/services
+/sat
+/cfdi-v4.0
+/cfdi-v5.0 // Preparado, no activo
+/catalogs-manager // Auto-sync catálogos
+/validators // Reglas dinámicas
+/pac-adapter // Abstracción PACs
+/database
+/schemas
+/sat-catalogs.sql // Catálogos oficiales
+/business-rules.sql // Reglas fiscales
 📊 Resumen Ejecutivo Final
-Aspecto	Estado	Acción Recomendada
-Características Originales (100+)	✅ Cubiertas	Mantener priorización actual
-Características Adicionales (12)	🆕 Identificadas	Integrar según prioridad
-Arquitectura SAT-First	✅ Sólida	Documentar Adapter Patterns
-Adaptabilidad Regulatoria	✅ Future-Proof	Mantener feature flags
-Ventaja Competitiva	🚀 Sostenible	Ejecutar rápido (PMV Mes 3)
+Aspecto Estado Acción Recomendada
+Características Originales (100+) ✅ Cubiertas Mantener priorización actual
+Características Adicionales (12) 🆕 Identificadas Integrar según prioridad
+Arquitectura SAT-First ✅ Sólida Documentar Adapter Patterns
+Adaptabilidad Regulatoria ✅ Future-Proof Mantener feature flags
+Ventaja Competitiva 🚀 Sostenible Ejecutar rápido (PMV Mes 3)
 Tu proyecto tiene fundamentos sólidos para dominar el nicho contabilidad/finanzas personales México con compliance SAT nativo. 🎯
 
 ¿Quieres que profundice en alguna de las 12 características adicionales o en cómo implementar específicamente la arquitectura SAT-First?
@@ -2765,16 +2776,16 @@ Solución:
 
 // Recordatorio contextual NO genérico
 {
-  tipo: "PAGO_CRITICO",
-  mensaje: "💡 En 2 días vence tu pago de CFE ($850 MXN). Tienes saldo suficiente.",
-  contexto: {
-    saldoDisponible: 2450,
-    montoDeuda: 850,
-    consecuencias: "Corte de luz + multa $450",
-    sugerencia: "Pagar ahora te ahorra $450 de multa"
-  },
-  canales: ["push", "whatsapp", "email"],
-  prioridad: "ALTA"
+tipo: "PAGO_CRITICO",
+mensaje: "💡 En 2 días vence tu pago de CFE ($850 MXN). Tienes saldo suficiente.",
+contexto: {
+saldoDisponible: 2450,
+montoDeuda: 850,
+consecuencias: "Corte de luz + multa $450",
+sugerencia: "Pagar ahora te ahorra $450 de multa"
+},
+canales: ["push", "whatsapp", "email"],
+prioridad: "ALTA"
 }
 
 🚀 ANÁLISIS DE CARACTERÍSTICAS CRÍTICAS FALTANTES PARA ÉXITO EN MÉXICO 2026
@@ -2812,15 +2823,15 @@ Problema: Los usuarios NO entienden hacia dónde va su dinero (solo ven "ya no t
 
 Solución: Desglose Sankey Diagram + Narrativa
 INGRESOS ($25,000)
-  ├─ 40% Vivienda ($10,000) ──┬─ 60% Renta ($6,000)
-  │                            ├─ 25% Luz/Gas ($2,500)
-  │                            └─ 15% Internet ($1,500)
-  ├─ 25% Alimentación ($6,250)
-  ├─ 15% Transporte ($3,750)
-  ├─ 10% Entretenimiento ($2,500)
-  └─ 10% Ahorro ($2,500) ⭐ ¡Meta cumplida!
+├─ 40% Vivienda ($10,000) ──┬─ 60% Renta ($6,000)
+│ ├─ 25% Luz/Gas ($2,500)
+│ └─ 15% Internet ($1,500)
+├─ 25% Alimentación ($6,250)
+├─ 15% Transporte ($3,750)
+├─ 10% Entretenimiento ($2,500)
+└─ 10% Ahorro ($2,500) ⭐ ¡Meta cumplida!
 
-  Features avanzadas:
+Features avanzadas:
 
 Comparación con percentil mexicano: "Gastas 20% más en restaurantes que usuarios con ingresos similares"
 Gastos hormiga resaltados: "Tus 47 compras en OXXO sumaron $2,340 este mes"
@@ -2838,18 +2849,18 @@ Problema específico México: 73% no tiene presupuesto y llega "justo" a fin de 
 Solución: Dashboard de Sobrevivencia
 
 interface QuincenaSegura {
-  diasRestantes: 7,
-  saldoDisponible: 2450,
-  gastoPromedioXDia: 280, // Basado en histórico
-  proyeccion: {
-    alcanzaParaQuincena: true,
-    sobrante: 490,
-    mensaje: "✅ Vas bien. Te sobrarán $490 si mantienes ritmo actual",
-    consejos: [
-      "Evita compras >$500 esta semana",
-      "Tienes $490 de colchón, puedes darte un gusto de hasta $250"
-    ]
-  }
+diasRestantes: 7,
+saldoDisponible: 2450,
+gastoPromedioXDia: 280, // Basado en histórico
+proyeccion: {
+alcanzaParaQuincena: true,
+sobrante: 490,
+mensaje: "✅ Vas bien. Te sobrarán $490 si mantienes ritmo actual",
+consejos: [
+"Evita compras >$500 esta semana",
+"Tienes $490 de colchón, puedes darte un gusto de hasta $250"
+]
+}
 }
 
 🚀 ANÁLISIS DE CARACTERÍSTICAS CRÍTICAS FALTANTES PARA ÉXITO EN MÉXICO 2026
@@ -2924,10 +2935,9 @@ Solución: Bot de WhatsApp Conversacional
 
 Flujo de registro por WhatsApp:
 
-
 Usuario: "Gasté 450 en super"
 Bot: "✅ Registrado: $450 MXN en Supermercado. ¿Categoría?"
-      [Botón: Alimentación] [Botón: Hogar] [Botón: Otro]
+[Botón: Alimentación] [Botón: Hogar] [Botón: Otro]
 Usuario: [Click: Alimentación]
 Bot: "👍 Listo. Te quedan $2,000 de tu presupuesto mensual de Alimentación."
 
@@ -2968,25 +2978,25 @@ Solución: Gamificación con Impacto Real
 
 Retos Semanales:
 interface RetoSemanal {
-  nombre: "Semana Sin Uber",
-  descripcion: "Usa transporte público o camina esta semana",
-  meta: {
-    metrica: "gastos_transporte",
-    operador: "<=",
-    valor: 200, // MXN
-    baseline: 850 // Promedio usuario
-  },
-  premio: {
-    tipo: "CASHBACK",
-    monto: 100, // MXN de descuento en próxima suscripción
-    badge: "🚶 Caminante Pro"
-  },
-  participantes: 234, // Gamificación social
-  progreso: {
-    actual: 150,
-    porcentaje: 75,
-    mensaje: "¡Vas excelente! $650 ahorrados vs. tu promedio"
-  }
+nombre: "Semana Sin Uber",
+descripcion: "Usa transporte público o camina esta semana",
+meta: {
+metrica: "gastos_transporte",
+operador: "<=",
+valor: 200, // MXN
+baseline: 850 // Promedio usuario
+},
+premio: {
+tipo: "CASHBACK",
+monto: 100, // MXN de descuento en próxima suscripción
+badge: "🚶 Caminante Pro"
+},
+participantes: 234, // Gamificación social
+progreso: {
+actual: 150,
+porcentaje: 75,
+mensaje: "¡Vas excelente! $650 ahorrados vs. tu promedio"
+}
 }
 
 Catálogo de Retos (10+ predefinidos):
@@ -3073,25 +3083,25 @@ Problema: 61% de mexicanos NO tiene ahorros para emergencias.
 Solución: Calculadora + Automatización
 
 interface FondoEmergencia {
-  calculoRecomendado: {
-    gastosEsencialesXMes: 12000, // Renta, comida, transporte
-    mesesCobertura: 6,
-    totalRecomendado: 72000
-  },
-  estadoActual: {
-    ahorrado: 18000,
-    progreso: 25, // %
-    mesesCubiertos: 1.5
-  },
-  plan: {
-    aporteMensual: 3000,
-    mesesParaCompletarlo: 18,
-    fechaCompletado: "Junio 2027"
-  },
-  escenarios: [
-    { evento: "Pérdida de empleo", cobertura: "1.5 meses" },
-    { evento: "Emergencia médica $20K", cobertura: "Sí, sobran $-2K" }
-  ]
+calculoRecomendado: {
+gastosEsencialesXMes: 12000, // Renta, comida, transporte
+mesesCobertura: 6,
+totalRecomendado: 72000
+},
+estadoActual: {
+ahorrado: 18000,
+progreso: 25, // %
+mesesCubiertos: 1.5
+},
+plan: {
+aporteMensual: 3000,
+mesesParaCompletarlo: 18,
+fechaCompletado: "Junio 2027"
+},
+escenarios: [
+{ evento: "Pérdida de empleo", cobertura: "1.5 meses" },
+{ evento: "Emergencia médica $20K", cobertura: "Sí, sobran $-2K" }
+]
 }
 
 Features:
@@ -3107,13 +3117,13 @@ Problema: Usuarios tienen suscripciones que no usan (Netflix que no ven, gym que
 Solución:
 
 interface SuscripcionZombie {
-  servicio: "Gym Total Fitness",
-  cargo: 599,
-  frecuencia: "mensual",
-  ultimoUso: "2025-08-15", // 3 meses sin usar
-  ahorroPotencial: 7188, // Si cancela, ahorra esto/año
-  recomendacion: "⚠️ No has ido al gym en 3 meses. Ahorra $7,188/año cancelando.",
-  accion: "CANCELAR_FACILMENTE" // Link directo a cancelación
+servicio: "Gym Total Fitness",
+cargo: 599,
+frecuencia: "mensual",
+ultimoUso: "2025-08-15", // 3 meses sin usar
+ahorroPotencial: 7188, // Si cancela, ahorra esto/año
+recomendacion: "⚠️ No has ido al gym en 3 meses. Ahorra $7,188/año cancelando.",
+accion: "CANCELAR_FACILMENTE" // Link directo a cancelación
 }
 Features:
 
@@ -3232,13 +3242,13 @@ Impacto: 🎯 MEDIO - Feature "intelectual". Educación financiera.
 
 💰 JUSTIFICACIÓN DE PRECIO: $200 MXN/MES
 Análisis de Valor Percibido
-Feature	Ahorro/Valor Mensual	Valor Anual
-Recordatorios evitan 1 multa CFE	$450	$5,400
-Detector de suscripciones zombies	$600	$7,200
-Asistente deducibles (ahorro fiscal)	$500	$6,000
-Modo Quincena Segura (evita préstamos)	$800	$9,600
-WhatsApp Bot (ahorra 2h/mes tiempo)	$300	$3,600
-TOTAL VALOR GENERADO	$2,650	$31,800
+Feature Ahorro/Valor Mensual Valor Anual
+Recordatorios evitan 1 multa CFE $450 $5,400
+Detector de suscripciones zombies $600 $7,200
+Asistente deducibles (ahorro fiscal) $500 $6,000
+Modo Quincena Segura (evita préstamos) $800 $9,600
+WhatsApp Bot (ahorra 2h/mes tiempo) $300 $3,600
+TOTAL VALOR GENERADO $2,650 $31,800
 ROI del Usuario:
 
 Costo anual: $2,400 MXN
@@ -3275,40 +3285,40 @@ Mes 12-18 (Fase 3 - 5 features premium)
 ✅ Integración Google Calendar
 📊 MÉTRICAS DE ÉXITO ESPERADAS
 Con las 20 características implementadas:
-Métrica	Sin Features	Con Top 10 Features	Con 20 Features
-Conversion Free→Premium	15%	28%	40%
-Churn Mensual	8%	4%	2%
-NPS (Net Promoter Score)	45	65	78
-DAU/MAU Ratio	25%	45%	60%
-ARPU (Average Revenue Per User)	$199	$199	$249*
-*Incremento por Plan Familia y upsells
+Métrica Sin Features Con Top 10 Features Con 20 Features
+Conversion Free→Premium 15% 28% 40%
+Churn Mensual 8% 4% 2%
+NPS (Net Promoter Score) 45 65 78
+DAU/MAU Ratio 25% 45% 60%
+ARPU (Average Revenue Per User) $199 $199 $249\*
+\*Incremento por Plan Familia y upsells
 
 🚀 ARGUMENTOS DE VENTA FINALES
 Elevator Pitch para Usuario:
 "¿Cansado de llegar justo a quincena? Nuestra app te dice EXACTAMENTE cuánto puedes gastar HOY sin quedarte sin dinero. Evita multas, cancela suscripciones que no usas, y ahorra hasta $2,650 al mes. Todo por $200/mes. Es como tener un contador personal en tu bolsillo."
 
 Argumentos Diferenciadores vs Competencia:
-Competidor	Su Feature	Nuestra Ventaja
-Fintonic	Solo ve gastos pasados	Nosotros predecimos si llegarás a quincena
-Monefy	Registro manual tedioso	WhatsApp Bot (5 segundos)
-YNAB	$15 USD/mes ($270 MXN)	$200 MXN + features México-first
-QuickBooks	Complejo, para contadores	Simple, para TODOS
+Competidor Su Feature Nuestra Ventaja
+Fintonic Solo ve gastos pasados Nosotros predecimos si llegarás a quincena
+Monefy Registro manual tedioso WhatsApp Bot (5 segundos)
+YNAB $15 USD/mes ($270 MXN) $200 MXN + features México-first
+QuickBooks Complejo, para contadores Simple, para TODOS
 Testimonio Objetivo (Esperado):
 "Antes vivía estresado de 'ya no tengo dinero y no sé por qué'. Ahora sé que gasté $2,340 en OXXO el mes pasado y puedo cambiarlo. La app literalmente me ahorró $8,000 en suscripciones que no usaba. Valió cada peso."
 
 — Luis M., Freelancer, CDMX
 
 ✅ CHECKLIST FINAL: ¿Vale $200 MXN/mes?
- Ahorra dinero real (>$2,000/mes en promedio)
- Evita estrés financiero (saber si llegas a quincena)
- Educa sobre finanzas (entiende gastos hormiga)
- Cumple con SAT (preparación declaración anual)
- Gamificación positiva (no es "castigo" sino "logro")
- Integración WhatsApp (cero fricción)
- Modo Familia (value para todo el hogar)
- Soporte Premium (respuesta <12h)
- Actualizaciones constantes (nuevas features cada mes)
- Comunidad activa (no estás solo)
+Ahorra dinero real (>$2,000/mes en promedio)
+Evita estrés financiero (saber si llegas a quincena)
+Educa sobre finanzas (entiende gastos hormiga)
+Cumple con SAT (preparación declaración anual)
+Gamificación positiva (no es "castigo" sino "logro")
+Integración WhatsApp (cero fricción)
+Modo Familia (value para todo el hogar)
+Soporte Premium (respuesta <12h)
+Actualizaciones constantes (nuevas features cada mes)
+Comunidad activa (no estás solo)
 Veredicto: ✅ SÍ VALE LA PENA. Con solo 3 de las 20 features implementadas, el valor generado ya justifica el precio.
 
 🎯 RECOMENDACIÓN FINAL
@@ -3405,13 +3415,13 @@ Impacto: 🎯 MEDIO - Feature "intelectual". Educación financiera.
 
 💰 JUSTIFICACIÓN DE PRECIO: $200 MXN/MES
 Análisis de Valor Percibido
-Feature	Ahorro/Valor Mensual	Valor Anual
-Recordatorios evitan 1 multa CFE	$450	$5,400
-Detector de suscripciones zombies	$600	$7,200
-Asistente deducibles (ahorro fiscal)	$500	$6,000
-Modo Quincena Segura (evita préstamos)	$800	$9,600
-WhatsApp Bot (ahorra 2h/mes tiempo)	$300	$3,600
-TOTAL VALOR GENERADO	$2,650	$31,800
+Feature Ahorro/Valor Mensual Valor Anual
+Recordatorios evitan 1 multa CFE $450 $5,400
+Detector de suscripciones zombies $600 $7,200
+Asistente deducibles (ahorro fiscal) $500 $6,000
+Modo Quincena Segura (evita préstamos) $800 $9,600
+WhatsApp Bot (ahorra 2h/mes tiempo) $300 $3,600
+TOTAL VALOR GENERADO $2,650 $31,800
 ROI del Usuario:
 
 Costo anual: $2,400 MXN
@@ -3448,40 +3458,40 @@ Mes 12-18 (Fase 3 - 5 features premium)
 ✅ Integración Google Calendar
 📊 MÉTRICAS DE ÉXITO ESPERADAS
 Con las 20 características implementadas:
-Métrica	Sin Features	Con Top 10 Features	Con 20 Features
-Conversion Free→Premium	15%	28%	40%
-Churn Mensual	8%	4%	2%
-NPS (Net Promoter Score)	45	65	78
-DAU/MAU Ratio	25%	45%	60%
-ARPU (Average Revenue Per User)	$199	$199	$249*
-*Incremento por Plan Familia y upsells
+Métrica Sin Features Con Top 10 Features Con 20 Features
+Conversion Free→Premium 15% 28% 40%
+Churn Mensual 8% 4% 2%
+NPS (Net Promoter Score) 45 65 78
+DAU/MAU Ratio 25% 45% 60%
+ARPU (Average Revenue Per User) $199 $199 $249\*
+\*Incremento por Plan Familia y upsells
 
 🚀 ARGUMENTOS DE VENTA FINALES
 Elevator Pitch para Usuario:
 "¿Cansado de llegar justo a quincena? Nuestra app te dice EXACTAMENTE cuánto puedes gastar HOY sin quedarte sin dinero. Evita multas, cancela suscripciones que no usas, y ahorra hasta $2,650 al mes. Todo por $200/mes. Es como tener un contador personal en tu bolsillo."
 
 Argumentos Diferenciadores vs Competencia:
-Competidor	Su Feature	Nuestra Ventaja
-Fintonic	Solo ve gastos pasados	Nosotros predecimos si llegarás a quincena
-Monefy	Registro manual tedioso	WhatsApp Bot (5 segundos)
-YNAB	$15 USD/mes ($270 MXN)	$200 MXN + features México-first
-QuickBooks	Complejo, para contadores	Simple, para TODOS
+Competidor Su Feature Nuestra Ventaja
+Fintonic Solo ve gastos pasados Nosotros predecimos si llegarás a quincena
+Monefy Registro manual tedioso WhatsApp Bot (5 segundos)
+YNAB $15 USD/mes ($270 MXN) $200 MXN + features México-first
+QuickBooks Complejo, para contadores Simple, para TODOS
 Testimonio Objetivo (Esperado):
 "Antes vivía estresado de 'ya no tengo dinero y no sé por qué'. Ahora sé que gasté $2,340 en OXXO el mes pasado y puedo cambiarlo. La app literalmente me ahorró $8,000 en suscripciones que no usaba. Valió cada peso."
 
 — Luis M., Freelancer, CDMX
 
 ✅ CHECKLIST FINAL: ¿Vale $200 MXN/mes?
- Ahorra dinero real (>$2,000/mes en promedio)
- Evita estrés financiero (saber si llegas a quincena)
- Educa sobre finanzas (entiende gastos hormiga)
- Cumple con SAT (preparación declaración anual)
- Gamificación positiva (no es "castigo" sino "logro")
- Integración WhatsApp (cero fricción)
- Modo Familia (value para todo el hogar)
- Soporte Premium (respuesta <12h)
- Actualizaciones constantes (nuevas features cada mes)
- Comunidad activa (no estás solo)
+Ahorra dinero real (>$2,000/mes en promedio)
+Evita estrés financiero (saber si llegas a quincena)
+Educa sobre finanzas (entiende gastos hormiga)
+Cumple con SAT (preparación declaración anual)
+Gamificación positiva (no es "castigo" sino "logro")
+Integración WhatsApp (cero fricción)
+Modo Familia (value para todo el hogar)
+Soporte Premium (respuesta <12h)
+Actualizaciones constantes (nuevas features cada mes)
+Comunidad activa (no estás solo)
 Veredicto: ✅ SÍ VALE LA PENA. Con solo 3 de las 20 features implementadas, el valor generado ya justifica el precio.
 
 🎯 RECOMENDACIÓN FINAL
@@ -3522,35 +3532,35 @@ Generar evidencia documental de cada validación
 Solución Revolucionaria:
 Dashboard Automático de Readiness 32-D
 interface OpinionCumplimiento32D {
-  status: "APTO" | "NO_APTO" | "CON_OBSERVACIONES",
-  score: number, // 0-100
-  obligaciones: {
-    declaraciones_presentadas: {
-      status: "OK" | "PENDIENTE" | "ERROR",
-      detalle: "12/12 declaraciones mensuales presentadas (Ene-Dic 2025)",
-      faltantes: [],
-      url_evidencia: "link a screenshots/XMLs"
-    },
-    cfdi_emitidos_validos: {
-      status: "OK",
-      detalle: "1,234 CFDI emitidos, 0 cancelados irregularmente",
-      alertas: []
-    },
-    contabilidad_electronica: {
-      status: "PENDIENTE",
-      detalle: "Falta enviar balanza de Nov 2025 (deadline: 5 días)",
-      accion_sugerida: "Subir balanza ahora"
-    },
-    // ... 11 validaciones más
-  },
-  prediccion: {
-    probabilidad_aprobacion: 85, // %
-    tiempo_estimado_obtencion: "7-10 días hábiles",
-    recomendaciones: [
-      "Envía balanza de Nov antes del 5/Dic",
-      "Corrige 3 CFDI con errores menores"
-    ]
-  }
+status: "APTO" | "NO_APTO" | "CON_OBSERVACIONES",
+score: number, // 0-100
+obligaciones: {
+declaraciones_presentadas: {
+status: "OK" | "PENDIENTE" | "ERROR",
+detalle: "12/12 declaraciones mensuales presentadas (Ene-Dic 2025)",
+faltantes: [],
+url_evidencia: "link a screenshots/XMLs"
+},
+cfdi_emitidos_validos: {
+status: "OK",
+detalle: "1,234 CFDI emitidos, 0 cancelados irregularmente",
+alertas: []
+},
+contabilidad_electronica: {
+status: "PENDIENTE",
+detalle: "Falta enviar balanza de Nov 2025 (deadline: 5 días)",
+accion_sugerida: "Subir balanza ahora"
+},
+// ... 11 validaciones más
+},
+prediccion: {
+probabilidad_aprobacion: 85, // %
+tiempo_estimado_obtencion: "7-10 días hábiles",
+recomendaciones: [
+"Envía balanza de Nov antes del 5/Dic",
+"Corrige 3 CFDI con errores menores"
+]
+}
 }
 
 Features del Asistente:
@@ -3594,22 +3604,22 @@ Las listas del SAT se actualizan mensualmente PERO los proveedores de riesgo dan
 Solución Revolucionaria:
 Sistema de Due Diligence Fiscal Automatizado
 interface AnalisisRiesgoProveedor {
-  rfc: "ABC123456XYZ",
-  razon_social: "DISTRIBUIDORA ACME SA DE CV",
+rfc: "ABC123456XYZ",
+razon_social: "DISTRIBUIDORA ACME SA DE CV",
 
-  riesgo_global: {
-    nivel: "ALTO" | "MEDIO" | "BAJO",
-    score: 73, // 0-100 (100 = muy riesgoso)
-    recomendacion: "⚠️ EVITAR - Alto riesgo EFOS"
-  },
+riesgo_global: {
+nivel: "ALTO" | "MEDIO" | "BAJO",
+score: 73, // 0-100 (100 = muy riesgoso)
+recomendacion: "⚠️ EVITAR - Alto riesgo EFOS"
+},
 
-  factores_riesgo: {
-    lista_negra_actual: {
-      en_lista_69B: false,
-      en_lista_EFOS: false,
-      en_lista_EDOS: false,
-      ultima_verificacion: "2025-01-26"
-    },
+factores_riesgo: {
+lista_negra_actual: {
+en_lista_69B: false,
+en_lista_EFOS: false,
+en_lista_EDOS: false,
+ultima_verificacion: "2025-01-26"
+},
 
     señales_tempranas: {
       // Señales que nadie más analiza
@@ -3653,24 +3663,25 @@ interface AnalisisRiesgoProveedor {
       alerta: "🚨 6 meses consecutivos declarando en ceros",
       peso_riesgo: +15
     }
-  },
 
-  recomendaciones: [
-    "🔴 NO TIMBRAR a este proveedor (riesgo 73/100)",
-    "Solicitar carta de no EFOS actualizada",
-    "Buscar proveedor alternativo en nuestro directorio",
-    "Si ya timbraste, considera cancelar y re-emitir con otro proveedor"
-  ],
+},
 
-  proveedores_alternativos: [
-    {
-      rfc: "XYZ987654ABC",
-      razon_social: "DISTRIBUIDORA CONFIABLE SA",
-      riesgo_score: 12, // BAJO
-      misma_industria: true,
-      verificado_por_usuarios: 47
-    }
-  ]
+recomendaciones: [
+"🔴 NO TIMBRAR a este proveedor (riesgo 73/100)",
+"Solicitar carta de no EFOS actualizada",
+"Buscar proveedor alternativo en nuestro directorio",
+"Si ya timbraste, considera cancelar y re-emitir con otro proveedor"
+],
+
+proveedores_alternativos: [
+{
+rfc: "XYZ987654ABC",
+razon_social: "DISTRIBUIDORA CONFIABLE SA",
+riesgo_score: 12, // BAJO
+misma_industria: true,
+verificado_por_usuarios: 47
+}
+]
 }
 
 Features Únicos:
@@ -3720,10 +3731,10 @@ Perdió devolución de ~$18K MXN
 Solución Revolucionaria:
 IA que Identifica Deducibles Automáticamente + Simulador de Devolución
 interface AsistenteDeduccionesPersonales {
-  analisis_automatico: {
-    gastos_totales_registrados: 450000, // MXN
-    gastos_deducibles_detectados: 85000,
-    gastos_no_deducibles: 365000,
+analisis_automatico: {
+gastos_totales_registrados: 450000, // MXN
+gastos_deducibles_detectados: 85000,
+gastos_no_deducibles: 365000,
 
     desglose_deducibles: {
       honorarios_medicos: {
@@ -3749,15 +3760,16 @@ interface AsistenteDeduccionesPersonales {
         validacion: "✅ Factura válida (aseguradora registrada)"
       }
     }
-  },
 
-  simulador_devoluciones: {
-    escenario_actual: {
-      ingresos: 400000,
-      isr_retenido: 42000,
-      deducciones_aplicadas: 0,
-      devoluccion_estimada: 0
-    },
+},
+
+simulador_devoluciones: {
+escenario_actual: {
+ingresos: 400000,
+isr_retenido: 42000,
+deducciones_aplicadas: 0,
+devoluccion_estimada: 0
+},
 
     escenario_optimizado: {
       ingresos: 400000,
@@ -3773,23 +3785,25 @@ interface AsistenteDeduccionesPersonales {
       "📚 Colegiatura ya llegó al tope (no gastes más ahí)",
       "🏥 Contrata seguro de gastos médicos (100% deducible sin límite)"
     ]
-  },
 
-  assistant_chat: {
-    pregunta_usuario: "¿Puedo deducir mi gym?",
-    respuesta_ia: `
+},
+
+assistant_chat: {
+pregunta_usuario: "¿Puedo deducir mi gym?",
+respuesta_ia: `
 ❌ No, el gimnasio NO es deducible.
 
 ✅ ALTERNATIVA: Si tienes diagnóstico médico que indique que necesitas ejercicio (ej: obesidad, diabetes), y lo prescribe un doctor, ENTONCES sí es deducible como "honorario médico por tratamiento".
 
 📋 Necesitas:
+
 1. Receta médica que indique "ejercicio supervisado"
 2. Factura del gym a tu nombre con RFC
 3. Registro de asistencia (el gym te lo da)
 
 💰 Potencial deducción: ~$6,000/año
-    `
-  }
+`
+}
 }
 
 Features Únicos:
@@ -3841,13 +3855,12 @@ Pérdida de tiempo del cliente (esperando factura)
 Solución Revolucionaria:
 Validador Multi-Nivel ANTES de Enviar al PAC
 
-
 interface AuditorVirtualFactura {
-  nivel_1_validaciones_sat: {
-    schema_xsd: {
-      status: "OK",
-      mensaje: "Estructura XML válida según Anexo 20"
-    },
+nivel_1_validaciones_sat: {
+schema_xsd: {
+status: "OK",
+mensaje: "Estructura XML válida según Anexo 20"
+},
 
     catalogos: {
       uso_cfdi: {
@@ -3863,48 +3876,51 @@ interface AuditorVirtualFactura {
         alerta: "⚠️ Forma '99' requiere complemento de pagos después"
       }
     }
-  },
 
-  nivel_2_validaciones_negocio: {
-    coherencia_montos: {
-      status: "ERROR",
-      problema: "Subtotal ($10,000) + IVA ($1,600) ≠ Total ($12,000)",
-      solucion: "El total debe ser $11,600. Corrige el monto."
-    },
+},
+
+nivel_2_validaciones_negocio: {
+coherencia_montos: {
+status: "ERROR",
+problema: "Subtotal ($10,000) + IVA ($1,600) ≠ Total ($12,000)",
+solucion: "El total debe ser $11,600. Corrige el monto."
+},
 
     relacion_cfdi: {
       status: "OK",
       valida_que: "UUID relacionado existe y pertenece a este receptor"
     }
-  },
 
-  nivel_3_inteligencia_contextual: {
-    patron_cliente: {
-      status: "WARNING",
-      observacion: "Este cliente usualmente paga con PPD, no PUE",
-      sugerencia: "¿Seguro que es PUE? 8 de sus últimas 10 facturas fueron PPD"
-    },
+},
+
+nivel_3_inteligencia_contextual: {
+patron_cliente: {
+status: "WARNING",
+observacion: "Este cliente usualmente paga con PPD, no PUE",
+sugerencia: "¿Seguro que es PUE? 8 de sus últimas 10 facturas fueron PPD"
+},
 
     monto_anomalo: {
       status: "WARNING",
       observacion: "Factura de $150K (promedio cliente: $8K)",
       pregunta: "¿Es correcto o hay un error de captura?"
     }
-  },
 
-  nivel_4_experiencia_otros_usuarios: {
-    aprendizaje_colectivo: {
-      status: "INFO",
-      tip: "42 usuarios con este mismo RFC receptor usan UsoCFDI = 'G02' (no 'G03'). ¿Quieres cambiarlo?",
-      detalle: "Esto podría ser más adecuado para su giro empresarial"
-    }
-  },
+},
 
-  score_exito: {
-    probabilidad_timbre_exitoso: 95, // %
-    confianza: "ALTA",
-    accion_recomendada: "Puedes timbrar con seguridad"
-  }
+nivel_4_experiencia_otros_usuarios: {
+aprendizaje_colectivo: {
+status: "INFO",
+tip: "42 usuarios con este mismo RFC receptor usan UsoCFDI = 'G02' (no 'G03'). ¿Quieres cambiarlo?",
+detalle: "Esto podría ser más adecuado para su giro empresarial"
+}
+},
+
+score_exito: {
+probabilidad_timbre_exitoso: 95, // %
+confianza: "ALTA",
+accion_recomendada: "Puedes timbrar con seguridad"
+}
 }
 Features Únicos:
 
@@ -3948,9 +3964,9 @@ Solución Revolucionaria:
 Sistema de Preparación para Auditoría con Generación Automática de Evidencia
 
 interface CentroComandoAuditoria {
-  estado_preparacion: {
-    nivel_readiness: 82, // 0-100
-    status: "PREPARADO" | "RIESGO_MEDIO" | "RIESGO_ALTO",
+estado_preparacion: {
+nivel_readiness: 82, // 0-100
+status: "PREPARADO" | "RIESGO_MEDIO" | "RIESGO_ALTO",
 
     categorias: {
       documentacion_completa: {
@@ -3970,10 +3986,11 @@ interface CentroComandoAuditoria {
         detalle: "87% de operaciones tienen evidencia completa"
       }
     }
-  },
 
-  simulador_auditoria: {
-    tipo: "Auditoría Electrónica (más común)",
+},
+
+simulador_auditoria: {
+tipo: "Auditoría Electrónica (más común)",
 
     documentos_solicitados_tipicos: [
       {
@@ -4004,10 +4021,11 @@ interface CentroComandoAuditoria {
 
     tiempo_total_preparacion: "2 horas vs 40 horas manual",
     ahorro_contador: "$15,000 MXN (contadores cobran esto por preparar auditoría)"
-  },
 
-  asistente_respuesta: {
-    requerimiento_sat: "El SAT solicita 'Papeles de trabajo que soporten la deducción de $450K en gastos operativos'",
+},
+
+asistente_respuesta: {
+requerimiento_sat: "El SAT solicita 'Papeles de trabajo que soporten la deducción de $450K en gastos operativos'",
 
     respuesta_generada: {
       documento: "Papel_Trabajo_Deduccion_GastosOperativos_2025.pdf",
@@ -4023,13 +4041,14 @@ interface CentroComandoAuditoria {
       tiempo_generacion: "8 minutos",
       calidad: "Formato profesional aceptado por SAT"
     }
-  },
 
-  timeline_auditoria: {
-    notificacion_recibida: "2025-01-15",
-    deadline_respuesta: "2025-01-30 (15 días)",
-    dias_restantes: 4,
-    status: "🟡 URGENTE - Preparar respuesta YA",
+},
+
+timeline_auditoria: {
+notificacion_recibida: "2025-01-15",
+deadline_respuesta: "2025-01-30 (15 días)",
+dias_restantes: 4,
+status: "🟡 URGENTE - Preparar respuesta YA",
 
     tareas_pendientes: [
       "Revisar requerimiento completo (10 min)",
@@ -4037,7 +4056,8 @@ interface CentroComandoAuditoria {
       "Revisión con contador (2 horas)",
       "Enviar respuesta vía portal SAT (20 min)"
     ]
-  }
+
+}
 }
 
 Features Únicos:
@@ -4092,20 +4112,20 @@ Solución Revolucionaria:
 Motor de Validación Cruzada IMSS + SAT + INFONAVIT
 
 interface ValidadorNominaInteligente {
-  empleado: {
-    rfc: "XXXX880101XXX",
-    nss: "12345678901", // Número Seguro Social
-    salario_base: 15000,
-    dias_trabajados: 15 // Quincena
-  },
+empleado: {
+rfc: "XXXX880101XXX",
+nss: "12345678901", // Número Seguro Social
+salario_base: 15000,
+dias_trabajados: 15 // Quincena
+},
 
-  validaciones_automaticas: {
-    calculo_isr: {
-      calculado_sistema: 1250,
-      calculado_usuario: 1250,
-      status: "OK",
-      tabla_aplicada: "Artículo 96 LISR 2025"
-    },
+validaciones_automaticas: {
+calculo_isr: {
+calculado_sistema: 1250,
+calculado_usuario: 1250,
+status: "OK",
+tabla_aplicada: "Artículo 96 LISR 2025"
+},
 
     cuotas_imss: {
       calculado_sistema: 750,
@@ -4129,25 +4149,26 @@ interface ValidadorNominaInteligente {
       neto: 11575,
       status: "OK"
     }
-  },
 
-  validacion_vs_imss: {
-    salario_reportado_imss: 15000,
-    salario_nomina: 15000,
-    status: "OK",
-    alerta: null
-  },
+},
 
-  cumplimiento_legal: {
-    campos_obligatorios: {
-      tipo_regimen: "02 - Sueldos",
-      num_seguridad_social: "12345678901",
-      riesgo_puesto: "Clase II",
-      fecha_inicio_relacion: "2020-05-15",
-      antiguedad: "P4Y8M", // 4 años 8 meses
-      status: "OK"
-    }
-  }
+validacion_vs_imss: {
+salario_reportado_imss: 15000,
+salario_nomina: 15000,
+status: "OK",
+alerta: null
+},
+
+cumplimiento_legal: {
+campos_obligatorios: {
+tipo_regimen: "02 - Sueldos",
+num_seguridad_social: "12345678901",
+riesgo_puesto: "Clase II",
+fecha_inicio_relacion: "2020-05-15",
+antiguedad: "P4Y8M", // 4 años 8 meses
+status: "OK"
+}
+}
 }
 
 Features Únicos:
@@ -4192,10 +4213,10 @@ Solución Revolucionaria:
 Marketplace Two-Sided (Usuarios ↔ Contadores)
 
 interface MarketplaceContadores {
-  perfil_contador: {
-    nombre: "Lic. María García Pérez",
-    cedula_profesional: "1234567",
-    rfc: "GAPM800101XXX",
+perfil_contador: {
+nombre: "Lic. María García Pérez",
+cedula_profesional: "1234567",
+rfc: "GAPM800101XXX",
 
     certificaciones: [
       "Certificado por IMCP (Instituto Mexicano de Contadores Públicos)",
@@ -4229,16 +4250,17 @@ interface MarketplaceContadores {
       "Respuesta <3 horas",
       "Experto en Freelancers"
     ]
-  },
 
-  matching_inteligente: {
-    usuario: {
-      tipo_persona: "Física",
-      regimen: "Actividades Empresariales",
-      industria: "Tecnología/Software",
-      facturacion_anual: 650000, // MXN
-      num_empleados: 0
-    },
+},
+
+matching_inteligente: {
+usuario: {
+tipo_persona: "Física",
+regimen: "Actividades Empresariales",
+industria: "Tecnología/Software",
+facturacion_anual: 650000, // MXN
+num_empleados: 0
+},
 
     contadores_recomendados: [
       {
@@ -4253,25 +4275,25 @@ interface MarketplaceContadores {
         precio_estimado: "$2,500/mes"
       }
     ]
-  },
 
-  flujo_contratacion: {
-    paso_1: "Usuario solicita cotización (gratis)",
-    paso_2: "Contador responde en <24h con propuesta",
-    paso_3: "Usuario acepta y paga primera mensualidad",
-    paso_4: "Plataforma retiene pago (escrow)",
-    paso_5: "Contador trabaja (compartimos dashboard)",
-    paso_6: "Usuario confirma satisfacción",
-    paso_7: "Plataforma libera pago a contador (menos 15% comisión)"
-  },
+},
 
-  proteccion_usuario: {
-    garantia_dinero_devuelto: "Si no estás satisfecho en primeros 30 días",
-    escrow: "No pagamos a contador hasta que confirmes",
-    soporte: "Mediamos en caso de conflicto"
-  }
+flujo_contratacion: {
+paso_1: "Usuario solicita cotización (gratis)",
+paso_2: "Contador responde en <24h con propuesta",
+paso_3: "Usuario acepta y paga primera mensualidad",
+paso_4: "Plataforma retiene pago (escrow)",
+paso_5: "Contador trabaja (compartimos dashboard)",
+paso_6: "Usuario confirma satisfacción",
+paso_7: "Plataforma libera pago a contador (menos 15% comisión)"
+},
+
+proteccion_usuario: {
+garantia_dinero_devuelto: "Si no estás satisfecho en primeros 30 días",
+escrow: "No pagamos a contador hasta que confirmes",
+soporte: "Mediamos en caso de conflicto"
 }
-
+}
 
 🚀 10 CARACTERÍSTICAS REVOLUCIONARIAS SAT/CONTABILIDAD QUE NADIE TIENE
 Investigación exhaustiva de competidores + Análisis de pain points reales de usuarios mexicanos
@@ -4622,25 +4644,25 @@ Solución Revolucionaria:
 Simulador Multi-Escenario con Recomendación Personalizada
 
 interface SimuladorRegimenFiscal {
-  datos_usuario: {
-    tipo_persona: "Física",
-    actividad: "Servicios profesionales independientes",
-    ingresos_anuales: 500000, // MXN
-    gastos_deducibles: 120000,
-    empleados: 0,
-    local_comercial: false
-  },
+datos_usuario: {
+tipo_persona: "Física",
+actividad: "Servicios profesionales independientes",
+ingresos_anuales: 500000, // MXN
+gastos_deducibles: 120000,
+empleados: 0,
+local_comercial: false
+},
 
-  analisis_regimenes: {
-    regimen_actual: {
-      nombre: "Actividades Empresariales (General)",
-      isr_anual: 85000,
-      iva_pagar: 48000,
-      carga_fiscal_total: 133000, // 26.6% de ingresos
-      complejidad_administrativa: "ALTA",
-      declaraciones_anuales: 13, // 12 mensuales + anual
-      tiempo_mensual: "8 horas"
-    },
+analisis_regimenes: {
+regimen_actual: {
+nombre: "Actividades Empresariales (General)",
+isr_anual: 85000,
+iva_pagar: 48000,
+carga_fiscal_total: 133000, // 26.6% de ingresos
+complejidad_administrativa: "ALTA",
+declaraciones_anuales: 13, // 12 mensuales + anual
+tiempo_mensual: "8 horas"
+},
 
     regimen_recomendado: {
       nombre: "RESICO (Régimen Simplificado de Confianza)",
@@ -4677,25 +4699,26 @@ interface SimuladorRegimenFiscal {
         razon: "No aplica (no eres empleado)"
       }
     ]
-  },
 
-  simulador_interactivo: {
-    pregunta: "¿Qué pasa si mis ingresos suben a $700K/año?",
-    respuesta: {
-      resico_sigue_viable: true,
-      nuevo_isr: 59500,
-      nuevo_ahorro_vs_general: 112000,
-      recomendacion: "Sigue siendo RESICO la mejor opción"
-    }
-  },
+},
 
-  proceso_migracion: {
-    pasos: [
-      "1. Darte de baja del régimen actual (online en SAT)",
-      "2. Alta en RESICO (online, tarda 5 min)",
-      "3. Actualizar e.firma si es necesaria",
-      "4. Informar a clientes (tus facturas cambiarán de régimen)"
-    ],
+simulador_interactivo: {
+pregunta: "¿Qué pasa si mis ingresos suben a $700K/año?",
+respuesta: {
+resico_sigue_viable: true,
+nuevo_isr: 59500,
+nuevo_ahorro_vs_general: 112000,
+recomendacion: "Sigue siendo RESICO la mejor opción"
+}
+},
+
+proceso_migracion: {
+pasos: [
+"1. Darte de baja del régimen actual (online en SAT)",
+"2. Alta en RESICO (online, tarda 5 min)",
+"3. Actualizar e.firma si es necesaria",
+"4. Informar a clientes (tus facturas cambiarán de régimen)"
+],
 
     tiempo_total: "2-3 días",
     costo: "$0 MXN (es gratis en portal SAT)",
@@ -4705,12 +4728,13 @@ interface SimuladorRegimenFiscal {
       checklist_descargable: "PDF con todos los pasos",
       soporte_chat: "Si tienes dudas, chatea con IA experta"
     }
-  },
 
-  alertas_automaticas: {
-    monitoreo: "Sistema revisa cada mes si sigues en régimen óptimo",
-    ejemplo_alerta: "⚠️ Tus ingresos subieron a $3.6M (excedes límite RESICO). Considera migrar a General para evitar multas."
-  }
+},
+
+alertas_automaticas: {
+monitoreo: "Sistema revisa cada mes si sigues en régimen óptimo",
+ejemplo_alerta: "⚠️ Tus ingresos subieron a $3.6M (excedes límite RESICO). Considera migrar a General para evitar multas."
+}
 }
 Features Únicos:
 
@@ -4758,13 +4782,12 @@ Requiere 40+ campos (origen, destino, tipo de mercancía, placas, licencia chofe
 Solución Revolucionaria:
 Generador de Carta Porte con Validación en Tiempo Real
 
-
 interface AsistenteCartaPorte {
-  datos_viaje: {
-    origen: "CDMX (Código Postal 03100)",
-    destino: "Monterrey, NL (Código Postal 64000)",
-    distancia_km: 920,
-    duracion_estimada: "10 horas",
+datos_viaje: {
+origen: "CDMX (Código Postal 03100)",
+destino: "Monterrey, NL (Código Postal 64000)",
+distancia_km: 920,
+duracion_estimada: "10 horas",
 
     mercancia: {
       tipo: "Electrónicos",
@@ -4786,14 +4809,15 @@ interface AsistenteCartaPorte {
       licencia: "LIC123456",
       nombre: "Juan Pérez"
     }
-  },
 
-  validaciones_automaticas: {
-    ruta: {
-      status: "OK",
-      validacion: "Ruta CDMX→Monterrey registrada en SAT",
-      codigo_ruta: "CDMX-MTY-01"
-    },
+},
+
+validaciones_automaticas: {
+ruta: {
+status: "OK",
+validacion: "Ruta CDMX→Monterrey registrada en SAT",
+codigo_ruta: "CDMX-MTY-01"
+},
 
     peso_vs_capacidad: {
       status: "WARNING",
@@ -4810,22 +4834,22 @@ interface AsistenteCartaPorte {
       problema: "❌ Licencia vencida (expiró 2024-08-15)",
       solucion: "Actualiza licencia antes de emitir Carta Porte"
     }
-  },
 
-  generacion_automatica: {
-    tiempo: "3 minutos vs 20 minutos manual",
-    campos_pre_llenados: 38, // De 40 campos
-    campos_editables: 2, // Usuario solo ajusta 2
-    formato: "XML válido para SAT + PDF imprimible"
-  },
+},
 
-  integracion_gps: {
-    rastreo_tiempo_real: true,
-    validacion_ruta: "Sistema valida que el camión siga la ruta declarada",
-    alerta_desviacion: "Si se desvía >50km, alertar (posible robo)"
-  }
+generacion_automatica: {
+tiempo: "3 minutos vs 20 minutos manual",
+campos_pre_llenados: 38, // De 40 campos
+campos_editables: 2, // Usuario solo ajusta 2
+formato: "XML válido para SAT + PDF imprimible"
+},
+
+integracion_gps: {
+rastreo_tiempo_real: true,
+validacion_ruta: "Sistema valida que el camión siga la ruta declarada",
+alerta_desviacion: "Si se desvía >50km, alertar (posible robo)"
 }
-
+}
 
 🚀 10 CARACTERÍSTICAS REVOLUCIONARIAS SAT/CONTABILIDAD QUE NADIE TIENE
 Investigación exhaustiva de competidores + Análisis de pain points reales de usuarios mexicanos
@@ -5258,21 +5282,21 @@ Solución Revolucionaria:
 Academia Fiscal con Certificación Oficial
 
 interface CentroEducacionFiscal {
-  cursos: [
-    {
-      titulo: "Fundamentos de CFDI 4.0",
-      duracion: "2 horas",
-      formato: "Video + Quizzes",
-      costo: "Gratis para usuarios Premium",
-      certificado: "Sí (avalado por IMCP)",
-      temario: [
-        "Qué es un CFDI y para qué sirve",
-        "Tipos de CFDI (Ingreso, Egreso, Nómina, Pago)",
-        "Cómo timbrar correctamente",
-        "Errores comunes y cómo evitarlos"
-      ],
-      instructor: "Lic. María García (Contadora Certificada)"
-    },
+cursos: [
+{
+titulo: "Fundamentos de CFDI 4.0",
+duracion: "2 horas",
+formato: "Video + Quizzes",
+costo: "Gratis para usuarios Premium",
+certificado: "Sí (avalado por IMCP)",
+temario: [
+"Qué es un CFDI y para qué sirve",
+"Tipos de CFDI (Ingreso, Egreso, Nómina, Pago)",
+"Cómo timbrar correctamente",
+"Errores comunes y cómo evitarlos"
+],
+instructor: "Lic. María García (Contadora Certificada)"
+},
 
     {
       titulo: "Deducciones Personales Maximizadas",
@@ -5300,29 +5324,30 @@ interface CentroEducacionFiscal {
         "Límites y restricciones"
       ]
     }
-  ],
 
-  certificacion_oficial: {
-    nombre: "Certificado de Competencias Fiscales Básicas",
-    avalado_por: "Instituto Mexicano de Contadores Públicos (IMCP)",
-    validez: "2 años",
-    beneficios: [
-      "Badge en LinkedIn",
-      "Mencionable en CV",
-      "Reconocido por empresas"
-    ],
-    costo: "$1,999 MXN (incluye 5 cursos + examen)"
-  },
+],
 
-  gamificacion: {
-    puntos_por_curso: 100,
-    badges: [
-      "Experto en CFDI",
-      "Maestro de Deducciones",
-      "Fiscalista en Formación"
-    ],
-    leaderboard: "Top 100 estudiantes del mes"
-  }
+certificacion_oficial: {
+nombre: "Certificado de Competencias Fiscales Básicas",
+avalado_por: "Instituto Mexicano de Contadores Públicos (IMCP)",
+validez: "2 años",
+beneficios: [
+"Badge en LinkedIn",
+"Mencionable en CV",
+"Reconocido por empresas"
+],
+costo: "$1,999 MXN (incluye 5 cursos + examen)"
+},
+
+gamificacion: {
+puntos_por_curso: 100,
+badges: [
+"Experto en CFDI",
+"Maestro de Deducciones",
+"Fiscalista en Formación"
+],
+leaderboard: "Top 100 estudiantes del mes"
+}
 }
 
 Features Únicos:
@@ -5351,17 +5376,17 @@ Competencia:
 ❌ Contadores: Cobran $5K-10K por curso presencial
 ✅ NOSOTROS: Online, barato, certificado oficial
 📊 RESUMEN EJECUTIVO: IMPACTO DE LAS 10 INNOVACIONES
-Innovación	Valor Económico Usuario	Ventaja Competitiva	Complejidad Técnica	Prioridad
-#1 Opinión 32-D Automática	$3K-8K ahorrados	Nadie lo tiene	ALTA	🔴 CRÍTICA
-#2 Motor Anti-EFOS Predictivo	$500K-5M evitados	Nadie predice, solo validan	MUY ALTA	🔴 CRÍTICA
-#3 Maximizador de Devoluciones	$5K-30K extra/año	IA explicable	ALTA	🟡 ALTA
-#4 Auditor Pre-Timbrado	40% menos rechazos	Validación 4 niveles	MEDIA	🔴 CRÍTICA
-#5 Centro Comando Auditorías	$15K ahorrados	Nadie prepara proactivamente	ALTA	🟡 ALTA
-#6 Validador Nómina	$3K-8K/mes ahorrados	Nómina integrada	MEDIA	🟡 MEDIA
-#7 Marketplace Contadores	Network effects	Modelo dos lados	MEDIA	🔴 CRÍTICA
-#8 Simulador Régimen Fiscal	$40K-120K/año ahorrados	Nadie simula todos	BAJA	🟡 ALTA
-#9 Carta Porte 3.0	$17K-90K multas evitadas	Nicho desatendido	MEDIA	🟡 MEDIA
-#10 Academia Fiscal	Retención +40%	Monetización extra	BAJA	🟢 MEDIA
+Innovación Valor Económico Usuario Ventaja Competitiva Complejidad Técnica Prioridad
+#1 Opinión 32-D Automática $3K-8K ahorrados Nadie lo tiene ALTA 🔴 CRÍTICA
+#2 Motor Anti-EFOS Predictivo $500K-5M evitados Nadie predice, solo validan MUY ALTA 🔴 CRÍTICA
+#3 Maximizador de Devoluciones $5K-30K extra/año IA explicable ALTA 🟡 ALTA
+#4 Auditor Pre-Timbrado 40% menos rechazos Validación 4 niveles MEDIA 🔴 CRÍTICA
+#5 Centro Comando Auditorías $15K ahorrados Nadie prepara proactivamente ALTA 🟡 ALTA
+#6 Validador Nómina $3K-8K/mes ahorrados Nómina integrada MEDIA 🟡 MEDIA
+#7 Marketplace Contadores Network effects Modelo dos lados MEDIA 🔴 CRÍTICA
+#8 Simulador Régimen Fiscal $40K-120K/año ahorrados Nadie simula todos BAJA 🟡 ALTA
+#9 Carta Porte 3.0 $17K-90K multas evitadas Nicho desatendido MEDIA 🟡 MEDIA
+#10 Academia Fiscal Retención +40% Monetización extra BAJA 🟢 MEDIA
 🎯 RECOMENDACIÓN FINAL: ROADMAP DE IMPLEMENTACIÓN
 Mes 0-3 (PMV):
 ✅ Innovación #4: Auditor Pre-Timbrado (evita frustración)
@@ -5387,5 +5412,4 @@ Mes 12+ (Expansión):
 ✅ Te conecta con contadores certificados (escrow protegido)
 Todo por $199 MXN/mes. Tu contador te cobraría $50,000+ por esto."
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+---

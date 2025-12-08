@@ -1,4 +1,5 @@
 # 📖 API DOCUMENTATION
+
 **Proyecto:** PRO_FINAN_CONTA_PYM  
 **Versión API:** v1  
 **Base URL:** `https://api.profinanconta.mx/v1`  
@@ -9,6 +10,7 @@
 ## 🔐 AUTENTICACIÓN
 
 Todos los endpoints (excepto auth) requieren token JWT en header:
+
 ```
 Authorization: Bearer <token>
 ```
@@ -20,9 +22,11 @@ Authorization: Bearer <token>
 ### 🔑 AUTH
 
 #### POST /auth/register
+
 Registra un nuevo usuario.
 
 **Request:**
+
 ```json
 {
   "email": "usuario@ejemplo.com",
@@ -32,6 +36,7 @@ Registra un nuevo usuario.
 ```
 
 **Response (201):**
+
 ```json
 {
   "success": true,
@@ -47,9 +52,11 @@ Registra un nuevo usuario.
 ---
 
 #### POST /auth/login
+
 Inicia sesión.
 
 **Request:**
+
 ```json
 {
   "email": "usuario@ejemplo.com",
@@ -58,6 +65,7 @@ Inicia sesión.
 ```
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -76,9 +84,11 @@ Inicia sesión.
 ### 💰 TRANSACCIONES
 
 #### GET /transactions
+
 Lista transacciones del usuario.
 
 **Query params:**
+
 - `page` (int, default: 1)
 - `limit` (int, default: 20, max: 100)
 - `type` (string: income|expense|transfer)
@@ -88,13 +98,14 @@ Lista transacciones del usuario.
 - `accountId` (uuid)
 
 **Response (200):**
+
 ```json
 {
   "data": [
     {
       "id": "uuid",
       "type": "expense",
-      "amount": 1500.00,
+      "amount": 1500.0,
       "description": "Pago de luz",
       "date": "2025-11-28T10:00:00Z",
       "category": {
@@ -120,13 +131,15 @@ Lista transacciones del usuario.
 ---
 
 #### POST /transactions
+
 Crea nueva transacción.
 
 **Request:**
+
 ```json
 {
   "type": "expense",
-  "amount": 1500.00,
+  "amount": 1500.0,
   "description": "Pago de luz",
   "date": "2025-11-28",
   "categoryId": "uuid",
@@ -136,6 +149,7 @@ Crea nueva transacción.
 ```
 
 **Response (201):**
+
 ```json
 {
   "success": true,
@@ -153,9 +167,11 @@ Crea nueva transacción.
 ### 🏦 CUENTAS
 
 #### GET /accounts
+
 Lista cuentas del usuario.
 
 **Response (200):**
+
 ```json
 {
   "data": [
@@ -163,7 +179,7 @@ Lista cuentas del usuario.
       "id": "uuid",
       "name": "Cuenta Principal",
       "type": "bank",
-      "balance": 25000.00,
+      "balance": 25000.0,
       "currency": "MXN",
       "color": "#4CAF50",
       "icon": "🏦"
@@ -172,7 +188,7 @@ Lista cuentas del usuario.
       "id": "uuid",
       "name": "Efectivo",
       "type": "cash",
-      "balance": 3500.00,
+      "balance": 3500.0,
       "currency": "MXN",
       "color": "#FF9800",
       "icon": "💵"
@@ -184,14 +200,16 @@ Lista cuentas del usuario.
 ---
 
 #### POST /accounts
+
 Crea nueva cuenta.
 
 **Request:**
+
 ```json
 {
   "name": "Tarjeta de Crédito",
   "type": "credit_card",
-  "balance": -5000.00,
+  "balance": -5000.0,
   "currency": "MXN",
   "color": "#F44336",
   "icon": "💳"
@@ -203,24 +221,27 @@ Crea nueva cuenta.
 ### 📊 REPORTES
 
 #### GET /reports/summary
+
 Resumen financiero del período.
 
 **Query params:**
+
 - `period` (string: week|month|quarter|year)
 - `startDate` (ISO date)
 - `endDate` (ISO date)
 
 **Response (200):**
+
 ```json
 {
   "period": "2025-11",
-  "income": 45000.00,
-  "expenses": 32000.00,
-  "balance": 13000.00,
+  "income": 45000.0,
+  "expenses": 32000.0,
+  "balance": 13000.0,
   "previousPeriod": {
-    "income": 42000.00,
-    "expenses": 35000.00,
-    "balance": 7000.00
+    "income": 42000.0,
+    "expenses": 35000.0,
+    "balance": 7000.0
   },
   "changePercent": {
     "income": 7.14,
@@ -233,21 +254,23 @@ Resumen financiero del período.
 ---
 
 #### GET /reports/categories
+
 Gastos/ingresos por categoría.
 
 **Response (200):**
+
 ```json
 {
   "expenses": [
     {
       "category": "Servicios",
-      "amount": 8500.00,
+      "amount": 8500.0,
       "percentage": 26.5,
       "transactions": 12
     },
     {
       "category": "Proveedores",
-      "amount": 15000.00,
+      "amount": 15000.0,
       "percentage": 46.9,
       "transactions": 8
     }
@@ -255,7 +278,7 @@ Gastos/ingresos por categoría.
   "income": [
     {
       "category": "Ventas",
-      "amount": 40000.00,
+      "amount": 40000.0,
       "percentage": 88.9,
       "transactions": 45
     }
@@ -268,17 +291,19 @@ Gastos/ingresos por categoría.
 ### 🎯 METAS DE AHORRO
 
 #### GET /goals
+
 Lista metas de ahorro.
 
 **Response (200):**
+
 ```json
 {
   "data": [
     {
       "id": "uuid",
       "name": "Fondo de emergencia",
-      "targetAmount": 50000.00,
-      "currentAmount": 23500.00,
+      "targetAmount": 50000.0,
+      "currentAmount": 23500.0,
       "progress": 47,
       "targetDate": "2026-06-01",
       "daysRemaining": 185
@@ -288,12 +313,14 @@ Lista metas de ahorro.
 ```
 
 #### POST /goals/:id/contribute
+
 Aportar a una meta.
 
 **Request:**
+
 ```json
 {
-  "amount": 1000.00,
+  "amount": 1000.0,
   "sourceAccountId": "uuid"
 }
 ```
@@ -302,18 +329,19 @@ Aportar a una meta.
 
 ## 📜 CÓDIGOS DE ERROR
 
-| Código | Significado |
-|--------|-------------|
-| 400 | Bad Request - Datos inválidos |
-| 401 | Unauthorized - Token inválido/expirado |
-| 403 | Forbidden - Sin permisos |
-| 404 | Not Found - Recurso no existe |
-| 409 | Conflict - Recurso ya existe |
-| 422 | Unprocessable Entity - Validación falló |
-| 429 | Too Many Requests - Rate limit |
-| 500 | Internal Server Error |
+| Código | Significado                             |
+| ------ | --------------------------------------- |
+| 400    | Bad Request - Datos inválidos           |
+| 401    | Unauthorized - Token inválido/expirado  |
+| 403    | Forbidden - Sin permisos                |
+| 404    | Not Found - Recurso no existe           |
+| 409    | Conflict - Recurso ya existe            |
+| 422    | Unprocessable Entity - Validación falló |
+| 429    | Too Many Requests - Rate limit          |
+| 500    | Internal Server Error                   |
 
 **Formato de error:**
+
 ```json
 {
   "error": {
@@ -331,13 +359,14 @@ Aportar a una meta.
 
 ## 🚦 RATE LIMITING
 
-| Endpoint | Límite |
-|----------|--------|
-| POST /auth/* | 5 req/min |
-| GET /* | 100 req/min |
-| POST/PUT/DELETE /* | 30 req/min |
+| Endpoint            | Límite      |
+| ------------------- | ----------- |
+| POST /auth/\*       | 5 req/min   |
+| GET /\*             | 100 req/min |
+| POST/PUT/DELETE /\* | 30 req/min  |
 
 Headers de respuesta:
+
 ```
 X-RateLimit-Limit: 100
 X-RateLimit-Remaining: 95
@@ -373,27 +402,27 @@ Los wrappers encapsulan llamadas a APIs externas con protecciones:
 
 ### APIs Externas Integradas
 
-| API | Propósito | Wrapper | Estado |
-|:----|:----------|:--------|:-------|
-| **SAT** | Validación RFC, CSF, CIEC | `SATWrapper` | ⏳ Pendiente |
-| **Finkok** | Timbrado CFDI | `FinkokWrapper` | ⏳ Pendiente |
-| **Banxico** | Tipo de cambio | `BanxicoWrapper` | ⏳ Pendiente |
-| **Finerio** | Open Banking | `FinerioWrapper` | ⏳ Pendiente |
+| API         | Propósito                 | Wrapper          | Estado       |
+| :---------- | :------------------------ | :--------------- | :----------- |
+| **SAT**     | Validación RFC, CSF, CIEC | `SATWrapper`     | ⏳ Pendiente |
+| **Finkok**  | Timbrado CFDI             | `FinkokWrapper`  | ⏳ Pendiente |
+| **Banxico** | Tipo de cambio            | `BanxicoWrapper` | ⏳ Pendiente |
+| **Finerio** | Open Banking              | `FinerioWrapper` | ⏳ Pendiente |
 
 ### Uso de Wrappers
 
 ```typescript
 // ✅ CORRECTO: Usar wrapper con protecciones
-import { getSATWrapper } from '$lib/server/integrations/sat.wrapper';
+import { getSATWrapper } from "$lib/server/integrations/sat.wrapper";
 
 const sat = getSATWrapper(redis);
-const resultado = await sat.validarRFC('XAXX010101000');
+const resultado = await sat.validarRFC("XAXX010101000");
 // - Si SAT está caído → devuelve caché
 // - Si timeout → reintenta 3 veces
 // - Si circuit abierto → falla rápido
 
 // ❌ INCORRECTO: Llamar API directamente
-const response = await fetch('https://sat.gob.mx/api/...');
+const response = await fetch("https://sat.gob.mx/api/...");
 // - Sin timeout → puede colgar infinito
 // - Sin retry → falla al primer error
 // - Sin caché → SAT caído = app caída
@@ -402,15 +431,18 @@ const response = await fetch('https://sat.gob.mx/api/...');
 ### Endpoints de Integraciones
 
 #### GET /integrations/sat/validar-rfc
+
 Valida un RFC con el SAT.
 
 **Request:**
+
 ```
 GET /integrations/sat/validar-rfc?rfc=XAXX010101000
 Authorization: Bearer <token>
 ```
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -430,6 +462,7 @@ Authorization: Bearer <token>
 ```
 
 **Response (503 - SAT caído):**
+
 ```json
 {
   "success": true,
@@ -447,9 +480,11 @@ Authorization: Bearer <token>
 ```
 
 #### GET /integrations/banxico/tipo-cambio
+
 Obtiene tipo de cambio USD/MXN.
 
 **Response (200):**
+
 ```json
 {
   "success": true,
@@ -506,24 +541,27 @@ Obtiene tipo de cambio USD/MXN.
 ### Endpoints de Webhooks
 
 #### POST /webhooks/stripe
+
 Recibe eventos de Stripe (pagos, suscripciones).
 
 **Headers requeridos:**
+
 ```
 Stripe-Signature: t=1671234567,v1=abc123...
 Content-Type: application/json
 ```
 
 **Flujo de procesamiento:**
+
 ```typescript
 // filepath: src/routes/webhooks/stripe/+server.ts
-import { STRIPE_WEBHOOK_SECRET } from '$env/static/private';
-import Stripe from 'stripe';
-import { webhookQueue } from '$lib/server/queues/webhook.queue';
+import { STRIPE_WEBHOOK_SECRET } from "$env/static/private";
+import Stripe from "stripe";
+import { webhookQueue } from "$lib/server/queues/webhook.queue";
 
 export async function POST({ request }) {
   const payload = await request.text();
-  const signature = request.headers.get('stripe-signature');
+  const signature = request.headers.get("stripe-signature");
 
   // 1. Validar firma (seguridad)
   let event: Stripe.Event;
@@ -531,70 +569,80 @@ export async function POST({ request }) {
     event = stripe.webhooks.constructEvent(
       payload,
       signature!,
-      STRIPE_WEBHOOK_SECRET
+      STRIPE_WEBHOOK_SECRET,
     );
   } catch (err) {
-    console.error('Webhook signature verification failed');
-    return new Response('Invalid signature', { status: 400 });
+    console.error("Webhook signature verification failed");
+    return new Response("Invalid signature", { status: 400 });
   }
 
   // 2. Verificar idempotencia (evitar duplicados)
   const eventId = event.id;
   const exists = await redis.get(`webhook:processed:${eventId}`);
   if (exists) {
-    return new Response('Already processed', { status: 200 });
+    return new Response("Already processed", { status: 200 });
   }
 
   // 3. Encolar para procesamiento async
-  await webhookQueue.add('stripe', {
-    eventId,
-    type: event.type,
-    data: event.data.object
-  }, {
-    attempts: 3,
-    backoff: { type: 'exponential', delay: 1000 }
-  });
+  await webhookQueue.add(
+    "stripe",
+    {
+      eventId,
+      type: event.type,
+      data: event.data.object,
+    },
+    {
+      attempts: 3,
+      backoff: { type: "exponential", delay: 1000 },
+    },
+  );
 
   // 4. Marcar como procesado
-  await redis.setex(`webhook:processed:${eventId}`, 86400, '1');
+  await redis.setex(`webhook:processed:${eventId}`, 86400, "1");
 
   // 5. ACK rápido (< 100ms)
-  return new Response('OK', { status: 200 });
+  return new Response("OK", { status: 200 });
 }
 ```
 
 #### POST /webhooks/sat/notificaciones
+
 Recibe notificaciones del SAT (opcional, si se implementa).
 
 #### POST /webhooks/finkok/status
+
 Recibe actualizaciones de estado de facturas.
 
 ### Procesamiento de Cola (BullMQ)
 
 ```typescript
 // filepath: src/lib/server/workers/webhook.worker.ts
-import { Worker } from 'bullmq';
-import { redis } from '$lib/server/redis';
+import { Worker } from "bullmq";
+import { redis } from "$lib/server/redis";
 
-const webhookWorker = new Worker('webhooks', async (job) => {
-  const { eventId, type, data } = job.data;
+const webhookWorker = new Worker(
+  "webhooks",
+  async (job) => {
+    const { eventId, type, data } = job.data;
 
-  console.log(`Processing webhook: ${type} (${eventId})`);
+    console.log(`Processing webhook: ${type} (${eventId})`);
 
-  switch (type) {
-    case 'invoice.paid':
-      await handleInvoicePaid(data);
-      break;
-    case 'customer.subscription.updated':
-      await handleSubscriptionUpdated(data);
-      break;
-    case 'payment_intent.payment_failed':
-      await handlePaymentFailed(data);
-      break;
-    default:
-      console.log(`Unhandled webhook type: ${type}`);
-  }
-}, { connection: redis });
+    switch (type) {
+      case "invoice.paid":
+        await handleInvoicePaid(data);
+        break;
+      case "customer.subscription.updated":
+        await handleSubscriptionUpdated(data);
+        break;
+      case "payment_intent.payment_failed":
+        await handlePaymentFailed(data);
+        break;
+      default:
+        console.log(`Unhandled webhook type: ${type}`);
+    }
+  },
+  { connection: redis },
+);
 
 async function handleInvoicePaid(invoice: any) {
   // Actualizar suscripción del usuario
@@ -605,13 +653,13 @@ async function handleInvoicePaid(invoice: any) {
 
 ### Reintentos y Errores
 
-| Escenario | Comportamiento |
-|:----------|:---------------|
-| Timeout (>30s) | Stripe reintenta |
-| Error 5xx | Reintento automático |
-| Error 4xx | No reintenta (error nuestro) |
-| Duplicado | Idempotencia protege |
-| Worker caído | BullMQ reintenta |
+| Escenario      | Comportamiento               |
+| :------------- | :--------------------------- |
+| Timeout (>30s) | Stripe reintenta             |
+| Error 5xx      | Reintento automático         |
+| Error 4xx      | No reintenta (error nuestro) |
+| Duplicado      | Idempotencia protege         |
+| Worker caído   | BullMQ reintenta             |
 
 ### Monitoreo de Webhooks
 
@@ -636,10 +684,11 @@ interface WebhookStats {
 ## 📖 SWAGGER/OPENAPI
 
 Documentación interactiva disponible en:
+
 - **Development:** `http://localhost:4000/swagger`
 - **Production:** `https://api.profinanconta.mx/swagger`
 
 ---
 
-*API diseñada siguiendo principios REST y convenciones de la industria*  
-*Actualizado: 7 Diciembre 2025 - Agregadas secciones Wrappers y Webhooks*
+_API diseñada siguiendo principios REST y convenciones de la industria_  
+_Actualizado: 7 Diciembre 2025 - Agregadas secciones Wrappers y Webhooks_
