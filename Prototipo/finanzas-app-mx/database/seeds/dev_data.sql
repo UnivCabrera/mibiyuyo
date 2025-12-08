@@ -1,0 +1,1 @@
+   ssh root@tu-ip-del-vps

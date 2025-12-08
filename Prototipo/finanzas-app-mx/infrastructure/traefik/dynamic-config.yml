@@ -1,0 +1,1 @@
+ssh usuario@ip_del_vps

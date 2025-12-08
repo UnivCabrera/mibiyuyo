@@ -1,0 +1,361 @@
+{
+  // =============================================================================
+  // MCP SERVERS CONFIGURATION - PRO_FINAN_CONTA_PYM
+  // Mexican FinTech SaaS - 100% TypeScript Stack
+  // Last Updated: 5 Diciembre 2025
+  // =============================================================================
+  // 
+  // TOTAL MCPs CONFIGURADOS: 22
+  // 
+  // GRUPOS:
+  // 🟢 GRUPO 1 - OFICIALES/VERIFICADOS (21 activos)
+  // 🟡 GRUPO 2 - PENDIENTES DE CONFIGURAR (1 disabled - dokploy)
+  // 
+  // llms.txt CONFIRMADOS (9):
+  // - https://svelte.dev/llms.txt
+  // - https://vite.dev/llms.txt
+  // - https://shadcn-svelte.com/llms.txt
+  // - https://redis.io/docs/latest/llms.txt
+  // - https://zod.dev/llms.txt
+  // - https://bun.sh/llms.txt
+  // - https://elysiajs.com/llms.txt
+  // - https://bits-ui.com/llms.txt
+  // - https://better-auth.com/llms.txt ✨ NUEVO
+  // =============================================================================
+
+  "servers": {
+    // =========================================================================
+    // 🟢 GRUPO 1 - OFICIALES/VERIFICADOS
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // SVELTE 5 + SVELTEKIT - @sveltejs/mcp (OFICIAL)
+    // Herramientas: list-sections, get-documentation, svelte-autofixer, playground-link
+    // -------------------------------------------------------------------------
+    "svelte": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/model-context-protocol", "run", "@anthropic-ai/model-context-protocol-servers", "svelte"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // REDIS - @redis/mcp-redis (OFICIAL)
+    // Herramientas: redis-cli, inspect-keys, cache-operations
+    // -------------------------------------------------------------------------
+    "redis": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@redis/mcp-redis"],
+      "env": {
+        "REDIS_URL": "redis://localhost:6379"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // POSTGRESQL - @modelcontextprotocol/server-postgres (OFICIAL)
+    // Herramientas: query, describe-table, list-tables
+    // -------------------------------------------------------------------------
+    "postgres": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "POSTGRES_CONNECTION_STRING": "postgresql://localhost:5432/fintech_db"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // SQLITE - @modelcontextprotocol/server-sqlite (OFICIAL)
+    // Para desarrollo local y pruebas
+    // -------------------------------------------------------------------------
+    "sqlite": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sqlite", "--db-path", "./data/dev.db"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // SENTRY - @modelcontextprotocol/server-sentry (OFICIAL)
+    // Herramientas: list-issues, get-issue-details, list-events
+    // -------------------------------------------------------------------------
+    "sentry": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-sentry"],
+      "env": {
+        "SENTRY_AUTH_TOKEN": "${SENTRY_AUTH_TOKEN}"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // PLAYWRIGHT - @playwright/mcp (OFICIAL)
+    // Testing E2E y automatización de navegador
+    // -------------------------------------------------------------------------
+    "playwright": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@playwright/mcp@latest"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // ZOD - Remote MCP (Cloudflare Workers)
+    // Validación de esquemas TypeScript
+    // -------------------------------------------------------------------------
+    "zod": {
+      "type": "http",
+      "url": "https://mcp.zod.dev/sse"
+    },
+
+    // -------------------------------------------------------------------------
+    // FILESYSTEM - @anthropic-ai/filesystem (OFICIAL)
+    // Operaciones de sistema de archivos
+    // -------------------------------------------------------------------------
+    "filesystem": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-filesystem", "/home/red/Documents/PRO_FINAN_CONTA_PYM"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // FETCH - @anthropic-ai/fetch (OFICIAL)
+    // Para obtener contenido de URLs
+    // -------------------------------------------------------------------------
+    "fetch": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-fetch"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // GITHUB - @modelcontextprotocol/server-github (OFICIAL)
+    // Operaciones de GitHub API
+    // -------------------------------------------------------------------------
+    "github": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-github"],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // CSS MCP - @anthropic-ai/css-mcp (COMUNIDAD - @stolinski)
+    // Herramientas: get_docs, get_browser_compatibility, analyze_css, analyze_project_css
+    // -------------------------------------------------------------------------
+    "css": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "css-mcp"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // SHADCN - shadcn@latest mcp (OFICIAL)
+    // Instalación de componentes UI
+    // -------------------------------------------------------------------------
+    "shadcn": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "shadcn@latest", "mcp"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // LUCIDE ICONS - @anthropic-ai/lucide-icons-mcp (v0.1.36)
+    // Búsqueda e información de iconos
+    // -------------------------------------------------------------------------
+    "lucide-icons": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "lucide-icons-mcp"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // DOCKER MCP TOOLKIT - docker/mcp-toolkit (OFICIAL BETA)
+    // Gestión de contenedores Docker
+    // NOTA: Dynamic MCP, MCP Gateway, Secret Management incluidos
+    // -------------------------------------------------------------------------
+    "docker": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@docker/mcp-toolkit"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // FIREBASE - firebase-tools MCP (OFICIAL)
+    // 56 herramientas: auth, firestore, storage, hosting, functions, etc.
+    // -------------------------------------------------------------------------
+    "firebase": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "firebase-tools@latest", "mcp"],
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // CLOUDFLARE - Múltiples MCPs Remotos (15 disponibles)
+    // Usando Workers AI como ejemplo
+    // -------------------------------------------------------------------------
+    "cloudflare-ai": {
+      "type": "http",
+      "url": "https://ai.cloudflare.com/mcp/sse",
+      "headers": {
+        "Authorization": "Bearer ${CLOUDFLARE_API_TOKEN}"
+      }
+    },
+
+    // -------------------------------------------------------------------------
+    // RESEND - resend MCP (Email transaccional)
+    // -------------------------------------------------------------------------
+    "resend": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-resend"],
+      "env": {
+        "RESEND_API_KEY": "${RESEND_API_KEY}"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // OPENAI - @anthropic-ai/openai-mcp
+    // Para integración con modelos OpenAI
+    // -------------------------------------------------------------------------
+    "openai": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/mcp-openai"],
+      "env": {
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      },
+      "disabled": false
+    },
+
+    // -------------------------------------------------------------------------
+    // VITE MCP - vite-plugin-mcp (OFICIAL)
+    // Integración con Vite dev server
+    // Conectar a: http://localhost:5173/__mcp
+    // -------------------------------------------------------------------------
+    "vite": {
+      "type": "http",
+      "url": "http://localhost:5173/__mcp"
+    },
+
+    // -------------------------------------------------------------------------
+    // LINEAR - MCP REMOTO OFICIAL
+    // OAuth 2.1 automático - https://mcp.linear.app/mcp
+    // -------------------------------------------------------------------------
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    },
+
+    // -------------------------------------------------------------------------
+    // DOKPLOY - @ahdev/dokploy-mcp (OFICIAL)
+    // 67 herramientas: projects, apps, domains, postgres, mysql
+    // Repo: https://github.com/Dokploy/mcp
+    // -------------------------------------------------------------------------
+    "dokploy": {
+      "type": "npx",
+      "command": "npx",
+      "args": ["-y", "@ahdev/dokploy-mcp"],
+      "env": {
+        "DOKPLOY_URL": "${DOKPLOY_URL}",
+        "DOKPLOY_API_KEY": "${DOKPLOY_API_KEY}"
+      },
+      "disabled": true
+    },
+
+    // =========================================================================
+    // 🟡 GRUPO 2 - PENDIENTES (Requieren configuración adicional)
+    // =========================================================================
+
+    // -------------------------------------------------------------------------
+    // ELYSIA - Pendiente MCP oficial
+    // Usar llms.txt por ahora: https://elysiajs.com/llms.txt
+    // -------------------------------------------------------------------------
+    // "elysia": {
+    //   "type": "npx",
+    //   "command": "npx",
+    //   "args": ["-y", "@elysiajs/mcp"],
+    //   "disabled": true,
+    //   "note": "MCP no existe aún - usar llms.txt"
+    // },
+
+    // -------------------------------------------------------------------------
+    // DOKPLOY - Migrado a @dokploy/mcp (OFICIAL)
+    // Previamente: community server
+    // -------------------------------------------------------------------------
+    // "dokploy": {
+    //   "type": "npx",
+    //   "command": "npx",
+    //   "args": ["-y", "@dokploy/mcp"],
+    //   "env": {
+    //     "DOKPLOY_URL": "${DOKPLOY_URL}",
+    //     "DOKPLOY_TOKEN": "${DOKPLOY_TOKEN}"
+    //   },
+    //   "disabled": true
+    // },
+
+    // -------------------------------------------------------------------------
+    // BUN - Adquirido por Anthropic (Febrero 2025)
+    // MCP nativo en desarrollo
+    // Usar llms.txt por ahora: https://bun.sh/llms.txt
+    // -------------------------------------------------------------------------
+    // "bun": {
+    //   "type": "npx",
+    //   "command": "npx",
+    //   "args": ["-y", "@anthropic-ai/mcp-bun"],
+    //   "disabled": true,
+    //   "note": "MCP en desarrollo post-adquisición"
+    // }
+
+    // =========================================================================
+    // 📝 NOTAS IMPORTANTES
+    // =========================================================================
+    // 
+    // Variables de entorno requeridas (.env):
+    // - SENTRY_AUTH_TOKEN
+    // - GITHUB_TOKEN
+    // - CLOUDFLARE_API_TOKEN
+    // - RESEND_API_KEY
+    // - OPENAI_API_KEY
+    // - DOKPLOY_URL (VPS - cuando se configure)
+    // - DOKPLOY_API_KEY (VPS - cuando se configure)
+    //
+    // MCPs con OAuth automático (no necesitan token manual):
+    // - linear (https://mcp.linear.app/mcp)
+    // - firebase (usa firebase login)
+    //
+    // Para Vite MCP, agregar a vite.config.ts:
+    // import { mcpServer } from 'vite-plugin-mcp';
+    // export default defineConfig({
+    //   plugins: [sveltekit(), mcpServer()]
+    // });
+    //
+    // llms.txt CONFIRMADOS (9):
+    // - https://svelte.dev/llms.txt
+    // - https://vite.dev/llms.txt
+    // - https://shadcn-svelte.com/llms.txt
+    // - https://redis.io/docs/latest/llms.txt
+    // - https://zod.dev/llms.txt
+    // - https://bun.sh/llms.txt
+    // - https://elysiajs.com/llms.txt
+    // - https://bits-ui.com/llms.txt
+    // - https://better-auth.com/llms.txt ✨ NUEVO
+    //
+    // =========================================================================
+  }
+}

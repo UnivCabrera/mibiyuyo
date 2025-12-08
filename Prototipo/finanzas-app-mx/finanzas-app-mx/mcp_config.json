@@ -1,0 +1,25 @@
+{
+  "server": {
+    "port": 3000,
+    "host": "localhost"
+  },
+  "documentation": {
+    "basePath": "./tools/mcp-svelte-docs/src/resources",
+    "searchEnabled": true,
+    "defaultLanguage": "en"
+  },
+  "resources": {
+    "svelteDocs": {
+      "path": "./tools/mcp-svelte-docs/src/resources/svelte-docs.ts",
+      "version": "latest"
+    }
+  },
+  "logging": {
+    "level": "info",
+    "logFile": "./logs/mcp.log"
+  },
+  "cache": {
+    "enabled": true,
+    "ttl": 3600
+  }
+}

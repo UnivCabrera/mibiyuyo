@@ -1,0 +1,1 @@
+ssh root@tu_direccion_ip

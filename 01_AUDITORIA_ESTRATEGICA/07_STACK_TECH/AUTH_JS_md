@@ -1,0 +1,137 @@
+Skip to content
+The Auth.js project is now part of Better Auth.
+
+Auth.js Logo
+Auth.js
+Getting Started
+Guides
+API reference
+Concepts
+Security
+
+Ask AI
+27.8k
+Discord Logo
+
+Introduction
+Migrate to Better Auth
+Getting Started
+Installation
+Authentication
+Database
+Session Management
+Deployment
+TypeScript
+Connections
+Providers
+Adapters
+Integrations
+Migrating to v5
+On This Page
+
+Authentication methods
+Official Providers
+Supported Databases
+Question? Give us feedback →
+Edit this page on GitHub →
+
+Getting Started
+Introduction
+What is Auth.js?
+Auth.js is a runtime agnostic library based on standard Web APIs that integrates deeply with multiple modern JavaScript frameworks to provide an authentication experience that’s simple to get started with, easy to extend, and always private and secure!
+
+This documentation covers next-auth@5.0.0-beta and later and all other frameworks under the @auth/* namespace. Documentation for next-auth@4.x.y can still be found at next-auth.js.org.
+
+Select your framework of choice to get started, or view the example application deployment or repository with the buttons below.
+
+Next.js Logo
+Next.js
+Qwik Logo
+Qwik
+SvelteKit Logo
+SvelteKit
+Express Logo
+Express
+Add New
+Check the integrations page for all supported packages. We are working on supporting more frameworks, but you can create your own or help us create one for your favorite framework.
+
+Authentication methods
+There are 4 ways to authenticate users with Auth.js:
+
+OAuth authentication (Sign in with Google, GitHub, LinkedIn, etc…)
+Magic Links (Email Provider like Forward Email, Resend, Sendgrid, Nodemailer etc…)
+Credentials (Username and Password, Integrating with external APIs, etc…)
+WebAuthn (Passkeys, etc…)
+Official Providers
+
+GitHub
+
+Google
+
+Twitter
+
+Apple
+
+Discord
+
+Auth0
+
+Facebook
+
+Keycloak
+Show more
+Supported Databases
+Optionally, Auth.js can be integrated with an external database via Database adapters, in case you need or want to store user data.
+
+
+Prisma
+
+Drizzle ORM
+
+Neon
+
+Supabase
+
+Firebase
+
+TypeORM
+
+Kysely
+
+Upstash Redis
+Show more
+Last updated on September 27, 2025
+Migrate to Better Auth
+About Auth.js
+Introduction
+Security
+Discord Community
+Download
+GitHub
+NPM
+Acknowledgements
+Contributors
+Auth.js © Better Auth Inc. - 2025
+Auth.js | Getting Started
+Auth.js
+Authentication for the Web.
+Free and open source.
+Get Started
+
+Source
+
+Express Logo
+Next.js Logo
+Qwik Logo
+SvelteKit Logo
+More
+// src/auth.ts
+import { SvelteKitAuth } from "@auth/sveltekit"
+import GitHub from '@auth/sveltekit/providers/github'
+
+export const { handle } = SvelteKitAuth({
+  providers: [GitHub],
+})
+
+// src/hooks.server.ts
+export { handle } from "./auth"w
