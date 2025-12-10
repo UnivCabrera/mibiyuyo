@@ -399,6 +399,13 @@ _Cobertura MCP + llms.txt: 49% (30/61)_
 - `PROJECT_CHARACTERISTICS/14_PLANIFICADOR_UNIVERSAL_GRATUITO.md` - Planificador gratuito
 - `PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md` - 18 módulos nuevos
 - `DOCUMENTACION_MAESTRA/ESTRATEGIA_NEURO_FINANCIERA_2025_2026.md` - Estrategia master
+- `DOCUMENTACION_MAESTRA/CHECKLIST_PRE_ARRANQUE.md` - Orden de ejecución VPS/Dokploy
+
+### Infraestructura:
+
+- `00_ARQUITECTURA_CENTRAL/04_DOKPLOY_CONFIGURACION_COMPLETA.md` - Guía Dokploy + Hostinger
+- **Proveedor VPS:** Hostinger con Kit Dokploy (Ubuntu 24.04 + Dokploy preinstalado)
+- **NO requiere:** Instalación manual de Docker (viene incluido internamente)
 
 ### MCPs:
 

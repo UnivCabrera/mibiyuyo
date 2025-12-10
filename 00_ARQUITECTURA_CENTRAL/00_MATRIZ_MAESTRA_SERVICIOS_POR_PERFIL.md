@@ -1,8 +1,8 @@
 # 🎯 MATRIZ MAESTRA DE SERVICIOS POR PERFIL
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Versión:** 2.0  
-**Fecha:** 8 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Versión:** 2.0
+**Fecha:** 8 Diciembre 2025
 **Estado:** FUENTE ÚNICA DE VERDAD
 
 ---
@@ -89,9 +89,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 🎓 SECCIÓN B: PERFIL 1 - EL EXPLORADOR
 
-> **Tagline:** "Por fin saber a dónde se va tu dinero"  
-> **Mapeo técnico:** Perfil Estudiante, Empleado joven  
-> **Color:** Azul vibrante  
+> **Tagline:** "Por fin saber a dónde se va tu dinero"
+> **Mapeo técnico:** Perfil Estudiante, Empleado joven
+> **Color:** Azul vibrante
 > **Emoji:** 🎓
 
 ### B.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -136,9 +136,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 💼 SECCIÓN C: PERFIL 2 - EL EQUILIBRISTA
 
-> **Tagline:** "Ahorra PRIMERO, gasta el resto sin culpa"  
-> **Mapeo técnico:** Empleado, Híbrido, Inversionista principiante  
-> **Color:** Verde esmeralda  
+> **Tagline:** "Ahorra PRIMERO, gasta el resto sin culpa"
+> **Mapeo técnico:** Empleado, Híbrido, Inversionista principiante
+> **Color:** Verde esmeralda
 > **Emoji:** 💼
 
 ### C.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -182,9 +182,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 🏠 SECCIÓN D: PERFIL 3 - EL ARQUITECTO DEL HOGAR
 
-> **Tagline:** "Que el dinero te alcance TODO el mes"  
-> **Mapeo técnico:** Ama de Casa, Recién Casados, Familia Numerosa  
-> **Color:** Naranja cálido  
+> **Tagline:** "Que el dinero te alcance TODO el mes"
+> **Mapeo técnico:** Ama de Casa, Recién Casados, Familia Numerosa
+> **Color:** Naranja cálido
 > **Emoji:** 🏠
 
 ### D.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -228,9 +228,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 🚀 SECCIÓN E: PERFIL 4 - EL CONSTRUCTOR
 
-> **Tagline:** "Lo tuyo es tuyo, lo del negocio es del negocio"  
-> **Mapeo técnico:** Emprendedor Solo, Híbrido, Early Stage, Freelancer  
-> **Color:** Púrpura  
+> **Tagline:** "Lo tuyo es tuyo, lo del negocio es del negocio"
+> **Mapeo técnico:** Emprendedor Solo, Híbrido, Early Stage, Freelancer
+> **Color:** Púrpura
 > **Emoji:** 🚀
 
 ### E.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -276,9 +276,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 🏢 SECCIÓN F: PERFIL 5 - EL COMANDANTE
 
-> **Tagline:** "Cumple con el SAT sin volverte loco"  
-> **Mapeo técnico:** Dueño PyME, Profesionista RESICO, Dueño Negocio  
-> **Color:** Azul marino  
+> **Tagline:** "Cumple con el SAT sin volverte loco"
+> **Mapeo técnico:** Dueño PyME, Profesionista RESICO, Dueño Negocio
+> **Color:** Azul marino
 > **Emoji:** 🏢
 
 ### F.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -323,9 +323,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 📈 SECCIÓN G: PERFIL 6 - EL ESCALADOR
 
-> **Tagline:** "Vende más, factura más, crece más"  
-> **Mapeo técnico:** E-Commerce Power Seller, Influencer, Nómada Digital  
-> **Color:** Amarillo dorado  
+> **Tagline:** "Vende más, factura más, crece más"
+> **Mapeo técnico:** E-Commerce Power Seller, Influencer, Nómada Digital
+> **Color:** Amarillo dorado
 > **Emoji:** 📈
 
 ### G.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -370,9 +370,9 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ## 👥 SECCIÓN H: PERFIL 7 - EL ORQUESTADOR
 
-> **Tagline:** "Gestiona tu cartera sin perder el control"  
-> **Mapeo técnico:** Contador/Despacho, Administrador/Gerente  
-> **Color:** Gris elegante  
+> **Tagline:** "Gestiona tu cartera sin perder el control"
+> **Mapeo técnico:** Contador/Despacho, Administrador/Gerente
+> **Color:** Gris elegante
 > **Emoji:** 👥
 
 ### H.1 Lifestyle Tools (100% GRATIS, Zero Servidor)
@@ -606,6 +606,6 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 
 ---
 
-**Documento generado:** 2 Diciembre 2025  
-**Última actualización:** 8 Diciembre 2025 (v2.0 - Integración neurociencias + precios unificados)  
+**Documento generado:** 2 Diciembre 2025
+**Última actualización:** 8 Diciembre 2025 (v2.0 - Integración neurociencias + precios unificados)
 **Próxima revisión:** Al agregar nuevos features o perfiles

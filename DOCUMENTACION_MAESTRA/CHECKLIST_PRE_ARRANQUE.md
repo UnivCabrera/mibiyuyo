@@ -2,77 +2,110 @@
 
 ## Orden Exacto de Ejecución para Iniciar el Proyecto
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Versión:** 1.0  
-**Fecha:** 8 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Versión:** 1.1
+**Fecha:** 8 Diciembre 2025
 **Propósito:** Guía simplificada paso a paso antes de escribir código
+**Proveedor VPS:** Hostinger (Kit Dokploy preinstalado)
 
 ---
 
 ## 🎯 RESUMEN EJECUTIVO
 
 ```
-ORDEN DE DEPENDENCIAS:
+ORDEN DE DEPENDENCIAS (SIMPLIFICADO CON HOSTINGER):
 
-[1] VPS → [2] GitHub → [3] Dokploy → [4] Base Datos → [5] Código
-         ↳ Sin VPS, Dokploy no funciona
-         ↳ Sin GitHub, no hay CI/CD
-         ↳ Sin Dokploy, no hay donde desplegar
+[1] VPS Hostinger (Kit Dokploy) → [2] Acceder Dokploy → [3] GitHub → [4] Bases de Datos → [5] Código
+    ↳ Docker ya viene incluido internamente
+    ↳ NO necesitas instalar nada manualmente
+    ↳ Solo accedes a http://[ip]:3000 y listo
 ```
 
 ---
 
 ## 📋 FASE 0: INFRAESTRUCTURA (Antes del código)
 
-### PASO 0.1: VPS + Dominio
+### PASO 0.1: VPS Hostinger con Kit Dokploy
 
-**Tiempo estimado:** 1-2 horas
+**Tiempo estimado:** 15-30 minutos (compra + activación)
 
-| Tarea                              | Estado | Notas                       |
-| ---------------------------------- | :----: | --------------------------- |
-| Comprar/tener VPS (4GB RAM mínimo) |   ⬜   | Hetzner, DigitalOcean, etc. |
-| Dominio apuntando al VPS           |   ⬜   | DNS A record                |
-| SSH acceso configurado             |   ⬜   | `ssh root@tu-vps.com`       |
-| Docker + Docker Compose instalados |   ⬜   | Script abajo                |
+> **💡 IMPORTANTE:** Hostinger ofrece "Kits" preinstalados. El **Kit Dokploy** incluye:
+>
+> - Ubuntu 24.04 LTS
+> - Docker CE + Docker Compose (internamente)
+> - Dokploy preinstalado y listo para usar
+>
+> **NO necesitas instalar Docker manualmente. Dokploy abstrae toda la complejidad.**
 
-```bash
-# En el VPS (una vez conectado por SSH):
-curl -fsSL https://get.docker.com | sh
-docker --version  # Debe mostrar 24.x+
-```
+| Tarea | Estado | Notas |
+| --- | :---: | --- |
+| Comprar VPS Hostinger (4GB RAM mínimo) | ⬜ | [Dokploy VPS Hosting](https://www.hostinger.com) |
+| Seleccionar **Kit: Dokploy** | ⬜ | NO seleccionar "Docker" solo |
+| Esperar activación (~5 min) | ⬜ | Recibirás email con IP |
+| Anotar IP del VPS | ⬜ | Ejemplo: `185.xxx.xxx.xxx` |
+| Dominio apuntando al VPS | ⬜ | DNS A record → IP del VPS |
 
----
+**Opciones de Kit en Hostinger:**
 
-### PASO 0.2: Dokploy (PaaS Self-Hosted)
-
-**Tiempo estimado:** 30 minutos  
-**Dependencia:** VPS funcionando
-
-| Tarea                   | Estado | Notas                     |
-| ----------------------- | :----: | ------------------------- |
-| Instalar Dokploy en VPS |   ⬜   | Script oficial            |
-| Acceder a panel web     |   ⬜   | `https://tu-vps.com:3000` |
-| Crear usuario admin     |   ⬜   | Guardar credenciales      |
-| Generar API Key         |   ⬜   | Para el MCP               |
-
-```bash
-# En el VPS:
-curl -sSL https://dokploy.com/install.sh | sh
-# Seguir instrucciones en pantalla
-```
-
-**Después de instalar:**
-
-1. Abrir `https://tu-vps.com:3000` en navegador
-2. Crear cuenta admin
-3. Ir a Settings → API → Generate Token
-4. Copiar el token
+| Kit | Incluye | ¿Cuál elegir? |
+| --- | --- | --- |
+| **Dokploy** ✅ | Ubuntu 24.04 + Dokploy + Docker interno | **← ESTE** |
+| Docker | Ubuntu 24.04 + Docker CE | Solo si quieres control manual |
+| Ubuntu Plain | Solo Ubuntu | Para expertos |
 
 ---
 
-### PASO 0.3: GitHub Repository
+### PASO 0.2: Acceder a Dokploy (¡Ya está instalado!)
 
-**Tiempo estimado:** 15 minutos  
+**Tiempo estimado:** 5 minutos
+**Dependencia:** VPS activo
+
+> **🚀 Con el Kit Dokploy de Hostinger, NO necesitas ejecutar ningún comando.**
+> Dokploy ya está corriendo. Solo accede al panel web.
+
+| Tarea | Estado | Notas |
+| --- | :---: | --- |
+| Abrir navegador | ⬜ | Chrome, Firefox, etc. |
+| Ir a `http://[TU-IP-VPS]:3000` | ⬜ | Ejemplo: `http://185.123.45.67:3000` |
+| Crear cuenta admin | ⬜ | Email + contraseña segura |
+| Guardar credenciales | ⬜ | En gestor de contraseñas |
+| Generar API Key | ⬜ | Settings → API → Generate Token |
+
+**Pasos en Dokploy:**
+
+1. Abrir `http://[tu-ip]:3000` en navegador
+2. Se muestra pantalla de "Create Admin Account"
+3. Ingresar email y contraseña
+4. ¡Listo! Ya estás en el dashboard
+
+**Para obtener API Key (necesaria para MCP):**
+
+1. Ir a **Settings** (⚙️ en sidebar)
+2. Ir a sección **API**
+3. Click en **Generate Token**
+4. Copiar y guardar el token (`dk_xxxx...`)
+
+---
+
+### PASO 0.3: Configurar SSL/HTTPS (Recomendado)
+
+**Tiempo estimado:** 10 minutos
+
+| Tarea | Estado | Notas |
+| --- | :---: | --- |
+| Ir a Settings en Dokploy | ⬜ | ⚙️ en sidebar |
+| Ingresar dominio | ⬜ | `tudominio.com` |
+| Ingresar email | ⬜ | Para Let's Encrypt |
+| Seleccionar "Let's Encrypt" | ⬜ | SSL gratis |
+| Guardar cambios | ⬜ | Esperar ~2 min |
+
+Después de esto, accedes via `https://tudominio.com:3000`
+
+---
+
+### PASO 0.4: GitHub Repository
+
+**Tiempo estimado:** 15 minutos
 **Dependencia:** Cuenta GitHub
 
 | Tarea                | Estado | Notas                 |
@@ -94,7 +127,7 @@ REDIS_URL=redis://...
 
 ### PASO 0.4: Configurar MCPs en VS Code
 
-**Tiempo estimado:** 15 minutos  
+**Tiempo estimado:** 15 minutos
 **Dependencia:** Dokploy API Key + GitHub Token
 
 | Tarea                           | Estado | Notas                 |
@@ -243,6 +276,6 @@ Una vez completado este checklist:
 
 ---
 
-_Documento creado: 8 Diciembre 2025_  
-_Versión: 1.0_  
+_Documento creado: 8 Diciembre 2025_
+_Versión: 1.0_
 _Sincronizado con: ROADMAP v5.0, MCP Resumen, Stack v5.0_

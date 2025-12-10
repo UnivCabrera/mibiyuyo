@@ -1,8 +1,9 @@
 # 📊 Resumen Ejecutivo - Configuración MCP
 
-**Proyecto:** PRO_FINAN_CONTA_PYM - FinTech SaaS México  
-**Última Actualización:** 5 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM - FinTech SaaS México
+**Última Actualización:** 8 Diciembre 2025
 **Stack:** 100% TypeScript (Svelte 5, SvelteKit, Bun, ElysiaJS, Drizzle)
+**Proveedor VPS:** Hostinger (Kit Dokploy preinstalado)
 
 ---
 
@@ -15,6 +16,32 @@
 | **llms.txt Verificados**    | 9 URLs oficiales                    |
 | **Total Tecnologías Stack** | 61                                  |
 | **Cobertura MCP/llms.txt**  | 49% (30/61)                         |
+
+---
+
+## 🚀 Dokploy MCP - Activación Rápida
+
+> **Con Hostinger Kit Dokploy, solo necesitas obtener la API Key del panel web.**
+> No requiere instalación manual de Docker ni Dokploy.
+
+### Pasos para activar:
+
+1. Acceder a `http://[tu-ip-vps]:3000`
+2. Crear cuenta admin (primera vez)
+3. Ir a **Settings → API → Generate Token**
+4. Copiar token y agregarlo a `.vscode/mcp.json`
+
+```json
+"dokploy": {
+  "disabled": false,
+  "command": "npx",
+  "args": ["-y", "@ahdev/dokploy-mcp"],
+  "env": {
+    "DOKPLOY_URL": "http://[tu-ip-vps]:3000",
+    "DOKPLOY_API_KEY": "dk_xxxx"
+  }
+}
+```
 
 ---
 
@@ -135,12 +162,22 @@ POSTGRES_CONNECTION_STRING=postgresql://localhost:5432/fintech_db
 
 ## 📈 Próximos Pasos
 
-1. **Inmediato:** Continuar con GitHub (paso 2 de 3)
-2. **Corto plazo:** Configurar Dokploy cuando VPS esté listo
-3. **Mediano plazo:** Evaluar MCP propio para México
-4. **Largo plazo:** Implementar módulo SAT/CFDI
+1. **Inmediato:** Comprar VPS Hostinger con Kit Dokploy
+2. **Después:** Acceder a `http://[ip]:3000` y crear cuenta admin
+3. **Luego:** Obtener API Key y activar MCP Dokploy en VS Code
+4. **Mediano plazo:** Crear llms.txt para SAT/CFDI (Fase 5)
+5. **Largo plazo:** Implementar módulo fiscal completo
 
 ---
 
-_Generado automáticamente - 5 Diciembre 2025_
-Bien continuamos ac`a con todos los que encuntre vale?
+## 📚 Documentación Relacionada
+
+| Documento | Propósito |
+| --- | --- |
+| `CHECKLIST_PRE_ARRANQUE.md` | Orden exacto de ejecución |
+| `04_DOKPLOY_CONFIGURACION_COMPLETA.md` | Guía detallada Dokploy + Hostinger |
+| `00_ROADMAP_EJECUCION_PASO_A_PASO.md` | Roadmap 9 fases |
+
+---
+
+*Actualizado: 8 Diciembre 2025*

@@ -1,29 +1,97 @@
 # 🚀 DOKPLOY - CONFIGURACIÓN COMPLETA Y MEJORES PRÁCTICAS
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Versión:** 1.0  
-**Fecha:** 1 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Versión:** 2.0
+**Fecha:** 8 Diciembre 2025
 **Objetivo:** Documentar la configuración completa de Dokploy para maximizar sus capacidades
+**Proveedor Recomendado:** Hostinger (Kit Dokploy preinstalado)
+
+---
+
+## 🎯 RESUMEN EJECUTIVO
+
+> **Con Hostinger Kit Dokploy, NO necesitas instalar Docker ni Dokploy manualmente.**
+> Todo viene preconfigurado. Solo accedes a `http://[tu-ip]:3000` y creas tu cuenta admin.
+
+| Método | Complejidad | Tiempo | Recomendado |
+| --- | --- | --- | --- |
+| **Hostinger Kit Dokploy** | 🟢 Fácil | 5 min | ✅ **SÍ** |
+| Instalación manual | 🔴 Avanzado | 30-60 min | Solo si necesitas control total |
 
 ---
 
 ## 📋 ÍNDICE
 
-1. [Instalación Inicial](#instalación-inicial)
-2. [Configuración de Seguridad](#configuración-de-seguridad)
-3. [Estructura de Proyectos](#estructura-de-proyectos)
-4. [Configuración de Servicios](#configuración-de-servicios)
-5. [Bases de Datos](#bases-de-datos)
-6. [Backups Automatizados](#backups-automatizados)
-7. [CI/CD con GitHub](#cicd-con-github)
-8. [Preview Environments](#preview-environments)
-9. [Multi-Server (Docker Swarm)](#multi-server-docker-swarm)
-10. [Monitoreo](#monitoreo)
-11. [Troubleshooting](#troubleshooting)
+1. [Instalación con Hostinger (Recomendado)](#instalación-con-hostinger-recomendado)
+2. [Instalación Manual (Alternativa)](#instalación-manual-alternativa)
+3. [Configuración de Seguridad](#configuración-de-seguridad)
+4. [Estructura de Proyectos](#estructura-de-proyectos)
+5. [Configuración de Servicios](#configuración-de-servicios)
+6. [Bases de Datos](#bases-de-datos)
+7. [Backups Automatizados](#backups-automatizados)
+8. [CI/CD con GitHub](#cicd-con-github)
+9. [Preview Environments](#preview-environments)
+10. [Multi-Server (Docker Swarm)](#multi-server-docker-swarm)
+11. [Monitoreo](#monitoreo)
+12. [Troubleshooting](#troubleshooting)
 
 ---
 
-## 🔧 INSTALACIÓN INICIAL
+## 🚀 INSTALACIÓN CON HOSTINGER (RECOMENDADO)
+
+### ¿Qué es el Kit Dokploy de Hostinger?
+
+Hostinger ofrece **plantillas VPS preconfiguradas** llamadas "Kits". El **Kit Dokploy** incluye:
+
+- ✅ Ubuntu 24.04 LTS
+- ✅ Docker CE + Docker Compose (interno, no lo tocas)
+- ✅ Dokploy preinstalado y corriendo
+- ✅ Listo para usar en minutos
+
+**Dokploy abstrae Docker** - Tú NO ejecutas comandos Docker directamente. Dokploy maneja todo internamente a través de su interfaz web.
+
+### Paso 1: Comprar VPS en Hostinger
+
+1. Ir a [Hostinger VPS](https://www.hostinger.com/vps-hosting)
+2. Seleccionar plan (mínimo 4GB RAM recomendado)
+3. En **"Sistema Operativo"** o **"Plantilla"**, seleccionar: **Dokploy**
+4. Completar compra
+5. Esperar email con IP del VPS (~5 minutos)
+
+### Paso 2: Acceder a Dokploy
+
+```
+🌐 Abrir navegador → http://[TU-IP-VPS]:3000
+```
+
+1. Se muestra pantalla "Create Admin Account"
+2. Ingresar email y contraseña segura
+3. Click en "Create Account"
+4. ¡Listo! Ya estás en el dashboard de Dokploy
+
+### Paso 3: Configurar SSL (HTTPS)
+
+1. Ir a **Settings** (⚙️ en sidebar izquierdo)
+2. En **Server Domain**, ingresar tu dominio (ej: `app.tudominio.com`)
+3. En **Email**, ingresar tu email (para Let's Encrypt)
+4. En **Certificate**, seleccionar **Let's Encrypt**
+5. Click en **Save**
+6. Esperar ~2 minutos
+
+Ahora puedes acceder via: `https://app.tudominio.com:3000`
+
+### Paso 4: Obtener API Key (para MCP)
+
+1. Ir a **Settings** → **API**
+2. Click en **Generate Token**
+3. Copiar el token (formato: `dk_xxxxxxxxxxxx`)
+4. Guardar en lugar seguro
+
+---
+
+## 🔧 INSTALACIÓN MANUAL (ALTERNATIVA)
+
+> **Solo usar si NO tienes acceso a Hostinger Kit Dokploy o necesitas control total.**
 
 ### Requisitos del VPS
 
@@ -35,10 +103,10 @@
 
 ---
 
-## ✅ CHECKLIST DÍA 1: CONFIGURACIÓN INICIAL DEL VPS
+## ✅ CHECKLIST DÍA 1: CONFIGURACIÓN INICIAL DEL VPS (MANUAL)
 
-> **IMPORTANTE:** Este checklist debe completarse ANTES de desplegar cualquier aplicación.
-> Garantiza seguridad y estabilidad desde el primer momento.
+> **NOTA:** Este checklist es para instalación MANUAL.
+> Si usas Hostinger Kit Dokploy, salta directamente a [Configuración de Seguridad](#configuración-de-seguridad).
 
 ### Paso 1: Conexión Inicial y Actualización del Sistema
 
@@ -944,5 +1012,5 @@ services:
 
 ---
 
-**Documento mantenido por:** Equipo DevOps PRO_FINAN_CONTA_PYM  
+**Documento mantenido por:** Equipo DevOps PRO_FINAN_CONTA_PYM
 **Última actualización:** 1 Diciembre 2025

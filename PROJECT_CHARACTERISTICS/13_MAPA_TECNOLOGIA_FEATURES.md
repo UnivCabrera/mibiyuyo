@@ -1,8 +1,8 @@
 # 🗺️ MÓDULO 13: MAPA TECNOLOGÍA → CARACTERÍSTICAS
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Total Características Mapeadas:** 278  
-**Fecha:** 30 Noviembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Total Características Mapeadas:** 278
+**Fecha:** 30 Noviembre 2025
 **Versión:** 1.0
 
 ---
@@ -321,9 +321,9 @@ export async function classifyTransaction(description: string, amount: number) {
     Clasifica esta transacción mexicana:
     Descripción: "${description}"
     Monto: $${amount} MXN
-    
+
     Categorías disponibles: Alimentación, Transporte, Servicios, Nómina, Impuestos, etc.
-    
+
     Responde SOLO con el nombre de la categoría, sin explicación.
   `;
 
