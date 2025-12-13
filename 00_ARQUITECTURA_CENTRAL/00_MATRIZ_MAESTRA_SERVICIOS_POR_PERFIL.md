@@ -1,9 +1,11 @@
 # 🎯 MATRIZ MAESTRA DE SERVICIOS POR PERFIL
 
 **Proyecto:** PRO_FINAN_CONTA_PYM
-**Versión:** 2.0
-**Fecha:** 8 Diciembre 2025
+**Versión:** 2.1
+**Fecha:** 12 Diciembre 2025
 **Estado:** FUENTE ÚNICA DE VERDAD
+**Total Features:** 278 características (13 módulos)
+**Killer Features:** 45 vs 10 competidores
 
 ---
 
@@ -16,6 +18,8 @@
 | [07_100_NECESIDADES_DIARIAS](../03_MERCADO_COMPETENCIA/07_100_NECESIDADES_DIARIAS_NO_RESUELTAS.md) | Necesidades diarias no resueltas         |
 | [15_MODULOS_INNOVADORES](../PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md)                     | Módulos innovadores consolidados         |
 | [14_PLANIFICADOR_UNIVERSAL](../PROJECT_CHARACTERISTICS/14_PLANIFICADOR_UNIVERSAL_GRATUITO.md)      | Planificador universal gratuito          |
+| [12_KILLER_FEATURES](../PROJECT_CHARACTERISTICS/12_KILLER_FEATURES_VS_COMPETENCIA.md)              | 45 Killer Features vs competencia        |
+| [13_MAPA_TECNOLOGIA](../PROJECT_CHARACTERISTICS/13_MAPA_TECNOLOGIA_FEATURES.md)                    | Mapa Tecnología → Features               |
 
 > **💡 Neurociencia aplicada:** Todos los servicios están diseñados siguiendo los 4 pilares del framework neuro-financiero (cognitivo, afectivo, desarrollo, neuropsicología)
 

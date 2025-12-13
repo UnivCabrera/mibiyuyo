@@ -1,10 +1,12 @@
 # 🚀 DOKPLOY - CONFIGURACIÓN COMPLETA Y MEJORES PRÁCTICAS
 
 **Proyecto:** PRO_FINAN_CONTA_PYM
-**Versión:** 2.0
-**Fecha:** 8 Diciembre 2025
+**Versión:** 2.1
+**Fecha:** 12 Diciembre 2025
 **Objetivo:** Documentar la configuración completa de Dokploy para maximizar sus capacidades
 **Proveedor Recomendado:** Hostinger (Kit Dokploy preinstalado)
+**Stack:** PostgreSQL 18 + Redis 8.2 + Bun + ElysiaJS + Svelte 5
+**Total Features:** 278 características a desplegar
 
 ---
 
@@ -17,6 +19,23 @@
 | --- | --- | --- | --- |
 | **Hostinger Kit Dokploy** | 🟢 Fácil | 5 min | ✅ **SÍ** |
 | Instalación manual | 🔴 Avanzado | 30-60 min | Solo si necesitas control total |
+
+### 🏆 Killer Features Habilitadas por Dokploy
+
+Esta configuración permite implementar nuestras **45 killer features**:
+
+| Feature | Cómo Dokploy lo Habilita |
+|:--------|:-------------------------|
+| KIL-011: Updates sin romper | Blue-green deployment automático |
+| KIL-010: Sin instalación | Cloud nativo, 99.9% uptime |
+| Backups automáticos | S3/GDrive sync cada 4-6h |
+| SSL automático | Traefik + Let's Encrypt integrado |
+| CI/CD GitHub | Webhooks nativos |
+| Preview Environments | Branch → URL automática |
+| Rollback instantáneo | 1-click en UI |
+| Multi-servidor ready | Docker Swarm cuando escales |
+
+**Referencia:** Ver `PROJECT_CHARACTERISTICS/12_KILLER_FEATURES_VS_COMPETENCIA.md`
 
 ---
 
