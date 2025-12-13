@@ -1,7 +1,7 @@
 # 🏗️ MÓDULO 10: INFRAESTRUCTURA Y DEVOPS
 
-**Total:** 5 características  
-**Prioridad PMV:** 5  
+**Total:** 5 características
+**Prioridad PMV:** 5
 **Última actualización:** 28 Nov 2025
 
 ---
@@ -33,9 +33,9 @@ services:
   frontend:
     build: ./apps/frontend
   postgres:
-    image: postgres:18-alpine
+    image: postgres:18.1-alpine
   redis:
-    image: redis:8.2-alpine
+    image: redis:8.4-alpine
   prometheus:
     image: prom/prometheus
   grafana:
@@ -164,5 +164,5 @@ jobs:
 
 ---
 
-**Documento generado:** 28 Noviembre 2025  
+**Documento generado:** 28 Noviembre 2025
 **Mantenido por:** Equipo de Arquitectura PRO_FINAN_CONTA_PYM

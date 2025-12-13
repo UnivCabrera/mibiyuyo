@@ -1,10 +1,10 @@
 # 🔨 ROADMAP DE CONSTRUCCIÓN PASO A PASO
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Para:** Desarrolladores que empiezan desde cero  
-**Nivel:** Desde preparatoria hasta senior  
-**Versión:** 1.1  
-**Fecha:** 30 Noviembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Para:** Desarrolladores que empiezan desde cero
+**Nivel:** Desde preparatoria hasta senior
+**Versión:** 1.1
+**Fecha:** 30 Noviembre 2025
 **Inicio planificado:** Lunes 2 de Diciembre 2025
 
 ---
@@ -153,7 +153,7 @@ sudo snap install code --classic
 - [ ] nvm instalado
 - [ ] Node.js 24.11.1 instalado
 - [ ] npm 11.6.2 funcionando
-- [ ] Bun instalado
+- [ ] Bun 1.3.4+ instalado
 - [ ] Docker y Docker Compose instalados
 - [ ] VS Code instalado
 

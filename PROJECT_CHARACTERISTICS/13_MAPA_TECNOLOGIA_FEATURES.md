@@ -33,7 +33,7 @@
 ### Tecnologías Involucradas
 
 - **ElysiaJS 1.4.16+** - Framework web
-- **Bun 1.3.3+** - Runtime JavaScript
+- **Bun 1.3.4+** - Runtime JavaScript full-stack
 - **TypeBox** - Validación de schemas
 - **Eden Treaty** - Type-safe API client
 
@@ -121,8 +121,9 @@ export const transactionsController = new Elysia({
 
 ### Tecnologías Involucradas
 
-- **PostgreSQL 18** - Base de datos principal
-- **Drizzle ORM** - ORM type-safe
+- **PostgreSQL 18.1** - Base de datos principal (Nov 2025, stability fixes, performance improvements)
+- **pgvector 0.8.1** - Vector similarity search para RAG/IA
+- **Drizzle ORM 0.38+** - ORM type-safe con soporte Bun SQL nativo
 - **pgcrypto** - Cifrado de datos sensibles
 - **pg_partman** - Particionado de tablas grandes
 
@@ -349,7 +350,7 @@ export async function extractTicketData(imageBase64: string) {
 
 ### Tecnologías Involucradas
 
-- **Redis 8.2+** - Caché y broker de colas
+- **Redis 8.4.0** - Caché, colas, Vector Sets (beta), JSON/TimeSeries integrados
 - **BullMQ** - Sistema de colas/jobs
 
 ### Características que Implementa

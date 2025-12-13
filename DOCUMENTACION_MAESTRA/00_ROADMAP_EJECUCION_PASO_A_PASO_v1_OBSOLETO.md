@@ -2,9 +2,9 @@
 
 ## La Guía Definitiva: Del Concepto al Lanzamiento
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Versión:** 1.0  
-**Fecha:** 1 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Versión:** 1.0
+**Fecha:** 1 Diciembre 2025
 **Propósito:** Entender el ORDEN LÓGICO y el POR QUÉ de cada decisión técnica
 
 ---
@@ -137,7 +137,7 @@ Si decides cambiar de PostgreSQL a MongoDB a mitad del proyecto, tendrás que:
 
 ### ✅ Qué hacer:
 
-1. Instalar Bun 1.3.3+, Node.js 24.11.1 LTS (fallback)
+1. Instalar Bun 1.3.4+, Node.js 24.11.1 LTS (fallback)
 2. Instalar Docker Desktop o Docker Engine
 3. Configurar VS Code con extensiones necesarias
 4. Crear archivo `.nvmrc` o `.tool-versions` para versiones
@@ -978,7 +978,7 @@ Design System → Componentes → Páginas → Flujos → Tests E2E
 
 ---
 
-**Documento creado:** 1 Diciembre 2025  
+**Documento creado:** 1 Diciembre 2025
 **Próxima revisión:** Después del Sprint 1
 
 _"Entender el orden es entender el sistema."_

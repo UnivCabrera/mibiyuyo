@@ -1,7 +1,7 @@
 # 🚀 MASTER ROADMAP EJECUTIVO: PRO_FINAN_CONTA_PYM
 
-**Fecha:** 30 Noviembre 2025 (Actualizado)  
-**Inicio Desarrollo:** Lunes 2 de Diciembre 2025  
+**Fecha:** 30 Noviembre 2025 (Actualizado)
+**Inicio Desarrollo:** Lunes 2 de Diciembre 2025
 **Objetivo:** Lanzamiento de MVP (Minimum Viable Product) robusto y legalmente blindado.
 
 ---
@@ -29,8 +29,8 @@
 
 - **Objetivo:** Ambiente de desarrollo listo, backend base funcionando.
 - **Acciones Clave:**
-  1.  [ ] **Setup Ambiente:** Node.js 24.11.1 LTS, Bun 1.2+, Docker
-  2.  [ ] **Base de Datos:** PostgreSQL 18 + pgvector + Redis 8
+  1.  [ ] **Setup Ambiente:** Node.js 24.11.1 LTS, Bun 1.3.4+, Docker
+  2.  [ ] **Base de Datos:** PostgreSQL 18.1 + pgvector 0.8.1 + Redis 8.4.0
   3.  [ ] **Backend Base:** ElysiaJS funcionando con endpoints /health y /auth
   4.  [ ] **Migraciones:** Schema inicial con Drizzle ORM aplicado
   5.  [ ] **Auditoría Legal:** Redactar T&C y Aviso de Privacidad (Borrador)
@@ -147,8 +147,8 @@
 
 ---
 
-**Actualizado:** 8 Diciembre 2025  
+**Actualizado:** 8 Diciembre 2025
 **Próxima revisión:** 15 Diciembre 2025
 
-_GitHub Copilot_  
+_GitHub Copilot_
 _Lead Architect_

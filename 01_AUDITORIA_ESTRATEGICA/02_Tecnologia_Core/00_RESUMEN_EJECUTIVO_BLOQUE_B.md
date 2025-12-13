@@ -58,7 +58,7 @@ Transformar 9 perfiles tradicionales de tecnología (que costarían **$3.2M-5.4M
 
 ### ✅ Respetadas del `03_STACK_TECNOLOGICO_DEFINITIVO.md`:
 
-1. **Bun (NO Node.js)**: Runtime oficial, Dockerfile con `oven/bun:1.3.3-alpine`
+1. **Bun (NO Node.js)**: Runtime oficial, Dockerfile con `oven/bun:1.3.4-alpine`
 2. **ElysiaJS (NO Express/Fastify)**: Framework obligatorio para backend
 3. **Svelte 5 Runes (NO React/Vue)**: Sintaxis obligatoria ($state, $derived, $effect)
 4. **Drizzle ORM (NO Prisma)**: Prisma Cloud tiene costos, Drizzle es 100% gratis
@@ -116,7 +116,7 @@ Transformar 9 perfiles tradicionales de tecnología (que costarían **$3.2M-5.4M
 
 **Entregables:**
 
-- ✅ `backend/Dockerfile` (multi-stage Bun 1.3.3)
+- ✅ `backend/Dockerfile` (multi-stage Bun 1.3.4)
 - ✅ `frontend/Dockerfile` (multi-stage Node.js 24)
 - ✅ `frontend/src/service-worker.ts` (Workbox strategies)
 - ✅ `dokploy.yaml` (resource limits, healthcheck)
@@ -125,7 +125,7 @@ Transformar 9 perfiles tradicionales de tecnología (que costarían **$3.2M-5.4M
 **Código Clave:**
 ```dockerfile
 # Backend Dockerfile (Bun)
-FROM oven/bun:1.3.3-alpine AS build
+FROM oven/bun:1.3.4-alpine AS build
 WORKDIR /app
 COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile

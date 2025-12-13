@@ -1,10 +1,10 @@
 # 🚀 ESTRATEGIA DE ESCALAMIENTO - DOKPLOY → SWARM → K8s
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Fase Actual:** Dokploy (Single Node)  
-**Trigger Fase 2:** ~6 meses o VPS al 85% de capacidad  
-**VPS Actual:** 4 vCPU, 16GB RAM, 200GB NVMe  
-**Versión:** 2.0 (Actualizado para Dokploy)  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Fase Actual:** Dokploy (Single Node)
+**Trigger Fase 2:** ~6 meses o VPS al 85% de capacidad
+**VPS Actual:** 4 vCPU, 16GB RAM, 200GB NVMe
+**Versión:** 2.0 (Actualizado para Dokploy)
 **Fecha:** 1 Diciembre 2025
 
 ---
@@ -283,7 +283,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
 
   redis:
-    image: redis:8.2-alpine
+    image: redis:8.4-alpine
     volumes:
       - redis_data:/data
 
@@ -968,7 +968,7 @@ Margen: $5,440 USD (98.9%)
 
 ## 🍕 SHARDING DE BASE DE DATOS (Futuro - Año 2+)
 
-> **Fuente:** Análisis de `ideas_al_aire/ideas_encontradas.md`  
+> **Fuente:** Análisis de `ideas_al_aire/ideas_encontradas.md`
 > **Estado:** 📋 DOCUMENTADO (no implementar aún)
 
 ### ¿Qué es Sharding?
@@ -1092,5 +1092,5 @@ FASE 5 (1M+ usuarios):
 
 ---
 
-**Documento de Escalamiento v2.0 - PRO_FINAN_CONTA_PYM**  
+**Documento de Escalamiento v2.0 - PRO_FINAN_CONTA_PYM**
 _Actualizado: 7 Diciembre 2025 - Agregada sección de Sharding_

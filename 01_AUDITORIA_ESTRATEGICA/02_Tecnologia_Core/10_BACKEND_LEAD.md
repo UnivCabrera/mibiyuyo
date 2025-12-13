@@ -45,7 +45,7 @@ El **Founder** construye la lógica de negocio crítica usando **ElysiaJS sobre 
 | Área | Estado | Documento de Referencia |
 |:-----|:-------|:------------------------|
 | Framework | ✅ ElysiaJS 1.4.16+ | `00_ARQUITECTURA_CENTRAL/03_STACK_TECNOLOGICO_DEFINITIVO.md` |
-| Runtime | ✅ Bun 1.3.3+ | Stack Definitivo + Dockerfile (Perfil 08) |
+| Runtime | ✅ Bun 1.3.4+ | Stack Definitivo + Dockerfile (Perfil 08) |
 | ORM | ✅ Drizzle ORM 0.38+ | Perfil 13 (DBA) + Seeds Catálogo SAT |
 | Validación | ✅ Zod | AGENTS.md (stack obligatorio) |
 | Auth | ✅ Better Auth | `03_STACK_TECNOLOGICO_DEFINITIVO.md` (lines 200-250) |

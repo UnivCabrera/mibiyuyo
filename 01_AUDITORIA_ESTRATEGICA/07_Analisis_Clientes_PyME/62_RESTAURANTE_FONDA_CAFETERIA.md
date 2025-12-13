@@ -672,7 +672,7 @@ TOTAL ARR: $2,131,920/año (~$118K USD)
 
 ```typescript
 // Backend
-Runtime:     Bun 1.3.3+
+Runtime:     Bun 1.3.4+
 Framework:   ElysiaJS 1.4.16+
 ORM:         Drizzle ORM 0.38+
 Database:    PostgreSQL 16+
@@ -1622,6 +1622,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 #### Principios de Diseño para Restaurantes
 
 **Contexto Real:**
+
 - Meseros trabajan de pie 8+ horas
 - Manos mojadas / grasosas
 - Ambiente ruidoso (cocina)
@@ -1667,6 +1668,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 | ⚪ Blanco       | Limpieza + Espacio                    | Fondo secundario         |
 
 **Colores que EVITAR:**
+
 - ❌ Azul (reduce apetito, asociado a comida podrida)
 - ❌ Verde oscuro (nausea)
 - ❌ Morado (artificial)
@@ -1681,32 +1683,32 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 <script lang="ts">
   import { onMount } from 'svelte';
   import Dexie from 'dexie';
-  
+
   // IndexedDB para offline
   const db = new Dexie('FinanzasMX_Restaurant');
   db.version(1).stores({
     orders: '++id, table_number, status, synced',
     menu_items: '++id, name, category, price'
   });
-  
+
   // Props
   let { tableNumber = $bindable(0) } = $props<{ tableNumber: number }>();
-  
+
   // Reactive State (Svelte 5 Runes)
   let currentOrder = $state<OrderItem[]>([]);
   let menuItems = $state<MenuItem[]>([]);
   let selectedCategory = $state<string>('Principales');
   let isOnline = $state(navigator.onLine);
-  
+
   // Computed Values
   let orderTotal = $derived(
     currentOrder.reduce((sum, item) => sum + (item.price * item.quantity), 0)
   );
-  
+
   let orderItemCount = $derived(
     currentOrder.reduce((sum, item) => sum + item.quantity, 0)
   );
-  
+
   // Categories (común en fondas mexicanas)
   const categories = [
     { id: 'principales', name: 'Principales', icon: '🍽️' },
@@ -1714,7 +1716,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     { id: 'postres', name: 'Postres', icon: '🍰' },
     { id: 'extras', name: 'Extras', icon: '🌶️' }
   ];
-  
+
   // Cargar menú desde API o IndexedDB
   onMount(async () => {
     try {
@@ -1722,7 +1724,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       const response = await fetch('/api/restaurant/menu', {
         headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
       });
-      
+
       if (response.ok) {
         menuItems = await response.json();
         // Cachear en IndexedDB
@@ -1735,16 +1737,16 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       menuItems = await db.menu_items.toArray();
       console.log('⚠️ Modo Offline: Menú cargado desde cache');
     }
-    
+
     // Escuchar cambios de conectividad
     window.addEventListener('online', () => { isOnline = true; syncPendingOrders(); });
     window.addEventListener('offline', () => { isOnline = false; });
   });
-  
+
   // Agregar item al pedido
   function addItem(item: MenuItem) {
     const existing = currentOrder.find(i => i.menu_item_id === item.id);
-    
+
     if (existing) {
       existing.quantity += 1;
       currentOrder = [...currentOrder]; // Trigger reactivity
@@ -1757,37 +1759,37 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         notes: ''
       }];
     }
-    
+
     // Feedback táctil (vibración)
     if (navigator.vibrate) {
       navigator.vibrate(50);
     }
   }
-  
+
   // Remover item
   function removeItem(index: number) {
     currentOrder = currentOrder.filter((_, i) => i !== index);
   }
-  
+
   // Ajustar cantidad
   function updateQuantity(index: number, delta: number) {
     const item = currentOrder[index];
     item.quantity += delta;
-    
+
     if (item.quantity <= 0) {
       currentOrder = currentOrder.filter((_, i) => i !== index);
     } else {
       currentOrder = [...currentOrder];
     }
   }
-  
+
   // Enviar orden a cocina
   async function sendOrderToKitchen() {
     if (currentOrder.length === 0) {
       alert('⚠️ Agrega al menos un platillo');
       return;
     }
-    
+
     const order = {
       user_id: localStorage.getItem('user_id'),
       table_number: tableNumber,
@@ -1797,10 +1799,10 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       created_at: new Date().toISOString(),
       synced: false
     };
-    
+
     // Guardar en IndexedDB (siempre, offline-first)
     const localId = await db.orders.add(order);
-    
+
     // Intentar enviar a servidor si hay internet
     if (isOnline) {
       try {
@@ -1812,12 +1814,12 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
           },
           body: JSON.stringify(order)
         });
-        
+
         if (response.ok) {
           const serverOrder = await response.json();
           // Marcar como sincronizado
           await db.orders.update(localId, { synced: true, server_id: serverOrder.id });
-          
+
           // Notificación WhatsApp a cocina (opcional)
           sendKitchenNotification(serverOrder);
         }
@@ -1825,22 +1827,22 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         console.log('⚠️ Orden guardada offline, se enviará después');
       }
     }
-    
+
     // Limpiar carrito
     currentOrder = [];
-    
+
     // Feedback visual
     showSuccessNotification(`✅ Orden enviada a cocina - Mesa ${tableNumber}`);
   }
-  
+
   // Sincronizar órdenes pendientes
   async function syncPendingOrders() {
     const pendingOrders = await db.orders.where('synced').equals(false).toArray();
-    
+
     if (pendingOrders.length === 0) return;
-    
+
     console.log(`🔄 Sincronizando ${pendingOrders.length} órdenes pendientes...`);
-    
+
     for (const order of pendingOrders) {
       try {
         const response = await fetch('/api/restaurant/orders', {
@@ -1851,7 +1853,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
           },
           body: JSON.stringify(order)
         });
-        
+
         if (response.ok) {
           await db.orders.update(order.id, { synced: true });
         }
@@ -1861,13 +1863,13 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       }
     }
   }
-  
+
   // Notificación de éxito
   function showSuccessNotification(message: string) {
     // Implementar con toast/snackbar
     alert(message);
   }
-  
+
   // Notificación WhatsApp a cocina
   async function sendKitchenNotification(order: any) {
     // Llamar a endpoint de WhatsApp
@@ -1894,7 +1896,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       <span class="table-icon">🍽️</span>
       <span class="table-number">Mesa {tableNumber}</span>
     </div>
-    
+
     <div class="connection-status">
       {#if isOnline}
         <span class="status-badge online">🟢 En línea</span>
@@ -1903,7 +1905,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       {/if}
     </div>
   </header>
-  
+
   <!-- Categories -->
   <nav class="categories">
     {#each categories as category}
@@ -1917,14 +1919,14 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       </button>
     {/each}
   </nav>
-  
+
   <!-- Main Grid -->
   <div class="content-grid">
     <!-- Left: Menu Items -->
     <section class="menu-panel">
       <div class="menu-grid">
         {#each menuItems.filter(item => item.category === selectedCategory) as item}
-          <button 
+          <button
             class="menu-item-card"
             onclick={() => addItem(item)}
           >
@@ -1934,11 +1936,11 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         {/each}
       </div>
     </section>
-    
+
     <!-- Right: Current Order -->
     <aside class="order-panel">
       <h2 class="order-title">Pedido Actual</h2>
-      
+
       <div class="order-items">
         {#if currentOrder.length === 0}
           <div class="empty-state">
@@ -1952,22 +1954,22 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
                 <span class="item-name">{item.name}</span>
                 <span class="item-subtotal">${(item.price * item.quantity).toFixed(2)}</span>
               </div>
-              
+
               <div class="item-controls">
-                <button 
+                <button
                   class="qty-btn"
                   onclick={() => updateQuantity(index, -1)}
                 >
                   −
                 </button>
                 <span class="qty-display">{item.quantity}</span>
-                <button 
+                <button
                   class="qty-btn"
                   onclick={() => updateQuantity(index, 1)}
                 >
                   +
                 </button>
-                <button 
+                <button
                   class="remove-btn"
                   onclick={() => removeItem(index)}
                 >
@@ -1978,7 +1980,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
           {/each}
         {/if}
       </div>
-      
+
       <!-- Order Summary -->
       <div class="order-summary">
         <div class="summary-row">
@@ -1990,9 +1992,9 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
           <span>${orderTotal.toFixed(2)}</span>
         </div>
       </div>
-      
+
       <!-- Send Button -->
-      <button 
+      <button
         class="send-order-btn"
         onclick={sendOrderToKitchen}
         disabled={currentOrder.length === 0}
@@ -2011,7 +2013,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     background: var(--surface-1);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   }
-  
+
   /* Header */
   .order-header {
     display: flex;
@@ -2022,39 +2024,39 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     color: white;
     box-shadow: var(--shadow-3);
   }
-  
+
   .table-indicator {
     display: flex;
     align-items: center;
     gap: var(--size-2);
   }
-  
+
   .table-icon {
     font-size: var(--font-size-5);
   }
-  
+
   .table-number {
     font-size: var(--font-size-4);
     font-weight: 700;
   }
-  
+
   .connection-status .status-badge {
     padding: var(--size-2) var(--size-3);
     border-radius: var(--radius-2);
     font-size: var(--font-size-1);
     font-weight: 600;
   }
-  
+
   .status-badge.online {
     background: rgba(0, 255, 0, 0.2);
     color: #00ff00;
   }
-  
+
   .status-badge.offline {
     background: rgba(255, 0, 0, 0.2);
     color: #ff4444;
   }
-  
+
   /* Categories */
   .categories {
     display: grid;
@@ -2064,7 +2066,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     background: white;
     border-bottom: 2px solid var(--surface-3);
   }
-  
+
   .category-btn {
     padding: var(--size-4);
     background: var(--surface-1);
@@ -2077,23 +2079,23 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     align-items: center;
     gap: var(--size-1);
   }
-  
+
   .category-btn.active {
     background: #FF6B35;
     border-color: #FF6B35;
     color: white;
     transform: scale(1.05);
   }
-  
+
   .category-icon {
     font-size: var(--font-size-5);
   }
-  
+
   .category-name {
     font-size: var(--font-size-2);
     font-weight: 600;
   }
-  
+
   /* Content Grid */
   .content-grid {
     display: grid;
@@ -2103,19 +2105,19 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     overflow: hidden;
     padding: var(--size-3);
   }
-  
+
   /* Menu Panel */
   .menu-panel {
     overflow-y: auto;
     padding: var(--size-2);
   }
-  
+
   .menu-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: var(--size-3);
   }
-  
+
   .menu-item-card {
     padding: var(--size-5);
     background: white;
@@ -2130,29 +2132,29 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     justify-content: center;
     gap: var(--size-2);
   }
-  
+
   .menu-item-card:hover {
     border-color: #FF6B35;
     transform: scale(1.05);
     box-shadow: var(--shadow-4);
   }
-  
+
   .menu-item-card:active {
     transform: scale(0.98);
   }
-  
+
   .menu-item-card .item-name {
     font-size: var(--font-size-3);
     font-weight: 700;
     color: var(--text-1);
   }
-  
+
   .menu-item-card .item-price {
     font-size: var(--font-size-5);
     font-weight: 900;
     color: #FF6B35;
   }
-  
+
   /* Order Panel */
   .order-panel {
     display: flex;
@@ -2163,14 +2165,14 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     border-radius: var(--radius-3);
     box-shadow: var(--shadow-3);
   }
-  
+
   .order-title {
     font-size: var(--font-size-4);
     font-weight: 700;
     color: var(--text-1);
     text-align: center;
   }
-  
+
   .order-items {
     flex: 1;
     overflow-y: auto;
@@ -2178,7 +2180,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     flex-direction: column;
     gap: var(--size-2);
   }
-  
+
   .empty-state {
     display: flex;
     flex-direction: column;
@@ -2187,12 +2189,12 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     height: 100%;
     color: var(--text-2);
   }
-  
+
   .empty-icon {
     font-size: 64px;
     margin-bottom: var(--size-3);
   }
-  
+
   .order-item {
     padding: var(--size-3);
     background: var(--surface-1);
@@ -2201,31 +2203,31 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     flex-direction: column;
     gap: var(--size-2);
   }
-  
+
   .item-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  
+
   .item-info .item-name {
     font-weight: 600;
     font-size: var(--font-size-2);
   }
-  
+
   .item-info .item-subtotal {
     font-weight: 700;
     font-size: var(--font-size-3);
     color: #FF6B35;
   }
-  
+
   .item-controls {
     display: grid;
     grid-template-columns: 50px 1fr 50px 50px;
     gap: var(--size-2);
     align-items: center;
   }
-  
+
   .qty-btn {
     width: 50px;
     height: 50px;
@@ -2237,19 +2239,19 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     cursor: pointer;
     transition: all 0.2s;
   }
-  
+
   .qty-btn:hover {
     background: #FF6B35;
     color: white;
     transform: scale(1.1);
   }
-  
+
   .qty-display {
     text-align: center;
     font-size: var(--font-size-4);
     font-weight: 700;
   }
-  
+
   .remove-btn {
     width: 50px;
     height: 50px;
@@ -2260,12 +2262,12 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     cursor: pointer;
     transition: all 0.2s;
   }
-  
+
   .remove-btn:hover {
     background: var(--red-6);
     transform: scale(1.1);
   }
-  
+
   /* Order Summary */
   .order-summary {
     padding: var(--size-3);
@@ -2275,13 +2277,13 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     flex-direction: column;
     gap: var(--size-2);
   }
-  
+
   .summary-row {
     display: flex;
     justify-content: space-between;
     font-size: var(--font-size-2);
   }
-  
+
   .summary-row.total {
     font-size: var(--font-size-4);
     font-weight: 900;
@@ -2289,7 +2291,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     padding-top: var(--size-2);
     border-top: 2px solid var(--surface-4);
   }
-  
+
   /* Send Button */
   .send-order-btn {
     padding: var(--size-5);
@@ -2303,31 +2305,31 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     transition: all 0.2s;
     box-shadow: var(--shadow-3);
   }
-  
+
   .send-order-btn:hover:not(:disabled) {
     transform: scale(1.05);
     box-shadow: var(--shadow-5);
   }
-  
+
   .send-order-btn:active:not(:disabled) {
     transform: scale(0.98);
   }
-  
+
   .send-order-btn:disabled {
     opacity: 0.5;
     cursor: not-allowed;
   }
-  
+
   /* Responsive Tablet */
   @media (max-width: 1024px) {
     .content-grid {
       grid-template-columns: 1fr;
     }
-    
+
     .menu-grid {
       grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
-    
+
     .categories {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -2342,25 +2344,25 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 ```svelte
 <script lang="ts">
   import { onMount } from 'svelte';
-  
+
   let tipsData = $state<WaiterTips[]>([]);
   let distributionMethod = $state<'by_hours' | 'by_sales' | 'by_tables' | 'equal'>('by_sales');
   let currentShift = $state<any>(null);
-  
+
   onMount(async () => {
     await loadCurrentShift();
   });
-  
+
   async function loadCurrentShift() {
     const response = await fetch('/api/restaurant/shifts/current', {
       headers: { 'Authorization': `Bearer ${localStorage.getItem('token')}` }
     });
-    
+
     if (response.ok) {
       currentShift = await response.json();
     }
   }
-  
+
   async function closeShiftWithDistribution() {
     const response = await fetch('/api/restaurant/shifts/close', {
       method: 'POST',
@@ -2373,7 +2375,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         distribution_method: distributionMethod
       })
     });
-    
+
     if (response.ok) {
       const result = await response.json();
       tipsData = result.tips_distribution;
@@ -2386,7 +2388,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
   <header class="dashboard-header">
     <h1>💰 Cierre de Turno y Propinas</h1>
   </header>
-  
+
   {#if currentShift}
     <section class="shift-info">
       <div class="info-card">
@@ -2406,7 +2408,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         <span class="value highlight">${currentShift.total_tips}</span>
       </div>
     </section>
-    
+
     <section class="distribution-method">
       <h2>Método de Distribución</h2>
       <div class="method-options">
@@ -2428,7 +2430,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         </label>
       </div>
     </section>
-    
+
     {#if tipsData.length > 0}
       <section class="tips-distribution">
         <h2>Distribución de Propinas</h2>
@@ -2456,7 +2458,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
         </table>
       </section>
     {/if}
-    
+
     <button class="close-shift-btn" onclick={closeShiftWithDistribution}>
       🔒 Cerrar Turno y Calcular Propinas
     </button>
@@ -2471,24 +2473,24 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     max-width: 1200px;
     margin: 0 auto;
   }
-  
+
   .dashboard-header {
     text-align: center;
     margin-bottom: var(--size-5);
   }
-  
+
   .dashboard-header h1 {
     font-size: var(--font-size-6);
     color: #FF6B35;
   }
-  
+
   .shift-info {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: var(--size-3);
     margin-bottom: var(--size-5);
   }
-  
+
   .info-card {
     padding: var(--size-4);
     background: white;
@@ -2498,38 +2500,38 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     flex-direction: column;
     gap: var(--size-2);
   }
-  
+
   .info-card .label {
     font-size: var(--font-size-1);
     color: var(--text-2);
     text-transform: uppercase;
     font-weight: 600;
   }
-  
+
   .info-card .value {
     font-size: var(--font-size-4);
     font-weight: 700;
     color: var(--text-1);
   }
-  
+
   .info-card .value.highlight {
     color: #FF6B35;
   }
-  
+
   .distribution-method {
     background: white;
     padding: var(--size-5);
     border-radius: var(--radius-3);
     margin-bottom: var(--size-5);
   }
-  
+
   .method-options {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--size-3);
     margin-top: var(--size-3);
   }
-  
+
   .method-option {
     padding: var(--size-4);
     border: 2px solid var(--surface-3);
@@ -2540,37 +2542,37 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
     gap: var(--size-2);
     transition: all 0.2s;
   }
-  
+
   .method-option:has(input:checked) {
     border-color: #FF6B35;
     background: rgba(255, 107, 53, 0.1);
   }
-  
+
   .tips-table {
     width: 100%;
     border-collapse: collapse;
   }
-  
+
   .tips-table th,
   .tips-table td {
     padding: var(--size-3);
     text-align: left;
     border-bottom: 1px solid var(--surface-3);
   }
-  
+
   .tips-table th {
     background: var(--surface-2);
     font-weight: 700;
     text-transform: uppercase;
     font-size: var(--font-size-0);
   }
-  
+
   .tips-amount {
     font-weight: 700;
     color: #FF6B35;
     font-size: var(--font-size-3);
   }
-  
+
   .close-shift-btn {
     width: 100%;
     padding: var(--size-5);
@@ -2630,12 +2632,14 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 ### Caso 1: "La Fonda de Doña Martha" (CDMX)
 
 **Antes de FinanzasMX:**
+
 - 3 meseros
 - 120 órdenes/día
 - 15 conflictos propinas/mes
 - 2 meseros renunciaron en 6 meses
 
 **Después de FinanzasMX (3 meses uso):**
+
 - 3 meseros (mismos, contentos)
 - 135 órdenes/día (+12% por eficiencia)
 - 0 conflictos propinas
@@ -2646,11 +2650,13 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 ### Caso 2: "Cafetería Moderna" (Guadalajara)
 
 **Antes:**
+
 - 2 baristas
 - Sistema mixto (papel + calculadora)
 - No sabía cuánto ganaba hasta fin de mes
 
 **Después (2 meses uso):**
+
 - 2 baristas + 1 part-time (crecimiento)
 - Dashboard en tiempo real
 - Decisiones basadas en datos (qué bebidas vender más)
@@ -2663,24 +2669,28 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 ### Resumen Ejecutivo
 
 **Problema Validado:**
+
 1. ✅ Propinas caóticas → $1,800/mes pérdida
 2. ✅ Mermas no deducidas → $3,600/año desperdiciados
 3. ✅ Comandas papel → 20 errores/mes
 4. ✅ Sin análisis datos → Decisiones a ciegas
 
 **Solución Técnica:**
+
 1. ✅ Backend PostgreSQL (5 tablas, 3 endpoints)
 2. ✅ Lógica de negocio TypeScript (separación propinas)
 3. ✅ Frontend Svelte 5 offline-first (IndexedDB)
 4. ✅ UI táctil zero-fricción (botones 80px, colores alto contraste)
 
 **Viabilidad Comercial:**
+
 1. ✅ TAM: 550K restaurantes
 2. ✅ Target Año 1: 540 clientes
 3. ✅ ARR Año 1: $2.1M MXN
 4. ✅ ROI Cliente: 2,458% (irresistible)
 
 **Bootstrap Strategy:**
+
 1. ✅ Proveedores abastos (comisión recurrente)
 2. ✅ Demo en vivo en la fonda (35-45% conversión)
 3. ✅ TikTok viral (drama propinas relatable)
@@ -2689,6 +2699,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 ### Ventaja Competitiva Única
 
 **FinanzasMX es el ÚNICO software en México que:**
+
 - Separa propinas automáticamente (compliance fiscal Art. 93)
 - Funciona 100% offline (IndexedDB + Service Workers)
 - UI diseñada para manos mojadas/grasosas (botones gigantes)
@@ -2760,7 +2771,7 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
       shrinkage.ts       (Registro mermas)
     /routes
       restaurant.ts      (3 endpoints REST)
-  
+
   /frontend
     /components
       QuickOrderPad.svelte    (UI táctil)
@@ -2791,19 +2802,20 @@ _Continúa en Parte 3: Frontend (Componentes Svelte 5 + UI Táctil + Offline)_
 
 ## 🎉 PERFIL 62 - 100% COMPLETADO
 
-**Fecha Finalización:** 12 Diciembre 2025  
-**Palabras Totales:** ~16,500  
+**Fecha Finalización:** 12 Diciembre 2025
+**Palabras Totales:** ~16,500
 **Secciones Completadas:**
+
 - ✅ Parte 1: Estrategia y Dolor (6,500 palabras)
 - ✅ Parte 2: Backend Técnico (5,000 palabras)
 - ✅ Parte 3: Frontend Svelte 5 (5,000 palabras)
 
-**Documentación:** 100% implementable  
-**Stack Validado:** Svelte 5 + Bun + PostgreSQL + IndexedDB  
-**Prioridad Implementación:** 🔴🔴🔴🔴 CRÍTICA (perfil masivo + ROI 24x)  
+**Documentación:** 100% implementable
+**Stack Validado:** Svelte 5 + Bun + PostgreSQL + IndexedDB
+**Prioridad Implementación:** 🔴🔴🔴🔴 CRÍTICA (perfil masivo + ROI 24x)
 **Tiempo Estimado Desarrollo:** 20-25 días
 
 ---
 
-_Perfil 62 (Restaurante/Fonda/Cafetería) completado._  
+_Perfil 62 (Restaurante/Fonda/Cafetería) completado._
 _Siguiente: Perfil 63 (Farmacia Independiente) cuando lo solicites._

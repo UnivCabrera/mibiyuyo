@@ -207,7 +207,7 @@ echo "✅ Hardening completado. Firewall activo, Fail2Ban protegiendo SSH."
 **Dockerfile Non-Root:**
 ```dockerfile
 # Backend Dockerfile (Bun)
-FROM oven/bun:1.3.3-alpine AS production
+FROM oven/bun:1.3.4-alpine AS production
 
 # Crear usuario no-root
 RUN addgroup -g 1001 -S nodejs && adduser -S bun -u 1001

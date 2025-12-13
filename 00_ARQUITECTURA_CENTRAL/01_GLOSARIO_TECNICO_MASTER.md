@@ -1,7 +1,7 @@
 # 📖 GLOSARIO TÉCNICO Y DE NEGOCIO: PRO_FINAN_CONTA_PYM
 
-**Última Actualización:** 12 Diciembre 2025  
-**Total Características:** 278 features documentadas  
+**Última Actualización:** 12 Diciembre 2025
+**Total Características:** 278 features documentadas
 **Módulos:** 13 (incluye Killer Features y Mapa Tecnológico)
 
 > **Cómo usar este archivo:** sirve como diccionario vivo de términos y decisiones arquitectónicas. Cada entrada indica su definición, dónde reside en el código y cómo impacta otras capas del sistema para facilitar el rastreo durante auditorías o refactors.
@@ -20,11 +20,11 @@
 
 | Tecnología                   | Rol en el Sistema                                             | Estado Actual                                  | Motivo de Elección                                                               |
 | :--------------------------- | :------------------------------------------------------------ | :--------------------------------------------- | :------------------------------------------------------------------------------- |
-| **Bun**                      | Runtime JS/TS de alto rendimiento; ejecuta backend y tooling. | ✅ Implementado en `backend/`                  | Menor latencia que Node, TS nativo, soporte WebSocket integrado.                 |
+| **Bun 1.3.4**                | Runtime JS/TS full-stack; ejecuta backend, DB clients native  | ✅ Implementado en `backend/`                  | Full-stack runtime con HTTP server built-in, MySQL/PostgreSQL/Redis nativos, 3x más rápido que Node.js |
 | **Svelte 5 (Runes)**         | Framework frontend reactivo para la PWA.                      | ⚠️ Migración pendiente desde SvelteKit clásico | Reduce bundle size y ofrece reactividad declarativa sin virtual DOM.             |
 | **ElysiaJS**                 | Framework HTTP sobre Bun.                                     | ✅ `backend/src/index.ts`                      | Tipado end-to-end con Eden Treaty y soporte nativo para plugins (Swagger, Cors). |
-| **PostgreSQL 18 + pgvector** | Base relacional y motor semántico.                            | ✅ `database/migrations/`                      | Permite ACID para core financiero y búsquedas IA sin servicios externos. Historial ilimitado vs 2 años de Contpaqi. |
-| **Redis 8.2+**               | Caché, sesiones y colas BullMQ.                               | ✅ `infrastructure/docker/`                    | Streams mejorados, comandos HSETEX para tokens rotables. Vector sets para IA.                        |
+| **PostgreSQL 18.1 + pgvector 0.8.1** | Base relacional y motor semántico.                    | ✅ `database/migrations/`                      | Permite ACID para core financiero y búsquedas IA sin servicios externos. Latest stable Nov 2025. Historial ilimitado vs 2 años de Contpaqi. |
+| **Redis 8.4.0**              | Caché, sesiones, colas BullMQ, Vector Sets AI                 | ✅ `infrastructure/docker/`                    | Vector Sets (beta), JSON/TimeSeries integrados, 87% faster commands, 2x throughput vs Redis 7. CLUSTER MIGRATION, Enhanced Query Engine 16x.       |
 | **Dokploy**                  | Orquestador Docker con UI web.                                | ✅ VPS Hostinger                               | Maneja Docker Swarm, backups, CI/CD y SSL automático. Alternativa a Kubernetes para 1-3 VPS.       |
 | **Traefik 3**                | Reverse proxy, SSL y rate limiting.                           | ✅ `infrastructure/traefik/`                   | Auto Let's Encrypt y middlewares consumibles desde labels Docker.                |
 
@@ -90,5 +90,5 @@
 
 ---
 
-**Última revisión:** 12 Diciembre 2025  
+**Última revisión:** 12 Diciembre 2025
 **Próxima auditoría programada:** Marzo 2026

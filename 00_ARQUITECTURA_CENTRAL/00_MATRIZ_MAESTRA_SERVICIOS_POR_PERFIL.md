@@ -574,10 +574,19 @@ Este documento es la **REFERENCIA CANÓNICA** para entender qué servicios, herr
 │                    STACK PARA CUMPLIR PROMESAS                     │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│   YA TENEMOS (Stack Core):                                         │
-│   ✅ Bun 1.3.3 + ElysiaJS 1.4.16                                   │
-│   ✅ PostgreSQL 18.1 + pgvector                                    │
-│   ✅ Redis 8.x                                                      │
+│   YA TENEMOS (Stack Core - Actualizado Diciembre 2025):           │
+│   ✅ Bun 1.3.4 (Dec 2025) - Full-stack runtime                     │
+│      • Built-in HTTP server (bun.serve())                          │
+│      • Native MySQL, PostgreSQL, SQLite, Redis clients             │
+│      • Improved dev tooling + hot reloading                        │
+│                                                                     │
+│   ✅ ElysiaJS 1.4.16+ (Compatible Bun 1.3.4)                       │
+│   ✅ PostgreSQL 18.1 (Nov 2025) + pgvector 0.8.1                   │
+│   ✅ Redis 8.4.0 (Nov 2025) - Open Source                          │
+│      • Vector Sets (beta) para AI/RAG                              │
+│      • JSON + TimeSeries + Probabilistic integrados                │
+│      • 87% faster commands, 2x throughput                          │
+│      • CLUSTER MIGRATION, DELEX, MSETEX                            │
 │   ✅ Svelte 5.x + SvelteKit                                        │
 │   ✅ TypeScript 5.9                                                 │
 │                                                                     │

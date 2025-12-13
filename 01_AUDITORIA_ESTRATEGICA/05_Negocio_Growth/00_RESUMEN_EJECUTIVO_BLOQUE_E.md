@@ -372,7 +372,7 @@ export async function scrapeDOF() {
 | Componente | Tecnología | Ubicación | Costo |
 |:-----------|:-----------|:----------|:------|
 | **VPS** | Hostinger KVM 2 | Dokploy preinstalado | $200 MXN/mes |
-| **Backend** | Bun 1.3.3 + ElysiaJS 1.4.16 | VPS | $0 |
+| **Backend** | Bun 1.3.4 + ElysiaJS 1.4.16+ | VPS | $0 |
 | **Frontend** | Svelte 5 + SvelteKit | VPS | $0 |
 | **Database** | PostgreSQL 16 | VPS | $0 |
 | **Cache** | Redis 7 | VPS | $0 |

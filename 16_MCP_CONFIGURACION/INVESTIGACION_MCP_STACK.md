@@ -1,7 +1,7 @@
 # 🔍 Investigación Completa de MCPs - Stack Tecnológico
 
-**Proyecto:** PRO_FINAN_CONTA_PYM - FinTech SaaS México  
-**Última Actualización:** 5 Diciembre 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM - FinTech SaaS México
+**Última Actualización:** 5 Diciembre 2025
 **Total Tecnologías:** 61
 
 ---
@@ -512,7 +512,7 @@ POSTGRES_CONNECTION_STRING=postgresql://localhost:5432/fintech_db
 
 ---
 
-_Última actualización: 5 Diciembre 2025_  
+_Última actualización: 5 Diciembre 2025_
 _MCPs: 22 | llms.txt: 9 | Total: 61 tecnologías_
 
 OK apartir de aqui yo pondre todo lo que encuntre de informacion :
@@ -592,4 +592,239 @@ De estos 31:
 4 están en pausa (México fiscal)
 3 requieren verificación (ExcelJS, Drizzle, Superforms)
 24 son librerías simples que no necesitan MCP (docs suficientes)
-¿Quieres que investigue los 3 pendientes de verificación ahora?4
+
+---
+
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# 📋 CHECKLIST COMPLETO - INFORMACIÓN PENDIENTE (6 elementos)
+
+# ═══════════════════════════════════════════════════════════════════════════════
+
+> **INSTRUCCIONES:** El usuario proporcionará la información de cada elemento.
+> Marcar con ✅ cuando esté completado.
+
+---
+
+## 🔍 GRUPO A: Verificación llms.txt (3)
+
+### ❌ 1. Drizzle ORM
+
+**URL a verificar:** https://orm.drizzle.team/llms.txt
+**Repositorio alternativo:** https://github.com/drizzle-team/drizzle-orm
+
+**Qué buscar:**
+
+- Si existe llms.txt en el dominio principal
+- Si NO existe, buscar en `/docs/llms.txt` o `/.well-known/llms.txt`
+- Si NO existe en ningún lado, buscar archivo README.md completo del repo
+
+**Formato de entrega:**
+```
+=== DRIZZLE ORM ===
+URL probada: [url]
+Estado: [EXISTE / NO EXISTE]
+Contenido: [copiar todo si existe, o "NO ENCONTRADO"]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/llms-txt-files/drizzle.txt` (si existe)
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+### ❌ 2. Superforms
+
+**URL a verificar:** https://superforms.rocks/llms.txt
+**Repositorio alternativo:** https://github.com/ciscoheat/sveltekit-superforms
+
+**Qué buscar:**
+
+- Si existe llms.txt en el dominio
+- Si NO existe, copiar README.md del repositorio
+- Si NO hay nada, copiar contenido de la documentación principal
+
+**Formato de entrega:**
+```
+=== SUPERFORMS ===
+URL probada: [url]
+Estado: [EXISTE / NO EXISTE]
+Contenido: [copiar todo si existe, o README.md del repo]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/llms-txt-files/superforms.txt` (si existe)
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+### ❌ 3. ExcelJS MCP (comunitario)
+
+**URL a verificar:** https://github.com/negokaz/excel-mcp-server
+
+**Qué buscar:**
+
+- Confirmar que el repositorio existe y está activo
+- Última fecha de actualización (commits recientes)
+- Copiar README.md completo
+- Copiar ejemplo de uso si existe
+
+**Formato de entrega:**
+```
+=== EXCELJS MCP ===
+Repositorio: https://github.com/negokaz/excel-mcp-server
+Estado: [ACTIVO / ABANDONADO]
+Última actualización: [fecha]
+README completo: [copiar todo]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/mcp-comunitarios/excel-mcp-info.md`
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+## 🇲🇽 GRUPO B: México Fiscal (3)
+
+### ❌ 4. SAT CFDI 4.0 - Especificación Oficial
+
+**URL a verificar:** https://www.sat.gob.mx/consulta/09778/consulta-tu-version-de-cfdi
+
+**URLs adicionales:**
+
+- https://www.sat.gob.mx/cs/Satellite?c=Page&cid=1395147032121&pagename=SAT/Page/SATHome
+- Buscar "Anexo 20" en el SAT (catálogos CFDI)
+
+**Qué buscar:**
+
+1. Versión actual de CFDI (debe ser 4.0)
+2. URL del XSD oficial (esquema XML)
+3. Tipos de comprobante (I=Ingreso, E=Egreso, P=Pago, T=Traslado, N=Nómina)
+4. Lista de complementos disponibles (Pago 2.0, Nómina 1.2, etc.)
+5. Reglas de validación principales
+6. Guía de llenado (si está disponible)
+
+**Formato de entrega:**
+```
+=== SAT CFDI 4.0 ===
+Versión actual: [4.0 o la que sea]
+URL XSD oficial: [url del esquema]
+Tipos de comprobante: [listar todos]
+Complementos disponibles: [listar principales]
+Reglas principales: [copiar resumen]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/mexico-fiscal/sat-cfdi-4.0-spec.md`
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+### ❌ 5. NodeCFDI - Librerías JavaScript
+
+**URLs a verificar:**
+
+- https://www.npmjs.com/package/@nodecfdi/cfdi-core
+- https://www.npmjs.com/package/@nodecfdi/sat-estado-cfdi
+- https://www.npmjs.com/package/@nodecfdi/cfdi-expresiones
+
+**Qué buscar:**
+
+- README completo de cada librería
+- Versión actual de cada una
+- Ejemplos de uso básico
+- API principal (funciones más importantes)
+
+**Formato de entrega:**
+```
+=== NODECFDI LIBRARIES ===
+
+## @nodecfdi/cfdi-core
+Versión: [x.x.x]
+README: [copiar completo]
+
+## @nodecfdi/sat-estado-cfdi
+Versión: [x.x.x]
+README: [copiar completo]
+
+## @nodecfdi/cfdi-expresiones
+Versión: [x.x.x]
+README: [copiar completo]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/mexico-fiscal/nodecfdi-libraries.md`
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+### ❌ 6. Finkok PAC - API Timbrado
+
+**URL a verificar:** https://wiki.finkok.com/doku.php?id=quick_start
+
+**URLs adicionales:**
+
+- https://wiki.finkok.com/doku.php?id=metodos (métodos disponibles)
+- https://demo-facturacion.finkok.com/ (ambiente demo)
+
+**Qué buscar:**
+
+1. Quick Start Guide completo
+2. Endpoints principales:
+   - Timbrado (stamp)
+   - Cancelación (cancel)
+   - Consulta de folios
+3. Diferencias entre ambiente TEST y PRODUCCIÓN
+4. Formato de requests y responses
+5. Códigos de error comunes
+
+**Formato de entrega:**
+```
+=== FINKOK PAC ===
+Quick Start: [copiar guía]
+Endpoints principales: [listar con URLs]
+Ambiente TEST: [URL y configuración]
+Ambiente PROD: [URL y configuración]
+Ejemplo request: [copiar si existe]
+Códigos de error: [copiar tabla si existe]
+```
+
+**Dónde se guardará:** `16_MCP_CONFIGURACION/mexico-fiscal/finkok-pac-api.md`
+
+**Estado:** ⏳ PENDIENTE
+
+---
+
+## 📊 RESUMEN DE PROGRESO
+
+| #   | Elemento               | Categoría      | Prioridad | Estado      |
+| --- | ---------------------- | -------------- | --------- | ----------- |
+| 1   | Drizzle ORM llms.txt   | Verificación   | Media     | ⏳ PENDIENTE |
+| 2   | Superforms llms.txt    | Verificación   | Media     | ⏳ PENDIENTE |
+| 3   | ExcelJS MCP comunitario| Verificación   | Baja      | ⏳ PENDIENTE |
+| 4   | SAT CFDI 4.0           | México Fiscal  | Alta*     | ⏳ PENDIENTE |
+| 5   | NodeCFDI librerías     | México Fiscal  | Alta*     | ⏳ PENDIENTE |
+| 6   | Finkok PAC API         | México Fiscal  | Media*    | ⏳ PENDIENTE |
+
+\*Prioridad alta para documentación, pero implementación en Fase 5
+
+---
+
+## 🎯 INSTRUCCIONES PARA EL USUARIO
+
+**Cómo proceder:**
+
+1. Copia el formato de cada elemento (el bloque que dice "Formato de entrega")
+2. Ve a las URLs indicadas
+3. Copia la información solicitada
+4. Pega el resultado completo en el chat
+5. Yo crearé los archivos correspondientes y actualizaré este checklist
+
+**Puedes hacerlo de uno en uno o varios a la vez, como prefieras.**
+
+**Cuando termines los 6, el PASO 1 estará 100% completo.** ✅
+
+---
+
+_Última actualización checklist: 13 Diciembre 2025_
+_Completados: 0/6 | Pendientes: 6/6_

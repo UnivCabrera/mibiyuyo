@@ -1,4 +1,14 @@
-Redis 8.0
+# Redis - Documentación de Versiones
+
+> **⚠️ NOTA DEL PROYECTO (Diciembre 2025):**
+> Estamos usando **Redis 8.4.0** (Nov 2025) en producción.
+> Este documento contiene información de Redis 8.0, 8.2 y 8.4 para referencia histórica.
+> Ver sección "Redis 8.4" más abajo para las features actuales.
+
+---
+
+## Redis 8.0
+
 What's new in Redis 8.0
 
 Redis 8.0 introduces powerful new capabilities, including the beta release of the Vector Set data structure, designed for AI use cases such as semantic search and recommendation systems.
@@ -1088,7 +1098,7 @@ body = jsonencode({
 properties = {
 clientProtocol = var.client_protocol
 evictionPolicy = var.eviction_policy
-clusteringPolicy = "NoCluster"  
+clusteringPolicy = "NoCluster"
  persistence = {
 aofEnabled = true
 rdbEnabled = true

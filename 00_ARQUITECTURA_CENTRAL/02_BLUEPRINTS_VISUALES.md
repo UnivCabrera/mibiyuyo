@@ -1,8 +1,8 @@
 # 📐 BLUEPRINTS DE ARQUITECTURA
 
-**Última Actualización:** 12 Diciembre 2025  
-**Plataforma:** Dokploy (Docker Swarm)  
-**Total Features:** 278 características  
+**Última Actualización:** 12 Diciembre 2025
+**Plataforma:** Dokploy (Docker Swarm)
+**Total Features:** 278 características
 **Killer Features:** 45 ventajas competitivas documentadas
 
 ## 1. Arquitectura de Sistema (C4 Container Level) - Dokploy
@@ -33,8 +33,8 @@ graph TD
         end
 
         subgraph "Data Layer (Dokploy Managed)"
-            DB[(PostgreSQL 18<br/>+ pgvector 0.8.1<br/>Backup: S3 4h<br/>Historial Ilimitado)]
-            Cache[(Redis 8.2<br/>Cache + Queues + Vector Sets)]
+            DB[(PostgreSQL 18.1<br/>+ pgvector 0.8.1<br/>Backup: S3 4h<br/>Historial Ilimitado)]
+            Cache[(Redis 8.4.0<br/>Cache + Queues + Vector Sets<br/>87% faster, 2x throughput)]
         end
 
         subgraph "Observability"
@@ -170,6 +170,6 @@ Nuestra arquitectura implementa **45 killer features** que nos diferencian:
 
 ---
 
-**Última actualización:** 12 Diciembre 2025  
-**Próxima revisión:** Marzo 2026  
+**Última actualización:** 12 Diciembre 2025
+**Próxima revisión:** Marzo 2026
 **Total features implementables:** 278

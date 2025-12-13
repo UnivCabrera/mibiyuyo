@@ -5,7 +5,7 @@
 **Fecha:** 12 Diciembre 2025
 **Objetivo:** Documentar la configuración completa de Dokploy para maximizar sus capacidades
 **Proveedor Recomendado:** Hostinger (Kit Dokploy preinstalado)
-**Stack:** PostgreSQL 18 + Redis 8.2 + Bun + ElysiaJS + Svelte 5
+**Stack:** PostgreSQL 18.1 + Redis 8.4.0 + Bun 1.3.4 + ElysiaJS 1.4.16+ + Svelte 5
 **Total Features:** 278 características a desplegar
 
 ---
@@ -655,14 +655,14 @@ Timeout: 10s
 **Dockerfile para SvelteKit + Bun:**
 
 ```dockerfile
-FROM oven/bun:1.3.3 AS builder
+FROM oven/bun:1.3.4 AS builder
 WORKDIR /app
 COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile
 COPY . .
 RUN bun run build
 
-FROM oven/bun:1.3.3-slim
+FROM oven/bun:1.3.4-slim
 WORKDIR /app
 COPY --from=builder /app/build ./build
 COPY --from=builder /app/package.json ./
@@ -701,7 +701,7 @@ Interval: 15s
 **Dockerfile para Backend Bun:**
 
 ```dockerfile
-FROM oven/bun:1.3.3
+FROM oven/bun:1.3.4
 WORKDIR /app
 COPY package.json bun.lockb ./
 RUN bun install --frozen-lockfile --production

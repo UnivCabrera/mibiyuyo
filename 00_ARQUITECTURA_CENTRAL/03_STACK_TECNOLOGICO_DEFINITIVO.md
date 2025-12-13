@@ -162,7 +162,7 @@ Dado que Dokploy expone un panel de control crítico:
 
 | Componente            | Tecnología      | Versión     | Notas                                                                                   |
 | :-------------------- | :-------------- | :---------- | :-------------------------------------------------------------------------------------- |
-| **Runtime Principal** | **Bun**         | 1.3.3+      | 21x más rápido que Express. Ejecuta TS nativamente.                                     |
+| **Runtime Principal** | **Bun**         | 1.3.4+      | Full-stack runtime con HTTP server built-in, native DB clients (MySQL, PostgreSQL, SQLite, Redis). 3x startup más rápido. |
 | **Runtime Fallback**  | **Node.js**     | 24.11.1 LTS | Para dependencias incompatibles con Bun. npm 11.6.2 incluido. Current: 25.2.1           |
 | **Package Manager**   | **bun install** | -           | Lockfile `bun.lockb` para reproducibilidad.                                             |
 | **Test Runner**       | **bun test**    | -           | Compatible con Jest API. Vitest como alternativa.                                       |
@@ -179,8 +179,12 @@ Arquitectura **Hexagonal (Puertos y Adaptadores)** con **DDD (Domain-Driven Desi
 
 | Capa                    | Tecnología                  | Justificación                                                                                                |
 | :---------------------- | :-------------------------- | :----------------------------------------------------------------------------------------------------------- |
+| **Runtime**             | **Bun 1.3.4**               | Full-stack runtime con HTTP server built-in, native MySQL/PostgreSQL/Redis/SQLite clients, hot reloading    |
 | **Framework Web**       | **ElysiaJS 1.4.16+**        | Optimizado para Bun. End-to-end type safety con Eden Treaty. OpenAPI automático. Soporte Cloudflare Workers. |
-| **ORM**                 | **Drizzle ORM**             | SQL-like, zero runtime overhead, migraciones nativas, compatible Bun SQL.                                    |
+| **Base de Datos**       | **PostgreSQL 18.1**         | ACID completo, JSONB, particionado nativo, io_uring para I/O 3x más rápido                                  |
+| **Vector Search**       | **pgvector 0.8.1**          | Búsqueda semántica sin servicios externos. HNSW index nativo en Postgres.                                    |
+| **Cache & Jobs**        | **Redis 8.4.0**             | Vector Sets (beta), JSON/TimeSeries integrados, 87% faster commands, 2x throughput, BullMQ compatible        |
+| **ORM**                 | **Drizzle ORM 0.38+**       | SQL-like, zero runtime overhead, migraciones nativas, compatible Bun SQL.                                    |
 | **Patrón de Datos**     | **Repository Pattern**      | Centraliza acceso a datos. Ver `15_ARQUITECTURA_AVANZADA_Y_AUDITORIA/08_PATRONES_ARQUITECTURA_PENDIENTES.md` |
 | **Validación**          | **TypeBox** (nativo Elysia) | Schemas JSON que validan en runtime y generan tipos TS.                                                      |
 | **Autenticación**       | **Auth.js (SvelteKit)**     | OAuth2, Magic Links, Credentials. Adaptador Drizzle incluido.                                                |
@@ -665,6 +669,101 @@ interface UserFeatureConfig {
 **Contexto:** Reducir costos, mantener datos en el VPS, simplicidad.
 **Consecuencias:** Menor escalabilidad que servicios dedicados pero suficiente para MVP.
 
+### ADR-005: Bun 1.3.4 como Runtime Full-Stack
+
+**Contexto:**
+Bun 1.3.4 (Diciembre 2025) introduce capacidades full-stack que eliminan la necesidad de Node.js para la mayoría de operaciones.
+
+**Decisión:**
+Usar Bun 1.3.4+ como runtime principal para backend y tooling.
+
+**Ventajas Bun 1.3.4:**
+
+- ✅ **Built-in HTTP Server:** `bun.serve()` con hot reloading y mejor ergonomía
+- ✅ **Native Database Clients:** MySQL, PostgreSQL, SQLite, Redis sin dependencias externas
+- ✅ **Full-Stack Bundling:** Bundle frontend y backend juntos
+- ✅ **Performance:** 3x startup más rápido que Node.js, menor consumo memoria
+- ✅ **TypeScript Nativo:** No requiere `ts-node` o compilación separada
+- ✅ **Node.js Compatibility:** Cientos de tests Node.js agregados en 1.3
+
+**Desventajas:**
+
+- ⚠️ Ecosystem más pequeño (pero crece rápido)
+- ⚠️ Algunos packages npm pueden tener issues
+
+**Mitigación:**
+Mantener Node.js 24 LTS como fallback para servicios legacy (Python ML workers, scripts específicos).
+
+**Casos de uso Bun 1.3.4:**
+```typescript
+// Built-in HTTP server
+import { serve } from "bun";
+
+serve({
+  port: 3000,
+  fetch(req) {
+    return new Response("Hello from Bun 1.3.4!");
+  },
+});
+
+// Native PostgreSQL client
+import { Database } from "bun:sqlite"; // o bun:postgres
+const db = Database.open("mydb.sqlite");
+```
+
+### ADR-006: Redis 8.4.0 para Cache, Jobs y Vector Search
+
+**Contexto:**
+Redis 8.4.0 (Nov 2025) unifica módulos (JSON, TimeSeries, Bloom Filter) en el core y agrega Vector Sets (beta) para AI/RAG.
+
+**Decisión:**
+Usar Redis 8.4.0 Open Source para:
+
+1. Cache (sesiones, queries)
+2. Jobs (BullMQ)
+3. Pub/Sub (notificaciones real-time)
+4. Vector Sets (embeddings para RAG/IA) - **NUEVO**
+
+**Ventajas Redis 8.4:**
+
+- ✅ **87% faster commands** vs Redis 7
+- ✅ **2x throughput** en operaciones I/O
+- ✅ **Vector Sets (beta):** Búsqueda semántica sin servicios externos
+- ✅ **JSON + TimeSeries integrados:** No requieren módulos separados
+- ✅ **Probabilistic Structures:** Bloom Filter, Cuckoo Filter, Top-K, Count-Min Sketch, T-Digest
+- ✅ **CLUSTER MIGRATION:** Migración atómica de slots sin downtime
+- ✅ **Enhanced Query Engine:** 16x más capacidad de procesamiento
+
+**Nuevos comandos Redis 8.4:**
+```redis
+# Vector Sets (beta)
+VSET.ADD myset 0.1 0.2 0.3
+VSET.SEARCH myset [0.15, 0.25, 0.35] TOPK 10
+
+# Cluster atomic migration
+CLUSTER MIGRATION slot_start slot_end target_node
+
+# Enhanced JSON
+JSON.SET user:1 $ '{"name":"Juan","age":30}'
+JSON.GET user:1 $.age
+```
+
+**Casos de uso en proyecto:**
+
+- Vector Sets: Búsqueda semántica de facturas/transacciones (alternativa a pgvector para queries ligeros)
+- JSON: Almacenar configuraciones complejas sin schema
+- TimeSeries: Métricas de performance en tiempo real
+- Bloom Filter: Validación rápida de RFCs/CURPs sin consultar DB
+
+**Migración desde Redis 7.x:**
+```bash
+# Redis 8.4 es backward compatible
+docker pull redis:8.4-alpine
+# Módulos JSON/TimeSeries/Bloom ahora son core, eliminar carga manual
+```
+
+---
+
 ## 11. Sincronización Automática con Fuentes Oficiales (MCPs)
 
 > **PROBLEMA IDENTIFICADO:** La documentación puede quedar desactualizada rápidamente. Ejemplo: Node.js 24.11.1 LTS y TypeScript 5.9 ya existen pero pueden no estar reflejados si no hay sincronización activa.
@@ -919,4 +1018,4 @@ jobs:
 **Documento mantenido por:** Equipo de Arquitectura PRO_FINAN_CONTA_PYM
 **Última actualización:** 29 Noviembre 2025
 **Próxima revisión programada:** 6 Diciembre 2025 (sincronización semanal)
-**Fuentes verificadas:** GitHub Releases (Bun 1.3.3, Elysia 1.4.16), PostgreSQL Docs, Svelte Blog
+**Fuentes verificadas:** GitHub Releases (Bun 1.3.4, Elysia 1.4.16), PostgreSQL 18.1 Docs, Redis 8.4.0 Release Notes, Svelte Blog
