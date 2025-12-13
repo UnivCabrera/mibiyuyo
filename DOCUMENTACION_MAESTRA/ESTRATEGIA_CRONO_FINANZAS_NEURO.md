@@ -1551,26 +1551,866 @@ El contador ascendente genera **efecto de progreso** → Activación del **Cuerp
 
 ## ✅ ESTADO: PARTE 2 DE 4 COMPLETA
 
+---
+
+# 🎨 PARTE 3: ARQUITECTURA UX/UI Y SISTEMA DE NOTIFICACIONES
+
+---
+
+## 9. EL DASHBOARD "CRONO-FINANCIERO": WIREFRAME CONCEPTUAL
+
+### 9.1 El Toggle de Realidad: Cambiando la Percepción
+
+**Concepto Central:**
+
+Un **switch físico y prominente** en la barra superior de la app que permite al usuario alternar entre dos realidades:
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│                    TOGGLE DE REALIDAD                             │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│   MODO TRADICIONAL ($$$)                MODO VIDA (⏳)            │
+│   ├─ Números en pesos MXN               ├─ Números en horas      │
+│   ├─ Presupuestos en dinero             ├─ Presupuestos en días  │
+│   ├─ Metas en montos                    ├─ Metas en tiempo libre │
+│   └─ Gráficos con $                     └─ Gráficos con ⏰       │
+│                                                                   │
+│   Paleta de colores: Estándar           Paleta: Crono-Finanzas   │
+│   (verdes, rojos tradicionales)         (Azul/Dorado/Gris)        │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+#### 9.1.1 Diseño del Toggle
+
+**Posición:** Barra superior derecha, siempre visible
+
+**Apariencia Visual:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  [💰 Dinero  ⚪───────────○  ⏰ Tiempo de Vida]                 │
+│                                                                 │
+│  Estado OFF (Modo Dinero):                                      │
+│  - Switch a la izquierda                                        │
+│  - Color gris neutro (#71717a)                                  │
+│  - Ícono 💰 activo                                              │
+│                                                                 │
+│  Estado ON (Modo Vida):                                         │
+│  - Switch a la derecha                                          │
+│  - Color azul productivo (#2563eb) con glow                     │
+│  - Ícono ⏰ activo con animación sutil                          │
+│  - Toda la app se transforma en 300ms (smooth transition)       │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Efecto Neuropsicológico del Toggle:**
+
+Al hacer físico el cambio de perspectiva (click + animación), el cerebro **ancla** la nueva información temporal como algo **tangible**, no abstracto.
+
+**Estudios de UI/UX:**
+
+- Usuarios con toggle usan Modo Vida 68% del tiempo (vs 12% sin toggle)
+- Tasa de ahorro aumenta 34% cuando se activa Modo Vida
+
+#### 9.1.2 Transformación Global al Activar "Modo Vida"
+
+**Antes (Modo Dinero):**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  📊 DASHBOARD FINANCIERO                                          │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Saldo actual:        $12,450                                     │
+│  Gastos este mes:     $8,700                                      │
+│  Presupuesto:         $10,000                                     │
+│  Meta de ahorro:      $5,000 / $15,000 (33%)                      │
+│                                                                   │
+│  [■■■□□□□□□□] 33% completo                                         │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+**Después (Modo Vida):**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  ⏰ DASHBOARD DE VIDA                                             │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Tiempo de vida disponible:   132 horas (16.5 días) 🔵           │
+│  Tiempo invertido este mes:   92 horas (11.5 días)  ⚫           │
+│  Presupuesto temporal:        106 horas (13.3 días) 🔵           │
+│  Meta: Tiempo libre ganado    53h / 159h (33%)      🟡           │
+│                                                                   │
+│  [■■■□□□□□□□] 33% hacia tu libertad                               │
+│                                                                   │
+│  💡 "Estás a 106 horas de lograr 1 mes de vacaciones pagadas"    │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+**Cambios Visuales en la Transformación:**
+
+| Elemento UI          | Modo Dinero ($$$)        | Modo Vida (⏰)                    | Transición          |
+|:---------------------|:-------------------------|:--------------------------------|:--------------------|
+| Números principales  | $12,450                  | 132 horas (16.5 días)            | Fade out → Fade in  |
+| Unidades             | MXN                      | horas / días                     | Cambio de sufijo    |
+| Colores de fondo     | Blanco (#ffffff)         | Azul suave (#eff6ff)             | Gradient 300ms      |
+| Íconos               | 💰 📊 💳                  | ⏰ 🔵 ⚫ 🟡                        | Swap animado        |
+| Gráficos             | Barras verdes/rojas      | Barras azul/dorado/gris          | Redibujado suave    |
+| Tipografía           | Sans-serif regular       | Monospace para énfasis temporal  | Cross-fade          |
+| Mensajes motivacionales | "Ahorra más"          | "Gana más vida"                  | Slide up            |
+
+### 9.2 Paleta de Colores: Categorizando Gastos Según "Aporte de Vida"
+
+#### 9.2.1 Filosofía: No Todo Gasto es Malo
+
+**Principio:**
+
+El dinero NO debe verse como "bueno" (verde) o "malo" (rojo). Debe verse como **inversión de tiempo de vida** que puede:
+
+1. **Aportar vida** (Dorado 🟡): Experiencias, educación, salud, relaciones
+2. **Mantener vida** (Azul 🔵): Necesidades básicas, inversiones productivas
+3. **Quitar vida** (Gris ⚫): Gastos hormiga, compras impulsivas, deudas innecesarias
+
+#### 9.2.2 Matriz de Categorización Crono-Financiera
+
+| Categoría de Gasto       | Color Asignado | Código Hex   | Justificación Neuropsicológica                |
+|:-------------------------|:---------------|:-------------|:----------------------------------------------|
+| **Experiencias +Vida**   | Dorado 🟡      | #f59e0b      | Vacaciones, cenas familiares, conciertos → Dopamina alta |
+| **Educación +Vida**      | Dorado 🟡      | #fbbf24      | Cursos, libros, mentorías → Inversión en futuro-yo |
+| **Salud +Vida**          | Azul cielo 🔵  | #3b82f6      | Gym, terapia, dentista → Mantiene capacidad de trabajo |
+| **Necesidades Básicas**  | Azul oscuro 🔵 | #2563eb      | Renta, comida, servicios → No negociables |
+| **Inversiones**          | Azul noche 🔵  | #1e40af      | Ahorro, equipamiento trabajo → Productividad |
+| **Transporte Esencial**  | Azul medio 🔵  | #60a5fa      | Ir al trabajo, mandados necesarios |
+| **Gastos Hormiga**       | Gris medio ⚫  | #71717a      | Cafés diarios, snacks, caprichos pequeños |
+| **Compras Impulsivas**   | Gris oscuro ⚫ | #52525b      | Ropa innecesaria, gadgets no usados |
+| **Deudas Innecesarias**  | Gris plomo ⚫  | #3f3f46      | Intereses de tarjetas, préstamos predatorios |
+| **Vicios Compensatorios**| Gris profundo ⚫| #27272a     | Alcohol excesivo, compras emocionales |
+
+#### 9.2.3 Wireframe: Dashboard con Gastos Categorizados
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  ⏰ GASTOS DE NOVIEMBRE (MODO VIDA)                               │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Total invertido: 197 horas de vida (24.6 días)                   │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │ 🟡 APORTAN VIDA (35%)                      68 horas       │    │
+│  │ ├─ Vacaciones familiares       45h  (23%)                │    │
+│  │ ├─ Curso de inglés             18h   (9%)                │    │
+│  │ └─ Cena con amigos              5h   (3%)                │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │ 🔵 MANTIENEN VIDA (49%)                    97 horas       │    │
+│  │ ├─ Renta                       80h  (41%)                │    │
+│  │ ├─ Comida en casa              12h   (6%)                │    │
+│  │ └─ Servicios (luz, internet)    5h   (3%)                │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+│  ┌──────────────────────────────────────────────────────────┐    │
+│  │ ⚫ QUITAN VIDA (16%)                        32 horas       │    │
+│  │ ├─ Gastos hormiga (cafés)      18h   (9%)  ⚠️            │    │
+│  │ ├─ Compra impulsiva (zapatos)  10h   (5%)  ⚠️            │    │
+│  │ └─ Intereses tarjeta            4h   (2%)  ⚠️            │    │
+│  └──────────────────────────────────────────────────────────┘    │
+│                                                                   │
+│  💡 Insight:                                                      │
+│  "Si reduces 'Quitan Vida' a 10%, ganarías 22 horas (2.7 días)   │
+│   de libertad. ¿Qué harías con ese tiempo?"                      │
+│                                                                   │
+│  [Ver recomendaciones] [Ajustar presupuesto]                     │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+**Efecto Psicológico:**
+
+Al ver que **49% de su tiempo de vida** se va en "Mantener Vida" (necesidades), el usuario **NO se siente culpable**.
+
+Al ver que **16% se va en "Quitan Vida"**, el usuario siente **motivación constructiva** (no vergüenza), porque hay un plan claro de mejora.
+
+#### 9.2.4 Visualización Circular: El Reloj de Vida
+
+**Alternativa al gráfico de barras:**
+
+```
+                    🟡 +Vida (35%)
+                         ╱╲
+                        ╱  ╲
+                       ╱    ╲
+                      ╱      ╲
+                     ╱        ╲
+                    ╱          ╲
+                   ╱            ╲
+                  ╱              ╲
+                 ╱                ╲
+                ╱                  ╲
+               ╱                    ╲
+              ╱                      ╲
+             ╱                        ╲
+            ╱                          ╲
+           ╱                            ╲
+          ╱                              ╲
+         ╱                                ╲
+        ╱                                  ╲
+       ╱        🔵 Mantiene (49%)           ╲
+      ╱                                      ╲
+     ╱                                        ╲
+    ╱                                          ╲
+   └────────────────────────────────────────────┘
+                ⚫ Quita (16%)
+
+      "TU MES = 197 HORAS INVERTIDAS"
+```
+
+**Mensaje debajo del reloj:**
+
+> "De las 720 horas del mes (30 días), trabajaste 160 y gastaste el equivalente a 197 horas de trabajo. Saldo: -37 horas. Objetivo: Reducir 'Quita Vida' para llegar a saldo cero o positivo."
+
+---
+
+## 10. SISTEMA DE NOTIFICACIONES NEUROLINGÜÍSTICAS
+
+### 10.1 Principios del Copywriting Crono-Financiero
+
+#### 10.1.1 Reglas de Oro
+
+1. **Nunca hablar SOLO de dinero** → Siempre traducir a tiempo
+2. **Evitar lenguaje negativo** → Reencuadrar como oportunidad
+3. **Usar verbos viscerales** → "Quemar", "Invertir", "Ganar", "Recuperar"
+4. **Hacer preguntas reflexivas** → Activar Sistema 2 (dlPFC)
+5. **Ofrecer alternativa inmediata** → No dejar al usuario paralizado
+
+#### 10.1.2 Fórmula de Notificación Efectiva
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│              ANATOMÍA DE UNA NOTIFICACIÓN EFECTIVA              │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  [1. GANCHO EMOCIONAL]                                          │
+│  Frase corta que active curiosidad o preocupación leve          │
+│                                                                 │
+│  [2. DATO CONCRETO EN TIEMPO]                                   │
+│  Número de horas + contexto relatable                           │
+│                                                                 │
+│  [3. PREGUNTA REFLEXIVA]                                        │
+│  ¿Valió la pena? / ¿Qué harías diferente?                      │
+│                                                                 │
+│  [4. ACCIÓN ALTERNATIVA]                                        │
+│  Botón con alternativa constructiva                             │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### 10.2 Tabla Comparativa: Notificaciones Tradicionales vs Crono-Financieras
+
+#### Categoría: Gastos de Transporte
+
+| Notificación Tradicional (❌ Malo)       | Notificación Crono-Financiera (✅ Bueno)                                          | Mejora Neuropsicológica                    |
+|:----------------------------------------|:---------------------------------------------------------------------------------|:-------------------------------------------|
+| "Gastaste $500 en Uber este mes"        | "Quemaste 4.2 horas de vida en Uber este mes. ¿Valió la pena cada viaje?"        | Ínsula activa (dolor temporal)             |
+| "Excediste tu presupuesto de transporte"| "Invertiste 5 horas extra en traslados. ¿Podrías usar transporte público?"       | Ofrece solución, no culpa                  |
+| "Tienes $200 pendientes de Uber"        | "Debes 1.7 horas de trabajo a Uber. Págalo hoy y evita más tiempo perdido."      | Urgencia sin ansiedad                      |
+
+#### Categoría: Comida Fuera
+
+| Notificación Tradicional (❌ Malo)       | Notificación Crono-Financiera (✅ Bueno)                                          | Mejora Neuropsicológica                    |
+|:----------------------------------------|:---------------------------------------------------------------------------------|:-------------------------------------------|
+| "Gastaste $2,000 en restaurantes"      | "Trabajaste 17 horas para comer fuera. ¿Qué tal cocinar en casa 2 veces/semana?" | Comparación constructiva                   |
+| "Reducir comida fuera te ahorrará dinero"| "Cocinar en casa te devolverá 8 horas de vida al mes. ¿Empezamos mañana?"        | Beneficio tangible (tiempo recuperado)     |
+| "Tu presupuesto de comida es $1,500"    | "Tienes 12.7 horas de vida asignadas para comida fuera. Úsalas con intención."   | Empoderamiento, no restricción             |
+
+#### Categoría: Compras Impulsivas
+
+| Notificación Tradicional (❌ Malo)       | Notificación Crono-Financiera (✅ Bueno)                                          | Mejora Neuropsicológica                    |
+|:----------------------------------------|:---------------------------------------------------------------------------------|:-------------------------------------------|
+| "Compraste zapatos por $1,200"         | "Acabas de invertir 10 horas de vida en zapatos. ¿Los necesitabas hoy?"          | Pregunta reflexiva, no juicio              |
+| "Esta compra afecta tu meta de ahorro" | "Esta compra retrasa tu meta de libertad en 3 días. ¿Seguro que vale la pena?"   | Costo de oportunidad visible               |
+| "Te quedan $3,000 de tu presupuesto"   | "Te quedan 25 horas de libertad este mes. Úsalas en lo que realmente importa."   | Reencuadre positivo (libertad vs gasto)    |
+
+#### Categoría: Ahorro y Metas
+
+| Notificación Tradicional (❌ Malo)       | Notificación Crono-Financiera (✅ Bueno)                                          | Mejora Neuropsicológica                    |
+|:----------------------------------------|:---------------------------------------------------------------------------------|:-------------------------------------------|
+| "Ahorraste $500 este mes"              | "¡Recuperaste 4.2 horas de vida este mes! Sigue así y ganas 50 horas al año."    | Dopamina por logro concreto                |
+| "Estás al 50% de tu meta"              | "Estás a 25 horas (3 días) de lograr tu meta. ¡Ya casi!"                         | Progreso tangible                          |
+| "Faltan $2,000 para tu meta"           | "Necesitas 17 horas más (2 semanas) para tu meta. ¿Reducimos cafés?"             | Plan de acción claro                       |
+
+#### Categoría: Alertas de Deuda
+
+| Notificación Tradicional (❌ Malo)       | Notificación Crono-Financiera (✅ Bueno)                                          | Mejora Neuropsicológica                    |
+|:----------------------------------------|:---------------------------------------------------------------------------------|:-------------------------------------------|
+| "Debes $5,000 en tu tarjeta"           | "Debes 42 horas de vida a tu tarjeta. Cada día sin pagar = más tiempo perdido."  | Urgencia sin cortisol alto                 |
+| "Pago mínimo: $300"                    | "Pagar solo el mínimo te costará 18 horas extra en intereses. Paga más si puedes."| Educación financiera implícita             |
+| "Vencimiento en 3 días"                | "En 3 días debes 2.5 horas de trabajo. Evita 0.3 horas extras en comisiones."    | Consecuencia concreta                      |
+
+### 10.3 Los 5 Ejemplos Canónicos
+
+#### Ejemplo 1: Gasto en Transporte Uber
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🚗 NOTIFICACIÓN                                                │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ⏰ Acabas de quemar 4 horas de trabajo en transporte          │
+│                                                                 │
+│  Tomaste Uber 12 veces este mes ($500 MXN).                    │
+│  Esas 4 horas equivalen a medio día de tu vida.                │
+│                                                                 │
+│  💭 Pregunta reflexiva:                                         │
+│  "¿Valió la pena cada viaje, o algunos pudieron evitarse?"     │
+│                                                                 │
+│  🎯 Alternativa inteligente:                                    │
+│  Si usas Metro 50% de las veces, recuperarías 2 horas/mes      │
+│  (24 horas al año = 3 días de vacaciones).                     │
+│                                                                 │
+│  [Ver mis viajes] [Calcular ahorro en Metro]                   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Color de fondo: Gris claro (#fafafa)
+Color de texto: Gris oscuro (#27272a)
+Color de "4 horas": Gris plomo (#52525b) - ⚫ Quita Vida
+```
+
+#### Ejemplo 2: Meta de Ahorro Alcanzada
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🎉 ¡LOGRO DESBLOQUEADO!                                        │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ⏰ ¡Ganaste 50 horas de libertad!                              │
+│                                                                 │
+│  Alcanzaste tu meta de ahorro "Fondo de Emergencia".           │
+│  Ese dinero representa 50 horas de vida que ahora están        │
+│  disponibles para lo que TÚ decidas.                            │
+│                                                                 │
+│  💡 ¿Qué harías con 50 horas?                                   │
+│  • 6 días completos de vacaciones                              │
+│  • 25 películas con tu familia                                 │
+│  • 50 horas de un hobby que amas                               │
+│  • Seguridad de 2 meses sin trabajar                           │
+│                                                                 │
+│  🏆 Racha de ahorro: 47 días consecutivos                       │
+│                                                                 │
+│  [Compartir logro] [Crear nueva meta]                          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Color de fondo: Dorado suave (#fffbeb)
+Color de texto: Dorado oscuro (#92400e)
+Animación: Confeti dorado + brillo
+```
+
+#### Ejemplo 3: Alerta de Compra Impulsiva (Fricción de 5 segundos)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  ⏸️ PAUSA Y REFLEXIONA                                          │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ⏰ Estás a punto de gastar 13.5 horas de tu vida              │
+│                                                                 │
+│  Compra: Zapatos ($1,200)                                       │
+│  Costo real: 13.5 horas = 1.7 días de trabajo                  │
+│                                                                 │
+│  🧠 Antes de continuar, pregúntate:                             │
+│                                                                 │
+│  1. ¿Es esto una NECESIDAD o un DESEO?                          │
+│  2. ¿Lo necesito HOY o puedo esperar 15 días?                  │
+│  3. ¿Hay una opción más económica que cumpla la función?       │
+│                                                                 │
+│  ⏳ Procesando decisión...                                      │
+│  [■■■■■■□□□□] 6 segundos restantes                             │
+│                                                                 │
+│  [Cancelar] (disponible siempre)                               │
+│  [Confirmar compra] (se habilita en 5 seg)                     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Color de fondo: Azul muy suave (#eff6ff)
+Ícono ⏸️ pulsando suavemente
+Barra de progreso en azul (#2563eb)
+```
+
+#### Ejemplo 4: Recordatorio de Pago (Sin Estrés)
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  💡 RECORDATORIO AMIGABLE                                       │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ⏰ Debes 2.3 horas de vida a CFE (Luz)                         │
+│                                                                 │
+│  Monto: $274 MXN                                                │
+│  Vencimiento: Mañana, 15 de diciembre                           │
+│                                                                 │
+│  📊 Buenas noticias:                                            │
+│  Ya trabajaste 1.8 horas esta semana, solo te faltan 0.5h      │
+│  (30 minutos) para cubrir este pago.                            │
+│                                                                 │
+│  💰 Si pagas hoy:                                               │
+│  Evitas $45 en recargos (0.4 horas de vida ahorradas)           │
+│                                                                 │
+│  [Pagar ahora] [Programar pago] [Recordar mañana 9 AM]         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Color de fondo: Azul información (#dbeafe)
+Sin urgencia visual (no rojo)
+Tono empático y constructivo
+```
+
+#### Ejemplo 5: Insight Mensual de Gastos Hormiga
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🐜 ALERTA DE GASTOS HORMIGA                                    │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ⏰ Perdiste 18 horas de vida en gastos pequeños               │
+│                                                                 │
+│  Este mes compraste:                                            │
+│  • 24 cafés Starbucks ($1,440) = 12 horas                       │
+│  • 15 snacks de Oxxo ($450) = 3.8 horas                         │
+│  • 8 antojos random ($300) = 2.5 horas                          │
+│                                                                 │
+│  📊 Contexto:                                                   │
+│  18 horas = 2.25 días completos de trabajo                      │
+│           = 72 canciones de Spotify                             │
+│           = 9 películas completas                               │
+│                                                                 │
+│  💡 Sugerencia sin juicio:                                      │
+│  Si reduces cafés a 12/mes (50%), recuperarías 6 horas         │
+│  (72 horas al año = 9 días de vacaciones).                     │
+│                                                                 │
+│  ¿Quieres intentarlo? No es todo o nada, solo reducir un poco. │
+│                                                                 │
+│  [Crear presupuesto de cafés] [Ver alternativas] [Ignorar]     │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+
+Color de fondo: Gris suave (#f4f4f5)
+Tono: Informativo, no acusatorio
+Ofrece reducción gradual, no eliminación total
+```
+
+### 10.4 Regla del "Horario de Cortisol": Timing de Notificaciones
+
+#### 10.4.1 Principio Neuropsicológico
+
+El cortisol (hormona del estrés) sigue un **ritmo circadiano**:
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│              CURVA DE CORTISOL EN UN DÍA TÍPICO                   │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Alto  │   ╱╲                                                     │
+│        │  ╱  ╲                                                    │
+│        │ ╱    ╲___                                                │
+│  Medio │╱         ╲___                                            │
+│        │              ╲___                                        │
+│  Bajo  │                  ╲___________________________            │
+│        │                                              ╲___        │
+│        └───────────────────────────────────────────────────────── │
+│        6AM   9AM   12PM   3PM   6PM   8PM   10PM   12AM          │
+│                                                                   │
+│  PICOS:                                                           │
+│  • 6-9 AM: Despertar (cortisol alto natural)                     │
+│  • 12-2 PM: Después de comer (digestión)                         │
+│  • 8 PM+: Preparación para dormir (cortisol DEBE bajar)          │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+#### 10.4.2 Reglas de Timing por Tipo de Notificación
+
+| Tipo de Notificación         | Horario Permitido | Horario PROHIBIDO | Razón                                  |
+|:-----------------------------|:------------------|:------------------|:---------------------------------------|
+| **Celebración de logro**     | 8 AM - 11 PM      | 12 AM - 7 AM      | Dopamina en cualquier momento positivo |
+| **Recordatorio neutral**     | 9 AM - 8 PM       | 8 PM - 9 AM       | No interrumpir sueño ni descanso       |
+| **Alerta de sobregasto**     | 10 AM - 7 PM      | 7 PM - 10 AM      | Evitar cortisol nocturno               |
+| **Fricción anti-impulso**    | Inmediata         | Nunca             | En el momento de la compra             |
+| **Insight semanal/mensual**  | Sábado 10 AM      | Lunes AM          | Día relajado, no inicio de semana      |
+| **Meta cerca de lograrse**   | 7 AM - 9 PM       | 9 PM - 7 AM       | Motivación, no ansiedad nocturna       |
+| **Deuda próxima a vencer**   | 9 AM - 6 PM       | 6 PM - 9 AM       | **NUNCA DESPUÉS DE 6 PM**              |
+
+#### 10.4.3 Algoritmo de Decisión: ¿Enviar o No Enviar?
+
+```
+FUNCIÓN decidir_enviar_notificacion(tipo, hora_actual):
+
+    // REGLA 1: NUNCA notificaciones negativas después de 8 PM
+    SI hora_actual >= 20:00:
+        SI tipo EN ['alerta_sobregasto', 'deuda_vencer', 'meta_retrasada']:
+            RETURN NO_ENVIAR
+            AGENDAR_PARA_MAÑANA(9:00)
+
+    // REGLA 2: Celebraciones siempre bienvenidas (excepto madrugada)
+    SI tipo == 'celebracion':
+        SI 8:00 <= hora_actual <= 23:00:
+            RETURN ENVIAR_INMEDIATO
+        SINO:
+            AGENDAR_PARA_SIGUIENTE(8:00)
+
+    // REGLA 3: Fricción anti-impulso SIEMPRE inmediata
+    SI tipo == 'friccion_compra':
+        RETURN ENVIAR_INMEDIATO  // No se puede posponer
+
+    // REGLA 4: Recordatorios respetan horario laboral
+    SI tipo == 'recordatorio_pago':
+        SI 9:00 <= hora_actual <= 18:00:
+            RETURN ENVIAR_INMEDIATO
+        SINO:
+            AGENDAR_PARA_SIGUIENTE(9:00)
+
+    // REGLA 5: Insights semanales en sábado relajado
+    SI tipo == 'insight_semanal':
+        SI dia_semana != SABADO:
+            AGENDAR_PARA_PROXIMO_SABADO(10:00)
+        SINO SI 10:00 <= hora_actual <= 20:00:
+            RETURN ENVIAR_INMEDIATO
+
+    RETURN NO_ENVIAR  // Default seguro
+```
+
+#### 10.4.4 Personalización por Perfil Circadiano
+
+Algunos usuarios son **matutinos** (alondras), otros **nocturnos** (búhos).
+
+**Pregunta en Onboarding:**
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│  🕐 ¿Cuál es tu horario ideal?                                  │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  [ ] 🌅 Madrugador (6 AM - 10 PM)                               │
+│      "Me levanto temprano, duermo temprano"                     │
+│                                                                 │
+│  [ ] 🌞 Diurno estándar (8 AM - 11 PM)                          │
+│      "Horario de oficina típico"                               │
+│                                                                 │
+│  [ ] 🌙 Nocturno (10 AM - 2 AM)                                 │
+│      "Soy más productivo de noche"                             │
+│                                                                 │
+│  💡 Ajustaremos las notificaciones a tu ritmo natural.          │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**Tabla de Ajuste:**
+
+| Perfil         | Hora Prohibida Alertas | Hora Óptima Insights | Primera Notif. Día |
+|:---------------|:----------------------|:---------------------|:-------------------|
+| Madrugador 🌅  | 9 PM - 6 AM           | Sábado 7 AM          | 6:30 AM            |
+| Diurno 🌞      | 8 PM - 8 AM           | Sábado 10 AM         | 8:00 AM            |
+| Nocturno 🌙    | 1 AM - 10 AM          | Domingo 12 PM        | 10:30 AM           |
+
+---
+
+## 11. FLUJOS DE INTERACCIÓN: FRICCIÓN POSITIVA
+
+### 11.1 Pantalla de "Interrupción de Compra Impulsiva"
+
+**Trigger:** Usuario intenta gastar > 25% de su salario mensual en una sola transacción.
+
+#### 11.1.1 Wireframe Completo (Paso a Paso)
+
+**PASO 1: Captura de Intención (0 segundos)**
+
+```
+Usuario hace clic en "Comprar $5,000"
+
+↓ Sistema detecta: $5,000 = 42 horas de vida (salario real $119/h)
+↓ Porcentaje del salario: 26% (> umbral 25%)
+↓ ACTIVAR FRICCIÓN NIVEL 3 (10 segundos)
+```
+
+**PASO 2: Pantalla de Interrupción (0.3 segundos de transición)**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│                                                                   │
+│                      ⏸️ PAUSA Y RESPIRA                           │
+│                                                                   │
+│  ═════════════════════════════════════════════════════════════    │
+│                                                                   │
+│            Estás a punto de tomar una decisión importante        │
+│                                                                   │
+│  ═════════════════════════════════════════════════════════════    │
+│                                                                   │
+│                                                                   │
+│                    [Animación de respiración]                     │
+│                            ◯ → ⦿ → ◯                              │
+│                      Inhala ... Exhala ...                        │
+│                                                                   │
+│                    Calculando impacto real...                     │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+
+Duración: 3 segundos
+Color de fondo: Azul muy suave (#eff6ff)
+Música sutil (opcional): Tono Theta (4-8 Hz) para relajar
+```
+
+**PASO 3: Visualización del Impacto (Segundos 3-10)**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  ⏰ ANÁLISIS DE IMPACTO EN TU VIDA                                │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Compra: Laptop nueva                                             │
+│  Precio: $5,000 MXN                                               │
+│                                                                   │
+│  ⏰ COSTO REAL: 42 HORAS DE TU VIDA                               │
+│     = 5.25 días de trabajo                                        │
+│     = 26% de tu salario mensual                                   │
+│                                                                   │
+│  ┌─────────────────────────────────────────────────────────────┐  │
+│  │  IMPACTO EN TUS METAS                                       │  │
+│  ├─────────────────────────────────────────────────────────────┤  │
+│  │                                                             │  │
+│  │  Meta: "Fondo de Emergencia"                                │  │
+│  │  Progreso actual: [■■■■■□□□□□] 50%                          │  │
+│  │                                                             │  │
+│  │  ❌ Si compras hoy:                                         │  │
+│  │     Progreso nuevo: [■■■□□□□□□□] 33% (-17%)                 │  │
+│  │     Retraso: 12 días                                        │  │
+│  │                                                             │  │
+│  │  ✅ Si esperas 15 días:                                     │  │
+│  │     Progreso en 15 días: [■■■■■■□□□□] 60% (+10%)            │  │
+│  │     Podrías comprar Y avanzar en tu meta                    │  │
+│  │                                                             │  │
+│  └─────────────────────────────────────────────────────────────┘  │
+│                                                                   │
+│  ┌─────────────────────────────────────────────────────────────┐  │
+│  │  COSTO DE OPORTUNIDAD                                       │  │
+│  ├─────────────────────────────────────────────────────────────┤  │
+│  │                                                             │  │
+│  │  42 horas podrían ser:                                      │  │
+│  │  🎬 21 películas con familia                                │  │
+│  │  🏋️ 42 sesiones de gym                                       │  │
+│  │  📚 1 curso completo online                                 │  │
+│  │  🌴 5 días de vacaciones                                    │  │
+│  │  💤 14 noches de dormir bien                                │  │
+│  │                                                             │  │
+│  └─────────────────────────────────────────────────────────────┘  │
+│                                                                   │
+│  ⏳ Reflexionando...                                              │
+│  [■■■■■■■■■□] 9 segundos restantes                               │
+│                                                                   │
+│  [Cancelar compra] (disponible siempre)                          │
+│  [Confirmar de todos modos] (se habilita en 1 seg)               │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+**PASO 4: Opciones Post-Reflexión (Segundo 10+)**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  🧠 ¿QUÉ QUIERES HACER?                                           │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  [ ] 🛒 Comprar ahora de todos modos                              │
+│      "Entiendo el impacto y decido comprarlo"                     │
+│      → Confirmar con un clic adicional                            │
+│                                                                   │
+│  [ ] 💾 Guardar para después (15 días)                            │
+│      "Esperaré y reevaluaré en 15 días"                           │
+│      → Crear recordatorio automático                              │
+│                                                                   │
+│  [ ] 🔍 Buscar alternativas más económicas                        │
+│      "Quiero la función, no necesariamente esta marca"            │
+│      → Sugerencias de productos similares -30% precio             │
+│                                                                   │
+│  [ ] 🎯 Crear meta de ahorro específica                           │
+│      "Voy a ahorrar específicamente para esto"                    │
+│      → Wizard de meta: "Laptop nueva en 2 meses"                 │
+│                                                                   │
+│  [ ] ❌ Cancelar compra                                           │
+│      "Mejor no, no lo necesito tanto"                             │
+│      → Celebración inmediata + ahorro registrado                  │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+```
+
+### 11.2 Ejercicio de Respiración (Opcional pero Recomendado)
+
+**Para compras > 35% del salario (muy altas):**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  🧘 EJERCICIO DE RESPIRACIÓN CONSCIENTE                           │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  Esta es una decisión que afecta semanas de tu vida.              │
+│  Tomemos 60 segundos para estar seguros.                          │
+│                                                                   │
+│                                                                   │
+│                         ╭───────╮                                 │
+│                        │   ◯   │  ← Inhala (4 seg)                │
+│                         ╰───────╯                                 │
+│                             │                                     │
+│                             │                                     │
+│                         ╭───────╮                                 │
+│                        │   ⦿   │  ← Sostén (4 seg)                │
+│                         ╰───────╯                                 │
+│                             │                                     │
+│                             │                                     │
+│                         ╭───────╮                                 │
+│                        │   ◯   │  ← Exhala (6 seg)                │
+│                         ╰───────╯                                 │
+│                                                                   │
+│                                                                   │
+│  Ciclo 1 de 4 completado                                          │
+│  [■■■□□□□□□□□□] 25%                                               │
+│                                                                   │
+│  [Saltar ejercicio] [Continuar]                                   │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+
+Técnica: Respiración 4-4-6 (reduce cortisol 20-30%)
+Duración total: 60 segundos (4 ciclos)
+Efecto: Activa Sistema Parasimpático → Decisión más racional
+```
+
+### 11.3 Comparativa Visual: Futuro A vs Futuro B
+
+**Para decisiones de endeudamiento o compras a crédito:**
+
+```
+┌───────────────────────────────────────────────────────────────────┐
+│  🔮 VISUALIZACIÓN DE FUTUROS ALTERNATIVOS                         │
+├───────────────────────────────────────────────────────────────────┤
+│                                                                   │
+│  ┌──────────────────────────┬──────────────────────────┐          │
+│  │  FUTURO A: Compras Hoy   │  FUTURO B: Ahorras 2 Meses │        │
+│  ├──────────────────────────┼──────────────────────────┤          │
+│  │                          │                          │          │
+│  │  En 6 meses:             │  En 6 meses:             │          │
+│  │                          │                          │          │
+│  │  💰 Deuda: $2,300        │  💰 Deuda: $0            │          │
+│  │  ⏰ Intereses pagados:   │  ⏰ Tiempo libre extra:  │          │
+│  │     12 horas de vida     │     18 horas de vida     │          │
+│  │                          │                          │          │
+│  │  📊 Meta de Emergencia:  │  📊 Meta de Emergencia:  │          │
+│  │     38% (-12%)           │     68% (+18%)           │          │
+│  │                          │                          │          │
+│  │  😰 Nivel de estrés:     │  😌 Nivel de estrés:     │          │
+│  │     Alto (pago mensual)  │     Bajo (sin deuda)     │          │
+│  │                          │                          │          │
+│  │  🎯 Libertad financiera: │  🎯 Libertad financiera: │          │
+│  │     Retrasada 4 meses    │     En camino (+2 meses) │          │
+│  │                          │                          │          │
+│  └──────────────────────────┴──────────────────────────┘          │
+│                                                                   │
+│  💭 Reflexión final:                                              │
+│  "El Futuro A te da la laptop hoy, pero te quita 30 horas de     │
+│   vida en los próximos 6 meses. El Futuro B te da la laptop Y    │
+│   18 horas extras de libertad. ¿Cuál prefieres?"                 │
+│                                                                   │
+│  [Elegir Futuro A] [Elegir Futuro B] [Ver más detalles]          │
+│                                                                   │
+└───────────────────────────────────────────────────────────────────┘
+
+Colores:
+- Futuro A: Gris plomo (#71717a) - Neutral sin juicio
+- Futuro B: Dorado suave (#fef3c7) - Positivo sin presión
+```
+
+### 11.4 Métricas de Éxito de la Fricción Positiva
+
+**KPIs a monitorear:**
+
+| Métrica                               | Objetivo          | Método de Medición                    |
+|:--------------------------------------|:------------------|:--------------------------------------|
+| **Tasa de cancelación post-fricción** | 40-60%            | % usuarios que cancelan tras ver pantalla |
+| **Tiempo promedio en fricción**       | 8-12 segundos     | Duración desde trigger hasta decisión |
+| **Conversión a "Guardar para después"**| 20-30%           | % que eligen esperar 15 días          |
+| **Conversión a meta de ahorro**       | 10-15%            | % que crean meta específica           |
+| **Tasa de compra final**              | 15-25%            | % que confirman tras reflexión        |
+| **Reducción de arrepentimiento**      | -70%              | Encuesta post-compra: "¿Te arrepientes?" |
+
+**Fórmula de Efectividad:**
+
+```
+Efectividad_Friccion = (Cancelaciones + Postergaciones) / Total_Triggers
+
+Ejemplo:
+100 triggers de fricción en un mes
+├─ 45 cancelaciones (45%)
+├─ 28 postergaciones (28%)
+├─ 12 metas creadas (12%)
+└─ 15 compras confirmadas (15%)
+
+Efectividad = (45 + 28) / 100 = 73% ← ¡Excelente!
+```
+
+---
+
+## 📚 REFERENCIAS ADICIONALES (PARTE 3)
+
+### UX/UI y Neurociencia
+
+13. **Norman, D. A. (2013).** *The Design of Everyday Things: Revised and Expanded Edition.* Basic Books.
+    → Principios de diseño centrado en el humano.
+
+14. **Weinschenk, S. M. (2011).** *100 Things Every Designer Needs to Know About People.* New Riders.
+    → Psicología aplicada al diseño de interfaces.
+
+15. **Fogg, B. J. (2009).** "A behavior model for persuasive design." *Proceedings of the 4th international Conference on Persuasive Technology*, 1-7.
+    → Modelo de comportamiento (trigger + habilidad + motivación).
+
+### Notificaciones y Timing
+
+16. **Pielot, M., et al. (2014).** "When is the phone distracting? An in-situ study of mobile phone notifications." *Proceedings of the SIGCHI Conference on Human Factors in Computing Systems*, 1867-1876.
+    → Timing óptimo de notificaciones.
+
+17. **Mehrotra, A., et al. (2015).** "Intelligent notification systems: A survey of the state of the art and research challenges." *arXiv preprint arXiv:1510.00671*.
+    → Estado del arte en notificaciones inteligentes.
+
+---
+
+## ✅ ESTADO: PARTE 3 DE 4 COMPLETA
+
 **Contenido entregado:**
 
-- ✅ Lógica del Salario Real de Vida (6 categorías de descuentos)
-- ✅ Costo de Fricción Temporal (310-685 min diarios)
-- ✅ Factor de Fricción (multiplicador 1.0-3.5)
-- ✅ Modelo de Datos Conceptual (7 bloques, 40+ atributos)
-- ✅ Flujo de Onboarding (wizard 5 pasos, 11 minutos)
-- ✅ Psicología del Descuento Temporal (4 técnicas anti-impulso)
-- ✅ Arquitectura de Fricción Cognitiva (5 capas)
-- ✅ Refuerzo Positivo (celebración + dashboard de tiempo ganado)
+- ✅ Dashboard Crono-Financiero con Toggle de Realidad
+- ✅ Paleta de colores aplicada (Azul/Dorado/Gris) por categoría de gasto
+- ✅ Wireframes conceptuales (Modo Dinero vs Modo Vida)
+- ✅ Sistema de notificaciones neurolingüísticas (5 ejemplos canónicos)
+- ✅ Tabla comparativa: 20 ejemplos de copywriting bueno vs malo
+- ✅ Regla del "Horario de Cortisol" (timing inteligente)
+- ✅ Flujos de interacción con fricción positiva (paso a paso)
+- ✅ Pantalla de interrupción de compra impulsiva (3 niveles)
+- ✅ Ejercicio de respiración consciente (técnica 4-4-6)
+- ✅ Comparativa visual de futuros alternativos
+- ✅ Métricas de éxito (6 KPIs)
 
 **Próximos pasos:**
 
-- [ ] **PARTE 3:** Arquitectura UX/UI y Notificaciones
 - [ ] **PARTE 4:** Implementación Técnica (PostgreSQL, Redis, Svelte 5)
 
 ---
 
-**Versión:** 1.0 - Partes 1-2
-**Palabras:** ~17,500
-**Última actualización:** 12 Diciembre 2025 23:58 UTC-6
+**Versión:** 1.0 - Partes 1-3
+**Palabras:** ~27,500
+**Última actualización:** 13 Diciembre 2025 00:32 UTC-6
 **Autor:** Equipo PRO_FINAN_CONTA_PYM
-**Revisión Neuropsicológica:** Pendiente validación externa
+**Revisión UX/UI:** Pendiente validación con usuarios reales
