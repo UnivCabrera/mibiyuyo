@@ -1,8 +1,8 @@
 # 🏗️ STACK TECNOLÓGICO DEFINITIVO (2026)
 
-**Proyecto:** PRO_FINAN_CONTA_PYM  
-**Versión del Documento:** 5.0  
-**Fecha:** 3 Enero 2025  
+**Proyecto:** PRO_FINAN_CONTA_PYM
+**Versión del Documento:** 5.0
+**Fecha:** 3 Enero 2025
 **Actualización:** CONSOLIDACIÓN FINAL - Vendors decididos, huecos cerrados, 100% operativo
 
 Este documento define la **"Fuente de la Verdad"** tecnológica para el desarrollo y despliegue del Unicornio FinTech. Todas las decisiones de ingeniería deben alinearse con este stack.
@@ -640,26 +640,26 @@ interface UserFeatureConfig {
 
 ### ADR-001: Svelte sobre React
 
-**Decisión:** Usar Svelte 5 como framework frontend.  
-**Contexto:** Menor bundle size, sintaxis más limpia, compilación AOT.  
+**Decisión:** Usar Svelte 5 como framework frontend.
+**Contexto:** Menor bundle size, sintaxis más limpia, compilación AOT.
 **Consecuencias:** Ecosistema más pequeño pero suficiente para el proyecto.
 
 ### ADR-002: CSS Nativo sobre Tailwind
 
-**Decisión:** Usar CSS con variables (Open Props) en lugar de Tailwind.  
-**Contexto:** Mayor control, sin purge de clases, mejor debugging.  
+**Decisión:** Usar CSS con variables (Open Props) en lugar de Tailwind.
+**Contexto:** Mayor control, sin purge de clases, mejor debugging.
 **Consecuencias:** Requiere más estructura inicial pero menos dependencias.
 
 ### ADR-003: Bun como Runtime Principal
 
-**Decisión:** Bun para backend y tooling, Node.js como fallback.  
-**Contexto:** Velocidad extrema, soporte nativo TS, SQLite built-in.  
+**Decisión:** Bun para backend y tooling, Node.js como fallback.
+**Contexto:** Velocidad extrema, soporte nativo TS, SQLite built-in.
 **Consecuencias:** Algunas librerías pueden requerir Node.js.
 
 ### ADR-004: PostgreSQL + pgvector para IA
 
-**Decisión:** Usar pgvector en lugar de Pinecone/Weaviate externos.  
-**Contexto:** Reducir costos, mantener datos en el VPS, simplicidad.  
+**Decisión:** Usar pgvector en lugar de Pinecone/Weaviate externos.
+**Contexto:** Reducir costos, mantener datos en el VPS, simplicidad.
 **Consecuencias:** Menor escalabilidad que servicios dedicados pero suficiente para MVP.
 
 ## 11. Sincronización Automática con Fuentes Oficiales (MCPs)
@@ -913,7 +913,7 @@ jobs:
 
 ---
 
-**Documento mantenido por:** Equipo de Arquitectura PRO_FINAN_CONTA_PYM  
-**Última actualización:** 29 Noviembre 2025  
-**Próxima revisión programada:** 6 Diciembre 2025 (sincronización semanal)  
+**Documento mantenido por:** Equipo de Arquitectura PRO_FINAN_CONTA_PYM
+**Última actualización:** 29 Noviembre 2025
+**Próxima revisión programada:** 6 Diciembre 2025 (sincronización semanal)
 **Fuentes verificadas:** GitHub Releases (Bun 1.3.3, Elysia 1.4.16), PostgreSQL Docs, Svelte Blog
