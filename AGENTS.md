@@ -1,6 +1,25 @@
-# 🤖 Agent Instructions - FinTech SaaS México
+# 🤖 Agent Instructions - mibiyuyo
 
+> **mibiyuyo** — Plataforma de finanzas personales para México
 > Este archivo instruye a los LLMs sobre cómo usar los MCPs disponibles y las reglas específicas del proyecto.
+> **Dominio:** mibiyuyo.com
+> **Tagline:** "Tu dinero, tu control, tu paz"
+
+---
+
+## 📋 CONTEXTO DEL PROYECTO
+
+**mibiyuyo** es una super app financiera para el mercado mexicano que resuelve 6 dolores fundamentales:
+
+1. "No sé cuánto puedo gastar HOY"
+2. "Vivo quincena a quincena sin control"
+3. "Mis gastos fijos me ahogan"
+4. "Gasto de más sin darme cuenta"
+5. "Me siento ansioso con el dinero"
+6. "No confío en las apps con mis datos financieros"
+
+**Documento Maestro:** `MIBIYUYO_DOCUMENTO_MAESTRO.md`
+**Legado (referencia):** `_LEGADO_PRO_FINAN_CONTA_PYM/`
 
 ---
 
@@ -374,16 +393,14 @@ Ver documento completo: `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md`
 |    Plan    |    Precio     |
 | :--------: | :-----------: |
 |   GRATIS   |    $0/mes     |
-|    PRO     |   $149/mes    |
-|  FAMILIA   |   $249/mes    |
-|  NEGOCIO   |   $299/mes    |
-|  BUSINESS  |   $499/mes    |
-| ENTERPRISE | Personalizado |
+|    PRO     |   $29/mes    |
+|  NEGOCIO   |   $99/mes    |
 
 ---
 
-_Última actualización: 8 Diciembre 2025_
-_Versión Stack: v5.0_
+_Última actualización: 14 Diciembre 2025_
+_Versión Stack: v6.0 — mibiyuyo_
+_Equipo: 6 personas_
 _MCPs Configurados: 22 (Svelte, Vite, shadcn, PostgreSQL, Redis, SQLite, Sentry, Playwright, Zod, CSS, Lucide, GitHub, Firebase, Cloudflare, Docker, OpenAI, Resend, Fetch, Filesystem, Linear, Dokploy, MinIO)_
 _llms.txt Verificados: 9 URLs_
 _Tecnologías Investigadas: 61/61 (100%)_
@@ -391,7 +408,12 @@ _Cobertura MCP + llms.txt: 49% (30/61)_
 
 ## 📚 Documentación Clave
 
-### Nuevos documentos (Diciembre 2025):
+### Documentos Prioritarios:
+
+- `MIBIYUYO_DOCUMENTO_MAESTRO.md` - **FUENTE DE VERDAD**
+- `_LEGADO_PRO_FINAN_CONTA_PYM/` - Documentación anterior (referencia)
+
+### Documentos Activos (del legado):
 
 - `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md` - Framework neurociencias
 - `03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md` - 40 perfiles expandidos

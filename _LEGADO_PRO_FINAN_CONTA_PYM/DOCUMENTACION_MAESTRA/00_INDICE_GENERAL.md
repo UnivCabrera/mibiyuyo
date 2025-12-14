@@ -1,18 +1,37 @@
 # 📚 ÍNDICE GENERAL DEL PROYECTO
 
-> **FinTech SaaS para PyMEs Mexicanas**  
-> **Última actualización:** 8 Diciembre 2025  
-> **Versión de documentación:** 5.0
+> **FinTech SaaS para PyMEs Mexicanas**
+> **Última actualización:** 14 Diciembre 2025
+> **Versión de documentación:** 6.0 (MVP Focus)
+
+---
+
+## 🚨 DOCUMENTO PRIORITARIO - LEER PRIMERO
+
+| Documento | Descripción | Estado |
+|:---|:---|:---:|
+| [**REESTRUCTURACION_MVP_ESTRATEGICO**](REESTRUCTURACION_MVP_ESTRATEGICO.md) | **FUENTE DE VERDAD** - Roadmap 10 versiones, 5 dolores fusionados, MVP definido | 🔴 **ACTIVO** |
 
 ---
 
 ## 🎯 GUÍA DE INICIO RÁPIDO
 
-| Documento                                                | Descripción                   | Audiencia    |
-| :------------------------------------------------------- | :---------------------------- | :----------- |
-| [GUIA_LECTURA_PROYECTO](00_GUIA_LECTURA_PROYECTO.md)     | Cómo navegar la documentación | Todos        |
-| [MASTER_ROADMAP_EJECUTIVO](MASTER_ROADMAP_EJECUTIVO.md)  | Roadmap ejecutivo consolidado | Stakeholders |
-| [ROADMAP_EJECUCION](00_ROADMAP_EJECUCION_PASO_A_PASO.md) | Plan de ejecución detallado   | Dev Team     |
+| Documento                                                | Descripción                   | Estado |
+| :------------------------------------------------------- | :---------------------------- | :---: |
+| [REESTRUCTURACION_MVP_ESTRATEGICO](REESTRUCTURACION_MVP_ESTRATEGICO.md) | **MVP y Roadmap V1-V10** | 🟢 ACTIVO |
+| [CHECKLIST_PRE_ARRANQUE](CHECKLIST_PRE_ARRANQUE.md) | Pasos para iniciar desarrollo | 🟢 ACTIVO |
+| [GUIA_LECTURA_PROYECTO](00_GUIA_LECTURA_PROYECTO.md)     | Cómo navegar la documentación | 🔵 REF |
+| [MASTER_ROADMAP_EJECUTIVO](MASTER_ROADMAP_EJECUTIVO.md)  | Roadmap ejecutivo (superseded) | 🟡 CONGELADO |
+| [ROADMAP_EJECUCION](00_ROADMAP_EJECUCION_PASO_A_PASO.md) | Plan de ejecución (superseded) | 🟡 CONGELADO |
+
+### Leyenda de Estados
+
+| Estado | Significado |
+|:---:|:---|
+| 🟢 ACTIVO | Usar para MVP V1-V3 |
+| 🟡 CONGELADO | Valioso para V4+, conservado |
+| 🔵 REF | Documentación técnica de referencia |
+| ⚪ LEGADO | Ideas iniciales, histórico |
 
 ---
 
