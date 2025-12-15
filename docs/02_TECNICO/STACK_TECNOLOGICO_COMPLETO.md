@@ -1,7 +1,7 @@
 # 🛠️ STACK TECNOLÓGICO COMPLETO — MIBIYUYO
 
-> **Versión:** 2.0
-> **Fecha:** 14 Diciembre 2025
+> **Versión:** 2.1
+> **Fecha:** 15 Diciembre 2025
 > **Proyecto:** mibiyuyo — "Tu dinero, tu control, tu paz"
 > **Dominio:** mibiyuyo.com
 
@@ -17,9 +17,9 @@
 | **Database** | PostgreSQL | 16+ |
 | **Cache** | Redis | 7+ |
 | **ORM** | Drizzle ORM | 0.38+ |
-| **Auth** | Better Auth | Latest |
+| **Auth** | Lucia Auth | Latest |
 | **Styling** | CSS Nativo + Open Props | ❌ NO Tailwind |
-| **UI** | shadcn-svelte + Bits UI | Latest |
+| **UI** | shadcn-svelte | Latest |
 | **Deploy** | Dokploy (Hostinger VPS) | Self-hosted |
 
 ---

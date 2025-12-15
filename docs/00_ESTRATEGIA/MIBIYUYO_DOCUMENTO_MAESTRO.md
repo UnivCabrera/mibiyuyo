@@ -50,34 +50,34 @@
 ### 1.2 Propuesta de Valor
 
 ```
-PARA: El mexicano que vive estresado por su dinero
-QUE: No sabe cuánto puede gastar hoy sin arruinar su quincena
-MIBIYUYO ES: Una plataforma web que te da control real de tu dinero
-QUE: Te dice exactamente cuánto puedes gastar HOY, aparta automáticamente
-     tus gastos fijos, y te ayuda a dejar de vivir quincena a quincena
-A DIFERENCIA DE: Apps extranjeras que no entienden México,
-                 Excel que es manual y tedioso,
-                 Software contable que es complejo y caro
-NUESTRA VENTAJA: Diseñado 100% para el mexicano, con neurociencia aplicada,
-                 seguridad de clase mundial, y un equipo comprometido
+PARA: El mexicano que vive con Ansiedad Financiera Crónica
+QUE: No sabe si el dinero que ve en su cuenta es realmente suyo para gastar
+MIBIYUYO ES: Un GPS Financiero Predictivo
+QUE: Calcula tu "Número Mágico" (lo que puedes gastar HOY sin culpa),
+     considerando tus gastos futuros antes de que ocurran.
+A DIFERENCIA DE: Apps bancarias (foto del pasado),
+                 Excel (manual y aburrido),
+                 Apps de gastos (te regañan por el pasado)
+NUESTRA VENTAJA: El "Número Mágico" que da dopamina inmediata por ahorrar,
+                 y el Pilar #6: Soberanía de Datos (Privacidad total).
 ```
 
 ### 1.3 Taglines
 
 - **Principal:** "Tu dinero, tu control, tu paz"
-- **Secundario:** "Sabe cuánto puedes gastar hoy"
-- **Técnico:** "Finanzas personales para México, en serio"
+- **Secundario:** "El GPS Financiero Predictivo"
+- **Técnico:** "Privacidad financiera y automatización inteligente"
 
 ### 1.4 Valores del Producto
 
 | Valor | Significado | Manifestación |
 |:---|:---|:---|
-| **Mexicanidad** | Diseñado para cómo vivimos | Quincenas, efectivo, tandas |
-| **Simplicidad** | Menos es más | Max 3 clics por acción |
-| **Confianza** | Tus datos son tuyos | Encriptación, transparencia |
-| **Empatía** | Sin juicio, con apoyo | Mensajes positivos siempre |
-| **Seguridad** | Blindado desde el día 1 | Estándares bancarios |
-| **Honestidad** | Sin letra chiquita | Precios claros, sin trampas |
+| **Paz Mental** | El fin último | Eliminar el nudo en el estómago |
+| **Simplicidad** | Un solo número | El "Número Mágico" en verde |
+| **Soberanía** | Pilar #6 | Tus datos son tuyos, no se venden |
+| **Empatía** | Entender a "Pedro" | No juzgar gastos, dar soluciones |
+| **Velocidad** | Respeto al tiempo | Carga en <1s (Svelte 5 + Bun) |
+| **Honestidad** | Modelo claro | $29 pesos, sin venta de datos |
 
 ---
 
@@ -87,17 +87,17 @@ NUESTRA VENTAJA: Diseñado 100% para el mexicano, con neurociencia aplicada,
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    💔 LOS 6 DOLORES DE MIBIYUYO                         │
+│                    💔 EL DOLOR CENTRAL: INCERTIDUMBRE                   │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   DOLOR 1: "No sé cuánto puedo gastar HOY"                             │
-│   → Solución: Número grande central (balance disponible real)          │
+│   DOLOR 1: "Ansiedad Financiera Crónica"                               │
+│   → Solución: GPS Financiero (Muestra el futuro, no el pasado)         │
 │                                                                         │
-│   DOLOR 2: "Vivo quincena a quincena sin control"                      │
-│   → Solución: Planificador quincenal inteligente                       │
+│   DOLOR 2: "Efecto Riqueza Falsa" (Veo saldo pero debo renta)          │
+│   → Solución: El Número Mágico (Saldo Real - Compromisos)              │
 │                                                                         │
-│   DOLOR 3: "Mis gastos fijos me ahogan y no los veo"                   │
-│   → Solución: Sistema de apartados automáticos                         │
+│   DOLOR 3: "Las apps me regañan por lo que ya gasté"                   │
+│   → Solución: Enfoque preventivo (Cuánto PUEDES gastar hoy)            │
 │                                                                         │
 │   DOLOR 4: "Gasto de más sin darme cuenta"                             │
 │   → Solución: Modo anti-impulso con fricción positiva                  │
@@ -642,18 +642,18 @@ PRO ($29 MXN/mes = $290/año):
 
 ## 6. ARQUITECTURA DE PRODUCTO
 
-### 6.1 Stack Tecnológico (Sin Cambios)
+### 6.1 Stack Tecnológico (Actualizado V2.0)
 
 | Capa | Tecnología | Razón |
 |:---|:---|:---|
 | **Runtime** | Bun 1.3+ | Performance, DX |
 | **Frontend** | Svelte 5 + SvelteKit 2 | Rendimiento, tamaño |
-| **Styling** | CSS Nativo + Open Props | No Tailwind, control total |
+| **Styling** | Tailwind CSS v4 | Velocidad de desarrollo, estándar |
 | **Backend** | ElysiaJS | TypeScript, Bun nativo |
 | **Database** | PostgreSQL 16+ | Robustez, JSON support |
 | **Cache** | Redis 7+ | Sesiones, rate limiting |
-| **Auth** | Better Auth | Open source, flexible |
-| **Deploy** | Dokploy + Hostinger | Costo bajo, control |
+| **Auth** | Lucia Auth | Cookies HttpOnly, seguridad |
+| **Deploy** | Dokploy + VPS | Costo bajo, control (Pilar #6) |
 | **Storage** | MinIO (self-hosted S3) | Archivos, backups |
 
 ### 6.2 Arquitectura de Datos
@@ -697,6 +697,26 @@ PRO ($29 MXN/mes = $290/año):
 
 ### 7.1 Planes y Precios
 
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│   PLAN GRATIS (FREEMIUM)                                                │
+│   Precio: $0.00 MXN                                                     │
+│   Incluye:                                                              │
+│   - Cálculo del "Número Mágico" (Manual)                                │
+│   - Registro de gastos ilimitado                                        │
+│   - 1 Meta de Ahorro                                                    │
+│   - Respaldo en la nube                                                 │
+│                                                                         │
+│   PLAN CAFÉ (SUSCRIPCIÓN)                                               │
+│   Precio: $29.00 MXN / mes                                              │
+│   Incluye:                                                              │
+│   - Todo lo Gratis                                                      │
+│   - Conexión Bancaria (Open Banking)                                    │
+│   - Proyecciones a Futuro                                               │
+│   - Modo Pareja                                                         │
+│   - Metas Ilimitadas                                                    │
+│   - Sin anuncios (aunque nunca tendremos anuncios)                      │
+└─────────────────────────────────────────────────────────────────────────┘
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                         💰 PLANES MIBIYUYO                              │
@@ -922,31 +942,26 @@ mibiyuyo/
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    🔮 VISIÓN MIBIYUYO 2025-2028                         │
+│                    🔮 VISIÓN MIBIYUYO 2026-2030                         │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│   2025 (Año 1): FUNDACIÓN                                              │
-│   ├── Producto core validado                                           │
-│   ├── 6,000+ usuarios                                                  │
-│   ├── MRR $18,000+                                                     │
-│   └── Equipo de 6 consolidado                                          │
-│                                                                         │
-│   2026 (Año 2): CRECIMIENTO                                            │
-│   ├── 50,000+ usuarios                                                 │
-│   ├── App móvil nativa (opcional)                                      │
+│   2026 (Año 1): EL GPS FINANCIERO                                      │
+│   ├── 500,000+ usuarios                                                │
+│   ├── Automatización de ahorro ("Piloto Automático")                   │
 │   ├── Integración bancaria completa                                    │
-│   └── Suite freelancer madura                                          │
+│   └── Consolidación del Pilar #6 (Soberanía de Datos)                  │
 │                                                                         │
-│   2027 (Año 3): EXPANSIÓN                                              │
-│   ├── 200,000+ usuarios                                                │
-│   ├── Versión PyME completa                                            │
-│   ├── Posible expansión LATAM                                          │
-│   └── Equipo de 15-20 personas                                         │
+│   2028 (Año 3): EL BANCO INVISIBLE                                     │
+│   ├── 5 Millones de usuarios                                           │
+│   ├── Tarjeta de débito propia (opcional, solo si aporta valor)        │
+│   ├── Inversión automatizada de excedentes                             │
+│   └── Expansión a Colombia y Chile                                     │
 │                                                                         │
-│   2028 (Año 4): CONSOLIDACIÓN                                          │
-│   ├── Líder en finanzas personales MX                                  │
-│   ├── Suite completa Personal + Pro + PyME                             │
-│   └── Modelo sostenible y rentable                                     │
+│   2030 (Año 5): EL ESTÁNDAR DE PRIVACIDAD                              │
+│   ├── 50 Millones de usuarios en LATAM                                 │
+│   ├── Ecosistema financiero completo y privado                         │
+│   ├── Unicornio de Privacidad Financiera                               │
+│   └── "El GPS financiero predeterminado"                               │
 │                                                                         │
 └─────────────────────────────────────────────────────────────────────────┘
 ```

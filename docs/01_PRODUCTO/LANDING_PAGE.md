@@ -1,9 +1,9 @@
 # 🏠 LANDING PAGE — MIBIYUYO
 
-> **Versión:** 1.0
-> **Fecha:** 14 Diciembre 2025
+> **Versión:** 2.0
+> **Fecha:** 15 Diciembre 2025
 > **URL objetivo:** https://mibiyuyo.com
-> **Tagline:** "Tu dinero, tu control, tu paz"
+> **Tagline:** "El GPS Financiero Predictivo"
 
 ---
 
@@ -11,10 +11,10 @@
 
 Convertir visitantes en usuarios registrados comunicando:
 
-1. **Qué es mibiyuyo:** Plataforma de finanzas personales para México
-2. **Qué problema resuelve:** "No sé cuánto puedo gastar hoy"
-3. **Por qué es diferente:** Diseñado para mexicanos, con neurociencia
-4. **Cómo empezar:** Gratis, sin tarjeta, en 30 segundos
+1. **Qué es mibiyuyo:** Un GPS Financiero Predictivo.
+2. **Qué problema resuelve:** La Ansiedad Financiera ("¿Puedo gastar esto?").
+3. **Por qué es diferente:** El "Número Mágico" y el Pilar #6 (Privacidad).
+4. **Cómo empezar:** Gratis, sin tarjeta, en 30 segundos.
 
 ---
 
@@ -24,15 +24,15 @@ Convertir visitantes en usuarios registrados comunicando:
 ┌─────────────────────────────────────────────────────────────────────────┐
 │ 1. HERO (Above the fold)                                               │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ 2. PROBLEMA (Los 3 dolores más fuertes)                                │
+│ 2. PROBLEMA (La historia de Pedro / Ansiedad)                          │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ 3. SOLUCIÓN (Cómo mibiyuyo lo resuelve)                                │
+│ 3. SOLUCIÓN (El Número Mágico)                                         │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ 4. FEATURES (Las 4 características principales)                        │
+│ 4. FEATURES (Pilar #6 y Tecnología)                                    │
 ├─────────────────────────────────────────────────────────────────────────┤
 │ 5. CONFIANZA (Seguridad y privacidad)                                  │
 ├─────────────────────────────────────────────────────────────────────────┤
-│ 6. PRECIOS (Transparentes y simples)                                   │
+│ 6. PRECIOS (Plan Café)                                                 │
 ├─────────────────────────────────────────────────────────────────────────┤
 │ 7. FAQ (Preguntas frecuentes)                                          │
 ├─────────────────────────────────────────────────────────────────────────┤
@@ -53,22 +53,22 @@ Convertir visitantes en usuarios registrados comunicando:
 │  💚 mibiyuyo                                   [Iniciar sesión] [CTA]   │
 ├─────────────────────────────────────────────────────────────────────────┤
 │                                                                         │
-│                    "Sabe cuánto puedes                                 │
-│                     gastar hoy"                                        │
+│                    "Tu GPS Financiero                                  │
+│                     Predictivo"                                        │
 │                                                                         │
-│        La app que te da control real de tu dinero,                     │
-│        diseñada para cómo vivimos los mexicanos.                       │
+│        Olvídate de la ansiedad. Un solo número te dice                 │
+│        cuánto puedes gastar HOY sin culpa.                             │
 │                                                                         │
 │        [  EMPIEZA GRATIS  ]     ← Botón verde grande                   │
 │                                                                         │
-│        Sin tarjeta • 30 segundos • 100% gratis                         │
+│        Sin tarjeta • 30 segundos • Privacidad Total                    │
 │                                                                         │
 │              ┌──────────────────────────────┐                          │
 │              │                              │                          │
 │              │     MOCKUP DASHBOARD         │                          │
-│              │     "Tu Biyuyo Hoy"          │                          │
-│              │          $2,850              │                          │
-│              │    puedes gastar ahora       │                          │
+│              │     "Tu Número Mágico"       │                          │
+│              │          $450.00             │                          │
+│              │    disponible para hoy       │                          │
 │              │                              │                          │
 │              └──────────────────────────────┘                          │
 │                                                                         │
@@ -78,86 +78,70 @@ Convertir visitantes en usuarios registrados comunicando:
 ### Copy del Hero
 
 **Headline principal:**
-> "Sabe cuánto puedes gastar hoy"
+> "Tu GPS Financiero Predictivo"
 
 **Subheadline:**
-> La app que te da control real de tu dinero, diseñada para cómo vivimos los mexicanos.
+> Olvídate de la ansiedad. Un solo número te dice cuánto puedes gastar HOY sin culpa.
 
 **CTA primario:**
 > EMPIEZA GRATIS
 
 **Trust badges:**
-> Sin tarjeta • 30 segundos • 100% gratis
+> Sin tarjeta • 30 segundos • Privacidad Total (Pilar #6)
 
 ---
 
-## 2️⃣ PROBLEMA
+## 2️⃣ PROBLEMA (La Historia de Pedro)
 
-### Copy
+**Título:**
+> "¿Te pasa como a Pedro?"
 
-**Headline:**
-> ¿Te suena familiar?
-
-**3 dolores principales:**
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│  😰 "No sé cuánto me queda"    😓 "Vivo quincena a quincena"           │
-│                                                                         │
-│  Cada compra es un misterio.   Parece que nunca alcanza               │
-│  ¿Puedo o no puedo?            y siempre estás "apretado".            │
-│                                                                         │
-│                     😔 "Mis gastos fijos me ahogan"                    │
-│                                                                         │
-│                     Renta, luz, teléfono... llegas                     │
-│                     al 15 y ya no tienes nada.                         │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-**Cierre:**
-> No eres tú. Es que nadie te ha dado las herramientas correctas. Hasta ahora.
-
----
-
-## 3️⃣ SOLUCIÓN
-
-### Copy
-
-**Headline:**
-> Así es como mibiyuyo lo resuelve
-
-**La promesa:**
-
-```
-┌─────────────────────────────────────────────────────────────────────────┐
-│                                                                         │
-│                              $2,850                                     │
-│                       PUEDES GASTAR AHORA                              │
-│                       sin afectar nada más                             │
-│                                                                         │
-│       Ya apartamos: Renta ✅ • Luz ✅ • Ahorro ✅ • Tarjeta ✅          │
-│                                                                         │
-│       😌 "Gasta sin culpa. Todo lo importante ya está cubierto."       │
-│                                                                         │
-└─────────────────────────────────────────────────────────────────────────┘
-```
-
-**Explicación:**
-
-> **Un número. Eso es todo lo que necesitas.**
+**Texto:**
+> Pedro gana bien, pero vive con ansiedad.
 >
-> mibiyuyo calcula automáticamente cuánto puedes gastar HOY,
-> después de apartar tus gastos fijos y ahorro.
+> - **El día 15:** Se siente rico.
+> - **El día 25:** Sufre.
+> - **El día 30:** Pide prestado.
 >
-> Sin cálculos mentales. Sin Excel. Sin estrés.
+> No es falta de dinero. Es falta de **visibilidad**.
+>
+> El Excel es aburrido. Las apps de bancos solo te dicen lo que *ya gastaste* (el pasado). Nadie te dice qué va a pasar mañana.
 
 ---
 
-## 4️⃣ FEATURES
+## 3️⃣ SOLUCIÓN (El Número Mágico)
 
-### Las 4 características principales
+**Título:**
+> "Tu Número Mágico"
+
+**Texto:**
+> Imagina despertar, abrir tu teléfono y ver un solo número:
+>
+> **$450.00**
+>
+> "Esto es lo que puedes gastar hoy sin afectar tu renta, tu luz, ni tu ahorro."
+>
+> Si gastas $400, te sobran $50. Si gastas $500, el sistema recalcula tu mañana.
+>
+> **Sin culpa. Sin matemáticas. Solo paz mental.**
+
+---
+
+## 4️⃣ FEATURES (Pilar #6 y Tecnología)
+
+**Título:**
+> "Más que una app, una bóveda"
+
+**Características:**
+
+1.  **Pilar #6: Soberanía de Datos**
+    *   *Copy:* Tus datos son tuyos. No los vendemos, no los compartimos. Encriptación militar y servidores locales.
+2.  **Modo "Sin Nube" (Local First)**
+    *   *Copy:* La app funciona primero en tu dispositivo. Si se va el internet, tú sigues teniendo el control.
+3.  **Sincronización Inteligente**
+    *   *Copy:* Cuando vuelves a tener red, todo se respalda en segundos.
+4.  **Exportación Total**
+    *   *Copy:* ¿Te quieres ir? Llévate todo tu historial en un clic (JSON/CSV). Sin rehenes.
 
 ```
 ┌────────────────────┐  ┌────────────────────┐
@@ -229,17 +213,17 @@ Convertir visitantes en usuarios registrados comunicando:
 │                         (Sin letra chiquita)                           │
 │                                                                         │
 │  ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐      │
-│  │     GRATIS       │  │       PRO        │  │     NEGOCIO      │      │
+│  │     GRATIS       │  │    PLAN CAFÉ     │  │     NEGOCIO      │      │
 │  │                  │  │                  │  │                  │      │
 │  │      $0          │  │    $29/mes       │  │    $99/mes       │      │
-│  │   para siempre   │  │                  │  │                  │      │
+│  │   para siempre   │  │ (Menos que un ☕)│  │                  │      │
 │  │                  │  │                  │  │                  │      │
-│  │ ✅ Tu Biyuyo Hoy │  │ ✅ Todo Gratis + │  │ ✅ Todo PRO +    │      │
-│  │ ✅ Apartados     │  │ ✅ Historial ∞   │  │ ✅ Personal+Pro  │      │
-│  │ ✅ Anti-impulso  │  │ ✅ Multi-device  │  │ ✅ Facturación   │      │
-│  │ ✅ 1 meta        │  │ ✅ Metas ∞       │  │ ✅ Cálculo ISR   │      │
-│  │ ✅ 3 meses hist. │  │ ✅ Exportar PDF  │  │ ✅ Reportes      │      │
-│  │                  │  │ ✅ Conexión banco│  │ ✅ SAT/CFDI      │      │
+│  │ ✅ Tu Número     │  │ ✅ Todo Gratis + │  │ ✅ Todo CAFÉ +   │      │
+│  │    Mágico        │  │ ✅ Historial ∞   │  │ ✅ Personal+Pro  │      │
+│  │ ✅ Apartados     │  │ ✅ Multi-device  │  │ ✅ Metas ∞       │  │ ✅ Facturación   │      │
+│  │ ✅ Anti-impulso  │  │ ✅ Exportar PDF  │  │ ✅ Cálculo ISR   │      │
+│  │ ✅ 1 meta        │  │ ✅ IA Predictiva │  │ ✅ Reportes      │      │
+│  │ ✅ 3 meses hist. │  │                  │  │ ✅ SAT/CFDI      │      │
 │  │                  │  │                  │  │                  │      │
 │  │ [EMPEZAR GRATIS] │  │ [PROBAR 7 DÍAS]  │  │ [CONTACTAR]      │      │
 │  │                  │  │                  │  │                  │      │

@@ -58,8 +58,8 @@
 		<div class="nav-ctas">
 			<LanguageSelector />
 			<ThemeToggle />
-			<a href="/login" class="btn btn-login hide-mobile">{t().nav.login}</a>
-			<a href="/register" class="btn btn-primary btn-sm btn-shine">
+			<a href="/auth/login" class="btn btn-login hide-mobile">{t().nav.login}</a>
+			<a href="/auth/register" class="btn btn-primary btn-sm btn-shine">
 				<Sparkles size={16} />
 				{t().nav.register}
 			</a>
@@ -90,7 +90,7 @@
 					</a>
 				{/each}
 				<hr class="mobile-divider" />
-				<a href="/login" class="mobile-nav-link">{t().nav.login}</a>
+				<a href="/auth/login" class="mobile-nav-link">{t().nav.login}</a>
 			</div>
 		</div>
 	{/if}

@@ -1,7 +1,7 @@
 # 🧠 GUÍA UX — NEUROFINANZAS APLICADAS
 
-> **Versión:** 1.0
-> **Fecha:** 14 Diciembre 2025
+> **Versión:** 2.0
+> **Fecha:** 15 Diciembre 2025
 > **Base:** Framework de Neurofinanzas del legado
 > **Objetivo:** Integrar neurociencia en cada elemento del producto
 
@@ -38,6 +38,12 @@
 ---
 
 ## 📐 PRINCIPIOS DE DISEÑO
+
+### 0. El Número Mágico (Reducción Radical)
+
+El usuario no quiere matemáticas. Quiere una respuesta.
+En lugar de mostrar: Ingresos - Gastos Fijos - Ahorro - Gastos Variables = Disponible.
+Mostramos: **$450.00** (Tu Número Mágico).
 
 ### 1. Ley de Miller (7±2)
 

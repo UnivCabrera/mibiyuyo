@@ -17,7 +17,7 @@
 	const basePrices = {
 		free: 0,
 		pro: 29,
-		business: 99
+		business: 149
 	};
 
 	const freePrice = '$0';
@@ -61,14 +61,19 @@
 				{ key: 'autoSavings', included: true },
 				{ key: 'quickExpense', included: true },
 				{ key: 'spendingDetector', included: true },
-				{ key: 'smartAlerts', included: true },
+				{ key: 'manualTracking', included: true },
 				{ key: 'pwaOffline', included: true },
 				{ key: 'darkMode', included: true },
 				{ key: 'baseFeatures', included: true },
-				{ key: 'advancedReports', included: false },
-				{ key: 'familyMode', included: false },
-				{ key: 'bankSync', included: false },
-				{ key: 'prioritySupport', included: false }
+				{ key: 'customCategories', included: true },
+				{ key: 'notesTags', included: true },
+				{ key: 'unlimitedGoals', included: true },
+				{ key: 'export', included: true },
+				{ key: 'mobileWidgets', included: true },
+				{ key: 'noAds', included: true },
+				{ key: 'familyMode', included: true },
+				{ key: 'advancedReportsCharts', included: true },
+				{ key: 'communitySupport', included: true }
 			]
 		},
 		{
@@ -80,18 +85,10 @@
 			ctaHref: '/auth/register',
 			features: [
 				{ key: 'everythingInFree', included: true, highlight: true },
-				{ key: 'advancedReportsCharts', included: true },
-				{ key: 'familyUpToFive', included: true },
-				{ key: 'customCategories', included: true },
-				{ key: 'export', included: true },
-				{ key: 'unlimitedGoals', included: true },
-				{ key: 'aiPredictions', included: true },
-				{ key: 'mobileWidgets', included: true },
-				{ key: 'noAds', included: true },
-				{ key: 'chatSupport', included: true },
-				{ key: 'bankSync', included: false },
-				{ key: 'invoicingSat', included: false },
-				{ key: 'apiIntegrations', included: false }
+				{ key: 'cloudBackups', included: true },
+				{ key: 'emailAlerts', included: true },
+				{ key: 'premiumExports', included: true },
+				{ key: 'priorityEmailSupport', included: true }
 			]
 		},
 		{
@@ -104,14 +101,15 @@
 			features: [
 				{ key: 'everythingInPro', included: true, highlight: true },
 				{ key: 'bankSync', included: true },
+				{ key: 'satConciliation', included: true },
+				{ key: 'invoicingSat', included: true },
 				{ key: 'cfdiIntegration', included: true },
 				{ key: 'satDownloads', included: true },
 				{ key: 'personalBusiness', included: true },
 				{ key: 'taxReports', included: true },
 				{ key: 'apiIntegrations', included: true },
+				{ key: 'whatsappSupport', included: true },
 				{ key: 'unlimitedUsers', included: true },
-				{ key: 'prioritySupport247', included: true },
-				{ key: 'personalizedOnboarding', included: true },
 				{ key: 'dedicatedBackup', included: true },
 				{ key: 'sla', included: true },
 				{ key: 'assignedAccountant', included: false }
@@ -125,7 +123,7 @@
 		features: typeof fallbackFeatures;
 	};
 
-	const pricingCopy = $derived((): PricingCopy => {
+	const pricingCopy = $derived.by((): PricingCopy => {
 		const current = t().pricing;
 		return {
 			...translations.en.pricing,

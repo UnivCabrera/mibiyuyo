@@ -1,7 +1,7 @@
 # 📅 ROADMAP 12 MESES — MIBIYUYO
 
-> **Versión:** 1.0
-> **Fecha:** 14 Diciembre 2025
+> **Versión:** 2.0
+> **Fecha:** 15 Diciembre 2025
 > **Equipo:** 6 personas
 > **Modelo:** 1 feature visible + 5 aportes internos por persona/mes
 
@@ -24,8 +24,8 @@
 | Rol | Código | Responsabilidad Principal |
 |:---:|:---:|:---|
 | **Product Owner** | PO | Visión, priorización, comunicación |
-| **Frontend Dev** | FE | UI Svelte 5, PWA, componentes |
-| **Backend Dev** | BE | API ElysiaJS, PostgreSQL, Redis |
+| **Frontend Dev** | FE | UI Svelte 5, CSS Nativo, PWA |
+| **Backend Dev** | BE | API ElysiaJS, Lucia Auth, Postgres |
 | **UX/Diseño** | UX | Flujos, copy, investigación |
 | **Seguridad** | SEC | Auditoría, compliance, encriptación |
 | **QA/Métricas** | QA | Testing, analytics, documentación |
@@ -53,8 +53,8 @@
 | Rol | Aportes |
 |:---|:---|
 | **PO** | Backlog priorizado, OKRs Mes 1, Meeting semanal, Comunicación externa, Benchmark V1 |
-| **FE** | Arquitectura Svelte 5, PWA Service Worker, IndexedDB offline, Tema base, Sistema de componentes |
-| **BE** | Schema PostgreSQL, API CRUD usuarios, Better Auth setup, Redis sesiones, CI/CD pipeline |
+| **FE** | Arquitectura Svelte 5, CSS Nativo (Variables + Nesting), PWA Service Worker, IndexedDB offline |
+| **BE** | Schema PostgreSQL, API CRUD usuarios, Lucia Auth setup, Redis sesiones, CI/CD pipeline |
 | **UX** | Wireframes V1, Copy onboarding, Paleta de colores, Flujo registro, Microcopy errores |
 | **SEC** | Audit dependencias, Config Traefik, Backup automático, Rate limiting, Políticas de passwords |
 | **QA** | Suite tests básica, Analytics setup, Checklist QA, Documentación API, FAQs iniciales |

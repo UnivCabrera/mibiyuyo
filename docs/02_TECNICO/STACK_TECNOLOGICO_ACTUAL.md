@@ -1,8 +1,8 @@
-# 🛠️ Stack Tecnológico Oficial: mibiyuyo (V2.0)
+# 🛠️ Stack Tecnológico Oficial: mibiyuyo (V2.1)
 
 > **Proyecto:** mibiyuyo — "Tu dinero, tu control, tu paz"
 > **Dominio:** mibiyuyo.com
-> **Fecha:** 14 Diciembre 2025
+> **Fecha:** 15 Diciembre 2025
 
 Este documento define la infraestructura y tecnologías activas. Cualquier desviación debe ser aprobada.
 
@@ -18,9 +18,9 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 | Database | **PostgreSQL** | 16+ |
 | Cache | **Redis** | 7+ |
 | ORM | **Drizzle ORM** | 0.38+ |
-| Auth | **Better Auth** | Latest |
-| Styling | **CSS Nativo + Open Props** | ❌ NO Tailwind |
-| UI | **shadcn-svelte + Bits UI** | Latest |
+| Auth | **Lucia Auth** | 3.x |
+| Styling | **CSS Nativo + Open Props** | Modern CSS |
+| UI | **Bits UI (Headless)** | Latest |
 | Deploy | **Dokploy (Hostinger VPS)** | Self-hosted |
 
 ---
@@ -49,7 +49,7 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 | **Runtime** | [Bun](https://bun.sh/) | Velocidad extrema, TS nativo |
 | **Framework** | [ElysiaJS](https://elysiajs.com/) | El más rápido para Bun |
 | **ORM** | [Drizzle ORM](https://orm.drizzle.team/) | Ligero, SQL-like, type-safe |
-| **Autenticación** | [Better Auth](https://better-auth.com/) | Open source, compatible Drizzle |
+| **Autenticación** | [Lucia Auth](https://lucia-auth.com/) | Cookies HttpOnly, seguridad robusta |
 | **Validación** | [Zod](https://zod.dev/) | Schema validation |
 
 ---
@@ -60,8 +60,9 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 |:---|:---|:---|
 | **Framework** | SvelteKit 2 (Svelte 5 Runes) | Rendimiento, tamaño bundle |
 | **Lenguaje** | TypeScript (Strict Mode) | Type safety |
-| **Estilos** | CSS Nativo + [Open Props](https://open-props.style/) | ❌ NO TAILWIND |
-| **Componentes** | [shadcn-svelte](https://shadcn-svelte.com/) | Velocidad de UI |
+| **Estilos** | **CSS Nativo** | Variables, Nesting, sin dependencias |
+| **Sistema Diseño** | [Open Props](https://open-props.style/) | Variables CSS modernas |
+| **Componentes** | [Bits UI](https://bits-ui.com/) | Headless, accesible, sin estilos |
 | **PWA** | Vite PWA Plugin | Instalación en móviles |
 | **Icons** | Lucide | Consistencia visual |
 
@@ -84,7 +85,7 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 
 | Categoría | MCPs |
 |:---|:---|
-| **Core Dev** | svelte, vite, shadcn, zod, css, lucide-icons, playwright, github |
+| **Core Dev** | svelte, vite, zod, css, lucide-icons, playwright, github |
 | **Databases** | postgres, redis, sqlite |
 | **Cloud** | docker, firebase, cloudflare-ai, sentry, dokploy*, linear |
 | **AI** | openai, resend, fetch |
@@ -100,13 +101,13 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 |:---|:---|
 | Svelte 5 | https://svelte.dev/llms.txt |
 | Vite | https://vite.dev/llms.txt |
-| shadcn-svelte | https://shadcn-svelte.com/llms.txt |
 | Redis | https://redis.io/docs/latest/llms.txt |
 | Zod | https://zod.dev/llms.txt |
 | Bun | https://bun.sh/llms.txt |
 | ElysiaJS | https://elysiajs.com/llms.txt |
 | Bits UI | https://bits-ui.com/llms.txt |
-| Better Auth | https://better-auth.com/llms.txt |
+| Lucia Auth | https://lucia-auth.com/llms.txt |
+| Open Props | https://open-props.style/llms.txt |
 
 ---
 
@@ -131,4 +132,4 @@ Este documento define la infraestructura y tecnologías activas. Cualquier desvi
 
 ---
 
-**Última actualización:** 14 Diciembre 2025
+**Última actualización:** 15 Diciembre 2025

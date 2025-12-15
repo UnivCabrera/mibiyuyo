@@ -10,160 +10,168 @@ export interface Translations {
 	// Common
 	common: {
 		loading: string;
-		error: string;
-		success: string;
-		cancel: string;
-		save: string;
-		delete: string;
-		edit: string;
-		close: string;
-		back: string;
-		next: string;
-		submit: string;
-		search: string;
-	};
-	// Navigation
-	nav: {
-		features: string;
-		benefits: string;
-		testimonials: string;
-		pricing: string;
-		faq: string;
-		login: string;
-		register: string;
-		logout: string;
-		dashboard: string;
-		openMenu: string;
-		closeMenu: string;
-	};
-	// Hero Section
-	hero: {
-		badge: string;
-		title: string;
-		titleHighlight: string;
-		subtitle: string;
-		ctaPrimary: string;
-		ctaSecondary: string;
-		trustSecurity: string;
-		trustSetup: string;
-		trustNoCard: string;
-		// Dashboard demo texts
+		features: {
+			biyuyoToday: 'Your Magic Number (Biyuyo Today)',
+			frequencyConfig: 'Flexible weekly/bi-weekly/monthly scheduling',
+			autoSavings: 'Virtual envelopes to separate obligations',
+			quickExpense: 'Ultra-fast manual expense capture',
+			spendingDetector: 'Spending leak calculator',
+			manualTracking: 'Manual multi-currency tracking',
+			pwaOffline: 'Offline-first PWA (works without internet)',
+			darkMode: 'Dark mode & accessible themes',
+			baseFeatures: 'Local-first privacy (your data stays on the VPS)',
+			customCategories: 'Custom categories and tags',
+			notesTags: 'Notes and labels for every movement',
+			unlimitedGoals: 'Savings goals with live progress',
+			export: 'One-click CSV export',
+			mobileWidgets: 'Responsive access on any device',
+			noAds: 'Ad-free, tracker-free experience',
+			familyMode: 'Zen mode hides totals instantly',
+			advancedReportsCharts: 'Financial traffic-light dashboard',
+			communitySupport: 'Community support (Discord)',
+			everythingInFree: 'Everything in Free',
+			cloudBackups: 'Automatic cloud backups',
+			emailAlerts: 'Email alerts and digests (SMTP)',
+			premiumExports: 'Beautiful Excel/PDF exports',
+			priorityEmailSupport: 'Priority support via email',
+			everythingInPro: 'Everything in Pro',
+			bankSync: 'Automatic bank sync (Open Banking)',
+			satConciliation: 'SAT invoice reconciliation',
+			invoicingSat: 'Invoicing & SAT tools',
+			cfdiIntegration: 'Integrated CFDI invoicing',
+			satDownloads: 'SAT invoice downloads',
+			personalBusiness: 'Personal/business workspace separation',
+			taxReports: 'Tax-ready reports (ISR, VAT)',
+			apiIntegrations: 'API integrations',
+			whatsappSupport: 'WhatsApp support (beta)',
+			unlimitedUsers: 'Unlimited users',
+			personalizedOnboarding: 'Personalized onboarding',
+			dedicatedBackup: 'Dedicated backup nodes',
+			sla: 'Guaranteed SLA',
+			assignedAccountant: 'Assigned accountant (coming soon)'
+		},
 		disponibleHoy: string;
 		biyuyoDisponible: string;
-		gastos: string;
-		apartados: string;
-		yaApartamos: string;
-		gastosHormiga: string;
-		titleSuffix: string;
-		desktopTitle: string;
-		navDashboard: string;
-		navReportes: string;
-		navConfig: string;
-		laptopNavResumen: string;
-		laptopNavMetas: string;
-		appGreeting: string;
-		appDate: string;
-		appLabel: string;
-		miniCardRent: string;
-		miniCardServices: string;
-		miniCardGas: string;
-		miniCardStatus: string;
-		registerExpense: string;
-		badgeReportesClaros: string;
-		badgeSeguro: string;
-		badgeIngresos: string;
-		badgeSetup: string;
-		badgeAcceso: string;
-		badgeSinEstres: string;
-		badgeHechoMX: string;
-		badgeGratis: string;
-		scrollHint: string;
-	};
-	// Auth
-	auth: {
-		loginTitle: string;
-		loginSubtitle: string;
-		registerTitle: string;
-		registerSubtitle: string;
-		email: string;
-		password: string;
-		confirmPassword: string;
-		rememberMe: string;
-		forgotPassword: string;
-		noAccount: string;
-		hasAccount: string;
-		orContinueWith: string;
-		continueWithGoogle: string;
-	};
-	// Pricing
-	pricing: {
-		sectionEyebrow?: string;
-		title: string;
-		subtitle: string;
-		monthly: string;
-		annual: string;
-		discount: string;
-		toggleAria?: string;
-		free: string;
-		pro: string;
-		business: string;
-		freePeriod?: string;
-		periodMonthly?: string;
-		periodAnnual?: string;
-		popular: string;
-		getStarted: string;
-		tryFree: string;
-		contactSales: string;
-		planDescriptions?: {
-			free: string;
-			pro: string;
-			business: string;
-		};
 		features?: {
-			biyuyoToday: string;
-			frequencyConfig: string;
-			autoSavings: string;
+			biyuyoToday?: string;
+			frequencyConfig?: string;
+			autoSavings?: string;
+			quickExpense?: string;
+			spendingDetector?: string;
+			manualTracking?: string;
+			pwaOffline?: string;
+			darkMode?: string;
+			baseFeatures?: string;
+			customCategories?: string;
+			notesTags?: string;
+			unlimitedGoals?: string;
+			export?: string;
+			mobileWidgets?: string;
+			noAds?: string;
+			familyMode?: string;
+			advancedReportsCharts?: string;
+			communitySupport?: string;
+			everythingInFree?: string;
+			cloudBackups?: string;
+			emailAlerts?: string;
+			premiumExports?: string;
+			priorityEmailSupport?: string;
+			everythingInPro?: string;
+			bankSync?: string;
+			satConciliation?: string;
+			invoicingSat?: string;
+			cfdiIntegration?: string;
+			satDownloads?: string;
+			personalBusiness?: string;
+			taxReports?: string;
+			apiIntegrations?: string;
+			whatsappSupport?: string;
+			unlimitedUsers?: string;
+			personalizedOnboarding?: string;
+			dedicatedBackup?: string;
+			sla?: string;
+			assignedAccountant?: string;
+		};
+			spendingDetector: 'Calculadora de gastos hormiga',
+			manualTracking: 'Seguimiento multimoneda manual',
+			pwaOffline: 'PWA offline (funciona sin internet)',
+			darkMode: 'Modo oscuro y temas accesibles',
+			baseFeatures: 'Privacidad local: tus datos viven en tu VPS',
+			customCategories: 'Categorías y etiquetas personalizadas',
+			notesTags: 'Notas en cada movimiento',
+			unlimitedGoals: 'Metas de ahorro con progreso en vivo',
+			export: 'Exportación CSV en un clic',
+			mobileWidgets: 'Acceso responsive en cualquier dispositivo',
+			noAds: 'Sin anuncios ni trackers',
+			familyMode: 'Modo Zen para ocultar totales',
+			advancedReportsCharts: 'Semáforo financiero visual',
+			communitySupport: 'Soporte comunitario (Discord)',
+			everythingInFree: 'Todo lo de Gratis',
+			cloudBackups: 'Respaldos automáticos en la nube',
+			emailAlerts: 'Alertas y resúmenes por email',
+			premiumExports: 'Exportaciones Excel/PDF presentables',
+			priorityEmailSupport: 'Soporte prioritario por email',
+			everythingInPro: 'Todo lo de Pro',
+			bankSync: 'Sincronización bancaria automática (Open Banking)',
+			satConciliation: 'Conciliación de facturas SAT',
+			invoicingSat: 'Herramientas de facturación y SAT',
+			cfdiIntegration: 'Integración CFDI completa',
+			satDownloads: 'Descarga de facturas del SAT',
+			personalBusiness: 'Separación personal/negocio',
+			taxReports: 'Reportes fiscales listos (ISR, IVA)',
+			apiIntegrations: 'Integraciones vía API',
+			whatsappSupport: 'Soporte por WhatsApp (beta)',
+			unlimitedUsers: 'Usuarios ilimitados',
+			personalizedOnboarding: 'Onboarding personalizado',
+			dedicatedBackup: 'Backups dedicados',
+			sla: 'SLA garantizado',
+			assignedAccountant: 'Contador asignado (próximamente)'
+		},
 			quickExpense: string;
 			spendingDetector: string;
-			smartAlerts: string;
+			manualTracking: string;
 			pwaOffline: string;
 			darkMode: string;
-			baseFeatures: string;
-			advancedReports: string;
-			familyMode: string;
-			bankSync: string;
-			prioritySupport: string;
-			everythingInFree: string;
-			advancedReportsCharts: string;
-			familyUpToFive: string;
-			customCategories: string;
-			export: string;
-			unlimitedGoals: string;
-			aiPredictions: string;
-			mobileWidgets: string;
-			noAds: string;
-			chatSupport: string;
-			invoicingSat: string;
-			apiIntegrations: string;
-			everythingInPro: string;
-			cfdiIntegration: string;
-			satDownloads: string;
-			personalBusiness: string;
-			taxReports: string;
-			unlimitedUsers: string;
-			prioritySupport247: string;
-			personalizedOnboarding: string;
-			dedicatedBackup: string;
-			sla: string;
-			assignedAccountant: string;
-		};
-		guarantee?: {
-			title: string;
-			description: string;
-		};
-	};
-	// Footer
-	footer: {
+			features: {
+				biyuyoToday: 'Seu Número Mágico diário (Biyuyo Hoje)',
+				frequencyConfig: 'Configure semana/quinzena/mês manualmente',
+				autoSavings: 'Envelopes virtuais para cada compromisso',
+				quickExpense: 'Captura manual ultra rápida',
+				spendingDetector: 'Calculadora de gastos formiga',
+				manualTracking: 'Controle multimoeda manual',
+				pwaOffline: 'PWA offline (funciona sem internet)',
+				darkMode: 'Modo escuro e temas acessíveis',
+				baseFeatures: 'Privacidade local: seus dados ficam no VPS',
+				customCategories: 'Categorias e etiquetas personalizadas',
+				notesTags: 'Notas em cada movimento',
+				unlimitedGoals: 'Metas de economia com progresso ao vivo',
+				export: 'Exportação CSV em um clique',
+				mobileWidgets: 'Acesso responsivo em qualquer dispositivo',
+				noAds: 'Sem anúncios nem rastreadores',
+				familyMode: 'Modo Zen para ocultar totais',
+				advancedReportsCharts: 'Semáforo financeiro visual',
+				communitySupport: 'Suporte da comunidade (Discord)',
+				everythingInFree: 'Tudo do Grátis',
+				cloudBackups: 'Backups automáticos na nuvem',
+				emailAlerts: 'Alertas e resumos por email',
+				premiumExports: 'Exportações Excel/PDF apresentáveis',
+				priorityEmailSupport: 'Suporte prioritário por email',
+				everythingInPro: 'Tudo do Pro',
+				bankSync: 'Sincronização bancária automática (Open Banking)',
+				satConciliation: 'Conciliação de notas do SAT',
+				invoicingSat: 'Ferramentas de faturamento e SAT',
+				cfdiIntegration: 'Integração CFDI completa',
+				satDownloads: 'Download de notas do SAT',
+				personalBusiness: 'Separação pessoal/negócio',
+				taxReports: 'Relatórios fiscais prontos (ISR, IVA)',
+				apiIntegrations: 'Integrações via API',
+				whatsappSupport: 'Suporte via WhatsApp (beta)',
+				unlimitedUsers: 'Usuários ilimitados',
+				personalizedOnboarding: 'Onboarding personalizado',
+				dedicatedBackup: 'Backups dedicados',
+				sla: 'SLA garantido',
+				assignedAccountant: 'Contador dedicado (em breve)'
+			},
 		tagline: string;
 		legal: string;
 		privacy: string;
@@ -318,8 +326,8 @@ export const es: Translations = {
 		discount: '-20%',
 		toggleAria: 'Cambiar entre facturación mensual y anual',
 		free: 'Gratis',
-		pro: 'Pro',
-		business: 'Negocio',
+		pro: 'Pro (Automatización)',
+		business: 'Ultimate',
 		freePeriod: 'para siempre',
 		periodMonthly: '/mes',
 		periodAnnual: '/mes (facturado anual)',
@@ -328,45 +336,44 @@ export const es: Translations = {
 		tryFree: 'Probar Pro gratis 14 días',
 		contactSales: 'Contactar ventas',
 		planDescriptions: {
-			free: 'Todo lo esencial para empezar a controlar tu dinero.',
-			pro: 'Para quienes quieren ir más allá y automatizar todo.',
-			business: 'Para freelancers y pequeños negocios que necesitan facturar.'
+			free: 'Control manual con 18 funciones sin costo operativo.',
+			pro: 'Automatiza respaldos, alertas y exports. Menos que un café.',
+			business: 'Activa Open Banking, conciliación SAT y soporte concierge.'
 		},
 		features: {
-			biyuyoToday: 'Tu Biyuyo Hoy (número central)',
-			frequencyConfig: 'Config quincenal/semanal/mensual',
-			autoSavings: 'Apartados automáticos (ilimitados)',
-			quickExpense: 'Registro de gastos 1-tap',
-			spendingDetector: 'Detector de gastos hormiga',
-			smartAlerts: 'Alertas inteligentes',
-			pwaOffline: 'PWA instalable (offline)',
-			darkMode: 'Modo oscuro',
-			baseFeatures: 'Las 18 features base',
-			advancedReports: 'Reportes avanzados',
-			familyMode: 'Modo familiar (multi-usuario)',
-			bankSync: 'Conexión bancaria automática',
-			prioritySupport: 'Soporte prioritario',
+			biyuyoToday: 'Tu Número Mágico (Biyuyo Hoy)',
+			frequencyConfig: 'Multimoneda manual y calendario de pagos',
+			autoSavings: 'Apartados virtuales (sobres inteligentes)',
+			quickExpense: 'Registro manual ultra-rápido',
+			spendingDetector: 'Calculadora de gastos hormiga',
+			smartAlerts: 'Recordatorios por email (Resend free)',
+			pwaOffline: 'PWA offline (funciona sin internet)',
+			darkMode: 'Modo oscuro y accesibilidad',
+			baseFeatures: 'Privacidad local (tus datos viven en tu VPS)',
+			advancedReports: 'Calendario de pagos y fechas de corte',
+			familyMode: 'Modo Zen (oculta totales al instante)',
+			customCategories: 'Categorías y etiquetas personalizadas',
+			export: 'Exportación CSV en un clic',
+			unlimitedGoals: 'Metas de ahorro con barra de progreso',
+			mobileWidgets: 'Acceso multi-dispositivo responsive',
+			noAds: 'Sin anuncios ni trackers',
+			advancedReportsCharts: 'Semáforo financiero (verde/amarillo/rojo)',
+			chatSupport: 'Soporte comunitario (Discord)',
 			everythingInFree: 'Todo lo de Gratis',
-			advancedReportsCharts: 'Reportes avanzados con gráficas',
-			familyUpToFive: 'Modo familiar (hasta 5 usuarios)',
-			customCategories: 'Categorías personalizadas',
-			export: 'Exportar a Excel/PDF',
-			unlimitedGoals: 'Metas de ahorro ilimitadas',
-			aiPredictions: 'Predicción de gastos con IA',
-			mobileWidgets: 'Widgets para celular',
-			noAds: 'Sin publicidad',
-			chatSupport: 'Soporte por chat',
-			invoicingSat: 'Facturación y SAT',
-			apiIntegrations: 'API para integraciones',
+			bankSync: 'Sincronización bancaria automática (Open Banking)',
+			aiPredictions: 'Predicción de gastos con IA (OpenAI)',
+			prioritySupport: 'Soporte prioritario 1 a 1',
+			dedicatedBackup: 'Backups cifrados en la nube',
+			prioritySupport247: 'Alertas por WhatsApp (beta)',
 			everythingInPro: 'Todo lo de Pro',
+			invoicingSat: 'Facturación y SAT',
+			apiIntegrations: 'Integraciones vía API',
 			cfdiIntegration: 'Facturación CFDI integrada',
 			satDownloads: 'Descarga de facturas del SAT',
 			personalBusiness: 'Separación personal/negocio',
 			taxReports: 'Reportes fiscales (ISR, IVA)',
 			unlimitedUsers: 'Usuarios ilimitados',
-			prioritySupport247: 'Soporte prioritario 24/7',
 			personalizedOnboarding: 'Onboarding personalizado',
-			dedicatedBackup: 'Backup dedicado',
 			sla: 'SLA garantizado',
 			assignedAccountant: 'Contador asignado (próximamente)'
 		},
@@ -530,8 +537,8 @@ export const en: Translations = {
 		discount: '-20%',
 		toggleAria: 'Toggle between monthly and annual billing',
 		free: 'Free',
-		pro: 'Pro',
-		business: 'Business',
+		pro: 'Pro (Automation)',
+		business: 'Ultimate',
 		freePeriod: 'forever',
 		periodMonthly: '/month',
 		periodAnnual: '/month (billed annually)',
@@ -540,45 +547,44 @@ export const en: Translations = {
 		tryFree: 'Try Pro free for 14 days',
 		contactSales: 'Contact sales',
 		planDescriptions: {
-			free: 'Everything you need to start taking control of your money.',
-			pro: 'For people who want to go further and automate everything.',
-			business: 'For freelancers and small businesses that need invoicing.'
+			free: 'Manual control with 18 zero-cost features and full peace of mind.',
+			pro: 'Automate backups, alerts, and exports. Pay less than a cup of coffee.',
+			business: 'Unlock bank sync, SAT reconciliation, and concierge support.'
 		},
 		features: {
-			biyuyoToday: 'Your Biyuyo Today (headline number)',
-			frequencyConfig: 'Weekly/biweekly/monthly scheduling',
-			autoSavings: 'Automatic buckets (unlimited)',
-			quickExpense: 'One-tap expense logging',
-			spendingDetector: 'Spending leak detector',
-			smartAlerts: 'Smart alerts',
-			pwaOffline: 'Installable PWA (offline)',
-			darkMode: 'Dark mode',
-			baseFeatures: 'All 18 core features',
-			advancedReports: 'Advanced reports',
-			familyMode: 'Family mode (multi-user)',
-			bankSync: 'Automatic bank sync',
-			prioritySupport: 'Priority support',
+			biyuyoToday: 'Your Magic Number (Biyuyo Today)',
+			frequencyConfig: 'Manual multi-currency and scheduling',
+			autoSavings: 'Virtual envelopes (smart buckets)',
+			quickExpense: 'Ultra-fast manual expense logging',
+			spendingDetector: 'Gastos hormiga analyzer',
+			smartAlerts: 'Email reminders (Resend free tier)',
+			pwaOffline: 'Offline-first PWA (works without internet)',
+			darkMode: 'Dark mode and accessibility themes',
+			baseFeatures: 'Local-first privacy (data stays on your VPS)',
+			advancedReports: 'Payment calendar and cutoff timeline',
+			familyMode: 'Zen mode (hide totals on tap)',
+			customCategories: 'Custom categories and tags',
+			export: 'CSV export in one click',
+			unlimitedGoals: 'Savings goals with progress bar',
+			mobileWidgets: 'Multi-device responsive access',
+			noAds: 'Ad-free, tracker-free experience',
+			advancedReportsCharts: 'Financial traffic light (green/yellow/red)',
+			chatSupport: 'Community support (Discord)',
 			everythingInFree: 'Everything in Free',
-			advancedReportsCharts: 'Advanced reports with charts',
-			familyUpToFive: 'Family mode (up to 5 users)',
-			customCategories: 'Custom categories',
-			export: 'Export to Excel/PDF',
-			unlimitedGoals: 'Unlimited savings goals',
-			aiPredictions: 'AI spending predictions',
-			mobileWidgets: 'Mobile widgets',
-			noAds: 'Ad-free experience',
-			chatSupport: 'Chat support',
-			invoicingSat: 'Invoicing & SAT',
-			apiIntegrations: 'API for integrations',
+			bankSync: 'Automatic bank sync (Open Banking)',
+			aiPredictions: 'AI spending predictions (OpenAI)',
+			prioritySupport: 'Priority 1:1 support',
+			dedicatedBackup: 'Encrypted cloud backups',
+			prioritySupport247: 'WhatsApp alerts (beta)',
 			everythingInPro: 'Everything in Pro',
+			invoicingSat: 'Invoicing & SAT tools',
+			apiIntegrations: 'API integrations',
 			cfdiIntegration: 'Integrated CFDI invoicing',
 			satDownloads: 'SAT invoice downloads',
 			personalBusiness: 'Personal/business separation',
 			taxReports: 'Tax reports (ISR, VAT)',
 			unlimitedUsers: 'Unlimited users',
-			prioritySupport247: 'Priority support 24/7',
 			personalizedOnboarding: 'Personalized onboarding',
-			dedicatedBackup: 'Dedicated backup',
 			sla: 'Guaranteed SLA',
 			assignedAccountant: 'Assigned accountant (coming soon)'
 		},
@@ -742,8 +748,8 @@ export const pt: Translations = {
 		discount: '-20%',
 		toggleAria: 'Alternar entre cobrança mensal e anual',
 		free: 'Grátis',
-		pro: 'Pro',
-		business: 'Negócio',
+		pro: 'Pro (Automação)',
+		business: 'Ultimate',
 		freePeriod: 'para sempre',
 		periodMonthly: '/mês',
 		periodAnnual: '/mês (cobrado anualmente)',
@@ -752,45 +758,44 @@ export const pt: Translations = {
 		tryFree: 'Experimentar Pro grátis 14 dias',
 		contactSales: 'Contatar vendas',
 		planDescriptions: {
-			free: 'Tudo o essencial para começar a controlar seu dinheiro.',
-			pro: 'Para quem quer ir além e automatizar tudo.',
-			business: 'Para freelancers e pequenos negócios que precisam faturar.'
+			free: 'Controle manual com 18 recursos sem custo operacional.',
+			pro: 'Automatize backups, alertas e exports. Menos que um café.',
+			business: 'Ative Open Banking, conciliação SAT e suporte concierge.'
 		},
 		features: {
-			biyuyoToday: 'Seu Biyuyo de Hoje (número destaque)',
-			frequencyConfig: 'Configuração semanal/quinzenal/mensal',
-			autoSavings: 'Compartimentos automáticos (ilimitados)',
-			quickExpense: 'Registro de gastos em um toque',
-			spendingDetector: 'Detector de gastos formiga',
-			smartAlerts: 'Alertas inteligentes',
-			pwaOffline: 'PWA instalável (offline)',
-			darkMode: 'Modo escuro',
-			baseFeatures: 'As 18 funcionalidades base',
-			advancedReports: 'Relatórios avançados',
-			familyMode: 'Modo família (multiusuário)',
-			bankSync: 'Sincronização bancária automática',
-			prioritySupport: 'Suporte prioritário',
+			biyuyoToday: 'Seu Número Mágico (Biyuyo Hoje)',
+			frequencyConfig: 'Multimoeda manual e calendário de pagamentos',
+			autoSavings: 'Envelopes virtuais (baldes inteligentes)',
+			quickExpense: 'Registro manual ultra-rápido',
+			spendingDetector: 'Calculadora de gastos formiga',
+			smartAlerts: 'Lembretes por email (Resend free)',
+			pwaOffline: 'PWA offline (funciona sem internet)',
+			darkMode: 'Modo escuro e acessibilidade',
+			baseFeatures: 'Privacidade local (seus dados ficam no VPS)',
+			advancedReports: 'Calendário de pagamentos e vencimentos',
+			familyMode: 'Modo Zen (oculta totais na hora)',
+			customCategories: 'Categorias e etiquetas personalizadas',
+			export: 'Exportação CSV em um clique',
+			unlimitedGoals: 'Metas de economia com barra de progresso',
+			mobileWidgets: 'Acesso multi-dispositivo responsivo',
+			noAds: 'Sem anúncios nem rastreadores',
+			advancedReportsCharts: 'Semáforo financeiro (verde/amarelo/vermelho)',
+			chatSupport: 'Suporte da comunidade (Discord)',
 			everythingInFree: 'Tudo do Grátis',
-			advancedReportsCharts: 'Relatórios avançados com gráficos',
-			familyUpToFive: 'Modo família (até 5 usuários)',
-			customCategories: 'Categorias personalizadas',
-			export: 'Exportar para Excel/PDF',
-			unlimitedGoals: 'Metas de economia ilimitadas',
-			aiPredictions: 'Previsões de gastos com IA',
-			mobileWidgets: 'Widgets para celular',
-			noAds: 'Sem anúncios',
-			chatSupport: 'Suporte por chat',
-			invoicingSat: 'Faturamento e SAT',
-			apiIntegrations: 'API para integrações',
+			bankSync: 'Sincronização bancária automática (Open Banking)',
+			aiPredictions: 'Previsões de gastos com IA (OpenAI)',
+			prioritySupport: 'Suporte prioritário 1 a 1',
+			dedicatedBackup: 'Backups criptografados na nuvem',
+			prioritySupport247: 'Alertas por WhatsApp (beta)',
 			everythingInPro: 'Tudo do Pro',
+			invoicingSat: 'Faturamento e SAT',
+			apiIntegrations: 'Integrações via API',
 			cfdiIntegration: 'Faturamento CFDI integrado',
 			satDownloads: 'Download de notas do SAT',
 			personalBusiness: 'Separação pessoal/negócio',
 			taxReports: 'Relatórios fiscais (ISR, IVA)',
 			unlimitedUsers: 'Usuários ilimitados',
-			prioritySupport247: 'Suporte prioritário 24/7',
 			personalizedOnboarding: 'Onboarding personalizado',
-			dedicatedBackup: 'Backup dedicado',
 			sla: 'SLA garantido',
 			assignedAccountant: 'Contador dedicado (em breve)'
 		},
@@ -984,7 +989,6 @@ export const zh: Translations = {
 			prioritySupport: '优先客服',
 			everythingInFree: '包含免费版全部功能',
 			advancedReportsCharts: '高级图表报表',
-			familyUpToFive: '家庭模式（最多 5 位用户）',
 			customCategories: '自定义分类',
 			export: '导出至 Excel/PDF',
 			unlimitedGoals: '无限储蓄目标',
@@ -1145,7 +1149,6 @@ export const ko: Translations = {
 			prioritySupport: '우선 지원',
 			everythingInFree: '무료 플랜 기능 전체 포함',
 			advancedReportsCharts: '차트가 포함된 고급 리포트',
-			familyUpToFive: '패밀리 모드(최대 5명)',
 			customCategories: '맞춤 카테고리',
 			export: 'Excel/PDF 내보내기',
 			unlimitedGoals: '무제한 저축 목표',
@@ -1306,7 +1309,6 @@ export const ja: Translations = {
 				prioritySupport: '優先サポート',
 				everythingInFree: '無料プランの全機能',
 				advancedReportsCharts: 'チャート付き高度レポート',
-				familyUpToFive: 'ファミリーモード（最大5ユーザー）',
 				customCategories: 'カスタムカテゴリ',
 				export: 'Excel/PDFエクスポート',
 				unlimitedGoals: '無制限の貯蓄目標',
@@ -1467,7 +1469,6 @@ export const fr: Translations = {
 			prioritySupport: 'Support prioritaire',
 			everythingInFree: 'Tout le contenu du plan Gratuit',
 			advancedReportsCharts: 'Rapports avancés avec graphiques',
-			familyUpToFive: 'Mode famille (jusqu’à 5 utilisateurs)',
 			customCategories: 'Catégories personnalisées',
 			export: 'Export vers Excel/PDF',
 			unlimitedGoals: 'Objectifs d’épargne illimités',
@@ -1628,7 +1629,6 @@ export const de: Translations = {
 			prioritySupport: 'Priorisierter Support',
 			everythingInFree: 'Alles aus dem kostenlosen Plan',
 			advancedReportsCharts: 'Erweiterte Berichte mit Charts',
-			familyUpToFive: 'Familienmodus (bis zu 5 Nutzer)',
 			customCategories: 'Eigene Kategorien',
 			export: 'Export nach Excel/PDF',
 			unlimitedGoals: 'Unbegrenzte Sparziele',
@@ -1789,7 +1789,6 @@ export const it: Translations = {
 			prioritySupport: 'Supporto prioritario',
 			everythingInFree: 'Tutto il piano Gratis',
 			advancedReportsCharts: 'Report avanzati con grafici',
-			familyUpToFive: 'Modalità famiglia (fino a 5 utenti)',
 			customCategories: 'Categorie personalizzate',
 			export: 'Export in Excel/PDF',
 			unlimitedGoals: 'Obiettivi di risparmio illimitati',
@@ -1950,7 +1949,6 @@ export const ru: Translations = {
 			prioritySupport: 'Приоритетная поддержка',
 			everythingInFree: 'Всё из тарифа Бесплатно',
 			advancedReportsCharts: 'Расширенные отчёты с графиками',
-			familyUpToFive: 'Семейный режим (до 5 пользователей)',
 			customCategories: 'Пользовательские категории',
 			export: 'Экспорт в Excel/PDF',
 			unlimitedGoals: 'Неограниченные цели по сбережениям',

@@ -1,7 +1,7 @@
 # 📚 DOCUMENTACIÓN MIBIYUYO
 
 > **Estructura organizada de toda la documentación del proyecto**
-> **Última actualización:** 14 Diciembre 2025
+> **Última actualización:** 15 Diciembre 2025
 
 ---
 
