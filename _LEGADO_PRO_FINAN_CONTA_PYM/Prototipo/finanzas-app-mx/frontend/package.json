@@ -1,1 +1,7 @@
-ssh usuario@ip_del_vps
+{
+	"name": "legacy-finanzas-frontend",
+	"private": true,
+	"scripts": {
+		"legacy:ssh": "ssh usuario@ip_del_vps"
+	}
+}

@@ -11,26 +11,63 @@
 		Plus,
 		Calendar,
 		AlertTriangle,
-		CheckCircle
+		CheckCircle,
+		Inbox
 	} from 'lucide-svelte';
 	import { fly, fade, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
 
-	// Data prop desde el layout
+	// Tipos de los datos
+	interface Apartado {
+		id: string;
+		name: string;
+		emoji: string;
+		current: number;
+		target: number;
+		color: string;
+		dueDate: number | null;
+	}
+
+	interface GastoReciente {
+		id: string;
+		description: string;
+		amount: number;
+		emoji: string;
+		date: string;
+	}
+
+	interface DashboardData {
+		biyuyoHoy: number;
+		totalIngresos: number;
+		totalGastos: number;
+		totalApartados: number;
+		apartados: Apartado[];
+		gastosRecientes: GastoReciente[];
+	}
+
+	// Data prop desde el layout y page.server
 	interface Props {
-		data?: {
+		data: {
 			user?: {
 				name?: string;
 			};
+			dashboardData: DashboardData | null;
 		};
 	}
-	let { data = {} }: Props = $props();
+	let { data }: Props = $props();
+	
+	// Datos reactivos derivados de data.dashboardData
+	const biyuyoHoy = $derived(data.dashboardData?.biyuyoHoy ?? 0);
+	const totalIngresos = $derived(data.dashboardData?.totalIngresos ?? 0);
+	const totalGastos = $derived(data.dashboardData?.totalGastos ?? 0);
+	const totalApartados = $derived(data.dashboardData?.totalApartados ?? 0);
+	const apartados = $derived(data.dashboardData?.apartados ?? []);
+	const gastosRecientes = $derived(data.dashboardData?.gastosRecientes ?? []);
 
-	// Datos demo (se conectarán a la BD)
-	const biyuyoHoy = 2847;
-	const totalIngresos = 25000;
-	const totalGastos = 12450;
-	const totalApartados = 9703;
+	// Verificar si hay datos
+	const tienesDatos = $derived(
+		apartados.length > 0 || gastosRecientes.length > 0 || totalIngresos > 0
+	);
 
 	// Formato MXN
 	function formatMXN(amount: number): string {
@@ -41,23 +78,7 @@
 		}).format(amount);
 	}
 
-	// Apartados demo
-	const apartados = [
-		{ name: 'Renta', emoji: '🏠', current: 6500, target: 6500, color: '#f97316' },
-		{ name: 'Luz', emoji: '💡', current: 450, target: 600, color: '#f97316' },
-		{ name: 'Internet', emoji: '📶', current: 599, target: 599, color: '#f97316' },
-		{ name: 'Celular', emoji: '📱', current: 350, target: 400, color: '#f97316' }
-	];
-
-	// Gastos recientes demo
-	const gastosRecientes = [
-		{ description: 'Café Starbucks', amount: -89, emoji: '☕', date: 'Hoy' },
-		{ description: 'Uber a oficina', amount: -156, emoji: '🚗', date: 'Hoy' },
-		{ description: 'Comida Rappi', amount: -215, emoji: '🍔', date: 'Ayer' },
-		{ description: 'Spotify', amount: -119, emoji: '🎵', date: 'Hace 3 días' }
-	];
-
-	// Alertas demo
+	// Alertas demo (TODO: conectar con BD)
 	const alertas = [
 		{ type: 'warning', message: 'La luz vence en 5 días', icon: AlertTriangle },
 		{ type: 'success', message: 'Meta de ahorro al 75%', icon: CheckCircle }
@@ -148,25 +169,36 @@
 				</a>
 			</div>
 			<div class="apartados-list">
-				{#each apartados as apartado}
-					<div class="apartado-item">
-						<div class="apartado-info">
-							<span class="apartado-emoji">{apartado.emoji}</span>
-							<div class="apartado-details">
-								<span class="apartado-name">{apartado.name}</span>
-								<span class="apartado-progress-text">
-									{formatMXN(apartado.current)} / {formatMXN(apartado.target)}
-								</span>
+				{#if apartados.length === 0}
+					<div class="empty-state">
+						<Inbox size={40} strokeWidth={1.5} />
+						<p>No tienes apartados configurados</p>
+						<a href="/dashboard/apartados/nuevo" class="btn btn-outline btn-sm">
+							<Plus size={16} />
+							Crear apartado
+						</a>
+					</div>
+				{:else}
+					{#each apartados as apartado}
+						<div class="apartado-item">
+							<div class="apartado-info">
+								<span class="apartado-emoji">{apartado.emoji}</span>
+								<div class="apartado-details">
+									<span class="apartado-name">{apartado.name}</span>
+									<span class="apartado-progress-text">
+										{formatMXN(apartado.current)} / {formatMXN(apartado.target)}
+									</span>
+								</div>
+							</div>
+							<div class="apartado-progress">
+								<div 
+									class="progress-bar" 
+									style="width: {Math.min((apartado.current / apartado.target) * 100, 100)}%; background: {apartado.color}"
+								></div>
 							</div>
 						</div>
-						<div class="apartado-progress">
-							<div 
-								class="progress-bar" 
-								style="width: {Math.min((apartado.current / apartado.target) * 100, 100)}%; background: {apartado.color}"
-							></div>
-						</div>
-					</div>
-				{/each}
+					{/each}
+				{/if}
 			</div>
 		</div>
 
@@ -179,16 +211,27 @@
 				</a>
 			</div>
 			<div class="gastos-list">
-				{#each gastosRecientes as gasto}
-					<div class="gasto-item">
-						<span class="gasto-emoji">{gasto.emoji}</span>
-						<div class="gasto-details">
-							<span class="gasto-description">{gasto.description}</span>
-							<span class="gasto-date">{gasto.date}</span>
-						</div>
-						<span class="gasto-amount">{formatMXN(gasto.amount)}</span>
+				{#if gastosRecientes.length === 0}
+					<div class="empty-state">
+						<Inbox size={40} strokeWidth={1.5} />
+						<p>No hay gastos registrados</p>
+						<button class="btn btn-outline btn-sm" onclick={() => {}}>
+							<Plus size={16} />
+							Registrar gasto
+						</button>
 					</div>
-				{/each}
+				{:else}
+					{#each gastosRecientes as gasto}
+						<div class="gasto-item">
+							<span class="gasto-emoji">{gasto.emoji}</span>
+							<div class="gasto-details">
+								<span class="gasto-description">{gasto.description}</span>
+								<span class="gasto-date">{gasto.date}</span>
+							</div>
+							<span class="gasto-amount">{formatMXN(gasto.amount)}</span>
+						</div>
+					{/each}
+				{/if}
 			</div>
 		</div>
 	</div>
@@ -485,6 +528,27 @@
 	.alert-item.success {
 		background: rgba(249, 115, 22, 0.1);
 		color: var(--mby-primary-600);
+	}
+
+	/* Empty State */
+	.empty-state {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: var(--mby-space-md);
+		padding: var(--mby-space-2xl) var(--mby-space-lg);
+		text-align: center;
+		color: var(--mby-text-tertiary);
+	}
+
+	.empty-state p {
+		font-size: var(--mby-text-sm);
+		margin: 0;
+	}
+
+	.empty-state .btn {
+		margin-top: var(--mby-space-sm);
 	}
 
 	/* Responsive */

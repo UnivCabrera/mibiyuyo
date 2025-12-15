@@ -22,6 +22,7 @@
 		Clock,
 		Gift
 	} from 'lucide-svelte';
+	import { goto } from '$app/navigation';
 
 	let name = $state('');
 	let email = $state('');
@@ -71,13 +72,26 @@
 
 		isLoading = true;
 
-		// Simulated API call
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+		try {
+			const response = await fetch('/api/auth/register', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ name, email, password })
+			});
 
-		// TODO: Implement actual registration
-		console.log('Register attempt:', { name, email, password });
+			const data = await response.json();
 
-		isLoading = false;
+			if (!response.ok) {
+				throw new Error(data.message || 'Error al crear cuenta');
+			}
+
+			// Redirigir al onboarding o dashboard
+			await goto('/dashboard/onboarding');
+		} catch (err) {
+			error = err instanceof Error ? err.message : 'Error desconocido';
+		} finally {
+			isLoading = false;
+		}
 	}
 </script>
 

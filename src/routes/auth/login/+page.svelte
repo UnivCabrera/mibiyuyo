@@ -10,6 +10,7 @@
 	import { Leaf, Mail, Lock, Eye, EyeOff, ArrowRight, AlertCircle } from 'lucide-svelte';
 	import { fade, fly, scale } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
+	import { goto } from '$app/navigation';
 
 	let email = $state('');
 	let password = $state('');
@@ -28,13 +29,26 @@
 		error = '';
 		isLoading = true;
 
-		// Simulated API call
-		await new Promise((resolve) => setTimeout(resolve, 1500));
+		try {
+			const response = await fetch('/api/auth/login', {
+				method: 'POST',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify({ email, password })
+			});
 
-		// TODO: Implement actual authentication
-		console.log('Login attempt:', { email, password, rememberMe });
+			const data = await response.json();
 
-		isLoading = false;
+			if (!response.ok) {
+				throw new Error(data.message || 'Error al iniciar sesión');
+			}
+
+			// Redirigir al dashboard
+			await goto('/dashboard');
+		} catch (err) {
+			error = err instanceof Error ? err.message : 'Error desconocido';
+		} finally {
+			isLoading = false;
+		}
 	}
 </script>
 

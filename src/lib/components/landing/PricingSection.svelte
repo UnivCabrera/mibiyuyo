@@ -9,131 +9,146 @@
      ═══════════════════════════════════════════════════════════════════════════ -->
 <script lang="ts">
 	import { Check, X, Sparkles, Crown, Building2, ArrowRight } from 'lucide-svelte';
+	import { t } from '$lib/i18n/index.svelte';
+	import { translations } from '$lib/i18n/translations';
 
-	// Estado para toggle mensual/anual
 	let isAnnual = $state(false);
 
-	// Tipo para las features
-	interface Feature {
-		text: string;
+	const basePrices = {
+		free: 0,
+		pro: 29,
+		business: 99
+	};
+
+	const freePrice = '$0';
+	const proPrice = $derived(isAnnual ? `$${Math.round(basePrices.pro * 0.8)}` : `$${basePrices.pro}`);
+	const businessPrice = $derived(isAnnual ? `$${Math.round(basePrices.business * 0.8)}` : `$${basePrices.business}`);
+
+	const fallbackPlanDescriptions = translations.en.pricing.planDescriptions!;
+	const fallbackFeatures = translations.en.pricing.features!;
+
+	type PlanId = 'free' | 'pro' | 'business';
+	type FeatureKey = keyof typeof fallbackFeatures;
+	type CtaKey = 'getStarted' | 'tryFree' | 'contactSales';
+
+	interface PlanFeature {
+		key: FeatureKey;
 		included: boolean;
 		highlight?: boolean;
 	}
 
-	// Precios base
-	const basePrices = {
-		gratis: 0,
-		pro: 29,
-		negocio: 99
-	};
-
-	// Calcular precios según período
-	// Precios derivados con descuento anual del 20%
-	const proPrice = $derived(isAnnual ? `$${Math.round(basePrices.pro * 0.8)}` : `$${basePrices.pro}`);
-	const negocioPrice = $derived(isAnnual ? `$${Math.round(basePrices.negocio * 0.8)}` : `$${basePrices.negocio}`);
-	const proPeriod = $derived(isAnnual ? '/mes (facturado anual)' : '/mes');
-	const negocioPeriod = $derived(isAnnual ? '/mes (facturado anual)' : '/mes');
-
-	// Planes estáticos (las features no cambian)
-	const plansData: {
-		name: string;
-		priceKey: 'gratis' | 'pro' | 'negocio';
-		period: string;
-		description: string;
-		cta: string;
-		ctaVariant: string;
+	interface PlanConfig {
+		id: PlanId;
 		icon: typeof Sparkles;
 		popular: boolean;
-		features: Feature[];
-	}[] = [
+		ctaVariant: 'primary' | 'secondary';
+		ctaKey: CtaKey;
+		ctaHref: string;
+		features: PlanFeature[];
+	}
+
+	const plansConfig: PlanConfig[] = [
 		{
-			name: 'Gratis',
-			priceKey: 'gratis' as const,
-			period: 'para siempre',
-			description: 'Todo lo esencial para empezar a controlar tu dinero.',
-			cta: 'Empezar gratis',
-			ctaVariant: 'secondary',
+			id: 'free',
 			icon: Sparkles,
 			popular: false,
+			ctaVariant: 'secondary',
+			ctaKey: 'getStarted',
+			ctaHref: '/auth/register',
 			features: [
-				{ text: 'Tu Biyuyo Hoy (número central)', included: true },
-				{ text: 'Config quincenal/semanal/mensual', included: true },
-				{ text: 'Apartados automáticos (ilimitados)', included: true },
-				{ text: 'Registro de gastos 1-tap', included: true },
-				{ text: 'Detector de gastos hormiga', included: true },
-				{ text: 'Alertas inteligentes', included: true },
-				{ text: 'PWA instalable (offline)', included: true },
-				{ text: 'Modo oscuro', included: true },
-				{ text: 'Las 18 features base', included: true },
-				{ text: 'Reportes avanzados', included: false },
-				{ text: 'Modo familiar (multi-usuario)', included: false },
-				{ text: 'Conexión bancaria automática', included: false },
-				{ text: 'Soporte prioritario', included: false }
+				{ key: 'biyuyoToday', included: true },
+				{ key: 'frequencyConfig', included: true },
+				{ key: 'autoSavings', included: true },
+				{ key: 'quickExpense', included: true },
+				{ key: 'spendingDetector', included: true },
+				{ key: 'smartAlerts', included: true },
+				{ key: 'pwaOffline', included: true },
+				{ key: 'darkMode', included: true },
+				{ key: 'baseFeatures', included: true },
+				{ key: 'advancedReports', included: false },
+				{ key: 'familyMode', included: false },
+				{ key: 'bankSync', included: false },
+				{ key: 'prioritySupport', included: false }
 			]
 		},
 		{
-			name: 'Pro',
-			priceKey: 'pro' as const,
-			period: '', // Se calcula dinámicamente
-			description: 'Para quienes quieren ir más allá y automatizar todo.',
-			cta: 'Probar Pro gratis 14 días',
-			ctaVariant: 'primary',
+			id: 'pro',
 			icon: Crown,
 			popular: true,
+			ctaVariant: 'primary',
+			ctaKey: 'tryFree',
+			ctaHref: '/auth/register',
 			features: [
-				{ text: 'Todo lo de Gratis', included: true, highlight: true },
-				{ text: 'Reportes avanzados con gráficas', included: true },
-				{ text: 'Modo familiar (hasta 5 usuarios)', included: true },
-				{ text: 'Categorías personalizadas', included: true },
-				{ text: 'Exportar a Excel/PDF', included: true },
-				{ text: 'Metas de ahorro ilimitadas', included: true },
-				{ text: 'Predicción de gastos con IA', included: true },
-				{ text: 'Widgets para celular', included: true },
-				{ text: 'Sin publicidad', included: true },
-				{ text: 'Soporte por chat', included: true },
-				{ text: 'Conexión bancaria automática', included: false },
-				{ text: 'Facturación y SAT', included: false },
-				{ text: 'API para integraciones', included: false }
+				{ key: 'everythingInFree', included: true, highlight: true },
+				{ key: 'advancedReportsCharts', included: true },
+				{ key: 'familyUpToFive', included: true },
+				{ key: 'customCategories', included: true },
+				{ key: 'export', included: true },
+				{ key: 'unlimitedGoals', included: true },
+				{ key: 'aiPredictions', included: true },
+				{ key: 'mobileWidgets', included: true },
+				{ key: 'noAds', included: true },
+				{ key: 'chatSupport', included: true },
+				{ key: 'bankSync', included: false },
+				{ key: 'invoicingSat', included: false },
+				{ key: 'apiIntegrations', included: false }
 			]
 		},
 		{
-			name: 'Negocio',
-			priceKey: 'negocio' as const,
-			period: '', // Se calcula dinámicamente
-			description: 'Para freelancers y pequeños negocios que necesitan facturar.',
-			cta: 'Contactar ventas',
-			ctaVariant: 'secondary',
+			id: 'business',
 			icon: Building2,
 			popular: false,
+			ctaVariant: 'secondary',
+			ctaKey: 'contactSales',
+			ctaHref: '/contacto',
 			features: [
-				{ text: 'Todo lo de Pro', included: true, highlight: true },
-				{ text: 'Conexión bancaria automática', included: true },
-				{ text: 'Facturación CFDI integrada', included: true },
-				{ text: 'Descarga de facturas del SAT', included: true },
-				{ text: 'Separación personal/negocio', included: true },
-				{ text: 'Reportes fiscales (ISR, IVA)', included: true },
-				{ text: 'API para integraciones', included: true },
-				{ text: 'Usuarios ilimitados', included: true },
-				{ text: 'Soporte prioritario 24/7', included: true },
-				{ text: 'Onboarding personalizado', included: true },
-				{ text: 'Backup dedicado', included: true },
-				{ text: 'SLA garantizado', included: true },
-				{ text: 'Contador asignado (próximamente)', included: false }
+				{ key: 'everythingInPro', included: true, highlight: true },
+				{ key: 'bankSync', included: true },
+				{ key: 'cfdiIntegration', included: true },
+				{ key: 'satDownloads', included: true },
+				{ key: 'personalBusiness', included: true },
+				{ key: 'taxReports', included: true },
+				{ key: 'apiIntegrations', included: true },
+				{ key: 'unlimitedUsers', included: true },
+				{ key: 'prioritySupport247', included: true },
+				{ key: 'personalizedOnboarding', included: true },
+				{ key: 'dedicatedBackup', included: true },
+				{ key: 'sla', included: true },
+				{ key: 'assignedAccountant', included: false }
 			]
 		}
 	];
 
-	// Helper para obtener precio y período según el plan
-	function getPlanPrice(priceKey: 'gratis' | 'pro' | 'negocio'): string {
-		if (priceKey === 'gratis') return '$0';
-		if (priceKey === 'pro') return proPrice;
-		return negocioPrice;
+	type BasePricingCopy = typeof translations.en.pricing;
+	type PricingCopy = Omit<BasePricingCopy, 'planDescriptions' | 'features'> & {
+		planDescriptions: typeof fallbackPlanDescriptions;
+		features: typeof fallbackFeatures;
+	};
+
+	const pricingCopy = $derived((): PricingCopy => {
+		const current = t().pricing;
+		return {
+			...translations.en.pricing,
+			...current,
+			planDescriptions: {
+				...fallbackPlanDescriptions,
+				...(current.planDescriptions ?? {})
+			},
+			features: {
+				...fallbackFeatures,
+				...(current.features ?? {})
+			}
+		};
+	});
+
+	function getPlanPrice(planId: PlanId): string {
+		if (planId === 'free') return freePrice;
+		return planId === 'pro' ? proPrice : businessPrice;
 	}
 
-	function getPlanPeriod(priceKey: 'gratis' | 'pro' | 'negocio'): string {
-		if (priceKey === 'gratis') return 'para siempre';
-		if (priceKey === 'pro') return proPeriod;
-		return negocioPeriod;
+	function getPlanPeriod(planId: PlanId): string {
+		if (planId === 'free') return pricingCopy.freePeriod;
+		return isAnnual ? pricingCopy.periodAnnual : pricingCopy.periodMonthly;
 	}
 </script>
 
@@ -141,39 +156,35 @@
 	<div class="container">
 		<!-- Section Header -->
 		<div class="section-header reveal">
-			<span class="section-eyebrow">Precios claros</span>
-			<h2 class="section-title">
-				Empieza gratis, crece cuando quieras
-			</h2>
-			<p class="section-subtitle">
-				Sin trucos, sin letras chiquitas. Las 18 características base son gratis para siempre.
-			</p>
-			
+			<span class="section-eyebrow">{pricingCopy.sectionEyebrow}</span>
+			<h2 class="section-title">{pricingCopy.title}</h2>
+			<p class="section-subtitle">{pricingCopy.subtitle}</p>
+
 			<!-- Toggle Mensual/Anual Funcional -->
 			<div class="pricing-toggle animate-fade-in-up" style="animation-delay: 0.2s">
-				<span class="toggle-label" class:active={!isAnnual}>Mensual</span>
+				<span class="toggle-label" class:active={!isAnnual}>{pricingCopy.monthly}</span>
 				<button 
 					class="toggle-switch" 
 					class:active={isAnnual}
 					onclick={() => isAnnual = !isAnnual}
-					aria-label="Cambiar entre facturación mensual y anual"
+					aria-label={pricingCopy.toggleAria}
 				>
 					<div class="toggle-knob"></div>
 				</button>
 				<span class="toggle-label" class:active={isAnnual}>
-					Anual <span class="discount-badge">-20%</span>
+					{pricingCopy.annual} <span class="discount-badge">{pricingCopy.discount}</span>
 				</span>
 			</div>
 		</div>
 
 		<!-- Pricing Cards -->
 		<div class="pricing-grid">
-			{#each plansData as plan, index}
+			{#each plansConfig as plan, index}
 				<div class="pricing-card reveal card-3d" class:popular={plan.popular} style="animation-delay: {index * 0.1}s">
 					{#if plan.popular}
 						<div class="popular-badge animate-pulse-soft">
 							<Crown size={14} />
-							Más popular
+							{pricingCopy.popular}
 						</div>
 					{/if}
 
@@ -181,12 +192,12 @@
 						<div class="plan-icon" class:popular={plan.popular}>
 							<plan.icon size={24} />
 						</div>
-						<h3 class="plan-name">{plan.name}</h3>
+						<h3 class="plan-name">{pricingCopy[plan.id]}</h3>
 						<div class="plan-price">
-							<span class="price">{getPlanPrice(plan.priceKey)}</span>
-							<span class="period">{getPlanPeriod(plan.priceKey)}</span>
+							<span class="price">{getPlanPrice(plan.id)}</span>
+							<span class="period">{getPlanPeriod(plan.id)}</span>
 						</div>
-						<p class="plan-description">{plan.description}</p>
+						<p class="plan-description">{pricingCopy.planDescriptions[plan.id]}</p>
 					</div>
 
 					<ul class="features-list">
@@ -197,16 +208,16 @@
 								{:else}
 									<X size={16} />
 								{/if}
-								<span>{feature.text}</span>
+								<span>{pricingCopy.features[feature.key]}</span>
 							</li>
 						{/each}
 					</ul>
 
 					<a
-						href={plan.name === 'Negocio' ? '/contacto' : '/auth/register'}
+						href={plan.ctaHref}
 						class="btn {plan.ctaVariant === 'primary' ? 'btn-primary btn-shine' : 'btn-outline'} magnetic"
 					>
-						{plan.cta}
+						{pricingCopy[plan.ctaKey]}
 						<ArrowRight size={16} />
 					</a>
 				</div>
@@ -217,10 +228,8 @@
 		<div class="guarantee reveal">
 			<div class="guarantee-icon">🛡️</div>
 			<div class="guarantee-content">
-				<h4>Garantía de satisfacción de 30 días</h4>
-				<p>
-					Si no estás 100% satisfecho con Pro o Negocio, te devolvemos tu dinero. Sin preguntas.
-				</p>
+				<h4>{pricingCopy.guarantee.title}</h4>
+				<p>{pricingCopy.guarantee.description}</p>
 			</div>
 		</div>
 	</div>

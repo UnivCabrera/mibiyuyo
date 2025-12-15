@@ -1,10 +1,10 @@
 // ═══════════════════════════════════════════════════════════════════════════════
 // 📊 DATABASE SCHEMA — Modelos con Drizzle ORM
 // ═══════════════════════════════════════════════════════════════════════════════
-// Esquema completo para mibiyuyo
+// Esquema completo para mibiyuyo - Actualizado para Drizzle v0.30+
 // ═══════════════════════════════════════════════════════════════════════════════
 
-import { pgTable, text, timestamp, boolean, integer, decimal, uuid, varchar, index, jsonb } from 'drizzle-orm/pg-core';
+import { pgTable, text, timestamp, boolean, integer, decimal, uuid, varchar, jsonb } from 'drizzle-orm/pg-core';
 import { relations } from 'drizzle-orm';
 
 // ════════════════════════════════════════════════════════════════════════════════
@@ -32,12 +32,10 @@ export const users = pgTable('users', {
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 	updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull(),
 	lastLoginAt: timestamp('last_login_at', { withTimezone: true })
-}, (table) => ({
-	emailIdx: index('users_email_idx').on(table.email)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
-// 🔐 SESSIONS — Sesiones de usuario (Lucia Auth)
+// 🔐 SESSIONS — Sesiones de usuario
 // ════════════════════════════════════════════════════════════════════════════════
 export const sessions = pgTable('sessions', {
 	id: text('id').primaryKey(),
@@ -51,15 +49,13 @@ export const sessions = pgTable('sessions', {
 export const oauthAccounts = pgTable('oauth_accounts', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-	provider: varchar('provider', { length: 50 }).notNull(), // google, apple, etc.
+	provider: varchar('provider', { length: 50 }).notNull(),
 	providerUserId: varchar('provider_user_id', { length: 255 }).notNull(),
 	accessToken: text('access_token'),
 	refreshToken: text('refresh_token'),
 	expiresAt: timestamp('expires_at', { withTimezone: true }),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
-}, (table) => ({
-	providerIdx: index('oauth_provider_idx').on(table.provider, table.providerUserId)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
 // 💰 INCOME SOURCES — Fuentes de ingreso
@@ -67,17 +63,15 @@ export const oauthAccounts = pgTable('oauth_accounts', {
 export const incomeSources = pgTable('income_sources', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-	name: varchar('name', { length: 100 }).notNull(), // "Salario", "Freelance"
+	name: varchar('name', { length: 100 }).notNull(),
 	amount: decimal('amount', { precision: 12, scale: 2 }).notNull(),
-	frequency: varchar('frequency', { length: 20 }).notNull(), // weekly, biweekly, monthly, irregular
-	dayOfMonth: integer('day_of_month'), // Para quincenal/mensual
+	frequency: varchar('frequency', { length: 20 }).notNull(), // weekly, biweekly, monthly
+	dayOfMonth: integer('day_of_month'),
 	nextPayDate: timestamp('next_pay_date', { withTimezone: true }),
 	isActive: boolean('is_active').default(true),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 	updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull()
-}, (table) => ({
-	userIdx: index('income_user_idx').on(table.userId)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
 // 📁 APARTADOS — Gastos fijos apartados automáticamente
@@ -85,21 +79,19 @@ export const incomeSources = pgTable('income_sources', {
 export const apartados = pgTable('apartados', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-	name: varchar('name', { length: 100 }).notNull(), // "Renta", "Luz", "Internet"
+	name: varchar('name', { length: 100 }).notNull(),
 	emoji: varchar('emoji', { length: 10 }).default('📌'),
 	targetAmount: decimal('target_amount', { precision: 12, scale: 2 }).notNull(),
 	currentAmount: decimal('current_amount', { precision: 12, scale: 2 }).default('0'),
-	dueDate: integer('due_date'), // Día del mes
+	dueDate: integer('due_date'),
 	frequency: varchar('frequency', { length: 20 }).default('monthly'),
-	category: varchar('category', { length: 50 }).default('fixed'), // fixed, variable, savings
+	category: varchar('category', { length: 50 }).default('fixed'),
 	isAutomatic: boolean('is_automatic').default(true),
 	isActive: boolean('is_active').default(true),
 	color: varchar('color', { length: 7 }).default('#f97316'),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 	updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull()
-}, (table) => ({
-	userIdx: index('apartados_user_idx').on(table.userId)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
 // 💳 TRANSACTIONS — Registro de gastos e ingresos
@@ -118,10 +110,7 @@ export const transactions = pgTable('transactions', {
 	tags: jsonb('tags').$type<string[]>().default([]),
 	notes: text('notes'),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull()
-}, (table) => ({
-	userDateIdx: index('transactions_user_date_idx').on(table.userId, table.date),
-	categoryIdx: index('transactions_category_idx').on(table.category)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
 // 🎯 SAVINGS GOALS — Metas de ahorro
@@ -138,9 +127,7 @@ export const savingsGoals = pgTable('savings_goals', {
 	isCompleted: boolean('is_completed').default(false),
 	createdAt: timestamp('created_at', { withTimezone: true }).defaultNow().notNull(),
 	updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow().notNull()
-}, (table) => ({
-	userIdx: index('savings_user_idx').on(table.userId)
-}));
+});
 
 // ════════════════════════════════════════════════════════════════════════════════
 // 🔔 ALERTS — Alertas y notificaciones
@@ -148,7 +135,7 @@ export const savingsGoals = pgTable('savings_goals', {
 export const alerts = pgTable('alerts', {
 	id: uuid('id').defaultRandom().primaryKey(),
 	userId: uuid('user_id').notNull().references(() => users.id, { onDelete: 'cascade' }),
-	type: varchar('type', { length: 50 }).notNull(), // low_balance, bill_due, goal_reached, etc.
+	type: varchar('type', { length: 50 }).notNull(),
 	title: varchar('title', { length: 100 }).notNull(),
 	message: text('message'),
 	isRead: boolean('is_read').default(false),

@@ -22,39 +22,40 @@
 		Lock,
 		Award
 	} from 'lucide-svelte';
+	import { t } from '$lib/i18n/index.svelte';
 
 	const currentYear = new Date().getFullYear();
 
 	const productLinks = [
-		{ href: '#features', label: 'Características' },
-		{ href: '#pricing', label: 'Precios' },
-		{ href: '/roadmap', label: 'Roadmap' },
-		{ href: '/changelog', label: 'Actualizaciones' },
-		{ href: '/integrations', label: 'Integraciones' }
-	];
+		{ href: '#features', key: 'features' as const },
+		{ href: '#pricing', key: 'pricing' as const },
+		{ href: '/roadmap', key: 'roadmap' as const },
+		{ href: '/changelog', key: 'changelog' as const },
+		{ href: '/integrations', key: 'integrations' as const }
+	] as const;
 
 	const companyLinks = [
-		{ href: '/about', label: 'Sobre nosotros' },
-		{ href: '/blog', label: 'Blog' },
-		{ href: '/press', label: 'Prensa' },
-		{ href: '/careers', label: 'Trabaja con nosotros' },
-		{ href: '/contact', label: 'Contacto' }
-	];
+		{ href: '/about', key: 'about' as const },
+		{ href: '/blog', key: 'blog' as const },
+		{ href: '/press', key: 'press' as const },
+		{ href: '/careers', key: 'careers' as const },
+		{ href: '/contact', key: 'contact' as const }
+	] as const;
 
 	const resourceLinks = [
-		{ href: '/help', label: 'Centro de ayuda' },
-		{ href: '/guides', label: 'Guías' },
-		{ href: '/api', label: 'API Docs' },
-		{ href: '/webinars', label: 'Webinars' },
-		{ href: '/community', label: 'Comunidad' }
-	];
+		{ href: '/help', key: 'helpCenter' as const },
+		{ href: '/guides', key: 'guides' as const },
+		{ href: '/api', key: 'api' as const },
+		{ href: '/webinars', key: 'webinars' as const },
+		{ href: '/community', key: 'community' as const }
+	] as const;
 
 	const legalLinks = [
-		{ href: '/privacy', label: 'Privacidad' },
-		{ href: '/terms', label: 'Términos de uso' },
-		{ href: '/cookies', label: 'Cookies' },
-		{ href: '/security', label: 'Seguridad' }
-	];
+		{ href: '/privacy', key: 'privacy' as const },
+		{ href: '/terms', key: 'terms' as const },
+		{ href: '/cookies', key: 'cookies' as const },
+		{ href: '/security', key: 'security' as const }
+	] as const;
 
 	const socialLinks = [
 		{ href: 'https://facebook.com/mibiyuyo', icon: Facebook, label: 'Facebook' },
@@ -65,10 +66,10 @@
 	];
 
 	const trustBadges = [
-		{ icon: Shield, label: 'SSL Seguro', description: 'Encriptación 256-bit' },
-		{ icon: Lock, label: 'LFPDPPP', description: 'Datos protegidos' },
-		{ icon: Award, label: 'ISO 27001', description: 'Certificación en proceso' }
-	];
+		{ icon: Shield, labelKey: 'ssl' as const, descriptionKey: 'sslDesc' as const },
+		{ icon: Lock, labelKey: 'compliance' as const, descriptionKey: 'complianceDesc' as const },
+		{ icon: Award, labelKey: 'iso' as const, descriptionKey: 'isoDesc' as const }
+	] as const;
 </script>
 
 <footer class="footer">
@@ -84,23 +85,20 @@
 					<span class="logo-text">mibiyuyo</span>
 				</a>
 
-				<p class="footer-tagline">
-					Finanzas personales simplificadas. Sabe cuánto puedes gastar hoy,
-					sin matemáticas ni hojas de Excel.
-				</p>
+				<p class="footer-tagline">{t().footer.tagline}</p>
 
 				<div class="footer-contact">
 					<a href="mailto:hola@mibiyuyo.com" class="contact-item">
 						<Mail size={16} />
-						<span>hola@mibiyuyo.com</span>
+						<span>{t().footer.contact.email}</span>
 					</a>
 					<a href="tel:+525512345678" class="contact-item">
 						<Phone size={16} />
-						<span>+52 55 1234 5678</span>
+						<span>{t().footer.contact.phone}</span>
 					</a>
 					<div class="contact-item">
 						<MapPin size={16} />
-						<span>Ciudad de México, México</span>
+						<span>{t().footer.contact.location}</span>
 					</div>
 				</div>
 
@@ -123,37 +121,37 @@
 			<!-- Links Columns -->
 			<div class="footer-links">
 				<div class="link-column">
-					<h4>Producto</h4>
+					<h4>{t().footer.headings.product}</h4>
 					<ul>
 						{#each productLinks as link}
-							<li><a href={link.href}>{link.label}</a></li>
+							<li><a href={link.href}>{t().footer.productLinks[link.key]}</a></li>
 						{/each}
 					</ul>
 				</div>
 
 				<div class="link-column">
-					<h4>Empresa</h4>
+					<h4>{t().footer.headings.company}</h4>
 					<ul>
 						{#each companyLinks as link}
-							<li><a href={link.href}>{link.label}</a></li>
+							<li><a href={link.href}>{t().footer.companyLinks[link.key]}</a></li>
 						{/each}
 					</ul>
 				</div>
 
 				<div class="link-column">
-					<h4>Recursos</h4>
+					<h4>{t().footer.headings.resources}</h4>
 					<ul>
 						{#each resourceLinks as link}
-							<li><a href={link.href}>{link.label}</a></li>
+							<li><a href={link.href}>{t().footer.resourceLinks[link.key]}</a></li>
 						{/each}
 					</ul>
 				</div>
 
 				<div class="link-column">
-					<h4>Legal</h4>
+					<h4>{t().footer.headings.legal}</h4>
 					<ul>
 						{#each legalLinks as link}
-							<li><a href={link.href}>{link.label}</a></li>
+							<li><a href={link.href}>{t().footer.legalLinks[link.key]}</a></li>
 						{/each}
 					</ul>
 				</div>
@@ -166,8 +164,8 @@
 				<div class="trust-badge">
 					<badge.icon size={20} />
 					<div class="badge-text">
-						<span class="badge-label">{badge.label}</span>
-						<span class="badge-desc">{badge.description}</span>
+						<span class="badge-label">{t().footer.trust[badge.labelKey]}</span>
+						<span class="badge-desc">{t().footer.trust[badge.descriptionKey]}</span>
 					</div>
 				</div>
 			{/each}
@@ -176,16 +174,15 @@
 		<!-- Bottom Bar -->
 		<div class="footer-bottom">
 			<p class="copyright">
-				© {currentYear} mibiyuyo. Todos los derechos reservados.
-				Hecho con 💚 en México.
+				© {currentYear} mibiyuyo. {t().footer.bottom.rights} {t().footer.bottom.madeIn}
 			</p>
 
 			<div class="footer-legal">
-				<a href="/privacy">Privacidad</a>
+				<a href="/privacy">{t().footer.privacy}</a>
 				<span class="separator">•</span>
-				<a href="/terms">Términos</a>
+				<a href="/terms">{t().footer.terms}</a>
 				<span class="separator">•</span>
-				<a href="/sitemap">Sitemap</a>
+				<a href="/sitemap">{t().footer.bottom.sitemap}</a>
 			</div>
 		</div>
 	</div>

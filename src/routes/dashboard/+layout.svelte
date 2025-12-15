@@ -4,7 +4,8 @@
 <script lang="ts">
 	import { 
 		LayoutDashboard, 
-		Wallet, 
+		Wallet,
+		DollarSign,
 		FolderOpen, 
 		Target, 
 		BarChart3, 
@@ -33,6 +34,7 @@
 
 	const navItems = [
 		{ href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+		{ href: '/dashboard/ingresos', label: 'Ingresos', icon: DollarSign },
 		{ href: '/dashboard/gastos', label: 'Gastos', icon: Wallet },
 		{ href: '/dashboard/apartados', label: 'Apartados', icon: FolderOpen },
 		{ href: '/dashboard/metas', label: 'Metas', icon: Target },

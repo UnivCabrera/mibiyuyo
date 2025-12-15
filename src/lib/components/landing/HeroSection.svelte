@@ -10,6 +10,7 @@
      ═══════════════════════════════════════════════════════════════════════════ -->
 <script lang="ts">
 	import { ArrowRight, Play, Shield, Zap, Heart, CheckCircle2 } from 'lucide-svelte';
+	import { t } from '$lib/i18n/index.svelte';
 
 	// Número animado para el "biyuyo disponible"
 	let displayAmount = $state(0);
@@ -121,31 +122,30 @@
 			<!-- Eyebrow / Badge -->
 			<div class="hero-badge animate-fade-in-up animate-float-medium">
 				<span class="badge-icon">🚀</span>
-				<span>Las primeras 18 características son 100% gratis</span>
+				<span>{t().hero.badge}</span>
 			</div>
 
 			<!-- Headline Principal -->
 			<h1 class="hero-title animate-fade-in-up" style="animation-delay: 0.1s">
-				¿Sabes cuánto puedes gastar
-				<span class="text-gradient-animated">HOY</span>
-				sin arruinar tu quincena?
+				{t().hero.title}
+				<span class="text-gradient-animated">{t().hero.titleHighlight}</span>
+				{t().hero.titleSuffix}
 			</h1>
 
 			<!-- Subheadline -->
 			<p class="hero-subtitle animate-fade-in-up" style="animation-delay: 0.2s">
-				<strong>mibiyuyo</strong> te dice exactamente cuánto dinero tienes disponible cada día, 
-				aparta automáticamente tus gastos fijos, y te ayuda a dejar de vivir quincena a quincena.
+				{t().hero.subtitle}
 			</p>
 
 			<!-- CTA Buttons -->
 			<div class="hero-ctas animate-fade-in-up" style="animation-delay: 0.3s">
-				<a href="/auth/register" class="btn btn-primary btn-lg btn-shine animate-glow-pulse">
-					Empezar gratis
+				<a href="/register" class="btn btn-primary btn-lg btn-shine animate-glow-pulse">
+					{t().hero.ctaPrimary}
 					<ArrowRight size={20} />
 				</a>
 				<button class="btn btn-secondary btn-lg magnetic">
 					<Play size={20} />
-					Ver cómo funciona
+					{t().hero.ctaSecondary}
 				</button>
 			</div>
 
@@ -153,15 +153,15 @@
 			<div class="hero-trust animate-fade-in-up" style="animation-delay: 0.4s">
 				<div class="trust-item">
 					<Shield size={16} />
-					<span>Datos 100% seguros</span>
+					<span>{t().hero.trustSecurity}</span>
 				</div>
 				<div class="trust-item">
 					<Zap size={16} />
-					<span>Configuración en 2 minutos</span>
+					<span>{t().hero.trustSetup}</span>
 				</div>
 				<div class="trust-item">
 					<Heart size={16} />
-					<span>Sin tarjeta de crédito</span>
+					<span>{t().hero.trustNoCard}</span>
 				</div>
 			</div>
 		</div>
@@ -178,19 +178,19 @@
 							<span class="dot yellow"></span>
 							<span class="dot green"></span>
 						</div>
-						<span class="desktop-title">mibiyuyo — Dashboard</span>
+						<span class="desktop-title">{t().hero.desktopTitle}</span>
 					</div>
 					<div class="desktop-content">
 						<div class="desktop-sidebar">
-							<div class="sidebar-item active">📊 Dashboard</div>
-							<div class="sidebar-item">💳 Gastos</div>
-							<div class="sidebar-item">📁 Apartados</div>
-							<div class="sidebar-item">📈 Reportes</div>
-							<div class="sidebar-item">⚙️ Config</div>
+							<div class="sidebar-item active">📊 {t().hero.navDashboard}</div>
+							<div class="sidebar-item">💳 {t().hero.gastos}</div>
+							<div class="sidebar-item">📁 {t().hero.apartados}</div>
+							<div class="sidebar-item">📈 {t().hero.navReportes}</div>
+							<div class="sidebar-item">⚙️ {t().hero.navConfig}</div>
 						</div>
 						<div class="desktop-main">
 							<div class="desktop-stat">
-								<span class="stat-label">Biyuyo Disponible</span>
+								<span class="stat-label">{t().hero.biyuyoDisponible}</span>
 								<span class="stat-value text-gradient-animated">{formatMXN(displayAmount)}</span>
 							</div>
 							<div class="desktop-chart">
@@ -217,13 +217,13 @@
 						</div>
 						<div class="laptop-content">
 							<div class="laptop-nav">
-								<span class="nav-item active">💰 Resumen</span>
-								<span class="nav-item">📊 Gastos</span>
-								<span class="nav-item">🎯 Metas</span>
+								<span class="nav-item active">💰 {t().hero.laptopNavResumen}</span>
+								<span class="nav-item">📊 {t().hero.gastos}</span>
+								<span class="nav-item">🎯 {t().hero.laptopNavMetas}</span>
 							</div>
 							<div class="laptop-main">
 								<div class="laptop-stat-card">
-									<span class="laptop-stat-label">Disponible hoy</span>
+									<span class="laptop-stat-label">{t().hero.disponibleHoy}</span>
 									<span class="laptop-stat-value">{formatMXN(displayAmount)}</span>
 								</div>
 								<div class="laptop-mini-chart">
@@ -242,18 +242,18 @@
 			<!-- Mobile Preview - En paralelo debajo -->
 			<div class="app-preview glass-premium animate-float-slow" style="animation-delay: 0.3s">
 				<div class="app-header">
-					<span class="app-greeting">Buenos días, Carlos 👋</span>
-					<span class="app-date">Sábado 14 de Diciembre</span>
+					<span class="app-greeting">{t().hero.appGreeting}</span>
+					<span class="app-date">{t().hero.appDate}</span>
 				</div>
 
 				<div class="app-main">
-					<span class="app-label">Tu biyuyo disponible hoy:</span>
+					<span class="app-label">{t().hero.appLabel}</span>
 					<div class="app-amount text-gradient-animated">
 						{formatMXN(displayAmount)}
 					</div>
 					<div class="app-sublabel">
 						<CheckCircle2 size={14} />
-						<span>Ya apartamos tus gastos fijos</span>
+						<span>{t().hero.yaApartamos}</span>
 					</div>
 				</div>
 
@@ -261,29 +261,29 @@
 					<div class="mini-card">
 						<span class="mini-card-icon">🏠</span>
 						<div class="mini-card-content">
-							<span class="mini-card-title">Renta</span>
-							<span class="mini-card-value">Apartado ✓</span>
+							<span class="mini-card-title">{t().hero.miniCardRent}</span>
+							<span class="mini-card-value">{t().hero.miniCardStatus}</span>
 						</div>
 					</div>
 					<div class="mini-card">
 						<span class="mini-card-icon">📱</span>
 						<div class="mini-card-content">
-							<span class="mini-card-title">Servicios</span>
-							<span class="mini-card-value">Apartado ✓</span>
+							<span class="mini-card-title">{t().hero.miniCardServices}</span>
+							<span class="mini-card-value">{t().hero.miniCardStatus}</span>
 						</div>
 					</div>
 					<div class="mini-card">
 						<span class="mini-card-icon">🚗</span>
 						<div class="mini-card-content">
-							<span class="mini-card-title">Gasolina</span>
-							<span class="mini-card-value">Apartado ✓</span>
+							<span class="mini-card-title">{t().hero.miniCardGas}</span>
+							<span class="mini-card-value">{t().hero.miniCardStatus}</span>
 						</div>
 					</div>
 				</div>
 
 				<button class="app-cta">
 					<span>➕</span>
-					<span>Registrar gasto</span>
+					<span>{t().hero.registerExpense}</span>
 				</button>
 			</div>
 
@@ -300,7 +300,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>🎯</span>
-					<span>-30% gastos hormiga</span>
+					<span>{t().hero.gastosHormiga}</span>
 				</div>
 				<div 
 					class="floating-badge tb-2"
@@ -313,7 +313,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>📊</span>
-					<span>Reportes claros</span>
+					<span>{t().hero.badgeReportesClaros}</span>
 				</div>
 				<div 
 					class="floating-badge tb-3"
@@ -326,7 +326,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>🔒</span>
-					<span>100% seguro</span>
+					<span>{t().hero.badgeSeguro}</span>
 				</div>
 				<div 
 					class="floating-badge tb-4"
@@ -339,7 +339,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>💰</span>
-					<span>+$4,200/mes</span>
+					<span>{t().hero.badgeIngresos}</span>
 				</div>
 				<div 
 					class="floating-badge tb-5"
@@ -352,7 +352,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>⚡</span>
-					<span>2 min setup</span>
+					<span>{t().hero.badgeSetup}</span>
 				</div>
 				<div 
 					class="floating-badge tb-6"
@@ -365,7 +365,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>📱</span>
-					<span>Acceso 24/7</span>
+					<span>{t().hero.badgeAcceso}</span>
 				</div>
 				<div 
 					class="floating-badge tb-7"
@@ -378,7 +378,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>😌</span>
-					<span>Sin estrés</span>
+					<span>{t().hero.badgeSinEstres}</span>
 				</div>
 				<div 
 					class="floating-badge tb-8"
@@ -391,7 +391,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>🇲🇽</span>
-					<span>Hecho en MX</span>
+					<span>{t().hero.badgeHechoMX}</span>
 				</div>
 				<div 
 					class="floating-badge tb-9"
@@ -404,7 +404,7 @@
 				>
 					<span class="drag-hint">⋮⋮</span>
 					<span>✨</span>
-					<span>Gratis</span>
+					<span>{t().hero.badgeGratis}</span>
 				</div>
 			</div>
 		</div>
@@ -415,7 +415,7 @@
 		<div class="scroll-mouse">
 			<div class="scroll-wheel"></div>
 		</div>
-		<span>Descubre más</span>
+		<span>{t().hero.scrollHint}</span>
 	</div>
 </section>
 

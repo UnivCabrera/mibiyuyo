@@ -1,18 +1,19 @@
 <!-- ═══════════════════════════════════════════════════════════════════════════
      🧭 HEADER — Navegación Principal mibiyuyo
-     ═══════════════════════════════════════════════════════════════════════════
-     Psicología Aplicada:
-     - Logo a la izquierda: ancla de marca (familiaridad)
-     - CTAs a la derecha: jerarquía visual (acción primaria visible)
-     - Efecto glass: modernidad y premium
      ═══════════════════════════════════════════════════════════════════════════ -->
 <script lang="ts">
 	import { Menu, X, Sparkles } from 'lucide-svelte';
 	import ThemeToggle from '$lib/components/ui/ThemeToggle.svelte';
 	import LanguageSelector from '$lib/components/ui/LanguageSelector.svelte';
+	import { t, initLocale } from '$lib/i18n/index.svelte';
+	import { onMount } from 'svelte';
 
 	let isMenuOpen = $state(false);
 	let isScrolled = $state(false);
+
+	onMount(() => {
+		initLocale();
+	});
 
 	// Detectar scroll para cambiar estilo del header
 	$effect(() => {
@@ -28,13 +29,14 @@
 		isMenuOpen = !isMenuOpen;
 	}
 
-	const navLinks = [
-		{ href: '#features', label: 'Características' },
-		{ href: '#benefits', label: 'Beneficios' },
-		{ href: '#testimonials', label: 'Testimonios' },
-		{ href: '#pricing', label: 'Precios' },
-		{ href: '#faq', label: 'FAQ' }
-	];
+	// Navlinks reactivos con traducciones
+	const navLinks = $derived([
+		{ href: '#features', label: t().nav.features },
+		{ href: '#benefits', label: t().nav.benefits },
+		{ href: '#testimonials', label: t().nav.testimonials },
+		{ href: '#pricing', label: t().nav.pricing },
+		{ href: '#faq', label: t().nav.faq }
+	]);
 </script>
 
 <header class="header" class:scrolled={isScrolled}>
@@ -56,17 +58,17 @@
 		<div class="nav-ctas">
 			<LanguageSelector />
 			<ThemeToggle />
-			<a href="/auth/login" class="btn btn-login hide-mobile">Iniciar sesión</a>
-			<a href="/auth/register" class="btn btn-primary btn-sm btn-shine">
+			<a href="/login" class="btn btn-login hide-mobile">{t().nav.login}</a>
+			<a href="/register" class="btn btn-primary btn-sm btn-shine">
 				<Sparkles size={16} />
-				Registrarte gratis
+				{t().nav.register}
 			</a>
 
 			<!-- Mobile Menu Toggle -->
 			<button
 				class="menu-toggle show-mobile-only"
 				onclick={toggleMenu}
-				aria-label={isMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+				aria-label={isMenuOpen ? t().nav.closeMenu : t().nav.openMenu}
 				aria-expanded={isMenuOpen}
 			>
 				{#if isMenuOpen}
@@ -88,7 +90,7 @@
 					</a>
 				{/each}
 				<hr class="mobile-divider" />
-				<a href="/auth/login" class="mobile-nav-link">Iniciar sesión</a>
+				<a href="/login" class="mobile-nav-link">{t().nav.login}</a>
 			</div>
 		</div>
 	{/if}
