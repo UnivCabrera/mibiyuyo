@@ -849,33 +849,28 @@ PRO ($29 MXN/mes = $290/año):
 
 ```
 mibiyuyo/
-├── README.md                           # Este documento
-├── AGENTS.md                           # Instrucciones para LLMs (actualizado)
-├── .vscode/                            # MCPs y config (sin cambios)
-├── .github/                            # CI/CD (sin cambios)
-│
 ├── _LEGADO_PRO_FINAN_CONTA_PYM/        # ⚠️ SOLO REFERENCIA
 │   └── [todas las carpetas anteriores]
 │
 ├── docs/                               # 📚 DOCUMENTACIÓN ACTIVA
+│   ├── README.md                       # Índice General
+│   ├── AGENTS.md                       # Instrucciones para LLMs
 │   ├── 00_ESTRATEGIA/
-│   │   ├── DOCUMENTO_MAESTRO.md        # Este archivo
-│   │   ├── ROADMAP_MENSUAL.md
-│   │   └── DECISIONES.md
+│   │   ├── MIBIYUYO_DOCUMENTO_MAESTRO.md # Este archivo (Fuente de Verdad)
+│   │   ├── ROADMAP_12_MESES_DETALLADO.md
+│   │   └── MIGRACION_A_MIBIYUYO.md
 │   ├── 01_PRODUCTO/
-│   │   ├── FEATURES.md
-│   │   ├── UX_GUIDELINES.md
-│   │   └── COPY_GUIDE.md
+│   │   ├── LANDING_PAGE.md
+│   │   └── UX_GUIDELINES.md
 │   ├── 02_TECNICO/
-│   │   ├── ARQUITECTURA.md
-│   │   ├── API.md
-│   │   └── DATABASE.md
+│   │   ├── STACK_TECNOLOGICO_ACTUAL.md # Resumen ejecutivo
+│   │   ├── STACK_TECNOLOGICO_COMPLETO.md # Detalle técnico
+│   │   └── MCP_LLMS_CONFIGURACION.md
 │   ├── 03_SEGURIDAD/
-│   │   ├── POLITICAS.md
-│   │   └── CHECKLIST.md
+│   │   └── POLITICAS_SEGURIDAD.md
 │   └── 04_OPERACIONES/
-│       ├── ROLES.md
-│       └── PROCESOS.md
+│       ├── EQUIPO_ROLES.md
+│       └── CHECKLIST_PRE_ARRANQUE.md
 │
 └── src/                                # 🔧 CÓDIGO FUENTE
     ├── app/                            # SvelteKit app

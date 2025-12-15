@@ -18,8 +18,9 @@
 5. "Me siento ansioso con el dinero"
 6. "No confío en las apps con mis datos financieros"
 
-**Documento Maestro:** `MIBIYUYO_DOCUMENTO_MAESTRO.md`
+**Documento Maestro:** `docs/00_ESTRATEGIA/MIBIYUYO_DOCUMENTO_MAESTRO.md`
 **Legado (referencia):** `_LEGADO_PRO_FINAN_CONTA_PYM/`
+**Documentación:** `docs/`
 
 ---
 
@@ -410,27 +411,29 @@ _Cobertura MCP + llms.txt: 49% (30/61)_
 
 ### Documentos Prioritarios:
 
-- `MIBIYUYO_DOCUMENTO_MAESTRO.md` - **FUENTE DE VERDAD**
-- `_LEGADO_PRO_FINAN_CONTA_PYM/` - Documentación anterior (referencia)
+- `docs/00_ESTRATEGIA/MIBIYUYO_DOCUMENTO_MAESTRO.md` - **FUENTE DE VERDAD**
+- `docs/00_ESTRATEGIA/ROADMAP_12_MESES_DETALLADO.md` - Roadmap Oficial
+- `docs/02_TECNICO/STACK_TECNOLOGICO_COMPLETO.md` - Stack Técnico
 
-### Documentos Activos (del legado):
+### Documentación Activa (Nueva Estructura):
 
-- `05_UX_UI_DESIGN/04_NEUROFINANZAS_FRAMEWORK.md` - Framework neurociencias
-- `03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md` - 40 perfiles expandidos
-- `03_MERCADO_COMPETENCIA/07_100_NECESIDADES_DIARIAS_NO_RESUELTAS.md` - Necesidades mercado
-- `PROJECT_CHARACTERISTICS/14_PLANIFICADOR_UNIVERSAL_GRATUITO.md` - Planificador gratuito
-- `PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md` - 18 módulos nuevos
-- `DOCUMENTACION_MAESTRA/ESTRATEGIA_NEURO_FINANCIERA_2025_2026.md` - Estrategia master
-- `DOCUMENTACION_MAESTRA/CHECKLIST_PRE_ARRANQUE.md` - Orden de ejecución VPS/Dokploy
+- `docs/01_PRODUCTO/UX_GUIDELINES.md` - Framework neurociencias (reemplaza legado)
+- `docs/04_OPERACIONES/CHECKLIST_PRE_ARRANQUE.md` - Guía Dokploy (reemplaza legado)
+- `docs/01_PRODUCTO/LANDING_PAGE.md` - Specs Landing Page
+- `docs/03_SEGURIDAD/POLITICAS_SEGURIDAD.md` - Políticas de Seguridad
+
+### Referencia Legado (Solo lectura):
+
+- `_LEGADO_PRO_FINAN_CONTA_PYM/03_MERCADO_COMPETENCIA/03_40_PERFILES_PROFESIONALES.md`
+- `_LEGADO_PRO_FINAN_CONTA_PYM/PROJECT_CHARACTERISTICS/15_MODULOS_INNOVADORES.md`
 
 ### Infraestructura:
 
-- `00_ARQUITECTURA_CENTRAL/04_DOKPLOY_CONFIGURACION_COMPLETA.md` - Guía Dokploy + Hostinger
+- `docs/04_OPERACIONES/CHECKLIST_PRE_ARRANQUE.md` - Guía Dokploy + Hostinger
 - **Proveedor VPS:** Hostinger con Kit Dokploy (Ubuntu 24.04 + Dokploy preinstalado)
 - **NO requiere:** Instalación manual de Docker (viene incluido internamente)
 
 ### MCPs:
 
-- `16_MCP_CONFIGURACION/00_RESUMEN_EJECUTIVO_MCP.md` - Resumen rápido
-- `16_MCP_CONFIGURACION/INVESTIGACION_MCP_STACK.md` - Documentación completa
+- `docs/02_TECNICO/MCP_LLMS_CONFIGURACION.md` - Documentación completa
 - `.vscode/mcp.json` - Configuración de MCPs
